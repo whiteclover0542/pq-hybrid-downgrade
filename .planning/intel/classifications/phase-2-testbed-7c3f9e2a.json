@@ -1,0 +1,13 @@
+{
+  "source_path": "D:\\sr\\pq-hybrid-downgrade\\docs\\plans\\phase-2-testbed.md",
+  "type": "DOC",
+  "confidence": "high",
+  "manifest_override": false,
+  "title": "Phase 2 — 실험 환경 구축",
+  "summary": "Per-phase plan to build OpenSSL+oqs-provider, BoringSSL, and OpenSSH hybrid-KEM implementations locally and capture a normal hybrid-handshake baseline.",
+  "scope": ["OpenSSL + oqs-provider", "BoringSSL", "OpenSSH hybrid KEM", "hybrid KEM handshake baseline", "audit/logging paths"],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": ""
+}

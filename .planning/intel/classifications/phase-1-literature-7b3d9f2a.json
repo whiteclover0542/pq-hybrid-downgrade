@@ -1,0 +1,19 @@
+{
+  "source_path": "D:\\sr\\pq-hybrid-downgrade\\docs\\plans\\phase-1-literature.md",
+  "type": "DOC",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "Phase 1 — 문헌 조사",
+  "summary": "Per-phase plan for a literature review verifying prior work on downgrade-resistant hybrid PQ combiners and analyzing CVE-2026-2673.",
+  "scope": [
+    "literature review",
+    "hybrid PQ combiner downgrade resistance",
+    "CVE-2026-2673",
+    "OpenSSL security advisory",
+    "background CVEs (FreeRDP, Cisco, NGINX)"
+  ],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Content-only classification: prose-heavy phase plan with goal/tasks/deliverables/completion-criteria structure, no decision, requirements, or technical contract signals. No YAML frontmatter and path (docs/plans/) is not a taxonomy heuristic, hence medium not high. No document cross-references (only a paper title and CVE identifiers are mentioned, not doc paths). Filename hash suffix is placeholder-derived because no shell/hashing tool was available to this classifier; source_path field is authoritative."
+}

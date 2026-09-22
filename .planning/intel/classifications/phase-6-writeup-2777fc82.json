@@ -1,0 +1,13 @@
+{
+  "source_path": "D:\\sr\\pq-hybrid-downgrade\\docs\\plans\\phase-6-writeup.md",
+  "type": "DOC",
+  "confidence": "high",
+  "manifest_override": false,
+  "title": "Phase 6 — 논문 작성·제출",
+  "summary": "Per-phase plan for assembling and submitting the paper: body layout, references, abstract, cover, reproduction package, and single-ZIP submission.",
+  "scope": ["논문 본문", "참고문헌", "초록", "표지", "재현 패키지", "실행 스크립트", "ZIP 제출물", "AI/직접 판단 구분"],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": ""
+}

@@ -1,0 +1,23 @@
+{
+  "source_path": "D:\\sr\\pq-hybrid-downgrade\\docs\\PROPOSAL.md",
+  "type": "PRD",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "연구 기획서 — 포스트퀀텀 하이브리드 키 교환의 다운그레이드 저항성",
+  "summary": "Research proposal to empirically test whether deployed hybrid PQ key-exchange implementations honor the formally proven downgrade resistance of their design.",
+  "scope": [
+    "post-quantum hybrid key exchange",
+    "downgrade resistance",
+    "transcript-bound combiner binding",
+    "OpenSSL + oqs-provider",
+    "BoringSSL",
+    "OpenSSH",
+    "TLS/SSH handshake negotiation",
+    "fault-injection test harness",
+    "audit-tool detection metrics"
+  ],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Dominant framing is a research proposal (problem/hypothesis/significance/procedure/expected outputs) → PRD. Competing SPEC signals present (system diagram, testbed target table, fault-injection methods, observation-metric tables) but no API/schema/protocol contracts or SLOs, so SPEC did not win. External references are URLs (GitHub repo, NVD CVE pages), not in-project doc paths, so cross_refs left empty. Filename hash suffix derived deterministically from path (no hashing tool available)."
+}

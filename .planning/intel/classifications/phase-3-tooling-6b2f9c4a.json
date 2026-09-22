@@ -1,0 +1,21 @@
+{
+  "source_path": "D:\\sr\\pq-hybrid-downgrade\\docs\\plans\\phase-3-tooling.md",
+  "type": "DOC",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "Phase 3 — 실험 도구 개발",
+  "summary": "Per-phase plan to build a fault injector (TLS record interception, group-list manipulation, combiner-binding violation) and a results-collection harness.",
+  "scope": [
+    "Fault Injector",
+    "TLS 레코드 계층 가로채기",
+    "supported_groups/KEX 목록 조작",
+    "하이브리드 그룹 제거/순서 변경",
+    "컴바이너 바인딩 위반",
+    "결과 수집 하네스",
+    "도구 동작 확인 스크립트"
+  ],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Plan document (goal/checklist/deliverables/completion-criteria) with no frontmatter type. No decision+consequences (ADR), user stories (PRD), or API/schema tables (SPEC) — classified DOC on content structure alone, hence medium confidence."
+}
