@@ -48,7 +48,8 @@ Recent decisions affecting current work:
 ### Pending Todos
 
 - Phase 2 실행 계획 작성 — 3개 구현체의 대상 버전·커밋과 Windows 빌드 경로 확정
-- Phase 1 사람 최종 확인 게이트 — 논문 인용 전 LIT-02·CVE-2026-2673·NVD 3건을 브라우저에서 직접 대조
+
+(완료) Phase 1 사람 최종 확인 게이트 — 2026-09-22 통과, 6개 출처 전 URL 직접 열람·일치 확인
 
 ### Blockers/Concerns
 
