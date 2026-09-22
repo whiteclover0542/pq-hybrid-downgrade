@@ -1,0 +1,12 @@
+Server listening on 127.0.0.1 port 2222.
+Connection from 127.0.0.1 port 41692 on 127.0.0.1 port 2222 rdomain ""
+Accepted key ED25519 SHA256:9RpEENFFu0TRcfhr1KbALMFTgQk8GwQkUreDG8ak7IA found at /root/pq-hybrid-phase2/openssh-run/authorized_keys:1
+Postponed publickey for root from 127.0.0.1 port 41692 ssh2 [preauth]
+Accepted key ED25519 SHA256:9RpEENFFu0TRcfhr1KbALMFTgQk8GwQkUreDG8ak7IA found at /root/pq-hybrid-phase2/openssh-run/authorized_keys:1
+Accepted publickey for root from 127.0.0.1 port 41692 ssh2: ED25519 SHA256:9RpEENFFu0TRcfhr1KbALMFTgQk8GwQkUreDG8ak7IA
+User child is on pid 476
+Starting session: command for root from 127.0.0.1 port 41692 id 0
+Close session: user root from 127.0.0.1 port 41692 id 0
+Received disconnect from 127.0.0.1 port 41692:11: disconnected by user
+Disconnected from user root 127.0.0.1 port 41692
+Received signal 15; terminating.
