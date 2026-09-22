@@ -1,4 +1,4 @@
-from faultinject.run import phase2_environment, phase2_paths
+from faultinject.run import default_output_dir, phase2_environment, phase2_paths, smoke_specs
 
 
 def test_phase2_paths_use_fixed_custom_binaries():
@@ -14,3 +14,20 @@ def test_phase2_environment_loads_custom_oqs_provider():
 
     assert environment["OPENSSL_MODULES"] == "/root/pq-hybrid-phase2/install/openssl/lib64/ossl-modules"
     assert "/root/pq-hybrid-phase2/install/openssl/lib64" in environment["LD_LIBRARY_PATH"]
+
+
+def test_default_output_dir_is_versioned_research_artifact_location():
+    assert default_output_dir().as_posix().endswith("docs/research/baselines/raw/phase-3")
+
+
+def test_smoke_specs_cover_three_implementations_and_two_fault_types(tmp_path):
+    specs = smoke_specs(output_dir=tmp_path)
+
+    assert {(spec.impl, spec.fault_type) for spec in specs} == {
+        ("openssl", "group-list"),
+        ("openssl", "binding"),
+        ("boringssl", "group-list"),
+        ("boringssl", "binding"),
+        ("openssh", "group-list"),
+        ("openssh", "binding"),
+    }

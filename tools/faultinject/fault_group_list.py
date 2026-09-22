@@ -66,6 +66,11 @@ def group_list_spec(
             "tls1.3",
             "-max-version",
             "tls1.3",
+            "-cert",
+            str(paths["boring_cert"]),
+            "-key",
+            str(paths["boring_key"]),
+            "-loop",
         ]
         client_cmd = [
             bssl_bin,
@@ -80,14 +85,32 @@ def group_list_spec(
             value,
         ]
     elif impl == "openssh":
-        server_cmd = list(paths["sshd_cmd"])
+        server_cmd = [
+            str(paths["sshd_bin"]),
+            "-D",
+            "-e",
+            "-f",
+            str(paths["sshd_config"]),
+            "-p",
+            "2223",
+            "-o",
+            "PidFile=/tmp/pq-hybrid-phase3-sshd.pid",
+            "-o",
+            "KexAlgorithms=sntrup761x25519-sha512@openssh.com,curve25519-sha256",
+        ]
         client_cmd = [
             str(paths["ssh_bin"]),
             "-vvv",
             flag,
             value,
             "-p",
-            "2222",
+            "2223",
+            "-i",
+            str(paths["ssh_key"]),
+            "-o",
+            "StrictHostKeyChecking=no",
+            "-o",
+            "UserKnownHostsFile=/dev/null",
             "root@127.0.0.1",
             "true",
         ]
@@ -101,6 +124,8 @@ def group_list_spec(
         condition="default",
         server_cmd=server_cmd,
         client_cmd=client_cmd,
+        listen_port={"openssl": 8443, "boringssl": 8444, "openssh": 2223}[impl],
         env=env,
         out_dir=out_dir,
+        capture_traffic=True,
     )

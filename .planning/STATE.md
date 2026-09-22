@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: ready_to_plan
-stopped_at: Phase 2 complete (1/1) — ready to discuss Phase 3
-last_updated: 2026-09-22T12:45:00Z
-last_activity: 2026-09-22
+stopped_at: Phase 3 complete (1/1) — ready to plan Phase 4 repeated execution
+last_updated: 2026-09-23T00:00:00Z
+last_activity: 2026-09-23
 progress:
   total_phases: 6
-  completed_phases: 2
-  total_plans: 2
-  completed_plans: 2
-  percent: 33
+  completed_phases: 3
+  total_plans: 3
+  completed_plans: 3
+  percent: 50
 ---
 
 # Project State
@@ -21,23 +21,23 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-22)
 
 **Core value:** 증거로 뒷받침된 결론으로 하이브리드 PQ 다운그레이드가 단일 버그인지 교차 구현 패턴인지 판정하는 것입니다.
-**Current focus:** Phase 3 — 실험 도구 개발
+**Current focus:** Phase 4 — 실험 실행
 
 ## Current Position
 
-Phase: 3 of 6 (실험 도구 개발)
+Phase: 4 of 6 (실험 실행)
 Plan: Not started
 Status: Ready to plan
-Last activity: 2026-09-22 — Phase 2 verification passed
+Last activity: 2026-09-23 — Phase 3 smoke run verified all six scenarios
 
-Progress: [███░░░░░░░] 33% (Phase 1 문헌 조사와 Phase 2 실험 환경 구축 완료)
+Progress: [█████░░░░░] 50% (Phase 1 문헌 조사, Phase 2 실험 환경 구축, Phase 3 실험 도구 개발 완료)
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 2
-- Latest completed plan: Phase 2 Plan 01 (6 tasks, 15 files, 1h 40m)
+- Total plans completed: 3
+- Latest completed plan: Phase 3 Plan 01 (6 scenarios smoke-verified)
 
 **By Phase:**
 
@@ -45,6 +45,7 @@ Progress: [███░░░░░░░] 33% (Phase 1 문헌 조사와 Phase 2
 |---|---:|---|
 | 1. 문헌 조사 | 1/1 | Complete |
 | 2. 실험 환경 구축 | 1/1 | Complete |
+| 3. 실험 도구 개발 | 1/1 | Complete |
 
 ## Accumulated Context
 
@@ -56,15 +57,15 @@ Progress: [███░░░░░░░] 33% (Phase 1 문헌 조사와 Phase 2
 
 ### Pending Todos
 
-- [확실] Phase 3 plan을 작성해 MITM Fault Injector와 관측 수집 하네스의 범위를 확정합니다.
+- [확실] Phase 4 계획을 작성해 3개 구현×2개 결함 경로를 조합당 최소 10회 반복 실행합니다.
 
 ### Blockers/Concerns
 
-- [확실] Phase 3은 조작이 실제 적용됐는지를 검증해야 하며, 도구 실패를 "무결함" 결과로 해석하면 안 됩니다.
-- [확실] Phase 3 실행 전에는 custom binary 절대 경로, `LD_LIBRARY_PATH`, `OPENSSL_MODULES`, OpenSSH KEX 강제 옵션을 재검증해야 합니다.
+- [확실] Phase 4는 각 실행의 `manipulation_verified=false` 기록을 결론 표본에서 제외하되 원시 파일은 보존해야 합니다.
+- [확실] 반복 실행에서도 custom binary 절대 경로, `LD_LIBRARY_PATH`, `OPENSSL_MODULES`, OpenSSH KEX 강제 옵션을 고정해야 합니다.
 
 ## Session Continuity
 
-Last session: 2026-09-22
-Stopped at: Phase 2 verification passed; Phase 3 planning is next.
-Resume file: None
+Last session: 2026-09-23
+Stopped at: Phase 3 smoke run verified all six scenarios; Phase 4 planning is next.
+Resume file: .planning/phases/03-tooling/03-01-SUMMARY.md

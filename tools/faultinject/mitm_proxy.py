@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import select
 import socket
+import threading
 from dataclasses import dataclass
 from typing import Callable
 
@@ -17,12 +18,15 @@ def run_proxy(
     listen_port: int,
     upstream_port: int,
     mutate: Callable[[bytes], bytes],
+    ready_event: threading.Event | None = None,
 ) -> ProxyResult:
     """Proxy one loopback connection and transform its first client payload only."""
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as listener:
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         listener.bind(("127.0.0.1", listen_port))
         listener.listen(1)
+        if ready_event is not None:
+            ready_event.set()
         client, _ = listener.accept()
 
         with client, socket.create_connection(("127.0.0.1", upstream_port), timeout=5) as upstream:

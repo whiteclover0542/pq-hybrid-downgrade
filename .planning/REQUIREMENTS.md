@@ -23,8 +23,8 @@ Requirements for the initial research deliverable. Each maps to exactly one road
 
 ### Tooling (실험 도구)
 
-- [ ] **REQ-fault-injector**: TLS 레코드 계층을 가로채 협상 필드를 조작하는 MITM Fault Injector와 결과 수집 하네스를 만든다. 결함 2유형 — (1) 그룹 목록 조작(하이브리드 그룹 제거/재정렬로 classical-only 폴백 유도), (2) 결합자 바인딩 위반(두 성분 중 하나만 실제값, 나머지 위조하여 transcript-binding 검증 여부 시험). 조작 실제 적용을 확인하는 검증 스크립트 포함.
-- [ ] **REQ-observation-metrics**: 매 실행마다 3개 지표를 원시 데이터로 기록한다 — (1) 협상 결과 그룹(최종 key_share가 하이브리드/classical-only), (2) 감사 도구 탐지 여부(SSLKEYLOGFILE, -state, -vvv, Wireshark), (3) 핸드셰이크 성공/실패(조작 협상이 거부되는가 조용히 성공하는가).
+- [x] **REQ-fault-injector**: TLS 레코드 계층을 가로채 협상 필드를 조작하는 MITM Fault Injector와 결과 수집 하네스를 만든다. 결함 2유형 — (1) 그룹 목록 조작(하이브리드 그룹 제거/재정렬로 classical-only 폴백 유도), (2) 결합자 바인딩 위반(두 성분 중 하나만 실제값, 나머지 위조하여 transcript-binding 검증 여부 시험). 조작 실제 적용을 확인하는 검증 스크립트 포함.
+- [x] **REQ-observation-metrics**: 매 실행마다 3개 지표를 원시 데이터로 기록한다 — (1) 협상 결과 그룹(최종 key_share가 하이브리드/classical-only), (2) 감사 도구 탐지 여부(SSLKEYLOGFILE, -state, -vvv, Wireshark), (3) 핸드셰이크 성공/실패(조작 협상이 거부되는가 조용히 성공하는가).
 
 ### Execution (실험 실행)
 
@@ -65,8 +65,8 @@ Which phases cover which requirements. Each requirement maps to exactly one phas
 |-------------|-------|--------|
 | REQ-prior-work-verification | Phase 1 | Complete |
 | REQ-testbed-three-implementations | Phase 2 | Complete |
-| REQ-fault-injector | Phase 3 | Pending |
-| REQ-observation-metrics | Phase 3 | Pending |
+| REQ-fault-injector | Phase 3 | Complete |
+| REQ-observation-metrics | Phase 3 | Complete |
 | REQ-repeated-execution | Phase 4 | Pending |
 | REQ-cross-implementation-analysis | Phase 5 | Pending |
 | REQ-hypothesis-lock | Phase 5 | Pending |

@@ -1,7 +1,13 @@
 from pathlib import Path
 
 from faultinject.record import Metrics, RunRecord
-from faultinject.verify_applied import mark, verify_binding, verify_group_list
+from faultinject import verify_applied
+from faultinject.verify_applied import (
+    mark,
+    verify_binding,
+    verify_group_list,
+    verify_ssh_group_list,
+)
 
 
 BASELINE_PCAP = (
@@ -37,6 +43,28 @@ def test_mark_true_keeps_result():
 
 def test_verify_group_list_is_false_when_pcap_matches_baseline():
     assert verify_group_list(BASELINE_PCAP, BASELINE_PCAP) is False
+
+
+def test_verify_group_list_rejects_an_empty_capture(monkeypatch):
+    monkeypatch.setattr(
+        verify_applied,
+        "_supported_groups",
+        lambda path: set() if path == "empty" else {"0x11ec"},
+    )
+
+    assert verify_group_list("empty", "baseline") is False
+
+
+def test_verify_ssh_group_list_requires_a_changed_negotiated_kex(tmp_path):
+    baseline = tmp_path / "baseline.log"
+    run = tmp_path / "run.log"
+    baseline.write_text(
+        "debug1: kex: algorithm: sntrup761x25519-sha512@openssh.com\n",
+        encoding="utf-8",
+    )
+    run.write_text("debug1: kex: algorithm: curve25519-sha256\n", encoding="utf-8")
+
+    assert verify_ssh_group_list(run, baseline) is True
 
 
 def test_verify_binding_requires_distinct_hashes(tmp_path):

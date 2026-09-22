@@ -1,0 +1,22 @@
+{
+  "run_id": "openssh_binding_r01_default",
+  "implementation": "openssh",
+  "fault_type": "binding",
+  "repetition": 1,
+  "condition": "default",
+  "metrics": {
+    "negotiated_group": "sntrup761x25519-sha512@openssh.com",
+    "is_hybrid": true,
+    "downgrade_visible": false,
+    "handshake_result": "failure",
+    "detail": ""
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssh_binding_r01_default-client.log",
+    "server_log": "openssh_binding_r01_default-server.log",
+    "pcap": "openssh_binding_r01_default.pcapng",
+    "capture_log": "openssh_binding_r01_default-capture.log",
+    "proxy_log": "openssh_binding_r01_default-proxy.log"
+  }
+}

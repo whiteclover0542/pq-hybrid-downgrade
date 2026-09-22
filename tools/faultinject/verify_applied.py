@@ -4,6 +4,7 @@ import subprocess
 from dataclasses import replace
 from pathlib import Path
 
+from faultinject.harness import parse_group
 from faultinject.record import RunRecord
 
 
@@ -30,7 +31,15 @@ def _supported_groups(pcap: str | Path) -> set[str]:
 
 
 def verify_group_list(run_pcap: str | Path, baseline_pcap: str | Path) -> bool:
-    return _supported_groups(run_pcap) != _supported_groups(baseline_pcap)
+    run_groups = _supported_groups(run_pcap)
+    baseline_groups = _supported_groups(baseline_pcap)
+    return bool(run_groups) and bool(baseline_groups) and run_groups != baseline_groups
+
+
+def verify_ssh_group_list(run_log: str | Path, baseline_log: str | Path) -> bool:
+    run_group = parse_group("openssh", Path(run_log).read_text(encoding="utf-8"))
+    baseline_group = parse_group("openssh", Path(baseline_log).read_text(encoding="utf-8"))
+    return run_group is not None and baseline_group is not None and run_group != baseline_group
 
 
 def verify_binding(proxy_log: str | Path) -> bool:

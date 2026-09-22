@@ -1,0 +1,5 @@
+Using default temp DH parameters
+ACCEPT
+40EC0DDD7E790000:error:0A000126:SSL routines::unexpected eof while reading:ssl/record/rec_layer_s3.c:698:
+40EC0DDD7E790000:error:1C80009E:Provider routines:parse_pubkey:invalid key:crypto/ml_kem/ml_kem.c:1599:ML-KEM-768 invalid public 't' vector
+40EC0DDD7E790000:error:0A000132:SSL routines:tls_accept_ksgroup:bad ecpoint:ssl/statem/extensions_srvr.c:637:
