@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: ready_to_plan
-stopped_at: Phase 02 complete (1/1) — ready to discuss Phase 3
-last_updated: 2026-09-22T12:35:11.226Z
+stopped_at: Phase 2 complete (1/1) — ready to discuss Phase 3
+last_updated: 2026-09-22T12:45:00Z
 last_activity: 2026-09-22
 progress:
   total_phases: 6
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 2
-  completed_plans: 1
-  percent: 17
+  completed_plans: 2
+  percent: 33
 ---
 
 # Project State
@@ -20,75 +20,51 @@ progress:
 
 See: .planning/PROJECT.md (updated 2026-09-22)
 
-**Core value:** 증거로 뒷받침된 결론(협상 로직 결함발 하이브리드-PQ 다운그레이드가 일회성 버그인가 교차 구현 패턴인가)에 답하는 완성된 논문과 재현 패키지
+**Core value:** 증거로 뒷받침된 결론으로 하이브리드 PQ 다운그레이드가 단일 버그인지 교차 구현 패턴인지 판정하는 것입니다.
 **Current focus:** Phase 3 — 실험 도구 개발
 
 ## Current Position
 
-Phase: 3
+Phase: 3 of 6 (실험 도구 개발)
 Plan: Not started
 Status: Ready to plan
-Last activity: 2026-09-22
+Last activity: 2026-09-22 — Phase 2 verification passed
 
-Progress: [█████░░░░░] 50%
+Progress: [███░░░░░░░] 33% (Phase 1 문헌 조사와 Phase 2 실험 환경 구축 완료)
 
 ## Performance Metrics
 
 **Velocity:**
 
 - Total plans completed: 2
-- Average duration: - min
-- Total execution time: -
+- Latest completed plan: Phase 2 Plan 01 (6 tasks, 15 files, 1h 40m)
 
 **By Phase:**
 
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| 1. 문헌 조사 | 1 | - | - |
-| 02 | 1 | - | - |
-
-**Recent Trend:**
-
-- Last 5 plans: Phase 1 문헌 조사 완료
-- Trend: 첫 실행 계획 완료
-
-*Updated after each plan completion*
-| Phase 02 P01 | 1h 40m | 6 tasks | 15 files |
+| Phase | Plans | Status |
+|---|---:|---|
+| 1. 문헌 조사 | 1/1 | Complete |
+| 2. 실험 환경 구축 | 1/1 | Complete |
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
-
-- Phase 0: 6단계 워크플로(문헌→환경→도구→실행→분석→집필) 유지 — 소스 문서가 검증된 순서 정의
-- Phase 0: 3개 구현 고정(OpenSSL+oqs, BoringSSL, OpenSSH) — 독립 코드베이스로 버그-대-패턴 판정에 충분
+- [확실] 대상 구현체는 OpenSSL+oqs-provider, BoringSSL, OpenSSH 세 개로 고정합니다.
+- [확실] Phase 2 baseline은 custom binary 절대 경로, 명시적 동적 라이브러리 경로, loopback pcap을 사용합니다.
+- [확실] BoringSSL의 관측 이름은 `X25519Kyber768Draft00`이며, 계획의 `X25519Kyber768` 표기 및 TLS code point `0x6399`와 함께 보존합니다.
 
 ### Pending Todos
 
-- Phase 2 실행 — 02-01-PLAN.md 따라 3개 구현체 빌드·baseline 확보 (Task 1에서 대상 버전·커밋·빌드 환경 확정)
-
-(완료) Phase 2 실행 계획 작성 — 02-01-PLAN.md
-(완료) Phase 1 사람 최종 확인 게이트 — 2026-09-22 통과, 6개 출처 전 URL 직접 열람·일치 확인
+- [확실] Phase 3 plan을 작성해 MITM Fault Injector와 관측 수집 하네스의 범위를 확정합니다.
 
 ### Blockers/Concerns
 
-- 재현성: 버전/커밋 해시/빌드 옵션 정확 고정 필요 (결함이 특정 버전에만 존재 가능) — Phase 2에서 반드시 확보
-- 도구 유효성: 조작 실제 적용을 검증 스크립트로 확인해야 조용한 실패를 "무결함"으로 오독하지 않음 — Phase 3 착수 시 주의
-- 인용 검증: AI 제안 참고문헌 할루시네이션 위험 — Phase 1에서 각 인용 직접 존재 검증
-- NVD 상태: 배경 CVE 3건은 현재 `Received` 상태로 기록되어 NVD 분석 완료 전임 — 원문 설명과 NVD 처리 상태를 분리해 인용
-
-## Deferred Items
-
-Items acknowledged and carried forward from previous milestone close:
-
-| Category | Item | Status | Deferred At |
-|----------|------|--------|-------------|
-| *(none)* | | | |
+- [확실] Phase 3은 조작이 실제 적용됐는지를 검증해야 하며, 도구 실패를 "무결함" 결과로 해석하면 안 됩니다.
+- [확실] Phase 3 실행 전에는 custom binary 절대 경로, `LD_LIBRARY_PATH`, `OPENSSL_MODULES`, OpenSSH KEX 강제 옵션을 재검증해야 합니다.
 
 ## Session Continuity
 
-Last session: 2026-09-22T12:20:57.928Z
-Stopped at: Completed 02-01-PLAN.md
+Last session: 2026-09-22
+Stopped at: Phase 2 verification passed; Phase 3 planning is next.
 Resume file: None
