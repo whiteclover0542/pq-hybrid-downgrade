@@ -15,7 +15,7 @@ Requirements for the initial research deliverable. Each maps to exactly one road
 
 ### Literature (문헌)
 
-- [ ] **REQ-prior-work-verification**: 다운그레이드-저항 하이브리드 PQ 콤바이너 선행연구(Bhargavan et al. 정의; "Transcript-Bound Combiners..." 2026-09) 존재를 검증하고, 기준 사례 CVE-2026-2673을 소스 수준(권고문·영향 버전·결함 메커니즘)에서 분석하며, 배경 CVE 3건(FreeRDP CVE-2026-91949, Cisco CVE-2026-20249, NGINX+OpenSSL CVE-2026-90439)을 NVD에서 재확인한다. 존재 검증 실패/불일치 인용은 사유와 함께 제외한다.
+- [x] **REQ-prior-work-verification**: 다운그레이드-저항 하이브리드 PQ 콤바이너 선행연구(Bhargavan et al. 정의; "Transcript-Bound Combiners..." 2026-09) 존재를 검증하고, 기준 사례 CVE-2026-2673을 소스 수준(권고문·영향 버전·결함 메커니즘)에서 분석하며, 배경 CVE 3건(FreeRDP CVE-2026-91949, Cisco CVE-2026-20249, NGINX+OpenSSL CVE-2026-90439)을 NVD에서 재확인한다. 존재 검증 실패/불일치 인용은 사유와 함께 제외한다.
 
 ### Testbed (실험 환경)
 
@@ -63,7 +63,7 @@ Which phases cover which requirements. Each requirement maps to exactly one phas
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| REQ-prior-work-verification | Phase 1 | Pending |
+| REQ-prior-work-verification | Phase 1 | Complete |
 | REQ-testbed-three-implementations | Phase 2 | Pending |
 | REQ-fault-injector | Phase 3 | Pending |
 | REQ-observation-metrics | Phase 3 | Pending |

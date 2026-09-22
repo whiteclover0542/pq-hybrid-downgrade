@@ -16,12 +16,12 @@
 <!-- Shipped and confirmed valuable. -->
 
 - ✓ REQ (Phase 0): 기획 — 테스트 가능한 가설과 실험 설계를 담은 PROPOSAL.md 작성 완료 (2026-09-22)
+- ✓ REQ (Phase 1): 선행연구 존재 검증 및 CVE-2026-2673 소스 수준 분석 완료 (2026-09-22)
 
 ### Active
 
 <!-- Current scope. Building toward these. See REQUIREMENTS.md for full text. -->
 
-- [ ] REQ-prior-work-verification — 선행연구 존재 검증 및 CVE-2026-2673 소스 수준 분석
 - [ ] REQ-testbed-three-implementations — 3개 독립 하이브리드-KEM 구현 로컬 구축 + 정상 핸드셰이크 기준선
 - [ ] REQ-fault-injector — MITM Fault Injector(2개 결함 유형) + 결과 수집 하네스
 - [ ] REQ-observation-metrics — 실행마다 3개 관측 지표 원시 데이터 기록
