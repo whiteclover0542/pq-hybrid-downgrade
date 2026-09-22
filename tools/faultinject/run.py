@@ -23,6 +23,10 @@ def default_output_dir() -> Path:
     return Path(__file__).resolve().parents[2] / "docs/research/baselines/raw/phase-3"
 
 
+def phase4_output_dir() -> Path:
+    return Path(__file__).resolve().parents[2] / "docs/research/baselines/raw/phase-4"
+
+
 def phase2_paths() -> dict[str, str]:
     return {
         "openssl_bin": f"{PHASE2_ROOT}/install/openssl/bin/openssl",
@@ -63,6 +67,19 @@ def smoke_specs(output_dir: Path | None = None) -> list[ScenarioSpec]:
     ]
 
 
+def batch_specs(repetitions: int, output_dir: Path | None = None) -> list[ScenarioSpec]:
+    out_dir = output_dir or phase4_output_dir()
+    paths = phase2_paths()
+    environment = phase2_environment()
+    implementations = ("openssl", "boringssl", "openssh")
+    specs: list[ScenarioSpec] = []
+    for rep in range(1, repetitions + 1):
+        for impl in implementations:
+            specs.append(group_list_spec(impl, rep, environment, out_dir, paths))
+            specs.append(binding_spec(impl, rep, environment, out_dir, paths))
+    return specs
+
+
 def _baseline_path(implementation: str) -> Path:
     root = Path(__file__).resolve().parents[2] / "docs/research/baselines/raw"
     names = {
@@ -96,10 +113,22 @@ def run_smoke(output_dir: Path | None = None) -> list[RunRecord]:
     return [verify_record(run_scenario(spec), out_dir) for spec in smoke_specs(out_dir)]
 
 
+def run_batch(repetitions: int, output_dir: Path | None = None) -> list[RunRecord]:
+    out_dir = output_dir or phase4_output_dir()
+    return [verify_record(run_scenario(spec), out_dir) for spec in batch_specs(repetitions, out_dir)]
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Run Phase 3 loopback fault-injection smoke tests")
     parser.add_argument("--smoke", action="store_true", help="run all six Phase 3 scenarios once")
+    parser.add_argument("--repeat", type=int, metavar="N",
+                        help="run each of the six combinations N times into raw/phase-4/")
     arguments = parser.parse_args(argv)
+    if arguments.repeat:
+        for record in run_batch(arguments.repeat):
+            print(f"{record.run_id}: result={record.metrics.handshake_result} "
+                  f"verified={record.manipulation_verified}")
+        return 0
     if not arguments.smoke:
         parser.print_help()
         return 0
