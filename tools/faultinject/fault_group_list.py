@@ -34,6 +34,8 @@ def group_list_spec(
             "oqsprovider",
             "-accept",
             "8443",
+            "-cert",
+            str(paths["openssl_cert"]),
             "-groups",
             "X25519MLKEM768:X25519",
         ]

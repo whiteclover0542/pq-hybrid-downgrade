@@ -3,7 +3,10 @@ from pathlib import Path
 from faultinject.fault_group_list import group_list_spec
 
 
-PATHS = {"openssl_bin": "/root/pq-hybrid-phase2/install/openssl/bin/openssl"}
+PATHS = {
+    "openssl_bin": "/root/pq-hybrid-phase2/install/openssl/bin/openssl",
+    "openssl_cert": "/root/pq-hybrid-phase2/openssl/apps/server.pem",
+}
 
 
 def test_openssl_group_list_omits_hybrid():
@@ -13,3 +16,4 @@ def test_openssl_group_list_omits_hybrid():
     assert "X25519MLKEM768" not in joined
     assert "-groups" in joined
     assert spec.fault_type == "group-list"
+    assert "/root/pq-hybrid-phase2/openssl/apps/server.pem" in spec.server_cmd
