@@ -28,7 +28,7 @@ Requirements for the initial research deliverable. Each maps to exactly one road
 
 ### Execution (실험 실행)
 
-- [ ] **REQ-repeated-execution**: 실행 전 설계를 고정한 뒤 구현(3)×결함유형(2)을 조합당 최소 10회 실행하고 매 실행 원시 데이터를 기록한다. 변인 = 구현×결함유형; 고정 = 하이브리드 그룹 설정·네트워크·감사/로깅. 모든 원시 데이터 보존, 실행 중 설계 변경은 시점/내용/이유 기록. 파일명/메타데이터에 구현·결함유형·반복번호·실행조건 인코딩.
+- [x] **REQ-repeated-execution**: 실행 전 설계를 고정한 뒤 구현(3)×결함유형(2)을 조합당 최소 10회 실행하고 매 실행 원시 데이터를 기록한다. 변인 = 구현×결함유형; 고정 = 하이브리드 그룹 설정·네트워크·감사/로깅. 모든 원시 데이터 보존, 실행 중 설계 변경은 시점/내용/이유 기록. 파일명/메타데이터에 구현·결함유형·반복번호·실행조건 인코딩.
 
 ### Analysis (결과 분석)
 
@@ -67,7 +67,7 @@ Which phases cover which requirements. Each requirement maps to exactly one phas
 | REQ-testbed-three-implementations | Phase 2 | Complete |
 | REQ-fault-injector | Phase 3 | Complete |
 | REQ-observation-metrics | Phase 3 | Complete |
-| REQ-repeated-execution | Phase 4 | Pending |
+| REQ-repeated-execution | Phase 4 | Complete |
 | REQ-cross-implementation-analysis | Phase 5 | Pending |
 | REQ-hypothesis-lock | Phase 5 | Pending |
 | REQ-reproduction-package | Phase 6 | Pending |
