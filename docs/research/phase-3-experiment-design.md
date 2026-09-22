@@ -29,6 +29,16 @@
 | `group-list` | 클라이언트 CLI의 그룹/KEX 목록 | 하이브리드 그룹을 제외한 제안을 보냅니다. |
 | `binding` | loopback MITM 프록시의 TLS `key_share` 또는 SSH `KEX_ECDH_INIT` | 하이브리드 교환의 PQ 성분 바이트만 위조합니다. |
 
+## 하이브리드 성분 경계
+
+| 프로토콜·그룹 | key-share/blob 순서 | PQ 조작 범위 |
+| --- | --- | --- |
+| TLS `X25519MLKEM768` (`0x11ec`) | ML-KEM-768 1,184B, X25519 32B | 앞의 1,184B |
+| TLS `X25519Kyber768Draft00` (`0x6399`) | X25519 32B, Kyber-768 1,184B | 33번째~1,216번째 바이트 |
+| SSH `sntrup761x25519-sha512@openssh.com` | sntrup761 1,158B, X25519 32B | 앞의 1,158B |
+
+- [확실] 각 조작은 길이를 바꾸지 않고 PQ 범위의 바이트만 비트 반전합니다.
+
 ## 실행별 관측 지표
 
 1. [확실] **협상 결과 그룹**: client log에서 읽은 최종 그룹 문자열과 `is_hybrid`를 기록합니다.
