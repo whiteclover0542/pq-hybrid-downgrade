@@ -88,9 +88,8 @@ python -m faultinject.aggregate
 ```
 
 출력:
-- `phase-4-analysis.md`: 전체 요약
-- `phase-4-per-impl.csv`: 구현체별 통계
-- 조작 검증 실패 목록 및 재배치 안내
+- `docs/research/baselines/raw/phase-4/manifest.csv`: 각 조합별 집계 결과 (열: implementation, fault_type, total, verified, success, downgrade)
+- 표준 출력: 조합별 통계와 `sample size OK` 또는 `sample size NOT met (need >=10 verified per combo)` 종료 메시지
 
 ## 기준 협상값
 
