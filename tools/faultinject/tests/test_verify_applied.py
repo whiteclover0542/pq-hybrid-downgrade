@@ -1,4 +1,7 @@
+import shutil
 from pathlib import Path
+
+import pytest
 
 from faultinject.record import Metrics, RunRecord
 from faultinject import verify_applied
@@ -41,6 +44,7 @@ def test_mark_true_keeps_result():
     assert result.manipulation_verified is True
 
 
+@pytest.mark.skipif(shutil.which("tshark") is None, reason="tshark not installed")
 def test_verify_group_list_is_false_when_pcap_matches_baseline():
     assert verify_group_list(BASELINE_PCAP, BASELINE_PCAP) is False
 
