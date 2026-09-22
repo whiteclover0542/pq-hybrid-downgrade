@@ -1,0 +1,7 @@
+implementation,fault_type,total,verified,success,downgrade
+boringssl,binding,10,10,0,0
+boringssl,group-list,10,10,10,10
+openssh,binding,10,10,0,0
+openssh,group-list,10,10,10,10
+openssl,binding,10,10,0,0
+openssl,group-list,10,10,10,10

@@ -1,0 +1,8 @@
+Server listening on 127.0.0.1 port 2224.
+Connection from 127.0.0.1 port 42298 on 127.0.0.1 port 2224 rdomain ""
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 127.0.0.1 port 42298
+srclimit_penalise: ipv4: new 127.0.0.1/32 deferred penalty of 1 seconds for penalty: connections without attempting authentication
+Connection from 127.0.0.1 port 42304 on 127.0.0.1 port 2224 rdomain ""
+Connection closed by 127.0.0.1 port 42304 [preauth]
+Received signal 15; terminating.

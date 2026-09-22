@@ -1,0 +1,21 @@
+{
+  "run_id": "openssl_group-list_r03_default",
+  "implementation": "openssl",
+  "fault_type": "group-list",
+  "repetition": 3,
+  "condition": "default",
+  "metrics": {
+    "negotiated_group": "X25519",
+    "is_hybrid": false,
+    "downgrade_visible": true,
+    "handshake_result": "success",
+    "detail": ""
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_group-list_r03_default-client.log",
+    "server_log": "openssl_group-list_r03_default-server.log",
+    "pcap": "openssl_group-list_r03_default.pcapng",
+    "capture_log": "openssl_group-list_r03_default-capture.log"
+  }
+}

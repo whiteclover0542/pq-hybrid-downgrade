@@ -1,0 +1,22 @@
+{
+  "run_id": "openssl_binding_r08_default",
+  "implementation": "openssl",
+  "fault_type": "binding",
+  "repetition": 8,
+  "condition": "default",
+  "metrics": {
+    "negotiated_group": null,
+    "is_hybrid": false,
+    "downgrade_visible": false,
+    "handshake_result": "failure",
+    "detail": ""
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_binding_r08_default-client.log",
+    "server_log": "openssl_binding_r08_default-server.log",
+    "pcap": "openssl_binding_r08_default.pcapng",
+    "capture_log": "openssl_binding_r08_default-capture.log",
+    "proxy_log": "openssl_binding_r08_default-proxy.log"
+  }
+}

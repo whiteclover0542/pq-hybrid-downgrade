@@ -1,0 +1,3 @@
+Connecting to 127.0.0.1:9444
+Error while connecting: TLSV1_ALERT_DECODE_ERROR
+108533629818032:error:1000041a:SSL routines:OPENSSL_internal:TLSV1_ALERT_DECODE_ERROR:/root/pq-hybrid-phase2/boringssl/ssl/tls_record.cc:572:SSL alert number 50

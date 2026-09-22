@@ -1,0 +1,21 @@
+{
+  "run_id": "openssh_group-list_r05_default",
+  "implementation": "openssh",
+  "fault_type": "group-list",
+  "repetition": 5,
+  "condition": "default",
+  "metrics": {
+    "negotiated_group": "curve25519-sha256",
+    "is_hybrid": false,
+    "downgrade_visible": true,
+    "handshake_result": "success",
+    "detail": ""
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssh_group-list_r05_default-client.log",
+    "server_log": "openssh_group-list_r05_default-server.log",
+    "pcap": "openssh_group-list_r05_default.pcapng",
+    "capture_log": "openssh_group-list_r05_default-capture.log"
+  }
+}

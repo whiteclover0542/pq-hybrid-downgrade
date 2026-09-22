@@ -1,0 +1,17 @@
+Connecting to 127.0.0.1:8444
+Connected.
+  Version: TLSv1.3
+  Resumed session: no
+  Cipher: TLS_AES_128_GCM_SHA256
+  ECDHE group: X25519
+  Signature algorithm: rsa_pss_rsae_sha256
+  Secure renegotiation: yes
+  Extended master secret: yes
+  Next protocol negotiated: 
+  ALPN protocol: 
+  OCSP staple: no
+  SCT list: no
+  Early data: no
+  Encrypted ClientHello: no
+  Cert subject: CN = localhost
+  Cert issuer: CN = localhost

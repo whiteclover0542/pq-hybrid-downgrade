@@ -1,0 +1,21 @@
+{
+  "run_id": "boringssl_group-list_r04_default",
+  "implementation": "boringssl",
+  "fault_type": "group-list",
+  "repetition": 4,
+  "condition": "default",
+  "metrics": {
+    "negotiated_group": "X25519",
+    "is_hybrid": false,
+    "downgrade_visible": true,
+    "handshake_result": "success",
+    "detail": ""
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "boringssl_group-list_r04_default-client.log",
+    "server_log": "boringssl_group-list_r04_default-server.log",
+    "pcap": "boringssl_group-list_r04_default.pcapng",
+    "capture_log": "boringssl_group-list_r04_default-capture.log"
+  }
+}

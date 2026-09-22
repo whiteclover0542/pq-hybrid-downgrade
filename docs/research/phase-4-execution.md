@@ -107,8 +107,29 @@ python -m faultinject.aggregate
 | `group-list` | 클라이언트 CLI 옵션 | 하이브리드 그룹을 제외한 제안 발송 | 인자 목록 |
 | `binding` | loopback MITM 프록시 | 하이브리드 교환의 PQ 성분 위조 | key_share/KEX_ECDH_INIT |
 
+## 실행 기록 (실제 실행)
+
+- [확실] **실행 일시**: 2026-09-23 06:13:17 ~ 06:16:50 KST (약 3분 33초), WSL2 Ubuntu, `tools/` 디렉토리에서 `python3 -m faultinject.run --repeat 10` 1회 실행
+- [확실] **프리플라이트**: `preflight(phase2_paths(), phase2_environment())` → `(True, 'ok')` 확인 후 배치 시작
+- [확실] **총 실행 수**: 60건 (6조합 × 10회), 추가 보충 배치 없이 1차 배치만으로 전 조합 표본 크기 충족
+- [확실] **조합별 검증 결과** (`python3 -m faultinject.aggregate` 출력, `manifest.csv` 기준):
+
+| implementation | fault_type | total | verified | success | downgrade |
+| --- | --- | --- | --- | --- | --- |
+| boringssl | binding | 10 | 10 | 0 | 0 |
+| boringssl | group-list | 10 | 10 | 10 | 10 |
+| openssh | binding | 10 | 10 | 0 | 0 |
+| openssh | group-list | 10 | 10 | 10 | 10 |
+| openssl | binding | 10 | 10 | 0 | 0 |
+| openssl | group-list | 10 | 10 | 10 | 10 |
+
+- [확실] 6조합 모두 `verified=10 (≥10)`으로 표본 크기 기준 충족 — `aggregate` 출력 마지막 줄 `sample size OK`.
+- [확실] **결과 해석 (데이터이지 오류가 아님)**: `binding` 조합(3구현체 모두)은 `success=0`으로, 즉 MITM 프록시가 PQ 성분을 위조한 핸드셰이크가 전부 실패(거부)했습니다. 이는 하이브리드 바인딩이 조작을 탐지·거부했다는 측정 결과이며, 실행 실패가 아닙니다. `group-list` 조합(3구현체 모두)은 `success=10, downgrade=10`으로, 하이브리드 그룹을 제외한 제안이 전부 성공적으로 다운그레이드되었습니다.
+- [확실] **원시 데이터 보존**: 기존에 존재하던 raw 파일은 없었으며(최초 배치), 이번 실행으로 생성된 60건 × 6파일(json/client.log/server.log/pcapng/capture.log, binding 조합은 proxy.log 추가) + `manifest.csv` 1건을 그대로 유지했습니다. 어떤 기존 원시 데이터도 삭제·수정하지 않았습니다.
+
 ## 설계 변경 로그
 
 | 날짜 | 변경 사항 |
 | --- | --- |
 | 2026-09-23 | 변경 없음 — 실행 시작 시점 설계 그대로 |
+| 2026-09-23 (실행 후) | 변경 없음 — 배치 실행·집계 중 `tools/faultinject/` 코드나 설계 변수를 수정하지 않음. 1차 배치(60건)만으로 6조합 전부 `verified≥10` 충족하여 보충 배치도 불필요했음 |
