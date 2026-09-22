@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-09-22)
 ## Current Position
 
 Phase: 2 of 6 (실험 환경 구축)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-09-22 — Phase 1 문헌 조사 완료, 선행연구·CVE 출처 대장과 분석 노트 작성
+Plan: 1 of 1 written, not yet executed (02-01-PLAN.md)
+Status: Ready to execute
+Last activity: 2026-09-22 — Phase 2 실험 환경 구축 계획(02-01-PLAN.md) 작성
 
 Progress: [███░░░░░░░] 33% (Phase 0 기획 및 Phase 1 문헌 조사 완료)
 
@@ -47,8 +47,9 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-- Phase 2 실행 계획 작성 — 3개 구현체의 대상 버전·커밋과 Windows 빌드 경로 확정
+- Phase 2 실행 — 02-01-PLAN.md 따라 3개 구현체 빌드·baseline 확보 (Task 1에서 대상 버전·커밋·빌드 환경 확정)
 
+(완료) Phase 2 실행 계획 작성 — 02-01-PLAN.md
 (완료) Phase 1 사람 최종 확인 게이트 — 2026-09-22 통과, 6개 출처 전 URL 직접 열람·일치 확인
 
 ### Blockers/Concerns

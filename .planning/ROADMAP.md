@@ -41,7 +41,7 @@ Phase 0(기획)에서 확정된 테스트 가능한 가설을 출발점으로, �
   2. 각 구현에서 협상된 그룹을 로그로 관찰할 수 있다.
   3. 각 구현의 버전/커밋 해시/빌드 옵션이 재현용으로 기록되어 있다.
   4. 감사·로깅 경로(SSLKEYLOGFILE, s_server -state, sshd -vvv, Wireshark 캡처)가 확인되어 있다.
-**Plans**: TBD
+**Plans**: [Phase 2 실험 환경 구축 계획](phases/02-testbed/02-01-PLAN.md)
 
 ### Phase 3: 실험 도구 개발
 **Goal**: TLS 레코드 계층을 가로채 협상 필드를 조작하는 MITM Fault Injector와, 관측 지표를 자동 수집하는 결과 하네스를 만든다.

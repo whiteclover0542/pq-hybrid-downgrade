@@ -46,7 +46,7 @@
 - 배경 CVE 3건 (공통점 = 결함 유형이 아니라 결함 위치가 협상/핸드셰이크 단계, 겉보기 정상): FreeRDP CVE-2026-91949, Cisco ASA/FTD IKEv2 CVE-2026-20249, NGINX+OpenSSL≤3.5.0 HTTP/3 CVE-2026-90439.
 - 선행연구 근거: Bhargavan et al. 다운그레이드-저항 정의; "Transcript-Bound Combiners for Downgrade-Resilient Hybrid PQ Key Establishment" (2026-09).
 - 대상 런타임: Windows 로컬 연구 환경 (Python 도구 + 로컬 빌드 OpenSSL+oqs-provider, BoringSSL, OpenSSH).
-- 6단계 작업 순서는 docs/PROGRESS.md 및 docs/plans/phase-0..6-*.md에 상세. Phase 0(기획) 완료.
+- 6단계 작업 순서는 .planning/ROADMAP.md에 상세, phase별 계획은 .planning/phases/에. Phase 0(기획) 완료.
 
 ## Constraints
 
