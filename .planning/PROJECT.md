@@ -15,6 +15,8 @@
 
 <!-- Shipped and confirmed valuable. -->
 
+- [x] REQ-testbed-three-implementations: Phase 2 validated three independently built hybrid-KEM implementations with loopback baseline evidence (2026-09-22).
+
 - ✓ REQ (Phase 0): 기획 — 테스트 가능한 가설과 실험 설계를 담은 PROPOSAL.md 작성 완료 (2026-09-22)
 - ✓ REQ (Phase 1): 선행연구 존재 검증 및 CVE-2026-2673 소스 수준 분석 완료 (2026-09-22)
 
@@ -39,6 +41,10 @@
 - 세 구현을 넘어선 추가 라이브러리 커버리지 — v1 범위는 OpenSSL+oqs-provider, BoringSSL, OpenSSH로 고정. 확장은 후속 연구.
 
 ## Context
+
+## Current State
+
+- [확실] Phase 2 testbed complete: OpenSSL+oqs-provider, BoringSSL, and OpenSSH hybrid baseline logs, pcaps, and environment ledger are verified. Phase 3 is ready to plan.
 
 - 단독 저자 보안 연구. 구현자는 Claude, 시각/판단 주체는 사용자.
 - 동기: 저자가 운영하는 Today-CVE-information(github.com/whiteclover0542/Today-CVE-information, 2026-08-22~) 자동 수집에서 2026-08-23~09-22 협상/핸드셰이크 단계 로직 결함이 반복 관측됨.
@@ -67,4 +73,4 @@
 | 3개 구현 고정 (OpenSSL+oqs, BoringSSL, OpenSSH) | 독립 코드베이스로 버그-대-패턴 판정에 충분 | — Pending |
 
 ---
-*Last updated: 2026-09-22 after project initialization (from ingest)*
+*Last updated: 2026-09-22 after Phase 2 testbed completion*
