@@ -19,7 +19,7 @@ Requirements for the initial research deliverable. Each maps to exactly one road
 
 ### Testbed (실험 환경)
 
-- [ ] **REQ-testbed-three-implementations**: 3개 독립 하이브리드-KEM 코드베이스를 로컬에 빌드하고 각각의 조작 없는 정상 하이브리드 핸드셰이크 기준선을 확보한다 — OpenSSL+oqs-provider(X25519MLKEM768; CVE-2026-2673 대상 계열), BoringSSL(X25519Kyber768), OpenSSH(sntrup761x25519-sha512). 버전/커밋 해시/빌드 옵션과 감사·로깅 경로를 기록한다.
+- [x] **REQ-testbed-three-implementations**: 3개 독립 하이브리드-KEM 코드베이스를 로컬에 빌드하고 각각의 조작 없는 정상 하이브리드 핸드셰이크 기준선을 확보한다 — OpenSSL+oqs-provider(X25519MLKEM768; CVE-2026-2673 대상 계열), BoringSSL(X25519Kyber768), OpenSSH(sntrup761x25519-sha512). 버전/커밋 해시/빌드 옵션과 감사·로깅 경로를 기록한다.
 
 ### Tooling (실험 도구)
 
@@ -64,7 +64,7 @@ Which phases cover which requirements. Each requirement maps to exactly one phas
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | REQ-prior-work-verification | Phase 1 | Complete |
-| REQ-testbed-three-implementations | Phase 2 | Pending |
+| REQ-testbed-three-implementations | Phase 2 | Complete |
 | REQ-fault-injector | Phase 3 | Pending |
 | REQ-observation-metrics | Phase 3 | Pending |
 | REQ-repeated-execution | Phase 4 | Pending |

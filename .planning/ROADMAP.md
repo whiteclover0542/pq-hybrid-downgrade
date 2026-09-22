@@ -13,7 +13,7 @@ Phase 0(기획)에서 확정된 테스트 가능한 가설을 출발점으로, �
 > Phase 0 (기획/planning) 완료 — PROPOSAL.md 산출. 로드맵은 Phase 1부터 실행한다.
 
 - [x] **Phase 1: 문헌 조사** - 선행연구 존재 검증 + 기준 사례 CVE-2026-2673 소스 수준 분석
-- [ ] **Phase 2: 실험 환경 구축** - 3개 독립 하이브리드-KEM 구현 로컬 빌드 + 정상 핸드셰이크 기준선
+- [x] **Phase 2: 실험 환경 구축** - 3개 독립 하이브리드-KEM 구현 로컬 빌드 + 정상 핸드셰이크 기준선 (completed 2026-09-22)
 - [ ] **Phase 3: 실험 도구 개발** - MITM Fault Injector(2 결함 유형) + 지표 자동 수집 하네스
 - [ ] **Phase 4: 실험 실행** - 설계 고정 후 구현(3)×결함유형(2) 조합당 ≥10회 반복 실행
 - [ ] **Phase 5: 결과 분석** - 교차 구현 비교로 가설(버그 대 패턴) 판정
@@ -94,7 +94,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. 문헌 조사 | 1/1 | Complete | 2026-09-22 |
-| 2. 실험 환경 구축 | 0/TBD | Not started | - |
+| 2. 실험 환경 구축 | 1/1 | Complete   | 2026-09-22 |
 | 3. 실험 도구 개발 | 0/TBD | Not started | - |
 | 4. 실험 실행 | 0/TBD | Not started | - |
 | 5. 결과 분석 | 0/TBD | Not started | - |
