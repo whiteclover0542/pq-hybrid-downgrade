@@ -1,0 +1,13 @@
+Connected.
+  Version: TLSv1.3
+  Resumed session: no
+  Cipher: TLS_AES_128_GCM_SHA256
+  ECDHE group: X25519Kyber768Draft00
+  Secure renegotiation: yes
+  Extended master secret: yes
+  Next protocol negotiated: 
+  ALPN protocol: 
+  Early data: no
+  Encrypted ClientHello: no
+GET / HTTP/1.0
+
