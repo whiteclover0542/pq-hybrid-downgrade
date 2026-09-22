@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import subprocess
 from pathlib import Path
 
 from faultinject.fault_binding import binding_spec
@@ -51,6 +52,20 @@ def phase2_environment() -> dict[str, str]:
     )
     environment["OPENSSL_MODULES"] = f"{openssl_lib}/ossl-modules"
     return environment
+
+
+def preflight(paths: dict, environment: dict, runner=subprocess.run) -> tuple[bool, str]:
+    for key in ("openssl_bin", "bssl_bin", "ssh_bin", "sshd_bin"):
+        if not Path(paths[key]).exists():
+            return False, f"missing binary: {key} -> {paths[key]}"
+    result = runner(
+        [paths["openssl_bin"], "list", "-providers",
+         "-provider", "default", "-provider", "oqsprovider"],
+        env=environment, capture_output=True, text=True,
+    )
+    if "oqsprovider" not in result.stdout:
+        return False, "oqsprovider not loaded — check LD_LIBRARY_PATH/OPENSSL_MODULES"
+    return True, "ok"
 
 
 def smoke_specs(output_dir: Path | None = None) -> list[ScenarioSpec]:
@@ -125,6 +140,10 @@ def main(argv: list[str] | None = None) -> int:
                         help="run each of the six combinations N times into raw/phase-4/")
     arguments = parser.parse_args(argv)
     if arguments.repeat:
+        ok, reason = preflight(phase2_paths(), phase2_environment())
+        if not ok:
+            print(f"preflight failed: {reason}")
+            return 1
         for record in run_batch(arguments.repeat):
             print(f"{record.run_id}: result={record.metrics.handshake_result} "
                   f"verified={record.manipulation_verified}")
