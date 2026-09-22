@@ -54,10 +54,16 @@ def run_proxy(
                         except OSError:
                             pass
                         continue
-                    target.sendall(data)
+                    forwarded = data
+                    if source is client and not mutated:
+                        forwarded = mutate(data)
+                        if len(forwarded) != len(data):
+                            raise ValueError("mutation must preserve message length")
+                        mutated = forwarded != data
+                    target.sendall(forwarded)
                     if source is client:
-                        client_to_server_bytes += len(data)
+                        client_to_server_bytes += len(forwarded)
                     else:
-                        server_to_client_bytes += len(data)
+                        server_to_client_bytes += len(forwarded)
 
     return ProxyResult(mutated, client_to_server_bytes, server_to_client_bytes)
