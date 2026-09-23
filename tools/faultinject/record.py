@@ -23,6 +23,9 @@ class Metrics:
     downgrade_visible: bool
     handshake_result: str
     detail: str = ""
+    hrr_present: bool | None = None
+    downgrade_flagged: bool | None = None
+    advertised_hybrid: bool | None = None
 
 
 @dataclass
