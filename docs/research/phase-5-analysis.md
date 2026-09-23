@@ -10,7 +10,7 @@
 
 ## 증명된-안전 대 배포된-안전
 
-하이브리드 컴바이너 다운그레이드 저항성은 Bhargavan et al.의 공식 증명(Transcript-Bound Combiners, 2026-09)에 의해 정의된 설계(proven-safe)이다. 본 연구는 그 설계의 실제 배포 구현들(as-deployed safe) 거동을 현지 루프백 테스트를 통해 시험한다. 증명과 배포 사이의 간극을 측정하는 것이 목표다.
+하이브리드 컴바이너의 다운그레이드 저항성은 Bhargavan et al.이 정의한 다운그레이드 저항성 개념(Downgrade Resilience in Key-Exchange Protocols, IEEE S&P 2016)을 토대로, Gupta & Rana의 transcript-bound combiner 공식 증명(Transcript-Bound Combiners for Downgrade-Resilient Hybrid Post-Quantum Key Establishment, arXiv:2609.21273, 2026-09)에 의해 뒷받침되는 설계(proven-safe)이다. 본 연구는 그 설계의 실제 배포 구현들(as-deployed safe) 거동을 현지 루프백 테스트를 통해 시험한다. 증명과 배포 사이의 간극을 측정하는 것이 목표다.
 
 ## 구현체별 비교
 
@@ -34,7 +34,7 @@
 ## Divergence와 후보 원인
 
 **Divergence A — binding 벡터가 가설의 "다운그레이드 패턴" 기대와 반대로, 세 구현 모두에서 거부됨.**
-후보 원인: 세 구현 모두 하이브리드 키 교환의 transcript/exchange-hash(또는 이에 상응하는) 바인딩이 PQ 성분 변조를 무결성 검증 단계에서 탐지해 핸드셰이크를 실패시킨다. 즉 Bhargavan et al.의 증명된-안전(proven-safe) 컴바이너 설계가, 이 벡터에 한해서는 as-deployed 구현에서도 유지된다.
+후보 원인: 세 구현 모두 하이브리드 키 교환의 transcript/exchange-hash(또는 이에 상응하는) 바인딩이 PQ 성분 변조를 무결성 검증 단계에서 탐지해 핸드셰이크를 실패시킨다. 즉 Gupta & Rana의 증명된-안전(proven-safe) transcript-bound combiner 설계(Bhargavan et al. 2016의 다운그레이드 저항성 정의를 만족하도록 증명됨)가, 이 벡터에 한해서는 as-deployed 구현에서도 유지된다.
 
 **Divergence B — group-list 다운그레이드가 CVE-2026-2673의 "조용한(silent)" 특성과 달리 가시적임(`downgrade_visible=true`, 30/30).**
 근거: `cd tools && python -c "import json,glob; xs=[json.load(open(f))['metrics']['downgrade_visible'] for f in glob.glob('../docs/research/baselines/raw/phase-4/*group-list*.json')]; print(sum(xs), len(xs))"` → `30 30`.
