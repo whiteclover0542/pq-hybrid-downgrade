@@ -51,6 +51,47 @@ def collect_metrics(impl: str, client_log_text: str, exit_code: int) -> Metrics:
     )
 
 
+_SERVERHELLO_LEN_RE = re.compile(r"Handshake \[length ([0-9a-fA-F]+)\], ServerHello")
+
+
+def detect_hrr(client_log_text: str) -> bool:
+    return "HelloRetryRequest" in client_log_text
+
+
+def server_hello_is_hybrid(client_log_text: str) -> bool | None:
+    match = _SERVERHELLO_LEN_RE.search(client_log_text)
+    if not match:
+        return None
+    return int(match.group(1), 16) >= 0x0400
+
+
+def audit_flags_downgrade(advertised_hybrid: bool, negotiated_is_hybrid: bool) -> bool:
+    # Operational definition (spec Sec 4.3-4): standard audit tools do NOT
+    # auto-surface an advertised-hybrid-vs-negotiated-classical mismatch; a
+    # human must diff ClientHello supported_groups against the negotiated
+    # group. So this always returns False (= silent), regardless of inputs.
+    # "Did a downgrade occur" is computed by the caller as
+    # advertised_hybrid and not negotiated_is_hybrid.
+    return False
+
+
+def collect_metrics_v11(
+    impl: str, client_log_text: str, exit_code: int, advertised_hybrid: bool
+) -> Metrics:
+    base = collect_metrics(impl, client_log_text, exit_code)
+    # group-name parse can be <NULL>/None on early close -> fall back to
+    # ServerHello size to determine hybrid-ness.
+    if base.negotiated_group is None:
+        sh_hybrid = server_hello_is_hybrid(client_log_text)
+        if sh_hybrid is not None:
+            base.is_hybrid = sh_hybrid
+            base.downgrade_visible = not sh_hybrid
+    base.hrr_present = detect_hrr(client_log_text)
+    base.advertised_hybrid = advertised_hybrid
+    base.downgrade_flagged = audit_flags_downgrade(advertised_hybrid, base.is_hybrid)
+    return base
+
+
 def wait_for_listener(
     host: str, port: int, timeout: float = 5, retry_interval: float = 0.05
 ) -> None:
