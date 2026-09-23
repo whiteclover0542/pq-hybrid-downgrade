@@ -70,3 +70,11 @@ TLS 1.3과 SSH의 하이브리드 PQ(post-quantum) 키 교환은 다운그레이
 [6] CVE-2026-90439 — NGINX HTTP/3 (`ngx_http_v3_module`) heap buffer overflow (background). NVD. https://nvd.nist.gov/vuln/detail/CVE-2026-90439
 
 ## 부록: AI-대-본인 판단 공개
+
+(1) AI가 수행: 결함 주입 도구(`tools/faultinject/`) 구현, 60회 실험 실행, 본 문서를 포함한 문서·논문 초안 작성, 구현체별 비교표·분석 조립.
+
+(2) 사람이 수행·결정: 연구 주제·가설 설정, 대상 3개 구현/버전(OpenSSL+oqs-provider, BoringSSL, OpenSSH) 선정, 각 참고문헌의 직접 열람·최종 검증 게이트, 가설 판정·결론 승인.
+
+(3) 검증 방식: 인용마다 원문 직접 열람 확인, 원시 데이터 SHA-256 해시/재실행 검증, 논문 수치의 `manifest.csv` 대조.
+
+> ⚠️ 위 3줄은 초안입니다 — 저자(사람)의 실제 기여에 맞게 검토·수정·승인이 필요합니다.

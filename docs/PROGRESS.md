@@ -2,7 +2,11 @@
 
 - 마지막 업데이트: 2026-09-23
 - 기획: [PROPOSAL.md](PROPOSAL.md) · 로드맵: [.planning/ROADMAP.md](../.planning/ROADMAP.md) · 상태: [.planning/STATE.md](../.planning/STATE.md)
-- **현재 Phase:** Phase 6 — 논문 작성·제출
+- **현재 Phase:** 완료 — v1.0 밀스톤 전체 완료 (Phase 1~6)
+
+## 🎯 밀스톤 v1.0 완료
+
+전체 프로젝트(Phase 1~6)가 완료되어, "협상 로직 결함발 하이브리드-PQ 다운그레이드가 일회성 버그인가 교차 구현 패턴인가"에 대한 증거 기반 답변이 논문·재현 패키지·AI-대-본인 판단 공개로 완성되었습니다.
 
 ## 완료 현황
 
@@ -13,11 +17,11 @@
 | 완료 | 3. 실험 도구 개발 | [설계](research/phase-3-experiment-design.md), [도구](../tools/faultinject/), [완료 요약](../.planning/phases/03-tooling/03-01-SUMMARY.md) |
 | 완료 | 4. 실험 실행 | [실행 기록](research/phase-4-execution.md), [원시 데이터](research/baselines/raw/phase-4/), [manifest](research/baselines/raw/phase-4/manifest.csv), [완료 요약](../.planning/phases/04-execution/04-01-SUMMARY.md) |
 | 완료 | 5. 결과 분석 | [분석 문서](research/phase-5-analysis.md), [비교표 생성 스크립트](../tools/faultinject/analyze.py), [완료 요약](../.planning/phases/05-analysis/05-01-SUMMARY.md) |
-| 예정 | 6. 논문 작성·제출 | Phase 5 이후 |
+| 완료 | 6. 논문 작성·제출 | [논문](PAPER.md), [재현 절차](research/REPRODUCTION.md), [단일 ZIP 재현 패키지](../dist/pq-hybrid-downgrade-repro.zip), [완료 요약](../.planning/phases/06-paper/06-01-SUMMARY.md) |
 
 ## 다음 작업
 
-- [ ] Phase 6 계획 작성: 논문(서론/방법/결과/논의) + 단일 ZIP 재현 패키지 + 3줄 AI-대-본인 판단 공개를 산출합니다.
+- [확실] 없음 — v1.0 밀스톤의 모든 phase가 완료되었습니다. 후속 확장(EXPN-01 추가 구현, EXPN-02 원격/실배포 관측)은 [.planning/REQUIREMENTS.md](../.planning/REQUIREMENTS.md)의 v2 요구사항으로 이연되어 있으며 현재 활성 계획은 없습니다.
 
 ## Phase 2 완료 기록
 
@@ -70,3 +74,11 @@
 - [확실] 4개 한계(그대로 인용): on-path MITM 아님, 다운그레이드 가시성이 CVE-2026-2673과 다름, binding 프록시의 강제 무결성 실패로 "조용한 수용" 미관측, 로컬 loopback·3구현·고정버전 한정.
 - [확실] 원시 데이터 인용 위치: `research/baselines/raw/phase-4/`(JSON 60개+로그/pcap), `research/baselines/raw/phase-4/manifest.csv`(집계), `../tools/faultinject/analyze.py`(비교표 재생성 스크립트).
 - [확실] Phase 6은 ROADMAP 기준 3에 따라 3줄 "AI-대-본인 판단 공개"를 신규 작성해야 합니다(Phase 5까지는 아직 작성되지 않음).
+
+## Phase 6 완료 기록
+
+- [확실] `b115e48`(docs(06-01): scaffold paper, fix citation attribution, finalize references) — 논문 표지·구조 스캐폴드, 참고문헌 귀속 수정, 통합 참고문헌 확정.
+- [확실] `4a9780b`(docs(06-01): write paper body and abstract from verified artifacts) — 검증된 산출물(Phase 4 원시 데이터, Phase 5 분석)로부터 논문 초록·서론·방법·결과·논의 작성.
+- [확실] `4f89f2f`(feat(06-01): add single-ZIP reproduction package builder and verifier) — `tools/make_repro_package.py`로 단일 ZIP 재현 패키지 생성·검증 스크립트 구현.
+- [확실] `docs(06-01): add AI-vs-human disclosure, finalize paper, complete milestone` — 3줄 AI-대-본인 판단 공개 작성, 최종 무결성 점검(플레이스홀더 없음 확인, 결과 수치-manifest 대조, `verify_zip` → `(True, [])`, `pytest -q` → 42 passed/1 skipped), 추적 문서(STATE/ROADMAP/REQUIREMENTS/PROGRESS) 갱신 및 v1.0 밀스톤 완료 판정.
+- [확실] **최종 결론**: group-list 조작은 세 독립 구현(OpenSSL, BoringSSL, OpenSSH) 전반의 패턴(30/30 다운그레이드)이며, 컴바이너 바인딩 위반은 세 구현 모두 방어에 성공(0/30 다운그레이드)했습니다. 가설은 결함 유형에 따라 부분적으로만 지지됩니다.

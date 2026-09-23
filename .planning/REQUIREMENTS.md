@@ -36,7 +36,7 @@ Requirements for the initial research deliverable. Each maps to exactly one road
 
 ### Deliverables (산출물)
 
-- [ ] **REQ-reproduction-package**: 논문(서론/방법/결과/논의, 통합 참고문헌, ~10줄 초록, 표지)과 단일 ZIP 재현 패키지(원시 데이터 + 결함 주입 스크립트 + 실행 절차), 3줄 AI-대-본인 판단 공개를 산출한다. 미완성 표시/플레이스홀더 없음.
+- [x] **REQ-reproduction-package**: 논문(서론/방법/결과/논의, 통합 참고문헌, ~10줄 초록, 표지)과 단일 ZIP 재현 패키지(원시 데이터 + 결함 주입 스크립트 + 실행 절차), 3줄 AI-대-본인 판단 공개를 산출한다. 미완성 표시/플레이스홀더 없음.
 
 ## v2 Requirements
 
@@ -70,12 +70,13 @@ Which phases cover which requirements. Each requirement maps to exactly one phas
 | REQ-repeated-execution | Phase 4 | Complete |
 | REQ-cross-implementation-analysis | Phase 5 | Complete |
 | REQ-hypothesis-lock | Phase 5 | Complete |
-| REQ-reproduction-package | Phase 6 | Pending |
+| REQ-reproduction-package | Phase 6 | Complete |
 
 **Coverage:**
 - v1 requirements: 8 total
 - Mapped to phases: 8
 - Unmapped: 0 ✓
+- Complete: 8/8 ✓ (v1.0 milestone complete, 2026-09-23)
 
 ---
 *Requirements defined: 2026-09-22 (from ingest of docs/PROPOSAL.md)*
