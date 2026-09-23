@@ -11,7 +11,7 @@ Requirements for the initial research deliverable. Each maps to exactly one road
 
 ### Research Framing (연구 프레이밍)
 
-- [ ] **REQ-hypothesis-lock**: 무엇이 무엇에 영향을 주는지 한 문장으로 보이는 테스트 가능한 가설을 고정하고, "증명된-안전 설계"와 "배포된-안전"을 구분하며, 연구 질문을 독립 코드베이스 전반의 버그-대-패턴으로 좁힌다.
+- [x] **REQ-hypothesis-lock**: 무엇이 무엇에 영향을 주는지 한 문장으로 보이는 테스트 가능한 가설을 고정하고, "증명된-안전 설계"와 "배포된-안전"을 구분하며, 연구 질문을 독립 코드베이스 전반의 버그-대-패턴으로 좁힌다.
 
 ### Literature (문헌)
 
@@ -32,7 +32,7 @@ Requirements for the initial research deliverable. Each maps to exactly one road
 
 ### Analysis (결과 분석)
 
-- [ ] **REQ-cross-implementation-analysis**: 원시 데이터를 구현별 비교 표/그래프로 정리하고 가설을 판정한다 — 협상 로직발 하이브리드-PQ 다운그레이드가 단일 라이브러리 버그인가 독립 코드베이스 전반의 패턴인가. 기대/비기대 결과를 분리하고, 각 판정의 근거 원시 데이터 값을 인용하며, 각 divergence마다 후보 원인을 최소 1개 기록하고 한계를 명시한다.
+- [x] **REQ-cross-implementation-analysis**: 원시 데이터를 구현별 비교 표/그래프로 정리하고 가설을 판정한다 — 협상 로직발 하이브리드-PQ 다운그레이드가 단일 라이브러리 버그인가 독립 코드베이스 전반의 패턴인가. 기대/비기대 결과를 분리하고, 각 판정의 근거 원시 데이터 값을 인용하며, 각 divergence마다 후보 원인을 최소 1개 기록하고 한계를 명시한다.
 
 ### Deliverables (산출물)
 
@@ -68,8 +68,8 @@ Which phases cover which requirements. Each requirement maps to exactly one phas
 | REQ-fault-injector | Phase 3 | Complete |
 | REQ-observation-metrics | Phase 3 | Complete |
 | REQ-repeated-execution | Phase 4 | Complete |
-| REQ-cross-implementation-analysis | Phase 5 | Pending |
-| REQ-hypothesis-lock | Phase 5 | Pending |
+| REQ-cross-implementation-analysis | Phase 5 | Complete |
+| REQ-hypothesis-lock | Phase 5 | Complete |
 | REQ-reproduction-package | Phase 6 | Pending |
 
 **Coverage:**
