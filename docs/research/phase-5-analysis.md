@@ -6,7 +6,7 @@
 
 ## 연구 질문
 
-3개 독립 구현체(OpenSSL, BoringSSL, OpenSSH)에서 동일한 두 가지 협상 로직 결함(group-list 조작, binding 결합자 위반)이 항상 동일한 결과(group-list는 다운그레이드, binding은 거부)를 낳는가? 이는 결함이 "버그"가 아니라 설계 예상(Bhargavan et al., Transcript-Bound Combiners 2026-09)임을 시사한다.
+협상 로직의 결함이 하이브리드 PQ 다운그레이드로 이어지는 것이 특정 라이브러리의 우연한 버그인지, 아니면 여러 구현체에 걸친 일반적 패턴인지.
 
 ## 증명된-안전 대 배포된-안전
 
