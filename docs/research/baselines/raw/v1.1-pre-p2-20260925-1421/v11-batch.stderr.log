@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/faultinject/run.py", line 261, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/faultinject/run.py", line 245, in main
+    for record in run_v11(arguments.v11):
+                  ~~~~~~~^^^^^^^^^^^^^^^
+  File "/mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/faultinject/run.py", line 220, in run_v11
+    return [verify_record(run_scenario(spec), out_dir) for spec in v11_specs(repetitions, out_dir)]
+                          ~~~~~~~~~~~~^^^^^^
+  File "/mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/faultinject/harness.py", line 206, in run_scenario
+    client = subprocess.run(
+        spec.client_cmd,
+    ...<3 lines>...
+        timeout=30,
+    )
+  File "/usr/lib/python3.14/subprocess.py", line 557, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1221, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 2154, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1268, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/root/pq-hybrid-phase2/install/openssl/bin/openssl', 's_client', '-tls1_3', '-state', '-msg', '-provider', 'default', '-provider', 'oqsprovider', '-connect', '127.0.0.1:8543', '-groups', 'X25519MLKEM768:X25519']' timed out after 30 seconds

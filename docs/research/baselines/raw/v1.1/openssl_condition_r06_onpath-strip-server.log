@@ -1,0 +1,4 @@
+Using default temp DH parameters
+ACCEPT
+40AC2A82B9780000:error:0A000126:SSL routines::unexpected eof while reading:ssl/record/rec_layer_s3.c:698:
+40AC2A82B9780000:error:0A0003FC:SSL routines:ssl3_read_bytes:ssl/tls alert bad record mac:ssl/record/rec_layer_s3.c:918:SSL alert number 20

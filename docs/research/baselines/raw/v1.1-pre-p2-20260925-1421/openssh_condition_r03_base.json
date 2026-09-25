@@ -1,0 +1,24 @@
+{
+  "run_id": "openssh_condition_r03_base",
+  "implementation": "openssh",
+  "fault_type": "condition",
+  "repetition": 3,
+  "condition": "base",
+  "metrics": {
+    "negotiated_group": "sntrup761x25519-sha512@openssh.com",
+    "is_hybrid": true,
+    "downgrade_visible": false,
+    "handshake_result": "success",
+    "detail": "",
+    "hrr_present": false,
+    "downgrade_flagged": false,
+    "advertised_hybrid": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssh_condition_r03_base-client.log",
+    "server_log": "openssh_condition_r03_base-server.log",
+    "pcap": "openssh_condition_r03_base.pcapng",
+    "capture_log": "openssh_condition_r03_base-capture.log"
+  }
+}

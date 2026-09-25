@@ -1,0 +1,25 @@
+{
+  "run_id": "boringssl_condition_r03_onpath-strip",
+  "implementation": "boringssl",
+  "fault_type": "condition",
+  "repetition": 3,
+  "condition": "onpath-strip",
+  "metrics": {
+    "negotiated_group": null,
+    "is_hybrid": false,
+    "downgrade_visible": false,
+    "handshake_result": "failure",
+    "detail": "",
+    "hrr_present": false,
+    "downgrade_flagged": false,
+    "advertised_hybrid": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "boringssl_condition_r03_onpath-strip-client.log",
+    "server_log": "boringssl_condition_r03_onpath-strip-server.log",
+    "pcap": "boringssl_condition_r03_onpath-strip.pcapng",
+    "capture_log": "boringssl_condition_r03_onpath-strip-capture.log",
+    "proxy_log": "boringssl_condition_r03_onpath-strip-proxy.log"
+  }
+}

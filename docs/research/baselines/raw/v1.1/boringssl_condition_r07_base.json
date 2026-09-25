@@ -1,0 +1,24 @@
+{
+  "run_id": "boringssl_condition_r07_base",
+  "implementation": "boringssl",
+  "fault_type": "condition",
+  "repetition": 7,
+  "condition": "base",
+  "metrics": {
+    "negotiated_group": "X25519Kyber768Draft00",
+    "is_hybrid": true,
+    "downgrade_visible": false,
+    "handshake_result": "success",
+    "detail": "",
+    "hrr_present": false,
+    "downgrade_flagged": false,
+    "advertised_hybrid": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "boringssl_condition_r07_base-client.log",
+    "server_log": "boringssl_condition_r07_base-server.log",
+    "pcap": "boringssl_condition_r07_base.pcapng",
+    "capture_log": "boringssl_condition_r07_base-capture.log"
+  }
+}

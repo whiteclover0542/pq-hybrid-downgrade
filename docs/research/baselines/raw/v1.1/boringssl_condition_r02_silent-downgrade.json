@@ -1,0 +1,24 @@
+{
+  "run_id": "boringssl_condition_r02_silent-downgrade",
+  "implementation": "boringssl",
+  "fault_type": "condition",
+  "repetition": 2,
+  "condition": "silent-downgrade",
+  "metrics": {
+    "negotiated_group": "X25519",
+    "is_hybrid": false,
+    "downgrade_visible": true,
+    "handshake_result": "success",
+    "detail": "",
+    "hrr_present": false,
+    "downgrade_flagged": false,
+    "advertised_hybrid": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "boringssl_condition_r02_silent-downgrade-client.log",
+    "server_log": "boringssl_condition_r02_silent-downgrade-server.log",
+    "pcap": "boringssl_condition_r02_silent-downgrade.pcapng",
+    "capture_log": "boringssl_condition_r02_silent-downgrade-capture.log"
+  }
+}

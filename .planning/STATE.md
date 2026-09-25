@@ -3,16 +3,26 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: HRR-absence hybrid-downgrade study
 status: in_progress
-stopped_at: v1.1-P1 complete; P2 repeated WSL execution is pending
+stopped_at: v1.1-P2 complete; P3 analysis is pending
 last_updated: 2026-09-25T00:00:00Z
 last_activity: 2026-09-25
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 4
-  completed_plans: 1
-  percent: 25
+  completed_plans: 2
+  percent: 50
 ---
+
+# v1.1 P2 Execution Record (2026-09-25)
+
+[확실] P2 repeated execution is complete. A clean `raw/v1.1/` run produced 90 JSON records: every one of the nine implementation/condition combinations has exactly one record for each repetition r01 through r10. The run ended with status 0 and an empty stderr log.
+
+[확실] All 90 PCAPs, client logs, and capture logs exist and are non-empty; all 30 on-path runs also have non-empty proxy logs. Every record has `manipulation_verified=True`.
+
+[확실] P3 is now the next phase. P2 only records observations; it makes no new vulnerability conclusion and does not update the paper.
+
+See: `.planning/phases/07-v11-tooling/07-02-SUMMARY.md`.
 
 # Project State
 

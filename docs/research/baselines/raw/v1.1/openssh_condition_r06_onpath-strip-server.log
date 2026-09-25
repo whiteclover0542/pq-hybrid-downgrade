@@ -1,0 +1,9 @@
+Server listening on 127.0.0.1 port 2323.
+Connection from 127.0.0.1 port 51878 on 127.0.0.1 port 2323 rdomain ""
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 127.0.0.1 port 51878
+srclimit_penalise: ipv4: new 127.0.0.1/32 deferred penalty of 1 seconds for penalty: connections without attempting authentication
+Connection from 127.0.0.1 port 51890 on 127.0.0.1 port 2323 rdomain ""
+padding error: need 1269 block 8 mod 5 [preauth]
+ssh_dispatch_run_fatal: Connection from 127.0.0.1 port 51890: message authentication code incorrect [preauth]
+Received signal 15; terminating.

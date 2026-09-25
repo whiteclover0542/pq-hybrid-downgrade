@@ -143,6 +143,17 @@ class ScenarioSpec:
     advertised_hybrid: bool | None = None
 
 
+def run_client(command: list[str], env: dict[str, str] | None, timeout: float) -> subprocess.CompletedProcess:
+    return subprocess.run(
+        command,
+        env=env,
+        stdin=subprocess.DEVNULL,
+        capture_output=True,
+        text=True,
+        timeout=timeout,
+    )
+
+
 def run_scenario(spec: ScenarioSpec) -> RunRecord:
     identifier = run_id(spec.impl, spec.fault_type, spec.repetition, spec.condition)
     spec.out_dir.mkdir(parents=True, exist_ok=True)
@@ -203,11 +214,9 @@ def run_scenario(spec: ScenarioSpec) -> RunRecord:
                 proxy_thread.start()
                 if not proxy_ready.wait(timeout=5):
                     raise TimeoutError("proxy did not begin listening within 5s")
-            client = subprocess.run(
+            client = run_client(
                 spec.client_cmd,
                 env=spec.env,
-                capture_output=True,
-                text=True,
                 timeout=30,
             )
         finally:

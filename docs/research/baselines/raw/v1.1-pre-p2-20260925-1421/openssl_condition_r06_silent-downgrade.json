@@ -1,0 +1,24 @@
+{
+  "run_id": "openssl_condition_r06_silent-downgrade",
+  "implementation": "openssl",
+  "fault_type": "condition",
+  "repetition": 6,
+  "condition": "silent-downgrade",
+  "metrics": {
+    "negotiated_group": "X25519",
+    "is_hybrid": false,
+    "downgrade_visible": true,
+    "handshake_result": "success",
+    "detail": "",
+    "hrr_present": false,
+    "downgrade_flagged": false,
+    "advertised_hybrid": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_condition_r06_silent-downgrade-client.log",
+    "server_log": "openssl_condition_r06_silent-downgrade-server.log",
+    "pcap": "openssl_condition_r06_silent-downgrade.pcapng",
+    "capture_log": "openssl_condition_r06_silent-downgrade-capture.log"
+  }
+}

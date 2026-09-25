@@ -1,5 +1,13 @@
 # Roadmap: pq-hybrid-downgrade
 
+## v1.1 P2 completion record (2026-09-25)
+
+- [x] **P2: repeated execution** — the clean WSL run produced 90 validated JSON records (9 combinations × r01–r10), with all required PCAP/client/capture artifacts present and `manipulation_verified=True` for every record.
+- [ ] **P3: analysis** — interpret P2 observations without adding a new vulnerability conclusion until the analysis phase.
+- [ ] **P4: paper/reproduction update** — update the paper and reproduction package only after P3.
+
+Details: [P2 execution summary](phases/07-v11-tooling/07-02-SUMMARY.md).
+
 ## Overview
 
 Phase 0(기획)에서 확정된 테스트 가능한 가설을 출발점으로, 문헌으로 근거를 다지고(1) → 3개 독립 구현의 로컬 테스트베드를 세우고(2) → 협상 필드를 조작하는 결함 주입 도구와 관측 하네스를 만들고(3) → 조합당 ≥10회 반복 실행으로 원시 데이터를 수집하고(4) → 교차 구현 비교로 가설을 판정하고(5) → 논문과 단일 ZIP 재현 패키지로 마무리(6)한다. 종착점은 "협상 로직 결함발 하이브리드-PQ 다운그레이드가 일회성 버그인가 교차 구현 패턴인가"에 증거로 답하는 완성된 논문이다.

@@ -1,0 +1,24 @@
+{
+  "run_id": "openssl_condition_r08_base",
+  "implementation": "openssl",
+  "fault_type": "condition",
+  "repetition": 8,
+  "condition": "base",
+  "metrics": {
+    "negotiated_group": "X25519MLKEM768",
+    "is_hybrid": true,
+    "downgrade_visible": false,
+    "handshake_result": "success",
+    "detail": "",
+    "hrr_present": null,
+    "downgrade_flagged": null,
+    "advertised_hybrid": null
+  },
+  "manipulation_verified": false,
+  "artifacts": {
+    "client_log": "openssl_condition_r08_base-client.log",
+    "server_log": "openssl_condition_r08_base-server.log",
+    "pcap": "openssl_condition_r08_base.pcapng",
+    "capture_log": "openssl_condition_r08_base-capture.log"
+  }
+}

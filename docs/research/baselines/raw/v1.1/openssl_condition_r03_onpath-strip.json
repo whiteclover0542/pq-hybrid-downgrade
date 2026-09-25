@@ -1,0 +1,25 @@
+{
+  "run_id": "openssl_condition_r03_onpath-strip",
+  "implementation": "openssl",
+  "fault_type": "condition",
+  "repetition": 3,
+  "condition": "onpath-strip",
+  "metrics": {
+    "negotiated_group": "X25519",
+    "is_hybrid": false,
+    "downgrade_visible": true,
+    "handshake_result": "failure",
+    "detail": "",
+    "hrr_present": false,
+    "downgrade_flagged": false,
+    "advertised_hybrid": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_condition_r03_onpath-strip-client.log",
+    "server_log": "openssl_condition_r03_onpath-strip-server.log",
+    "pcap": "openssl_condition_r03_onpath-strip.pcapng",
+    "capture_log": "openssl_condition_r03_onpath-strip-capture.log",
+    "proxy_log": "openssl_condition_r03_onpath-strip-proxy.log"
+  }
+}

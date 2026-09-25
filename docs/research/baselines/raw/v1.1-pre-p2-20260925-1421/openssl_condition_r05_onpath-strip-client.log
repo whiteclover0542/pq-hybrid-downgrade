@@ -1,0 +1,183 @@
+CONNECTED(00000003)
+>>> TLS 1.0, RecordHeader [length 0005]
+    16 03 01 05 c2
+>>> TLS 1.3, Handshake [length 05c2], ClientHello
+    01 00 05 be 03 03 6a 15 f6 08 b9 fc 8f 38 67 1e
+    26 ad 3c 60 3d 88 5e 0f bc ad 8c 54 7d 4e c9 e0
+    63 82 53 f3 a6 ec 20 48 50 79 ac 84 3f 45 f1 4c
+    84 fe a8 a6 a9 74 ff c8 9b 83 8d 69 14 64 d6 4f
+    be 31 d8 8d 2b 75 fe 00 06 13 02 13 03 13 01 01
+    00 05 6f 00 0b 00 04 03 00 01 02 00 0a 00 06 00
+    04 11 ec 00 1d 00 23 00 00 00 16 00 00 00 17 00
+    00 00 0d 00 76 00 74 09 05 09 06 09 04 04 03 05
+    03 06 03 08 07 08 08 08 1a 08 1b 08 1c 08 09 08
+    0a 08 0b 08 04 08 05 08 06 04 01 05 01 06 01 ff
+    06 ff 07 ff 08 ff 09 fe d7 fe d8 fe d9 fe dc fe
+    dd fe de fe da fe db fe df fe e0 fe b3 fe b4 fe
+    b5 fe b6 fe b7 fe b8 fe b9 fe ba fe c2 fe c3 fe
+    c4 ff 32 ff 36 ff 33 ff 37 ff 34 ff 38 ff 35 ff
+    39 ff 22 ff 0e ff 1a ff 0f ff 1b 00 2b 00 03 02
+    03 04 00 2d 00 02 01 01 00 33 04 c6 04 c4 11 ec
+    04 c0 40 12 5b d6 d4 70 3f fa b9 58 ab 27 63 44
+    5c 60 4a 7e 4a 07 43 19 7b 5a 80 f2 29 9b 1c 6d
+    ed b9 37 64 c5 06 6c 01 cf 91 01 92 6d 8c c9 3f
+    91 6f 93 96 56 64 0b 1a 6b c9 64 53 17 69 98 cc
+    b7 37 68 1f f4 96 1f 50 c5 59 ca 7a 31 95 94 64
+    ce 3a 38 4a 51 3a 74 37 32 52 f5 89 f7 97 a0 96
+    8b 09 2a b2 66 dd 53 5a 12 b2 c8 3f d7 46 05 4b
+    88 32 41 5c 3d 67 11 e3 75 44 8b 38 42 e4 c8 94
+    d7 08 26 4e 66 74 ba 10 04 5b 93 57 dd 49 5b e3
+    4b 39 69 98 34 9e 3c 3e b8 d3 ba 73 51 cf 35 e8
+    aa f5 f1 a9 46 b7 8e 68 b2 29 b4 45 0b 87 3a ad
+    6a 63 cc 28 25 6b fa 3b ad 4f f7 4a eb 6b 17 23
+    0c c6 41 21 46 06 36 72 dc 26 8f b7 83 09 cb 06
+    d0 e7 44 57 97 f1 2f 82 e5 9a 01 05 94 0e d9 c0
+    96 e5 20 a6 d9 ab 27 c6 2f 03 94 0c a2 11 ca 54
+    cb bc bc 15 66 6d ab 1e a6 42 10 52 01 98 fa fc
+    af e2 48 1d a2 a8 b5 07 8b c0 0e f1 22 a8 31 20
+    cd 90 c8 a9 47 c9 11 29 95 6e 90 98 8e 31 04 0f
+    07 a7 97 0c c6 e1 16 2a 74 a4 99 ea e5 5c 15 ca
+    29 3b f1 9c 26 84 79 7c ac 90 ff 81 48 c8 66 85
+    58 9b 5d a3 c0 7f 45 42 9a 18 6c 8c 70 a6 12 39
+    2a a4 00 d3 87 04 f5 cf f2 49 35 c4 5b c4 6d 0a
+    1f ef 47 1d 16 d1 94 84 36 1c 9d 74 1a c7 cb 23
+    e2 7a 81 e5 ab 2d 32 aa 0d 25 c9 0a 45 68 48 82
+    44 87 ba 59 57 89 b5 46 b8 21 53 f5 1c 52 79 e1
+    40 de 78 23 1a 90 8e 55 db 05 6b 32 97 01 27 a6
+    80 96 45 54 5a 7e 74 9c 1b 4d a7 83 e4 32 04 25
+    ca 3c d6 74 c5 56 dc 04 7f 3c 0b 96 e4 50 75 f7
+    6a 48 b5 12 ed 1c 84 bb d2 1c 33 66 51 9c b6 09
+    a9 b6 08 55 c0 40 a4 83 67 28 87 b1 38 8c 4f b6
+    34 79 e6 23 04 e7 c4 1b 69 fc bc a2 b0 09 08 35
+    54 ce 74 b2 ff 8c b7 92 32 c1 91 49 55 32 e2 ce
+    13 a0 86 d4 f5 ba 07 06 98 a9 73 9b f2 2c 18 7c
+    38 7f ee 11 79 44 1b 0a 02 96 5d 15 8a 32 16 18
+    88 4d a9 c1 16 b2 0c 84 f2 29 a3 58 5f 27 90 55
+    c5 07 3f 31 ab 78 86 b8 ce 9b b0 0b 48 81 c0 aa
+    87 67 62 91 70 2a 63 1b e6 1a 66 18 75 84 f9 65
+    26 50 0a 31 ea 29 29 e1 5b 2f 92 28 24 f9 c1 c2
+    a2 68 68 9f 5a 53 8a 2b 68 e0 30 27 70 a2 08 c1
+    99 28 ac c6 74 07 37 4a 68 66 0a 96 39 11 b6 bc
+    46 d0 52 6e 14 83 65 8b 01 2e 76 49 43 7e 59 c9
+    df da 9d e2 61 ba 5e f4 1b 1f aa 83 01 68 59 f3
+    25 c2 92 79 62 3b 2a 14 08 a7 6c 97 a1 69 c6 35
+    52 fa fb 52 a8 f9 cc 08 02 6c 65 cc 77 ed c0 81
+    e9 48 74 9d c3 a3 c9 23 bb d0 bb 8f bd 67 3b 28
+    59 53 d0 0a 34 8b 81 33 38 c1 b1 8b b1 b9 21 76
+    29 f9 23 44 9f 59 ba 9b 95 8e f3 fc 1e 56 c9 46
+    6a 36 08 e2 c6 3c 9e f9 b5 f0 f6 24 8b a1 7d c3
+    41 76 c1 14 a0 72 f1 05 90 95 b6 83 94 c5 c3 f2
+    65 ab db 7a 0e d1 48 81 56 58 94 82 27 7b cc 01
+    f7 78 a7 7e f3 82 ae a6 b0 58 e0 81 84 07 3b 54
+    43 4c 87 01 a8 89 18 94 20 95 85 81 33 5f fb ca
+    c5 d1 a6 50 f9 b5 1f 2e f8 bd b7 03 79 1a 19 80
+    35 dc 43 51 01 15 44 99 2a 15 1b 30 0b c8 38 6f
+    e5 cc 16 d3 05 53 18 91 a0 98 73 0b 08 14 d6 7c
+    0d 7e 7b 1c 43 ea 8e 6c 9a 0f 91 27 02 a1 8c 90
+    96 38 11 41 c2 47 6f 10 46 3b c4 b4 49 09 92 de
+    f3 cf b0 11 7e 0f 97 97 05 40 02 20 f2 1a 8d 90
+    80 ff 35 35 62 15 9e d9 81 cd f8 38 98 71 18 7f
+    56 28 21 ef 10 12 2d f2 c3 04 74 46 cb 9a 9e ca
+    73 3c 1f e2 30 ee bb 38 7a 83 a6 c8 09 5a 95 41
+    c1 2c e4 8d a6 d2 40 a1 69 4f 1e 12 a2 57 89 24
+    31 fa 4e a5 85 13 44 7b 5e 0c da 35 c9 85 34 90
+    75 38 77 a1 a5 e5 f6 35 10 32 26 b8 20 b8 62 c5
+    12 2b c3 ac 36 48 03 9e f2 2e ef c6 cf cc 97 30
+    6d 51 a6 9f 96 66 ec f9 7c 0c b2 4a 03 10 9a 2a
+    a1 78 e5 5c 26 64 6c 97 8f 07 7a 1e e8 75 36 fb
+    6d 5a 35 9d fd c2 02 eb 13 ad 1c a5 6e 63 f1 64
+    1a 69 77 31 22 81 ab d0 72 48 f7 a1 42 bb 99 c4
+    e4 7f cb f1 8d 1b 57 b7 53 84 2e f2 02 22 15 24
+    a5 c3 84 c8 a6 c5 20 e8 2a 8d 4a c0 77 b6 32 ba
+    a2 ac 42 46 c5 b2 71 65 13 db 84 5c d4 b9 27 61
+    37 7c bb f6 26 95 f6 e5 e2 e4 8f 59 aa 69 c2 57
+    3f b5 06 f8 c5 e4 d8 27 95 c3 aa ff 2b d0 06 4f
+    6c e5 a2 30 96 73 9e 32 4c 01 c2 d9 6f ec f1 2e
+    90 42 ea 41 48 f1 cb d6 c3 8e 70 dd 50 dc 16 40
+    21 6b
+<<< TLS 1.2, RecordHeader [length 0005]
+    16 03 03 00 58
+<<< TLS 1.3, Handshake [length 0058], ServerHello
+    02 00 00 54 03 03 cf 21 ad 74 e5 9a 61 11 be 1d
+    8c 02 1e 65 b8 91 c2 a2 11 16 7a bb 8c 5e 07 9e
+    09 e2 c8 a8 33 9c 20 48 50 79 ac 84 3f 45 f1 4c
+    84 fe a8 a6 a9 74 ff c8 9b 83 8d 69 14 64 d6 4f
+    be 31 d8 8d 2b 75 fe 13 02 00 00 0c 00 2b 00 02
+    03 04 00 33 00 02 00 1d
+>>> TLS 1.2, RecordHeader [length 0005]
+    14 03 03 00 01
+>>> TLS 1.3, ChangeCipherSpec [length 0001]
+    01
+>>> TLS 1.2, RecordHeader [length 0005]
+    16 03 03 01 22
+>>> TLS 1.3, Handshake [length 0122], ClientHello
+    01 00 01 1e 03 03 6a 15 f6 08 b9 fc 8f 38 67 1e
+    26 ad 3c 60 3d 88 5e 0f bc ad 8c 54 7d 4e c9 e0
+    63 82 53 f3 a6 ec 20 48 50 79 ac 84 3f 45 f1 4c
+    84 fe a8 a6 a9 74 ff c8 9b 83 8d 69 14 64 d6 4f
+    be 31 d8 8d 2b 75 fe 00 06 13 02 13 03 13 01 01
+    00 00 cf 00 0b 00 04 03 00 01 02 00 0a 00 06 00
+    04 11 ec 00 1d 00 23 00 00 00 16 00 00 00 17 00
+    00 00 0d 00 76 00 74 09 05 09 06 09 04 04 03 05
+    03 06 03 08 07 08 08 08 1a 08 1b 08 1c 08 09 08
+    0a 08 0b 08 04 08 05 08 06 04 01 05 01 06 01 ff
+    06 ff 07 ff 08 ff 09 fe d7 fe d8 fe d9 fe dc fe
+    dd fe de fe da fe db fe df fe e0 fe b3 fe b4 fe
+    b5 fe b6 fe b7 fe b8 fe b9 fe ba fe c2 fe c3 fe
+    c4 ff 32 ff 36 ff 33 ff 37 ff 34 ff 38 ff 35 ff
+    39 ff 22 ff 0e ff 1a ff 0f ff 1b 00 2b 00 03 02
+    03 04 00 2d 00 02 01 01 00 33 00 26 00 24 00 1d
+    00 20 70 21 d1 7e 54 7e 8e 2a a6 0e 12 6e e5 4a
+    94 a0 3b af bf b7 df 26 97 91 ce 0e b9 f9 79 59
+    db 3b
+<<< TLS 1.2, RecordHeader [length 0005]
+    14 03 03 00 01
+<<< TLS 1.3, ChangeCipherSpec [length 0001]
+    01
+<<< TLS 1.2, RecordHeader [length 0005]
+    16 03 03 00 7a
+<<< TLS 1.3, Handshake [length 007a], ServerHello
+    02 00 00 76 03 03 26 14 f9 d6 f4 29 fd e7 83 22
+    f2 86 ed 70 79 92 e0 86 4b 46 a0 55 e1 6d e5 dc
+    e8 6e 47 a3 35 8d 20 48 50 79 ac 84 3f 45 f1 4c
+    84 fe a8 a6 a9 74 ff c8 9b 83 8d 69 14 64 d6 4f
+    be 31 d8 8d 2b 75 fe 13 02 00 00 2e 00 2b 00 02
+    03 04 00 33 00 24 00 1d 00 20 b3 fd e7 7a 75 91
+    a1 1f b3 a3 1c 2f 6d 06 29 e8 26 32 f7 74 2b 9c
+    6d 3c 11 a7 70 cf 43 3c 72 21
+<<< TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 21
+>>> TLS 1.2, RecordHeader [length 0005]
+    15 03 03 00 02
+>>> TLS 1.3, Alert [length 0002], fatal bad_record_mac
+    02 14
+---
+no peer certificate available
+---
+No client certificate CA names sent
+Peer Temp Key: X25519, 253 bits
+---
+SSL handshake has read 264 bytes and written 1787 bytes
+Verification: OK
+---
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Protocol: TLSv1.3
+This TLS version forbids renegotiation.
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 0 (ok)
+---
+Connecting to 127.0.0.1
+SSL_connect:before SSL initialization
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS read server hello
+SSL_connect:SSLv3/TLS write change cipher spec
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS write client hello
+SSL3 alert write:fatal:bad record mac
+SSL_connect:error in error
+40CCB44F3B710000:error:0A000119:SSL routines:tls_get_more_records:decryption failed or bad record mac:ssl/record/methods/tls_common.c:868:
+40CCB44F3B710000:error:0A000139:SSL routines::record layer failure:ssl/record/rec_layer_s3.c:698:

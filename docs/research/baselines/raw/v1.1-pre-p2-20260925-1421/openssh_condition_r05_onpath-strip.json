@@ -1,0 +1,25 @@
+{
+  "run_id": "openssh_condition_r05_onpath-strip",
+  "implementation": "openssh",
+  "fault_type": "condition",
+  "repetition": 5,
+  "condition": "onpath-strip",
+  "metrics": {
+    "negotiated_group": "sntrup761x25519-sha512@openssh.com",
+    "is_hybrid": true,
+    "downgrade_visible": false,
+    "handshake_result": "failure",
+    "detail": "",
+    "hrr_present": false,
+    "downgrade_flagged": false,
+    "advertised_hybrid": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssh_condition_r05_onpath-strip-client.log",
+    "server_log": "openssh_condition_r05_onpath-strip-server.log",
+    "pcap": "openssh_condition_r05_onpath-strip.pcapng",
+    "capture_log": "openssh_condition_r05_onpath-strip-capture.log",
+    "proxy_log": "openssh_condition_r05_onpath-strip-proxy.log"
+  }
+}
