@@ -1,20 +1,42 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: milestone_complete
-stopped_at: Phase 6 complete (1/1) — 밀스톤 v1.0 완료
-last_updated: 2026-09-23T00:00:00Z
-last_activity: 2026-09-23
+milestone: v1.1
+milestone_name: HRR-absence hybrid-downgrade study
+status: in_progress
+stopped_at: v1.1-P1 complete; P2 repeated WSL execution is pending
+last_updated: 2026-09-25T00:00:00Z
+last_activity: 2026-09-25
 progress:
-  total_phases: 6
-  completed_phases: 6
-  total_plans: 6
-  completed_plans: 6
-  percent: 100
+  total_phases: 4
+  completed_phases: 1
+  total_plans: 4
+  completed_plans: 1
+  percent: 25
 ---
 
 # Project State
+
+## Current Position — v1.1
+
+Phase: v1.1 P1 of P4 (도구 확장) 완료
+Plan: `07-01-PLAN.md` 완료
+Status: P2 반복 실행 대기
+Last activity: 2026-09-25 — `verify_condition()` 구현과 WSL TShark 필드 파서 직접 확인 후 P1 인계 문서를 작성함
+
+Progress: [■□□□] 25% (P1 도구 확장 완료, P2 반복 실행·P3 분석·P4 논문 갱신 대기)
+
+### Pending Todos
+
+- [확실] P2: WSL에서 9개 v1.1 조건을 조합당 10회 이상 실행하고 원시 산출물을 보존합니다.
+- [확실] P3: 조건 축·HRR·감사 가시성 지표로 P2 결과를 분석합니다.
+- [확실] P4: 검증된 P2/P3 결과만 사용해 논문과 재현 패키지를 갱신합니다.
+
+### Blockers/Concerns
+
+- [확실] P2를 실행하려면 WSL의 `/root/pq-hybrid-phase2` 바이너리, OQS provider, TShark가 모두 필요합니다.
+- [확실] Windows에서는 TShark 의존 테스트 1건이 skip되므로, P2 시작 전 WSL에서의 프리플라이트가 필요합니다.
+
+## v1.0 Historical State
 
 ## Project Reference
 
