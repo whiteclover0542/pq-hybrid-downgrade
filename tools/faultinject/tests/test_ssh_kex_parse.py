@@ -1,5 +1,16 @@
-from faultinject.ssh_kexinit import find_kex_ecdh_init, forge_ssh_pq_component
-from faultinject.tests.fixtures import SNTRUP761_PQ_BYTES, SYNTHETIC_SSH_KEX_ECDH_INIT
+from faultinject.ssh_kexinit import (
+    find_kex_ecdh_init,
+    forge_ssh_pq_component,
+    kexinit_algorithms,
+    strip_kexinit_algorithm,
+)
+from faultinject.tests.fixtures import (
+    SNTRUP761_PQ_BYTES,
+    SSH_CLASSICAL_KEX,
+    SSH_HYBRID_KEX,
+    SYNTHETIC_SSH_KEX_ECDH_INIT,
+    SYNTHETIC_SSH_KEXINIT,
+)
 
 
 def test_find_kex_ecdh_init_locates_client_public_blob():
@@ -20,3 +31,12 @@ def test_forge_ssh_preserves_length_and_keeps_x25519_component():
     assert before[offset : offset + SNTRUP761_PQ_BYTES] != after[offset : offset + SNTRUP761_PQ_BYTES]
     assert before[offset + SNTRUP761_PQ_BYTES : offset + blob_length] == after[offset + SNTRUP761_PQ_BYTES : offset + blob_length]
     assert before[offset + blob_length :] == after[offset + blob_length :]
+
+
+def test_strip_kexinit_removes_hybrid_algorithm_keeps_classical_algorithm():
+    after = strip_kexinit_algorithm(SYNTHETIC_SSH_KEXINIT, SSH_HYBRID_KEX.decode())
+
+    assert SSH_HYBRID_KEX.decode() not in kexinit_algorithms(after)
+    assert SSH_CLASSICAL_KEX.decode() in kexinit_algorithms(after)
+    assert len(after) < len(SYNTHETIC_SSH_KEXINIT)
+    assert int.from_bytes(after[:4], "big") == len(after) - 4

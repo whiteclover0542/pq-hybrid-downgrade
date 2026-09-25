@@ -4,6 +4,8 @@ CLASSICAL_GROUP_ID = 0x001D
 KYBER_PQ_BYTES = 1184
 X25519_BYTES = 32
 SNTRUP761_PQ_BYTES = 1158
+SSH_HYBRID_KEX = b"sntrup761x25519-sha512@openssh.com"
+SSH_CLASSICAL_KEX = b"curve25519-sha256"
 
 
 def _tls_record(payload: bytes) -> bytes:
@@ -65,6 +67,14 @@ def _ssh_packet(payload: bytes) -> bytes:
     return packet_length.to_bytes(4, "big") + bytes([len(padding)]) + payload + padding
 
 
+def _ssh_kexinit_packet() -> bytes:
+    kex_algorithms = SSH_HYBRID_KEX + b"," + SSH_CLASSICAL_KEX
+    name_list = len(kex_algorithms).to_bytes(4, "big") + kex_algorithms
+    payload = b"\x14" + (b"\x55" * 16) + name_list + (b"\x00\x00\x00\x00" * 9)
+    payload += b"\x00" + b"\x00\x00\x00\x00"
+    return _ssh_packet(payload)
+
+
 SYNTHETIC_CLIENTHELLO = _client_hello_extension()
 HYBRID_PLUS_CLASSICAL_CH = _hybrid_plus_classical_client_hello()
 SYNTHETIC_SSH_KEX_ECDH_INIT = _ssh_packet(
@@ -73,3 +83,4 @@ SYNTHETIC_SSH_KEX_ECDH_INIT = _ssh_packet(
     + (b"\x33" * SNTRUP761_PQ_BYTES)
     + (b"\x44" * X25519_BYTES)
 )
+SYNTHETIC_SSH_KEXINIT = _ssh_kexinit_packet()

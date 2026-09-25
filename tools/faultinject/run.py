@@ -12,6 +12,7 @@ from faultinject.fault_binding import binding_spec
 from faultinject.fault_group_list import group_list_spec
 from faultinject.harness import ScenarioSpec, run_scenario
 from faultinject.record import RunRecord
+from faultinject.ssh_kexinit import strip_kexinit_algorithm
 from faultinject.tls_clienthello import strip_hybrid
 from faultinject.verify_applied import (
     mark,
@@ -107,24 +108,36 @@ def _strip_spec(
     impl: str, repetition: int, environment: dict[str, str], out_dir: Path, paths: dict[str, str]
 ) -> ScenarioSpec:
     base = condition_spec(impl, "base", repetition, environment, out_dir, paths)
-    proxy_port = {"openssl": 9543, "boringssl": 9544}[impl]
-    group_id = {"openssl": 0x11EC, "boringssl": 0x6399}[impl]
+    proxy_port = {"openssl": 9543, "boringssl": 9544, "openssh": 9555}[impl]
+    group_id = {
+        "openssl": 0x11EC,
+        "boringssl": 0x6399,
+        "openssh": "sntrup761x25519-sha512@openssh.com",
+    }[impl]
     proxy_log = out_dir / f"{impl}_condition_r{repetition:02d}_onpath-strip-proxy.log"
     client_cmd = [
-        f"127.0.0.1:{proxy_port}" if value == f"127.0.0.1:{base.listen_port}" else value
+        (
+            f"127.0.0.1:{proxy_port}"
+            if value == f"127.0.0.1:{base.listen_port}"
+            else str(proxy_port) if value == str(base.listen_port) else value
+        )
         for value in base.client_cmd
     ]
 
     def mutate(data: bytes) -> bytes:
         try:
-            stripped = strip_hybrid(data, group_id)
+            stripped = (
+                strip_kexinit_algorithm(data, group_id)
+                if impl == "openssh"
+                else strip_hybrid(data, group_id)
+            )
         except ValueError:
             return data
         if stripped != data:
             with proxy_log.open("a", encoding="utf-8") as output:
                 output.write(
                     "event=strip_mutation "
-                    f"group_id=0x{group_id:04x} "
+                    f"group_id={group_id if isinstance(group_id, str) else f'0x{group_id:04x}'} "
                     f"before_sha256={hashlib.sha256(data).hexdigest()} "
                     f"after_sha256={hashlib.sha256(stripped).hexdigest()}\n"
                 )
@@ -157,6 +170,7 @@ def v11_specs(repetitions: int, output_dir: Path | None = None) -> list[Scenario
         for condition in ("base", "ssh-order"):
             spec = condition_spec("openssh", condition, repetition, environment, out_dir, paths)
             specs.append(replace(spec, advertised_hybrid=advertised_hybrid_for(condition)))
+        specs.append(_strip_spec("openssh", repetition, environment, out_dir, paths))
     return specs
 
 
@@ -198,11 +212,18 @@ def run_batch(repetitions: int, output_dir: Path | None = None) -> list[RunRecor
     return [verify_record(run_scenario(spec), out_dir) for spec in batch_specs(repetitions, out_dir)]
 
 
+def run_v11(repetitions: int, output_dir: Path | None = None) -> list[RunRecord]:
+    out_dir = output_dir or v11_output_dir()
+    return [verify_record(run_scenario(spec), out_dir) for spec in v11_specs(repetitions, out_dir)]
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Run Phase 3 loopback fault-injection smoke tests")
     parser.add_argument("--smoke", action="store_true", help="run all six Phase 3 scenarios once")
     parser.add_argument("--repeat", type=int, metavar="N",
                         help="run each of the six combinations N times into raw/phase-4/")
+    parser.add_argument("--v11", type=int, metavar="N",
+                        help="run each v1.1 condition combination N times into raw/v1.1/")
     arguments = parser.parse_args(argv)
     if arguments.repeat:
         ok, reason = preflight(phase2_paths(), phase2_environment())
@@ -210,6 +231,15 @@ def main(argv: list[str] | None = None) -> int:
             print(f"preflight failed: {reason}")
             return 1
         for record in run_batch(arguments.repeat):
+            print(f"{record.run_id}: result={record.metrics.handshake_result} "
+                  f"verified={record.manipulation_verified}")
+        return 0
+    if arguments.v11:
+        ok, reason = preflight(phase2_paths(), phase2_environment())
+        if not ok:
+            print(f"preflight failed: {reason}")
+            return 1
+        for record in run_v11(arguments.v11):
             print(f"{record.run_id}: result={record.metrics.handshake_result} "
                   f"verified={record.manipulation_verified}")
         return 0
