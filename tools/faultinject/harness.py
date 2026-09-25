@@ -140,6 +140,7 @@ class ScenarioSpec:
     proxy_upstream_port: int | None = None
     proxy_mutate: Callable[[bytes], bytes] | None = None
     proxy_log: Path | None = None
+    advertised_hybrid: bool | None = None
 
 
 def run_scenario(spec: ScenarioSpec) -> RunRecord:
@@ -232,7 +233,11 @@ def run_scenario(spec: ScenarioSpec) -> RunRecord:
         fault_type=spec.fault_type,
         repetition=spec.repetition,
         condition=spec.condition,
-        metrics=collect_metrics(spec.impl, client_text, client.returncode),
+        metrics=(
+            collect_metrics_v11(spec.impl, client_text, client.returncode, spec.advertised_hybrid)
+            if spec.advertised_hybrid is not None
+            else collect_metrics(spec.impl, client_text, client.returncode)
+        ),
         manipulation_verified=spec.manipulation_verified,
         artifacts={
             "client_log": client_log.name,

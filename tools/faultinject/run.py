@@ -1,14 +1,18 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import os
 import subprocess
+from dataclasses import replace
 from pathlib import Path
 
+from faultinject.conditions import advertised_hybrid_for, condition_spec
 from faultinject.fault_binding import binding_spec
 from faultinject.fault_group_list import group_list_spec
 from faultinject.harness import ScenarioSpec, run_scenario
 from faultinject.record import RunRecord
+from faultinject.tls_clienthello import strip_hybrid
 from faultinject.verify_applied import (
     mark,
     verify_binding,
@@ -26,6 +30,10 @@ def default_output_dir() -> Path:
 
 def phase4_output_dir() -> Path:
     return Path(__file__).resolve().parents[2] / "docs/research/baselines/raw/phase-4"
+
+
+def v11_output_dir() -> Path:
+    return Path(__file__).resolve().parents[2] / "docs/research/baselines/raw/v1.1"
 
 
 def phase2_paths() -> dict[str, str]:
@@ -92,6 +100,63 @@ def batch_specs(repetitions: int, output_dir: Path | None = None) -> list[Scenar
         for impl in implementations:
             specs.append(group_list_spec(impl, rep, environment, out_dir, paths))
             specs.append(binding_spec(impl, rep, environment, out_dir, paths))
+    return specs
+
+
+def _strip_spec(
+    impl: str, repetition: int, environment: dict[str, str], out_dir: Path, paths: dict[str, str]
+) -> ScenarioSpec:
+    base = condition_spec(impl, "base", repetition, environment, out_dir, paths)
+    proxy_port = {"openssl": 9543, "boringssl": 9544}[impl]
+    group_id = {"openssl": 0x11EC, "boringssl": 0x6399}[impl]
+    proxy_log = out_dir / f"{impl}_condition_r{repetition:02d}_onpath-strip-proxy.log"
+    client_cmd = [
+        f"127.0.0.1:{proxy_port}" if value == f"127.0.0.1:{base.listen_port}" else value
+        for value in base.client_cmd
+    ]
+
+    def mutate(data: bytes) -> bytes:
+        try:
+            stripped = strip_hybrid(data, group_id)
+        except ValueError:
+            return data
+        if stripped != data:
+            with proxy_log.open("a", encoding="utf-8") as output:
+                output.write(
+                    "event=strip_mutation "
+                    f"group_id=0x{group_id:04x} "
+                    f"before_sha256={hashlib.sha256(data).hexdigest()} "
+                    f"after_sha256={hashlib.sha256(stripped).hexdigest()}\n"
+                )
+        return stripped
+
+    return replace(
+        base,
+        condition="onpath-strip",
+        client_cmd=client_cmd,
+        listen_port=proxy_port,
+        server_listen_port=base.listen_port,
+        proxy_upstream_port=base.listen_port,
+        proxy_mutate=mutate,
+        proxy_log=proxy_log,
+        advertised_hybrid=True,
+    )
+
+
+def v11_specs(repetitions: int, output_dir: Path | None = None) -> list[ScenarioSpec]:
+    out_dir = output_dir or v11_output_dir()
+    paths = phase2_paths()
+    environment = phase2_environment()
+    specs: list[ScenarioSpec] = []
+    for repetition in range(1, repetitions + 1):
+        for impl in ("openssl", "boringssl"):
+            for condition in ("base", "silent-downgrade"):
+                spec = condition_spec(impl, condition, repetition, environment, out_dir, paths)
+                specs.append(replace(spec, advertised_hybrid=advertised_hybrid_for(condition)))
+            specs.append(_strip_spec(impl, repetition, environment, out_dir, paths))
+        for condition in ("base", "ssh-order"):
+            spec = condition_spec("openssh", condition, repetition, environment, out_dir, paths)
+            specs.append(replace(spec, advertised_hybrid=advertised_hybrid_for(condition)))
     return specs
 
 

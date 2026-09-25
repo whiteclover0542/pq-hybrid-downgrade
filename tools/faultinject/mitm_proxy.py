@@ -36,8 +36,6 @@ def run_proxy(
             server_to_client_bytes = 0
             if first_payload:
                 forged = mutate(first_payload)
-                if len(forged) != len(first_payload):
-                    raise ValueError("mutation must preserve message length")
                 upstream.sendall(forged)
                 mutated = forged != first_payload
                 client_to_server_bytes += len(forged)
@@ -61,8 +59,6 @@ def run_proxy(
                     forwarded = data
                     if source is client and not mutated:
                         forwarded = mutate(data)
-                        if len(forwarded) != len(data):
-                            raise ValueError("mutation must preserve message length")
                         mutated = forwarded != data
                     target.sendall(forwarded)
                     if source is client:
