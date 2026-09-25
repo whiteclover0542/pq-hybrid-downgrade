@@ -23,6 +23,23 @@ def aggregate(run_dir) -> dict:
     return counts
 
 
+def aggregate_v11(run_dir) -> dict:
+    counts: dict = {}
+    for path in sorted(Path(run_dir).glob("*.json")):
+        record = RunRecord.from_json(path)
+        count = counts.setdefault(
+            (record.implementation, record.condition),
+            {"total": 0, "verified": 0, "success": 0, "downgrade": 0, "hrr": 0, "downgrade_flagged": 0},
+        )
+        count["total"] += 1
+        count["verified"] += int(record.manipulation_verified)
+        count["success"] += int(record.metrics.handshake_result == "success")
+        count["downgrade"] += int(record.metrics.downgrade_visible)
+        count["hrr"] += int(record.metrics.hrr_present is True)
+        count["downgrade_flagged"] += int(record.metrics.downgrade_flagged is True)
+    return counts
+
+
 def meets_minimum(counts: dict, minimum: int = 10) -> bool:
     return len(counts) == 6 and all(c["verified"] >= minimum for c in counts.values())
 

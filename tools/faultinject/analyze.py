@@ -25,6 +25,23 @@ def comparison(run_dir) -> dict:
     return out
 
 
+def comparison_v11(run_dir) -> dict:
+    out: dict = {}
+    for path in sorted(Path(run_dir).glob("*.json")):
+        record = RunRecord.from_json(path)
+        count = out.setdefault(
+            (record.implementation, record.condition),
+            {"n": 0, "verified": 0, "success": 0, "failure": 0, "hrr": 0, "downgrade_flagged": 0},
+        )
+        count["n"] += 1
+        count["verified"] += int(record.manipulation_verified)
+        count["success"] += int(record.metrics.handshake_result == "success")
+        count["failure"] += int(record.metrics.handshake_result != "success")
+        count["hrr"] += int(record.metrics.hrr_present is True)
+        count["downgrade_flagged"] += int(record.metrics.downgrade_flagged is True)
+    return out
+
+
 def comparison_rows(run_dir) -> list[dict]:
     rows = []
     for (impl, fault), c in sorted(comparison(run_dir).items()):
