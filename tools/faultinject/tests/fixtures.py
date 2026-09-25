@@ -1,4 +1,6 @@
 KYBER_GROUP_ID = 0x6399
+HYBRID_GROUP_ID = 0x11EC
+CLASSICAL_GROUP_ID = 0x001D
 KYBER_PQ_BYTES = 1184
 X25519_BYTES = 32
 SNTRUP761_PQ_BYTES = 1158
@@ -24,6 +26,39 @@ def _client_hello_extension() -> bytes:
     return _tls_record(handshake)
 
 
+def _hybrid_plus_classical_client_hello() -> bytes:
+    supported_groups = HYBRID_GROUP_ID.to_bytes(2, "big") + CLASSICAL_GROUP_ID.to_bytes(2, "big")
+    supported_groups_extension = (
+        b"\x00\x0a"
+        + (len(supported_groups) + 2).to_bytes(2, "big")
+        + len(supported_groups).to_bytes(2, "big")
+        + supported_groups
+    )
+    hybrid_share = (
+        HYBRID_GROUP_ID.to_bytes(2, "big")
+        + (KYBER_PQ_BYTES + X25519_BYTES).to_bytes(2, "big")
+        + (b"\x22" * (KYBER_PQ_BYTES + X25519_BYTES))
+    )
+    classical_share = (
+        CLASSICAL_GROUP_ID.to_bytes(2, "big")
+        + X25519_BYTES.to_bytes(2, "big")
+        + (b"\x11" * X25519_BYTES)
+    )
+    shares = hybrid_share + classical_share
+    key_share_extension = (
+        b"\x00\x33"
+        + (len(shares) + 2).to_bytes(2, "big")
+        + len(shares).to_bytes(2, "big")
+        + shares
+    )
+    extensions = supported_groups_extension + key_share_extension
+    body = b"\x03\x03" + (b"\x00" * 32) + b"\x00"
+    body += b"\x00\x02\x13\x01" + b"\x01\x00"
+    body += len(extensions).to_bytes(2, "big") + extensions
+    handshake = b"\x01" + len(body).to_bytes(3, "big") + body
+    return _tls_record(handshake)
+
+
 def _ssh_packet(payload: bytes) -> bytes:
     padding = b"\x00" * 4
     packet_length = 1 + len(payload) + len(padding)
@@ -31,6 +66,7 @@ def _ssh_packet(payload: bytes) -> bytes:
 
 
 SYNTHETIC_CLIENTHELLO = _client_hello_extension()
+HYBRID_PLUS_CLASSICAL_CH = _hybrid_plus_classical_client_hello()
 SYNTHETIC_SSH_KEX_ECDH_INIT = _ssh_packet(
     b"\x1e"
     + (SNTRUP761_PQ_BYTES + X25519_BYTES).to_bytes(4, "big")
