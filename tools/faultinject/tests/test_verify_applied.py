@@ -8,6 +8,7 @@ from faultinject import verify_applied
 from faultinject.verify_applied import (
     mark,
     verify_binding,
+    verify_condition,
     verify_group_list,
     verify_ssh_group_list,
 )
@@ -85,3 +86,27 @@ def test_verify_binding_requires_distinct_hashes(tmp_path):
 
     assert verify_binding(changed) is True
     assert verify_binding(unchanged) is False
+
+
+def test_verify_condition_requires_hybrid_advertisement_and_classical_key_share(monkeypatch, tmp_path):
+    record = _record()
+    record.condition = "silent-downgrade"
+    record.artifacts = {"pcap": "run.pcapng"}
+    monkeypatch.setattr(
+        verify_applied,
+        "_client_hello_groups",
+        lambda _: [([0x11EC, 0x001D], [0x001D, 0x11EC])],
+    )
+
+    assert verify_condition(record, tmp_path) is True
+
+
+def test_verify_condition_requires_a_logged_strip_mutation(tmp_path):
+    record = _record()
+    record.condition = "onpath-strip"
+    record.artifacts = {"proxy_log": "proxy.log"}
+    (tmp_path / "proxy.log").write_text(
+        "event=strip_mutation before_sha256=aa after_sha256=bb\n", encoding="utf-8"
+    )
+
+    assert verify_condition(record, tmp_path) is True

@@ -17,6 +17,7 @@ from faultinject.tls_clienthello import strip_hybrid
 from faultinject.verify_applied import (
     mark,
     verify_binding,
+    verify_condition,
     verify_group_list,
     verify_ssh_group_list,
 )
@@ -185,7 +186,9 @@ def _baseline_path(implementation: str) -> Path:
 
 
 def verify_record(record: RunRecord, output_dir: Path) -> RunRecord:
-    if record.fault_type == "binding":
+    if record.fault_type == "condition":
+        verified = verify_condition(record, output_dir)
+    elif record.fault_type == "binding":
         verified = verify_binding(output_dir / record.artifacts["proxy_log"])
     elif record.implementation == "openssh":
         baseline = _baseline_path("openssh")
