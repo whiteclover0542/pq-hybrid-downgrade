@@ -1,5 +1,13 @@
 # Roadmap: pq-hybrid-downgrade
 
+## v1.1 current status (2026-09-25)
+
+- [x] **P2: repeated execution** — final dataset validated (90 records).
+- [x] **P3: analysis** — raw-data analysis complete; interpretation remains bounded to the testbed.
+- [ ] **P4: paper/reproduction update** — pending; no P4 deliverable has been edited.
+
+[확실] This current-status block supersedes the earlier P2 completion checklist below, which is retained as its historical P2 handoff record.
+
 ## v1.1 P2 completion record (2026-09-25)
 
 - [x] **P2: repeated execution** — the clean WSL run produced 90 validated JSON records (9 combinations × r01–r10), with all required PCAP/client/capture artifacts present and `manipulation_verified=True` for every record.
@@ -7,6 +15,8 @@
 - [ ] **P4: paper/reproduction update** — update the paper and reproduction package only after P3.
 
 Details: [P2 execution summary](phases/07-v11-tooling/07-02-SUMMARY.md).
+
+[확실] **P3 completion record (2026-09-25):** P3 recomputed the final 90-record dataset and recorded a bounded interpretation in [v1.1-p3-analysis.md](../docs/research/v1.1-p3-analysis.md). P4 remains pending; the paper and reproduction package have not changed.
 
 ## Overview
 

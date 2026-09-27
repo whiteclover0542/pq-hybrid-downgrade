@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: HRR-absence hybrid-downgrade study
 status: in_progress
-stopped_at: v1.1-P2 complete; P3 analysis is pending
+stopped_at: v1.1-P3 complete; P4 paper/reproduction update is pending
 last_updated: 2026-09-25T00:00:00Z
 last_activity: 2026-09-25
 progress:
   total_phases: 4
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 4
-  completed_plans: 2
-  percent: 50
+  completed_plans: 3
+  percent: 75
 ---
 
 # v1.1 P2 Execution Record (2026-09-25)
@@ -23,6 +23,14 @@ progress:
 [확실] P3 is now the next phase. P2 only records observations; it makes no new vulnerability conclusion and does not update the paper.
 
 See: `.planning/phases/07-v11-tooling/07-02-SUMMARY.md`.
+
+# v1.1 P3 Analysis Record (2026-09-25)
+
+[확실] P3 analyzed only the final 90-record `raw/v1.1/` dataset. It confirms the scoped observation that both tested TLS implementations completed the configured classical negotiation after hybrid advertisement, with no recorded HRR or automatic downgrade flag.
+
+[불확실] The P3 result does not establish RFC non-conformance, practical exploitability, or a new vulnerability. The full evidence table, limits, and OpenSSH control interpretation are in `docs/research/v1.1-p3-analysis.md`.
+
+[확실] P4 is now next. The paper and reproduction package remain unchanged until P4.
 
 # Project State
 
