@@ -11,25 +11,17 @@
 
 [불확실] The completed publication does not establish RFC non-conformance, CVE equivalence, practical exploitability, or a new vulnerability.
 
-[확실] This final-status block supersedes the older v1.1 status and P2 handoff records retained below for historical continuity.
+[확실] 아래의 P2/P3 항목은 당시 인계 근거를 보존한 역사 기록이며, 현재 상태는 위의 P4 완료 기록이 기준입니다.
 
-## v1.1 current status (2026-09-25)
-
-- [x] **P2: repeated execution** — final dataset validated (90 records).
-- [x] **P3: analysis** — raw-data analysis complete; interpretation remains bounded to the testbed.
-- [ ] **P4: paper/reproduction update** — pending; no P4 deliverable has been edited.
-
-[확실] This current-status block supersedes the earlier P2 completion checklist below, which is retained as its historical P2 handoff record.
-
-## v1.1 P2 completion record (2026-09-25)
+## v1.1 P2/P3 Historical Handoff Record (2026-09-25)
 
 - [x] **P2: repeated execution** — the clean WSL run produced 90 validated JSON records (9 combinations × r01–r10), with all required PCAP/client/capture artifacts present and `manipulation_verified=True` for every record.
-- [ ] **P3: analysis** — interpret P2 observations without adding a new vulnerability conclusion until the analysis phase.
-- [ ] **P4: paper/reproduction update** — update the paper and reproduction package only after P3.
+- [x] **P3: analysis** — subsequently completed with a bounded interpretation of the final raw data.
+- [x] **P4: paper/reproduction update** — subsequently completed after P3 with the v1.1-only paper, guide, and validated ZIP.
 
 Details: [P2 execution summary](phases/07-v11-tooling/07-02-SUMMARY.md).
 
-[확실] **P3 completion record (2026-09-25):** P3 recomputed the final 90-record dataset and recorded a bounded interpretation in [v1.1-p3-analysis.md](../docs/research/v1.1-p3-analysis.md). P4 remains pending; the paper and reproduction package have not changed.
+[확실] **P3 historical completion record (2026-09-25):** P3 recomputed the final 90-record dataset and recorded a bounded interpretation in [v1.1-p3-analysis.md](../docs/research/v1.1-p3-analysis.md). P4 subsequently updated the paper and reproduction package; see [07-04-SUMMARY.md](phases/07-v11-tooling/07-04-SUMMARY.md).
 
 ## Overview
 
@@ -55,12 +47,12 @@ Phase 0(기획)에서 확정된 테스트 가능한 가설을 출발점으로, �
 
 ## v1.1 확장: HRR-absence 하이브리드 다운그레이드
 
-v1.0 완료 산출물을 보존한 채, 하이브리드 광고와 고전 key_share 우선 전송이 HRR 없이 고전 협상으로 이어지는 조건을 별도 반복 실험으로 검증합니다. 이 확장은 P2의 실제 결과가 나오기 전에는 새 취약점 주장을 추가하지 않습니다.
+v1.0 완료 산출물을 보존한 채, 하이브리드 광고와 고전 key_share 우선 전송이 HRR 없이 고전 협상으로 이어지는 조건을 별도 반복 실험으로 검증했습니다. 최종 P2/P3/P4 결과는 새로운 취약점 주장을 추가하지 않고 관측 범위로만 문서화했습니다.
 
 - [x] **P1: 도구 확장** — 조건 빌더, TLS/SSH on-path strip, 조건 적용 검증, v1.1 집계 축을 추가했습니다. (completed 2026-09-25)
-- [ ] **P2: 반복 실행** — WSL에서 9개 구현×조건 조합을 조합당 10회 이상 실행하고 원시 산출물을 보존합니다.
-- [ ] **P3: 결과 분석** — 조건별 handshake·HRR·감사 가시성·조작 적용 여부를 분석합니다.
-- [ ] **P4: 논문·재현 패키지 갱신** — 검증된 P2/P3 결과만 논문, 표, 재현 패키지에 반영합니다.
+- [x] **P2: 반복 실행** — WSL에서 9개 구현×조건 조합을 조합당 10회 실행하고 최종 원시 산출물을 보존했습니다. (completed 2026-09-25)
+- [x] **P3: 결과 분석** — 조건별 handshake·HRR·감사 가시성·조작 적용 여부를 분석했습니다. (completed 2026-09-25)
+- [x] **P4: 논문·재현 패키지 갱신** — 검증된 P2/P3 결과만 논문, 표, 재현 패키지에 반영하고 재현 ZIP을 검증했습니다. (completed 2026-09-28)
 
 P1 인계 조건과 실행 명령은 [07-01-SUMMARY.md](phases/07-v11-tooling/07-01-SUMMARY.md)에 기록합니다.
 

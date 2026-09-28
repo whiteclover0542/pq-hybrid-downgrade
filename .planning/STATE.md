@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: HRR-absence hybrid-downgrade study
 status: complete
-stopped_at: v1.1-P4 complete; validated publication and reproduction package are ready for push
+stopped_at: v1.1-P4 complete; validated publication and reproduction package pushed to origin/v1.1-hrr-downgrade
 last_updated: 2026-09-28T00:00:00Z
 last_activity: 2026-09-28
 progress:
@@ -14,23 +14,23 @@ progress:
   percent: 100
 ---
 
-# v1.1 P2 Execution Record (2026-09-25)
+# v1.1 P2 Historical Execution Record (2026-09-25)
 
 [확실] P2 repeated execution is complete. A clean `raw/v1.1/` run produced 90 JSON records: every one of the nine implementation/condition combinations has exactly one record for each repetition r01 through r10. The run ended with status 0 and an empty stderr log.
 
 [확실] All 90 PCAPs, client logs, and capture logs exist and are non-empty; all 30 on-path runs also have non-empty proxy logs. Every record has `manipulation_verified=True`.
 
-[확실] P3 is now the next phase. P2 only records observations; it makes no new vulnerability conclusion and does not update the paper.
+[확실] 이 기록은 당시의 P2 인계입니다. 이후 P3 분석과 P4 논문·재현 패키지 갱신이 완료됐으며, P2 자체는 관측값만 기록하고 새로운 취약점 결론을 추가하지 않았습니다.
 
 See: `.planning/phases/07-v11-tooling/07-02-SUMMARY.md`.
 
-# v1.1 P3 Analysis Record (2026-09-25)
+# v1.1 P3 Historical Analysis Record (2026-09-25)
 
 [확실] P3 analyzed only the final 90-record `raw/v1.1/` dataset. It confirms the scoped observation that both tested TLS implementations completed the configured classical negotiation after hybrid advertisement, with no recorded HRR or automatic downgrade flag.
 
 [불확실] The P3 result does not establish RFC non-conformance, practical exploitability, or a new vulnerability. The full evidence table, limits, and OpenSSH control interpretation are in `docs/research/v1.1-p3-analysis.md`.
 
-[확실] P4 is now next. The paper and reproduction package remain unchanged until P4.
+[확실] 이 기록은 당시의 P3 인계입니다. 이후 P4가 완료되어 논문과 재현 패키지가 갱신·검증됐습니다.
 
 # v1.1 P4 Publication Record (2026-09-28)
 
@@ -46,23 +46,22 @@ See: `.planning/phases/07-v11-tooling/07-04-SUMMARY.md`.
 
 ## Current Position — v1.1
 
-Phase: v1.1 P1 of P4 (도구 확장) 완료
-Plan: `07-01-PLAN.md` 완료
-Status: P2 반복 실행 대기
-Last activity: 2026-09-25 — `verify_condition()` 구현과 WSL TShark 필드 파서 직접 확인 후 P1 인계 문서를 작성함
+Phase: v1.1 P4 of P4 완료
+Plan: `07-04-SUMMARY.md` 완료
+Status: 논문·재현 안내·재현 ZIP 검증 및 원격 푸시 완료
+Last activity: 2026-09-28 — 최종 데이터 검증, P4 문서 갱신, 재현 ZIP 검증, `origin/v1.1-hrr-downgrade` 푸시 완료
 
-Progress: [■□□□] 25% (P1 도구 확장 완료, P2 반복 실행·P3 분석·P4 논문 갱신 대기)
+Progress: [■■■■] 100% (P1 도구 확장, P2 반복 실행, P3 분석, P4 논문·재현 패키지 갱신 완료)
 
-### Pending Todos
+### Completed Deliverables
 
-- [확실] P2: WSL에서 9개 v1.1 조건을 조합당 10회 이상 실행하고 원시 산출물을 보존합니다.
-- [확실] P3: 조건 축·HRR·감사 가시성 지표로 P2 결과를 분석합니다.
-- [확실] P4: 검증된 P2/P3 결과만 사용해 논문과 재현 패키지를 갱신합니다.
+- [확실] P2: 9개 구현×조건 조합을 r01–r10으로 실행해 최종 JSON 90건과 필수 artifact를 보존했습니다.
+- [확실] P3: 조건 축·HRR·감사 가시성을 분석하고 관측 범위를 문서화했습니다.
+- [확실] P4: v1.1 전용 논문·안전한 재현 안내·검증된 재현 ZIP을 갱신해 원격 브랜치에 푸시했습니다.
 
-### Blockers/Concerns
+### Scope Boundary
 
-- [확실] P2를 실행하려면 WSL의 `/root/pq-hybrid-phase2` 바이너리, OQS provider, TShark가 모두 필요합니다.
-- [확실] Windows에서는 TShark 의존 테스트 1건이 skip되므로, P2 시작 전 WSL에서의 프리플라이트가 필요합니다.
+- [불확실] v1.1 결과는 고정된 구현·그룹 순서·loopback 환경·감사 정의의 관측입니다. RFC 위반, CVE 동일성, 실환경 공격 가능성 또는 새 취약점을 판정하지 않습니다.
 
 ## v1.0 Historical State
 
