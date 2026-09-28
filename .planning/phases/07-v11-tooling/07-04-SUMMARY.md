@@ -31,6 +31,8 @@ completed: 2026-09-28
 
 [확실] OpenSSH is retained as a structural control: its on-path condition failed and is not interpreted as a successful TLS downgrade.
 
+[확실] Post-publication interpretation supplement: OpenSSL v1.1 used the explicit single tuple `X25519MLKEM768:X25519`. Its documented group-list algorithm accepts an already received `X25519` key share from that tuple, so the v1.1 OpenSSL condition is not evidence of the `DEFAULT` tuple-loss path in CVE-2026-2673. The final raw data and artifact inventory remain unchanged.
+
 [불확실] The publication does not determine RFC non-conformance, CVE equivalence, practical exploitability, or behavior outside the fixed implementations, group order, loopback environment, and audit definition.
 
 ## Data integrity

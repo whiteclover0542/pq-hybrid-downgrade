@@ -25,7 +25,7 @@ python -m faultinject.analyze --v11 --run-dir ../docs/research/baselines/raw/v1.
 
 [확실] 각 행은 r01부터 r10까지 정확히 한 번 존재해야 합니다. 원시 결과의 기준표와 해석은 `docs/research/v1.1-p3-analysis.md`에 있고, 실행 보존·artifact 검증 근거는 `.planning/phases/07-v11-tooling/07-02-SUMMARY.md`에 있습니다.
 
-[확실] `silent-downgrade`는 OpenSSL과 BoringSSL에서 하이브리드 광고, 고전 `X25519` 협상, 성공, HRR 0회, 자동 flag 0회를 뜻하는 조작적 조건입니다. 이는 CVE 재현이나 RFC 비준수 판정이 아닙니다.
+[확실] `silent-downgrade`는 하네스 식별자이며, OpenSSL과 BoringSSL에서 하이브리드 광고, 고전-first `key_share`, 고전 `X25519` 협상, 성공, HRR 0회, 자동 flag 0회를 뜻합니다. OpenSSL의 v1.1 서버 설정은 명시적 single tuple `X25519MLKEM768:X25519`이므로 이 수락은 문서화된 tuple 선택 규칙과 일치합니다. 이 조건은 `DEFAULT`를 포함한 CVE-2026-2673 경로, 수정 버전 대조, RFC 비준수를 판정하지 않습니다.
 
 ## 4. 새 경로에서의 반복 실행
 

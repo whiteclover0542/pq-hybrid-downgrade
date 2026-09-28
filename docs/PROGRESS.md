@@ -6,7 +6,7 @@
 
 ## 🎯 밀스톤 v1.1 완료
 
-v1.0 결론(group-list는 클라이언트 자기 제한에 가까운 동어반복, CVE-2026-2673의 "조용한" 속성 미시험)을 보완하기 위해, 하이브리드를 광고한 상태에서 `key_share` 순서가 협상·HRR·감사 가시성에 미치는 영향을 교차 구현으로 재측정했습니다. [설계 스펙](research/2026-09-23-v1.1-hrr-downgrade-design.md)
+v1.0 결론(group-list는 클라이언트 자기 제한에 가까운 동어반복, CVE-2026-2673의 `DEFAULT` 경로 미시험)을 보완하기 위해, 하이브리드를 광고한 상태에서 `key_share` 순서가 협상·HRR·감사 가시성에 미치는 영향을 교차 구현으로 재측정했습니다. OpenSSL의 v1.1 single tuple 수락은 문서상 정상 동작으로 해석 보강했으며, `DEFAULT` 경로와 수정 버전 대조는 후속 v1.2 범위입니다. [설계 스펙](research/2026-09-23-v1.1-hrr-downgrade-design.md)
 
 | 상태 | 단계 | 산출물 |
 |---|---|---|
@@ -18,7 +18,7 @@ v1.0 결론(group-list는 클라이언트 자기 제한에 가까운 동어반�
 ### v1.1 결과 요약
 
 - [확실] 9개 구현×조건 조합 × 10회 = JSON 90건, 전부 `manipulation_verified=true`.
-- [확실] **silent-downgrade (C):** OpenSSL·BoringSSL 각각 10/10 성공, 고전 `X25519` 협상, HRR 0(PCAP 교차 검증), 자동 flag 0.
+- [확실] **classical-first `key_share` (하네스 ID: `silent-downgrade`):** OpenSSL·BoringSSL 각각 10/10 성공, 고전 `X25519` 협상, HRR 0(PCAP 교차 검증), 자동 flag 0. OpenSSL의 명시적 single tuple 수락은 문서상 선택 규칙과 일치합니다.
 - [확실] **onpath-strip (A):** 두 TLS 구현 각각 10/10 핸드셰이크 실패(fail-closed). OpenSSL은 HRR 뒤 `bad_record_mac`으로 중단.
 - [확실] **OpenSSH:** 구조적 대조군으로만 해석(key_share/HRR 없음). base·ssh-order 하이브리드 KEX 유지, onpath-strip 연결 실패.
 - [불확실] RFC 비준수, CVE 재현, 실배포 공격 가능성은 주장하지 않습니다.
