@@ -1,10 +1,37 @@
 # pq-hybrid-downgrade 진행 현황
 
-- 마지막 업데이트: 2026-09-23
+- 마지막 업데이트: 2026-09-28
 - 기획: [PROPOSAL.md](PROPOSAL.md) · 로드맵: [.planning/ROADMAP.md](../.planning/ROADMAP.md) · 상태: [.planning/STATE.md](../.planning/STATE.md)
-- **현재 Phase:** 완료 — v1.0 밀스톤 전체 완료 (Phase 1~6)
+- **현재 Phase:** 완료 — v1.1 밀스톤 전체 완료 (P1~P4). 브랜치 `v1.1-hrr-downgrade`, main 미병합
 
-## 🎯 밀스톤 v1.0 완료
+## 🎯 밀스톤 v1.1 완료
+
+v1.0 결론(group-list는 클라이언트 자기 제한에 가까운 동어반복, CVE-2026-2673의 "조용한" 속성 미시험)을 보완하기 위해, 하이브리드를 광고한 상태에서 `key_share` 순서가 협상·HRR·감사 가시성에 미치는 영향을 교차 구현으로 재측정했습니다. [설계 스펙](research/2026-09-23-v1.1-hrr-downgrade-design.md)
+
+| 상태 | 단계 | 산출물 |
+|---|---|---|
+| 완료 | P1 도구 확장 | [계획](../.planning/phases/07-v11-tooling/07-01-PLAN.md), [완료 요약](../.planning/phases/07-v11-tooling/07-01-SUMMARY.md) |
+| 완료 | P2 재실행 | [원시 데이터 90건](research/baselines/raw/v1.1/), [완료 요약](../.planning/phases/07-v11-tooling/07-02-SUMMARY.md) |
+| 완료 | P3 재분석 | [분석 문서](research/v1.1-p3-analysis.md), [완료 요약](../.planning/phases/07-v11-tooling/07-03-SUMMARY.md) |
+| 완료 | P4 논문·패키지 | [논문](PAPER.md), [재현 절차](research/REPRODUCTION.md), [v1.1 재현 ZIP](../dist/pq-hybrid-downgrade-v11-repro.zip), [완료 요약](../.planning/phases/07-v11-tooling/07-04-SUMMARY.md) |
+
+### v1.1 결과 요약
+
+- [확실] 9개 구현×조건 조합 × 10회 = JSON 90건, 전부 `manipulation_verified=true`.
+- [확실] **silent-downgrade (C):** OpenSSL·BoringSSL 각각 10/10 성공, 고전 `X25519` 협상, HRR 0(PCAP 교차 검증), 자동 flag 0.
+- [확실] **onpath-strip (A):** 두 TLS 구현 각각 10/10 핸드셰이크 실패(fail-closed). OpenSSL은 HRR 뒤 `bad_record_mac`으로 중단.
+- [확실] **OpenSSH:** 구조적 대조군으로만 해석(key_share/HRR 없음). base·ssh-order 하이브리드 KEX 유지, onpath-strip 연결 실패.
+- [불확실] RFC 비준수, CVE 재현, 실배포 공격 가능성은 주장하지 않습니다.
+
+### v1.1 완료 기록
+
+- [확실] P1: `0c0f0c3`~`4b39e25` — 조건 빌더, TLS/SSH strip, HRR·감사 가시성 지표, `verify_condition()`, `--v11` CLI, 조건 축 집계·분석.
+- [확실] P2: `b4c598a` — WSL 반복 실행, 90건 수집·검증(분리 실행 timeout은 클라이언트 stdin EOF 처리로 해결).
+- [확실] P3: `c1427fa` — 최종 90건만으로 분석, 진단/프리플라이트 디렉터리 제외.
+- [확실] P4: `d07b754`~`4d407fa` — v1.1 논문·재현 가이드 게시, v1.1 재현 ZIP 빌드·검증.
+- [확실] 2026-09-28 정정: 수집 당시 `detect_hrr()`가 OpenSSL `-msg`의 HRR(`ServerHello`로 표기)을 놓쳐 OpenSSL onpath-strip의 `hrr_present`가 0으로 기록됨. PCAP의 RFC 8446 HRR 고정 random으로 교차 검증해 논문 표를 10/10으로 정정했고, 원시 JSON은 수정하지 않음. 파서를 고정 random 매칭으로 수정, 테스트 69 passed / 1 skipped, ZIP 재빌드 `ok=True`. silent-downgrade의 HRR 0 결론은 PCAP으로 독립 확인되어 영향 없음.
+
+## 밀스톤 v1.0 완료 (이전 기록)
 
 전체 프로젝트(Phase 1~6)가 완료되어, "협상 로직 결함발 하이브리드-PQ 다운그레이드가 일회성 버그인가 교차 구현 패턴인가"에 대한 증거 기반 답변이 논문·재현 패키지·AI-대-본인 판단 공개로 완성되었습니다.
 
@@ -21,7 +48,8 @@
 
 ## 다음 작업
 
-- [확실] 없음 — v1.0 밀스톤의 모든 phase가 완료되었습니다. 후속 확장(EXPN-01 추가 구현, EXPN-02 원격/실배포 관측)은 [.planning/REQUIREMENTS.md](../.planning/REQUIREMENTS.md)의 v2 요구사항으로 이연되어 있으며 현재 활성 계획은 없습니다.
+- [확실] v1.1 밀스톤까지 완료되었습니다. 남은 결정은 `v1.1-hrr-downgrade` 브랜치의 main 병합 여부입니다.
+- [확실] 후속 확장(EXPN-01 추가 구현, EXPN-02 원격/실배포 관측)과 v1.1 설계 §8의 범위 밖 항목(RFC 규범 해석, CVE-2026-2673 소스 수준 분석)은 활성 계획이 없습니다. [.planning/REQUIREMENTS.md](../.planning/REQUIREMENTS.md) 참고.
 
 ## Phase 2 완료 기록
 
