@@ -8,10 +8,15 @@ from faultinject.pcap_hello import (
 )
 
 RAW_V11 = Path(__file__).resolve().parents[3] / "docs/research/baselines/raw/v1.1"
+RAW_V12 = Path(__file__).resolve().parents[3] / "docs/research/baselines/raw/v1.2"
 
 
 def _summary(name: str):
     return summarize_hellos((RAW_V11 / f"{name}.pcapng").read_bytes())
+
+
+def _summary_v12(name: str):
+    return summarize_hellos((RAW_V12 / f"{name}.pcapng").read_bytes())
 
 
 def _server_hello(random: bytes, group: int) -> bytes:
@@ -63,6 +68,22 @@ def test_client_precondition_requires_advertised_hybrid_and_a_single_x25519_shar
     assert client_precondition(_summary("openssl_condition_r01_base")) is False
     assert client_precondition(_summary("boringssl_condition_r01_silent-downgrade")) is False
     assert client_precondition(summarize_hellos(b"")) is False
+
+
+def test_v12_fixed_server_sends_hrr_then_hybrid():
+    summary = _summary_v12("openssl_server-setting_r01_3.5.6-S3")
+
+    assert summary.hrr_count == 1
+    assert summary.server_hello_count == 1
+    assert summary.final_group == 0x11EC
+    assert client_precondition(summary) is True
+
+
+def test_v12_vulnerable_server_skips_hrr():
+    summary = _summary_v12("openssl_server-setting_r01_3.5.5-S3")
+
+    assert summary.hrr_count == 0
+    assert summary.final_group == 0x001D
 
 
 def test_group_name():

@@ -1,9 +1,13 @@
+from pathlib import Path
+
 from faultinject import analyze
 from faultinject.analyze import EXPECTED_V12, comparison_v12, cve_verdict, render_v12_markdown
 from faultinject.record import Metrics, RunRecord
 
+REPO_RAW_V12 = Path(__file__).resolve().parents[3] / "docs/research/baselines/raw/v1.2"
 
-def _write(run_dir, version, setting, rep, hrr, final, precondition=True, artifacts=True):
+
+def _write(run_dir, version, setting, rep, hrr, final, precondition=True, artifacts=True, hrr_log=None):
     name = f"openssl_server-setting_r{rep:02d}_{version}-{setting}"
     names = {
         "pcap": f"{name}.pcapng", "client_log": f"{name}-client.log",
@@ -15,7 +19,8 @@ def _write(run_dir, version, setting, rep, hrr, final, precondition=True, artifa
     RunRecord(
         name, "openssl", "server-setting", rep, f"{version}-{setting}",
         Metrics(final, final == "X25519MLKEM768", final == "X25519", "success" if final else "failure",
-                hrr_pcap_present=hrr, hrr_log_present=hrr, server_hello_count=1 if final else 0,
+                hrr_pcap_present=hrr, hrr_log_present=hrr if hrr_log is None else hrr_log,
+                server_hello_count=1 if final else 0,
                 final_negotiated_group=final, client_precondition_verified=precondition),
         precondition,
         artifacts=names,
@@ -33,9 +38,8 @@ def _expected_matrix(run_dir, override=None):
             _write(run_dir, version, setting, rep, hrr, final)
 
 
-def test_expected_matrix_reproduces():
-    assert EXPECTED_V12[("3.5.5", "S3")] == (False, "X25519")
-    assert EXPECTED_V12[("3.5.6", "S3")] == (True, "X25519MLKEM768")
+def test_committed_v12_data_reproduces():
+    assert cve_verdict(comparison_v12(REPO_RAW_V12)) == (True, [])
 
 
 def test_verdict_true_only_when_every_condition_holds(tmp_path):
@@ -74,6 +78,16 @@ def test_failed_precondition_or_missing_artifact_blocks_the_verdict(tmp_path):
     assert ok is False
     assert any("precondition 9/10" in reason for reason in reasons)
     assert any("artifacts 9/10" in reason for reason in reasons)
+
+
+def test_hrr_log_pcap_disagreement_blocks_the_verdict(tmp_path):
+    _expected_matrix(tmp_path, override=lambda version, setting, rep: (version, setting, rep) == ("3.5.6", "S3", 1))
+    _write(tmp_path, "3.5.6", "S3", 1, True, "X25519MLKEM768", hrr_log=False)
+
+    ok, reasons = cve_verdict(comparison_v12(tmp_path))
+
+    assert ok is False
+    assert any(reason.startswith("3.5.6 S3: hrr agree 9/10") for reason in reasons)
 
 
 def test_hrr_then_abort_counts_as_unknown_not_classical(tmp_path):

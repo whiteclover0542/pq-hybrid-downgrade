@@ -70,6 +70,7 @@ PACKAGES = {
         },
         "excluded": ("v1.2-s4", "v12-smoke", "/raw/v1.1/"),
         "out": "dist/pq-hybrid-downgrade-v12-repro.zip",
+        "extra_globs": [f"{FAULTINJECT_DIR}/tests/*.py"],
     },
 }
 
@@ -84,6 +85,8 @@ def build_zip(out_path: Path, package: str = "v1.1") -> Path:
     members.extend(sorted((REPO_ROOT / config["raw"]).glob("*")))
     members.extend(sorted((REPO_ROOT / FAULTINJECT_DIR).glob("*.py")))
     members.extend(REPO_ROOT / document for document in config["documents"])
+    for pattern in config.get("extra_globs", []):
+        members.extend(sorted(REPO_ROOT.glob(pattern)))
 
     with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as zf:
         for member in members:

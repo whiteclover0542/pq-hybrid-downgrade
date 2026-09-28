@@ -104,6 +104,7 @@ def comparison_v12(run_dir) -> dict:
             "hrr_pcap": 0, "hrr_log": 0, "hybrid": 0, "classical": 0, "unknown": 0,
             "explicit_warning": 0, "mismatch_in_single_output": 0,
             "artifacts_complete": 0, "provenance_complete": 0,
+            "hrr_agree": 0, "single_server_hello": 0,
         })
         metrics = record.metrics
         final = metrics.final_negotiated_group
@@ -126,7 +127,19 @@ def comparison_v12(run_dir) -> dict:
         count["provenance_complete"] += int(bool(
             record.provenance.get("server_bin_sha256") and record.provenance.get("client_bin_sha256")
         ))
+        count["hrr_agree"] += int(metrics.hrr_log_present == metrics.hrr_pcap_present)
+        count["single_server_hello"] += int(metrics.server_hello_count == 1)
     return out
+
+
+FIELD_LABELS = {
+    "precondition": "precondition",
+    "artifacts_complete": "artifacts",
+    "provenance_complete": "provenance",
+    "success": "success",
+    "hrr_agree": "hrr agree",
+    "single_server_hello": "single server_hello",
+}
 
 
 def cve_verdict(counts: dict, repetitions: int = 10) -> tuple[bool, list[str]]:
@@ -140,9 +153,9 @@ def cve_verdict(counts: dict, repetitions: int = 10) -> tuple[bool, list[str]]:
         n = count["n"]
         if n != repetitions or count["repetitions"] != set(range(1, repetitions + 1)):
             failures.append(f"{label}: repetitions {sorted(count['repetitions'])} (n={n})")
-        for field_name in ("precondition", "artifacts_complete", "provenance_complete", "success"):
+        for field_name, prefix in FIELD_LABELS.items():
             if count[field_name] != n:
-                failures.append(f"{label}: {field_name.split('_')[0]} {count[field_name]}/{n}")
+                failures.append(f"{label}: {prefix} {count[field_name]}/{n}")
         if count["hrr_pcap"] != (n if hrr_expected else 0):
             failures.append(f"{label}: PCAP HRR {count['hrr_pcap']}/{n}, expected {'all' if hrr_expected else 'none'}")
         final_count = count["hybrid"] if final_expected == "X25519MLKEM768" else count["classical"]
