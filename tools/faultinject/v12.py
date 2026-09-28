@@ -113,7 +113,7 @@ def preflight_v12(paths: dict[str, str], runner=subprocess.run, port_free=_port_
         environment = native_environment(version)
         run = lambda *args: runner([binary, *args], env=environment, capture_output=True, text=True).stdout
         reported = run("version")
-        if f"OpenSSL {version} " not in reported:
+        if not reported.startswith(f"OpenSSL {version} ") or f"(Library: OpenSSL {version} " not in reported:
             return False, f"{label} reports {reported.strip()!r}, expected OpenSSL {version}"
         providers = run("list", "-providers", "-provider", "default")
         if "default" not in providers or "oqsprovider" in providers:

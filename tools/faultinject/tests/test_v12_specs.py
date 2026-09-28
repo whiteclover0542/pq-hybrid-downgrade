@@ -130,3 +130,30 @@ def test_preflight_rejects_residual_processes(tmp_path):
 
     assert ok is False
     assert "s_server" in reason
+
+
+def test_preflight_rejects_a_binary_running_on_another_versions_library(tmp_path):
+    def mismatched_libs(binary, key):
+        version = "3.5.6" if "3.5.6" in binary else "3.5.5"
+        if key == "version":
+            if "3.5.6" in binary:
+                return "OpenSSL 3.5.6 1 Jan 2026 (Library: OpenSSL 3.5.5 1 Jan 2026)"
+            return f"OpenSSL {version} 1 Jan 2026 (Library: OpenSSL {version} 1 Jan 2026)"
+        return _healthy(binary, key)
+
+    ok, reason = _preflight(tmp_path, outputs=mismatched_libs)
+
+    assert ok is False
+    assert "3.5.6" in reason
+
+
+def test_preflight_rejects_a_version_string_without_the_library_clause(tmp_path):
+    def no_library_clause(binary, key):
+        if key == "version":
+            version = "3.5.6" if "3.5.6" in binary else "3.5.5"
+            return f"OpenSSL {version} 1 Jan 2026"
+        return _healthy(binary, key)
+
+    ok, reason = _preflight(tmp_path, outputs=no_library_clause)
+
+    assert ok is False
