@@ -1,0 +1,4472 @@
+[
+  {
+    "run_id": "boringssl_condition_r01_base",
+    "implementation": "boringssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r01_onpath-strip",
+    "implementation": "boringssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r01_silent-downgrade",
+    "implementation": "boringssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r02_base",
+    "implementation": "boringssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r02_onpath-strip",
+    "implementation": "boringssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r02_silent-downgrade",
+    "implementation": "boringssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r03_base",
+    "implementation": "boringssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r03_onpath-strip",
+    "implementation": "boringssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r03_silent-downgrade",
+    "implementation": "boringssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r04_base",
+    "implementation": "boringssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r04_onpath-strip",
+    "implementation": "boringssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r04_silent-downgrade",
+    "implementation": "boringssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r05_base",
+    "implementation": "boringssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r05_onpath-strip",
+    "implementation": "boringssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r05_silent-downgrade",
+    "implementation": "boringssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r06_base",
+    "implementation": "boringssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r06_onpath-strip",
+    "implementation": "boringssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r06_silent-downgrade",
+    "implementation": "boringssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r07_base",
+    "implementation": "boringssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r07_onpath-strip",
+    "implementation": "boringssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r07_silent-downgrade",
+    "implementation": "boringssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r08_base",
+    "implementation": "boringssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r08_onpath-strip",
+    "implementation": "boringssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r08_silent-downgrade",
+    "implementation": "boringssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r09_base",
+    "implementation": "boringssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r09_onpath-strip",
+    "implementation": "boringssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r09_silent-downgrade",
+    "implementation": "boringssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r10_base",
+    "implementation": "boringssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519Kyber768Draft00"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r10_onpath-strip",
+    "implementation": "boringssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "boringssl_condition_r10_silent-downgrade",
+    "implementation": "boringssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "ECDHE group: X25519"
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssh_condition_r01_base",
+    "implementation": "openssh",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r01_onpath-strip",
+    "implementation": "openssh",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r01_ssh-order",
+    "implementation": "openssh",
+    "condition": "ssh-order",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r02_base",
+    "implementation": "openssh",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r02_onpath-strip",
+    "implementation": "openssh",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r02_ssh-order",
+    "implementation": "openssh",
+    "condition": "ssh-order",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r03_base",
+    "implementation": "openssh",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r03_onpath-strip",
+    "implementation": "openssh",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r03_ssh-order",
+    "implementation": "openssh",
+    "condition": "ssh-order",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r04_base",
+    "implementation": "openssh",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r04_onpath-strip",
+    "implementation": "openssh",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r04_ssh-order",
+    "implementation": "openssh",
+    "condition": "ssh-order",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r05_base",
+    "implementation": "openssh",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r05_onpath-strip",
+    "implementation": "openssh",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r05_ssh-order",
+    "implementation": "openssh",
+    "condition": "ssh-order",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r06_base",
+    "implementation": "openssh",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r06_onpath-strip",
+    "implementation": "openssh",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r06_ssh-order",
+    "implementation": "openssh",
+    "condition": "ssh-order",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r07_base",
+    "implementation": "openssh",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r07_onpath-strip",
+    "implementation": "openssh",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r07_ssh-order",
+    "implementation": "openssh",
+    "condition": "ssh-order",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r08_base",
+    "implementation": "openssh",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r08_onpath-strip",
+    "implementation": "openssh",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r08_ssh-order",
+    "implementation": "openssh",
+    "condition": "ssh-order",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r09_base",
+    "implementation": "openssh",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r09_onpath-strip",
+    "implementation": "openssh",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r09_ssh-order",
+    "implementation": "openssh",
+    "condition": "ssh-order",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r10_base",
+    "implementation": "openssh",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r10_onpath-strip",
+    "implementation": "openssh",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssh_condition_r10_ssh-order",
+    "implementation": "openssh",
+    "condition": "ssh-order",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": true,
+          "evidence": {
+            "warning": null,
+            "advertised": "KEX algorithms: sntrup761x25519",
+            "negotiated": "kex: algorithm: sntrup761x25519-sha512@openssh.com"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": true,
+      "basis": [
+        "client_log"
+      ]
+    }
+  },
+  {
+    "run_id": "openssl_condition_r01_base",
+    "implementation": "openssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Negotiated TLS1.3 group: X25519MLKEM768"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r01_onpath-strip",
+    "implementation": "openssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r01_silent-downgrade",
+    "implementation": "openssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r02_base",
+    "implementation": "openssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Negotiated TLS1.3 group: X25519MLKEM768"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r02_onpath-strip",
+    "implementation": "openssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r02_silent-downgrade",
+    "implementation": "openssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r03_base",
+    "implementation": "openssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Negotiated TLS1.3 group: X25519MLKEM768"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r03_onpath-strip",
+    "implementation": "openssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r03_silent-downgrade",
+    "implementation": "openssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r04_base",
+    "implementation": "openssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Negotiated TLS1.3 group: X25519MLKEM768"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r04_onpath-strip",
+    "implementation": "openssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r04_silent-downgrade",
+    "implementation": "openssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r05_base",
+    "implementation": "openssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Negotiated TLS1.3 group: X25519MLKEM768"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r05_onpath-strip",
+    "implementation": "openssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r05_silent-downgrade",
+    "implementation": "openssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r06_base",
+    "implementation": "openssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Negotiated TLS1.3 group: X25519MLKEM768"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r06_onpath-strip",
+    "implementation": "openssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r06_silent-downgrade",
+    "implementation": "openssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r07_base",
+    "implementation": "openssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Negotiated TLS1.3 group: X25519MLKEM768"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r07_onpath-strip",
+    "implementation": "openssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r07_silent-downgrade",
+    "implementation": "openssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r08_base",
+    "implementation": "openssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Negotiated TLS1.3 group: X25519MLKEM768"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r08_onpath-strip",
+    "implementation": "openssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r08_silent-downgrade",
+    "implementation": "openssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r09_base",
+    "implementation": "openssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Negotiated TLS1.3 group: X25519MLKEM768"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r09_onpath-strip",
+    "implementation": "openssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r09_silent-downgrade",
+    "implementation": "openssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r10_base",
+    "implementation": "openssl",
+    "condition": "base",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Negotiated TLS1.3 group: X25519MLKEM768"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r10_onpath-strip",
+    "implementation": "openssl",
+    "condition": "onpath-strip",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  },
+  {
+    "run_id": "openssl_condition_r10_silent-downgrade",
+    "implementation": "openssl",
+    "condition": "silent-downgrade",
+    "audit": {
+      "paths": {
+        "client_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": "Peer Temp Key: X25519,"
+          }
+        },
+        "server_log": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "tshark_summary": {
+          "explicit_warning": false,
+          "mismatch_in_single_output": "unsupported",
+          "evidence": {
+            "warning": null,
+            "advertised": null,
+            "negotiated": null
+          }
+        },
+        "s_client -brief": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "the client ran with -state -msg; no -brief output was captured"
+        },
+        "keylog": {
+          "explicit_warning": null,
+          "mismatch_in_single_output": "not_collected",
+          "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+        }
+      },
+      "explicit_warning": false,
+      "mismatch_in_single_output": "unsupported",
+      "basis": []
+    }
+  }
+]
