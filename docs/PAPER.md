@@ -40,7 +40,7 @@
 
 ### 2.4 감사 가시성 정의
 
-[확실] 기존의 하드코딩된 `audit_flags_downgrade()` 결과 대신, v1.2는 경로별 실측 지표 `explicit_warning`(단일 도구 출력에 downgrade/insecure/security warning/policy 서명이 명시되면 참, 출력이 없으면 미확인)과 `mismatch_in_single_output`(단일 출력 안에서 광고 그룹과 협상 결과 그룹을 함께 식별할 수 있으면 참, 그렇지 못하면 미확인 또는 미지원)을 `tools/faultinject/audit.py`로 계산합니다. 대상 출력은 `s_client -brief`, 서버 로그, tshark 기본 요약, keylog입니다.
+[확실] 기존의 하드코딩된 `audit_flags_downgrade()` 결과 대신, v1.2는 경로별 실측 지표 `explicit_warning`(단일 도구 출력에 downgrade/insecure/security warning/policy 서명이 명시되면 참, 출력이 없으면 미확인)과 `mismatch_in_single_output`(단일 출력 안에서 광고 그룹과 협상 결과 그룹을 함께 식별할 수 있으면 참, 그렇지 못하면 미확인 또는 미지원)을 `tools/faultinject/audit.py`로 계산합니다. 실제로 측정한 경로는 클라이언트 `-msg` 로그, 서버 로그, tshark 기본 요약 세 가지입니다. `s_client -brief`와 keylog 두 경로는 v1.2에서 수집하지 않았습니다(클라이언트가 `-state -msg`로 실행되어 `-brief` 출력을 캡처하지 않았고, NSS 키 로그도 남기지 않았습니다); 이 두 경로는 `mismatch_in_single_output="not_collected"`로 고정됩니다.
 
 ## 3. 결과
 
@@ -89,7 +89,7 @@ CVE-2026-2673 verdict: reproduced
 
 [확실] S1과 S3(3.5.5)의 차이는 이 지점에서 드러납니다. S1의 HRR 부재는 명시적 single tuple 안에 이미 X25519MLKEM768과 X25519가 함께 있어 client key-share 루프에서 즉시 매치되는, 의도된 정상 동작입니다. S3(3.5.5)의 HRR 부재는 `DEFAULT`가 문서상 4개의 분리된 tuple로 정의되어 있음에도 그 구조를 잃고 단일 tuple처럼 처리된 결과이므로, 같은 "HRR 없음"이라도 근거가 다릅니다. 따라서 S1은 CVE 증거로 쓰지 않으며, CVE-2026-2673의 발현은 S3(3.5.5)과 S3(3.5.6)의 대조에서만 성립합니다.
 
-[확실] 감사 가시성 실측 결과(§2.4의 정의, `docs/research/v1.2-analysis.md` §6): v1.2 60건 전부 `explicit_warning=False`(0건 True), `mismatch_in_single_output=False`(0건 True)였습니다. 이는 OpenSSL `-msg` 로그가 협상 결과 줄만 있고 광고 그룹 줄이 없어 "확인 불가(unsupported)"로 남는다는 v1.1 재계산(`docs/research/v1.2-audit-v1.1-recompute.md`)의 도구 한계가 v1.2에서도 동일하게 재현된 것입니다. v1.1 재계산은 90건 전부 `explicit_warning=False`(unknown 0건)였고, `mismatch_in_single_output`은 openssh 30건만 `True`(TLS 60건은 `"unsupported"`)였습니다. 즉 S3(`DEFAULT`)의 CVE 발현은 표준 감사 경로 어느 것으로도 자동 경고되지 않았습니다.
+[확실] 감사 가시성 실측 결과(§2.4의 정의, `docs/research/v1.2-analysis.md` §6): v1.2 60건 전부 `explicit_warning=False`(0건 True)였고, `mismatch_in_single_output`은 60/60이 `"unsupported"`(0건 True, 0건 unknown)였습니다. 이는 OpenSSL `-msg` 로그가 협상 결과 줄만 있고 광고 그룹 줄이 없어 "확인 불가(unsupported)"로 남는다는 v1.1 재계산(`docs/research/v1.2-audit-v1.1-recompute.md`)의 도구 한계가 v1.2에서도 동일하게 재현된 것입니다. v1.1 재계산은 90건 전부 `explicit_warning=False`(unknown 0건)였고, `mismatch_in_single_output`은 openssh 30건만 `True`(TLS 60건은 `"unsupported"`)였습니다. 즉 측정한 세 경로(client `-msg` 로그, 서버 로그, tshark 기본 요약)에서는 S3(`DEFAULT`)의 CVE 발현이 자동 경고되지 않았습니다. `s_client -brief`와 keylog는 수집하지 않았으므로 이 두 경로가 경고를 냈을지는 이 데이터로 판정할 수 없습니다.
 
 [확실] BoringSSL은 A-0 조사(`docs/research/v1.2-a0-environment.md` §5) 결론에 따라 v1.2 핵심 CVE 표본에서 제외했습니다. BoringSSL은 `SSL_OP_CIPHER_SERVER_PREFERENCE` + 순서가 있는 평평한(flat) 그룹 ID 목록만 제공하며, OpenSSL의 콜론/슬래시 tuple 구문이나 `DEFAULT` 키워드에 대응하는 설정 문법이 없어("구조화된 tuple을 파싱하다가 평평한 목록으로 잃어버리는" 버그 클래스가 애초에 발생할 수 없는 API 형태), 인위적 동등 조건을 만들지 않고 "OpenSSL `DEFAULT` CVE 비교에 대한 설정 수단을 확인하지 못함"으로 결과를 제한했습니다.
 
@@ -110,6 +110,8 @@ CVE-2026-2673 verdict: reproduced
 [확실] `s_client -brief`와 keylog 감사 경로는 v1.2 60회 실행에서도 수집하지 않았습니다(클라이언트는 `-state -msg`로 실행되어 `-brief` 출력을 캡처하지 않으며, NSS 키 로그도 남기지 않았습니다).
 
 [확실] S4(서버 group-list 설정 생략, sanity control)는 필수 표본과 분리된 보조 표(`docs/research/v1.2-analysis.md` §8, 20회)로만 취급했으며, 결론 표본(S1–S3, 60회)에 포함하지 않았습니다.
+
+[확실] 3.5.5→3.5.6에는 수정 커밋 외 변경도 포함되며, 수정 커밋 단독 revert 실험으로 인과를 확인하지는 않았다. 다만 S1/S2/S4가 두 버전에서 동일하고 S3에서만 갈린다.
 
 ## 6. 결론
 

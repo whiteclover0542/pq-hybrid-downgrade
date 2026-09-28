@@ -68,6 +68,17 @@ python -c "from make_repro_package import verify_zip; print(verify_zip('../dist/
 
 ### 7.1 A-0 환경 확인
 
+[확실] 전제 조건: WSL Ubuntu, root 권한, python3, tshark, git.
+
+[확실] 3.5.5 준비: 클라이언트와 3.5.5 서버 후보는 기존 설치 `/root/pq-hybrid-phase2/install/openssl`을 그대로 재사용합니다. 이 바이너리의 소스 트리는 `/root/pq-hybrid-phase2/openssl`(git commit `67b5686b4419b4cb8caa502711c41815f5279751`, tag `openssl-3.5.5`)입니다. 이 설치를 처음부터 다시 만들어야 한다면 다음을 실행합니다(정확한 configure 옵션은 `docs/research/v1.2-a0-environment.md` §7.1과 `docs/research/phase-2-environment.md`:26에서 그대로 옮긴 것이며, 재현 시에는 이 문서 텍스트를 신뢰하지 말고 그 두 원본을 다시 확인하십시오):
+
+```bash
+./Configure linux-x86_64 --prefix=/root/pq-hybrid-phase2/install/openssl --openssldir=/root/pq-hybrid-phase2/install/openssl/ssl no-tests
+make -j2 install_sw
+```
+
+[확실] 서버 인증서 `apps/server.pem`은 이 소스 트리(`/root/pq-hybrid-phase2/openssl/apps/server.pem`)에서 옵니다. 3.5.6 빌드는 아래 `tools/v12_build_openssl_356.sh`로 수행합니다.
+
 [확실] 두 서버 후보 각각에 대해 native-only smoke 스크립트를 실행합니다(클라이언트는 항상 3.5.5 고정).
 
 ```bash
@@ -85,17 +96,30 @@ wsl -d Ubuntu -u root -- bash /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybr
 
 ### 7.2 60회 실행과 분석
 
+[확실] 보존된 `docs/research/baselines/raw/v1.2/`는 이미 60개 JSON을 담고 있으므로, `run_v12`는 이 디렉터리가 비어 있지 않으면 실행을 거부합니다(`RuntimeError: ... is not empty; choose a fresh --output-dir`). committed 데이터를 덮어쓰지 않고 새로 60회를 실행하려면 `--output-dir`로 별도 경로를 지정합니다.
+
 ```bash
-wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools && python3 -m faultinject.v12 --repeat 10'
+wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools && python3 -m faultinject.v12 --repeat 10 --output-dir /tmp/v12-rerun'
 ```
 
 ```bash
 cd tools
 python -m pytest -q
+python3 -m faultinject.analyze --v12 --run-dir /tmp/v12-rerun
+```
+
+[확실] `cd tools && python -m pytest -q`는 v1.2 재현 ZIP(`tools/faultinject/tests/*.py`를 포함, §7.3)을 풀어 그 안에서 실행해도 대부분의 테스트가 통과하지만, 일부 테스트(`test_pcap_hello.py`, `test_v12_run.py`, `test_record_v12.py` 등)는 `docs/research/baselines/raw/v1.1/`의 fixture 파일을 읽습니다. v1.2 ZIP은 `raw/v1.1/`을 의도적으로 제외하므로(§7.3), 이 fixture들이 없으면 해당 테스트가 실패합니다. 전체 스위트를 통과시키려면 저장소 체크아웃에서(즉 `raw/v1.1/`이 함께 있는 위치에서) 실행하십시오; ZIP만 풀었다면 이 v1.1 의존 테스트들의 실패를 예상해야 합니다.
+
+[확실] `python3 -m faultinject.analyze --v12`를 인자 없이 실행하면(`--run-dir` 생략) committed `docs/research/baselines/raw/v1.2/`를 읽어 이미 보존된 판정을 다시 도출합니다 — 새 실행 없이도 이 명령만으로 검증할 수 있습니다.
+
+```bash
+cd tools
 python3 -m faultinject.analyze --v12
 ```
 
-[확실] 위 `analyze --v12` 출력은 S1/S2/S3 × 3.5.5/3.5.6 6개 행과 `CVE-2026-2673 verdict: reproduced`를 보여야 합니다(정확한 수치는 `docs/research/v1.2-analysis.md` §3 참고). S4 보조표는 결론 표에 섞이지 않으므로 별도로 확인하려면 `--run-dir ../docs/research/baselines/raw/v1.2-s4 --settings S4`를 덧붙입니다.
+[확실] 위 `analyze --v12` 출력은 S1/S2/S3 × 3.5.5/3.5.6 6개 행과 `CVE-2026-2673 verdict: reproduced`를 보여야 합니다(정확한 수치는 `docs/research/v1.2-analysis.md` §3 참고). `analyze.py`에는 `--settings` 옵션이 없습니다 — S4 보조표를 별도로 확인하려면 `--run-dir`로 S4 전용 디렉터리를 직접 가리킵니다: `python3 -m faultinject.analyze --v12 --run-dir ../docs/research/baselines/raw/v1.2-s4`.
+
+[확실] cp949 콘솔(Windows PowerShell 기본 코드페이지)에서 위 `analyze` 명령을 실행하면 판정 줄의 em-dash(`—`) 때문에 `UnicodeEncodeError`가 날 수 있습니다. `PYTHONIOENCODING=utf-8 python3 -m faultinject.analyze --v12`처럼 환경 변수를 지정하십시오.
 
 ### 7.3 v1.2 재현 ZIP
 
