@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import sys
 from pathlib import Path
@@ -57,6 +58,23 @@ def write_manifest(run_dir, out_csv=None) -> Path:
 
 
 def main(argv=None) -> int:
+    parser = argparse.ArgumentParser(description="Aggregate fault-injection records")
+    parser.add_argument("--v11", action="store_true", help="read v1.1 condition records")
+    parser.add_argument("--run-dir", type=Path, metavar="PATH", help="directory of v1.1 JSON records")
+    arguments = parser.parse_args(argv)
+    if arguments.run_dir and not arguments.v11:
+        parser.error("--run-dir is only valid with --v11")
+    if arguments.v11:
+        run_dir = arguments.run_dir or Path(__file__).resolve().parents[2] / "docs/research/baselines/raw/v1.1"
+        counts = aggregate_v11(run_dir)
+        for (impl, condition), count in sorted(counts.items()):
+            print(
+                f"{impl}/{condition}: total={count['total']} verified={count['verified']} "
+                f"success={count['success']} failure={count['total'] - count['success']} "
+                f"hrr={count['hrr']} downgrade_flagged={count['downgrade_flagged']}"
+            )
+        return 0
+
     run_dir = Path(__file__).resolve().parents[2] / "docs/research/baselines/raw/phase-4"
     counts = aggregate(run_dir)
     path = write_manifest(run_dir)

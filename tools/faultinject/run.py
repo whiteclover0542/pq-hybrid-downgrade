@@ -227,7 +227,11 @@ def main(argv: list[str] | None = None) -> int:
                         help="run each of the six combinations N times into raw/phase-4/")
     parser.add_argument("--v11", type=int, metavar="N",
                         help="run each v1.1 condition combination N times into raw/v1.1/")
+    parser.add_argument("--output-dir", type=Path, metavar="PATH",
+                        help="write a v1.1 run to PATH instead of the preserved raw/v1.1/ directory")
     arguments = parser.parse_args(argv)
+    if arguments.output_dir and not arguments.v11:
+        parser.error("--output-dir is only valid with --v11")
     if arguments.repeat:
         ok, reason = preflight(phase2_paths(), phase2_environment())
         if not ok:
@@ -242,7 +246,7 @@ def main(argv: list[str] | None = None) -> int:
         if not ok:
             print(f"preflight failed: {reason}")
             return 1
-        for record in run_v11(arguments.v11):
+        for record in run_v11(arguments.v11, output_dir=arguments.output_dir):
             print(f"{record.run_id}: result={record.metrics.handshake_result} "
                   f"verified={record.manipulation_verified}")
         return 0

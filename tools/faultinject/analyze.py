@@ -1,4 +1,5 @@
 from __future__ import annotations
+import argparse
 import sys
 from pathlib import Path
 from faultinject.record import RunRecord
@@ -62,7 +63,33 @@ def render_markdown(run_dir) -> str:
     return "\n".join(lines)
 
 
+def render_v11_markdown(run_dir) -> str:
+    header = (
+        "| implementation | condition | verified/n | success | failure | HRR | downgrade flagged |\n"
+        "|---|---|---|---|---|---|---|"
+    )
+    lines = [header]
+    for (implementation, condition), count in sorted(comparison_v11(run_dir).items()):
+        lines.append(
+            f"| {implementation} | {condition} | {count['verified']}/{count['n']} | "
+            f"{count['success']} | {count['failure']} | {count['hrr']} | "
+            f"{count['downgrade_flagged']} |"
+        )
+    return "\n".join(lines)
+
+
 def main(argv=None) -> int:
+    parser = argparse.ArgumentParser(description="Render fault-injection analysis")
+    parser.add_argument("--v11", action="store_true", help="read v1.1 condition records")
+    parser.add_argument("--run-dir", type=Path, metavar="PATH", help="directory of v1.1 JSON records")
+    arguments = parser.parse_args(argv)
+    if arguments.run_dir and not arguments.v11:
+        parser.error("--run-dir is only valid with --v11")
+    if arguments.v11:
+        run_dir = arguments.run_dir or Path(__file__).resolve().parents[2] / "docs/research/baselines/raw/v1.1"
+        print(render_v11_markdown(run_dir))
+        return 0
+
     run_dir = Path(__file__).resolve().parents[2] / "docs/research/baselines/raw/phase-4"
     print(render_markdown(run_dir))
     return 0
