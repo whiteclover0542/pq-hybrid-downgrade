@@ -55,7 +55,9 @@ _SERVERHELLO_LEN_RE = re.compile(r"Handshake \[length ([0-9a-fA-F]+)\], ServerHe
 
 
 def detect_hrr(client_log_text: str) -> bool:
-    return "HelloRetryRequest" in client_log_text
+    # OpenSSL -msg prints an HRR as "ServerHello"; match its RFC 8446 fixed random instead.
+    # ponytail: BoringSSL client logs carry no handshake messages, so HRR there needs the pcap.
+    return "HelloRetryRequest" in client_log_text or "03 03 cf 21 ad 74 e5 9a 61 11" in client_log_text
 
 
 def server_hello_is_hybrid(client_log_text: str) -> bool | None:

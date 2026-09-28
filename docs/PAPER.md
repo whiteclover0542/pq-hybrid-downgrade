@@ -36,13 +36,13 @@
 
 ## 3. 결과
 
-[확실] 아래 표는 P3에서 최종 JSON을 직접 집계한 결과입니다. 모든 행은 `advertised_hybrid=10`이며, `verified`는 `manipulation_verified=true`의 수입니다.
+[확실] 아래 표는 P3에서 최종 JSON을 직접 집계한 결과입니다. 모든 행은 `advertised_hybrid=10`이며, `verified`는 `manipulation_verified=true`의 수입니다. 단 “HRR 있음” 열은 TLS PCAP 60개에서 RFC 8446 HRR 고정 random을 직접 세어 교차 검증한 값입니다. JSON의 `hrr_present` 필드는 OpenSSL `onpath-strip`의 HRR을 누락했기 때문입니다(아래 †).[3]
 
 | 구현 | 조건 | 전체 | 성공 | 실패 | verified | HRR 있음 | 자동 flag | 하이브리드 협상 | 기록된 그룹/KEX |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---|
 | OpenSSL | base | 10 | 10 | 0 | 10 | 0 | 0 | 10 | X25519MLKEM768 |
 | OpenSSL | silent-downgrade | 10 | 10 | 0 | 10 | 0 | 0 | 0 | X25519 |
-| OpenSSL | onpath-strip | 10 | 0 | 10 | 10 | 0 | 0 | 0 | X25519 |
+| OpenSSL | onpath-strip | 10 | 0 | 10 | 10 | 10† | 0 | 0 | X25519† |
 | BoringSSL | base | 10 | 10 | 0 | 10 | 0 | 0 | 10 | X25519Kyber768Draft00 |
 | BoringSSL | silent-downgrade | 10 | 10 | 0 | 10 | 0 | 0 | 0 | X25519 |
 | BoringSSL | onpath-strip | 10 | 0 | 10 | 10 | 0 | 0 | 0 | — |
@@ -50,15 +50,17 @@
 | OpenSSH | ssh-order | 10 | 10 | 0 | 10 | 0 | 0 | 10 | sntrup761x25519-sha512@openssh.com |
 | OpenSSH | onpath-strip | 10 | 0 | 10 | 10 | 0 | 0 | 10 | sntrup761x25519-sha512@openssh.com |
 
+† OpenSSL `onpath-strip`: 프록시가 하이브리드 그룹과 `key_share`를 제거하자 서버가 10회 모두 HRR을 보냈고, 클라이언트가 `X25519` `key_share`로 재시도한 뒤 서버 ServerHello가 `X25519`를 선택했으며, 클라이언트가 `bad_record_mac`으로 중단했습니다. 따라서 `X25519`는 완료된 협상이 아니라 transcript 실패 직전 서버의 선택입니다. 수집 당시 JSON의 `hrr_present`는 이 HRR을 기록하지 못했으며(OpenSSL `-msg`는 HRR을 `ServerHello`로 표기), 원시 JSON은 수정하지 않고 PCAP 교차 검증 값으로 표를 정정했습니다. OpenSSH의 KEX 열은 실패 전 harness가 파싱한 값입니다.
+
 [확실] 두 TLS 구현의 `silent-downgrade` 20건은 모두 성공, 고전 `X25519` 협상, HRR 부재, 자동 flag 부재를 기록했습니다. 같은 구현들의 `base` 20건은 모두 하이브리드 협상에 성공했습니다. 따라서 이 데이터는 시험한 구성에서 `key_share` 순서가 결과 그룹을 바꾼다는 관측을 제공합니다.[3]
 
 [확실] TLS `onpath-strip`은 OpenSSL과 BoringSSL에서 각각 10/10 실패했고 조작은 모두 검증됐습니다. 이는 시험한 alteration이 transcript 보호와 양립하는 실패 결과를 냈다는 관측입니다. OpenSSH `onpath-strip` 역시 10/10 실패했지만, harness가 파싱한 하이브리드 KEX와 `is_hybrid=true`를 기록했으므로 성공한 다운그레이드로 해석하지 않습니다.[3]
 
 ## 4. 논의와 한계
 
-[확실] 조건 C의 관측은 두 독립 TLS 구현에서 공통입니다. 하이브리드 지원을 광고했지만 고전 `key_share`를 먼저 보낸 시험 구성에서, 서버는 기록된 HRR 없이 고전 핸드셰이크를 완료했습니다. 같은 20건에서 `downgrade_flagged=false`였으므로, 선택한 표준 감사 경로는 광고-협상 불일치를 자동으로 경고하지 않았습니다.
+[확실] 조건 C의 관측은 두 독립 TLS 구현에서 공통입니다. 하이브리드 지원을 광고했지만 고전 `key_share`를 먼저 보낸 시험 구성에서, 서버는 HRR 없이 고전 핸드셰이크를 완료했습니다. 이는 harness 필드만이 아니라 20건의 PCAP에서도 확인됩니다(각각 실제 ServerHello 1개, HRR 0개).[3] 같은 20건에서 `downgrade_flagged=false`였으므로, 선택한 표준 감사 경로는 광고-협상 불일치를 자동으로 경고하지 않았습니다.
 
-[확실] 조건 A의 결과는 별개입니다. 정상 제안에서 하이브리드 성분을 경로상 제거한 검증된 실험은 TLS에서 모두 실패했습니다. 따라서 “`key_share` 순서에 의한 성공한 고전 협상”과 “패킷 변조가 성공한다”는 서로 다른 주장입니다. 후자는 이 실험에서 관측되지 않았습니다.
+[확실] 조건 A의 결과는 별개입니다. 정상 제안에서 하이브리드 성분을 경로상 제거한 검증된 실험은 TLS에서 모두 실패했습니다. OpenSSL에서는 서버가 HRR로 `X25519` 재시도를 이끌어 냈지만 transcript 불일치로 `bad_record_mac` 중단되었습니다. 즉, HRR은 조건 C에서는 없었고 조건 A에서는 있었지만 다운그레이드를 성공시키지 못했습니다. 따라서 “`key_share` 순서에 의한 성공한 고전 협상”과 “패킷 변조가 성공한다”는 서로 다른 주장입니다. 후자는 이 실험에서 관측되지 않았습니다.
 
 [확실] OpenSSH는 TLS 결론의 세 번째 표본이 아닙니다. SSH에는 TLS의 `key_share`와 HRR 구조가 없으므로, OpenSSH 결과는 구조적 대조군으로만 해석합니다. `ssh-order`는 하이브리드 KEX를 유지한 채 성공했고, `onpath-strip`은 연결 실패로 끝났습니다.
 

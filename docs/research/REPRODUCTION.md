@@ -19,7 +19,7 @@ python -m faultinject.aggregate --v11 --run-dir ../docs/research/baselines/raw/v
 python -m faultinject.analyze --v11 --run-dir ../docs/research/baselines/raw/v1.1
 ```
 
-[확실] 집계 명령은 파일을 만들거나 수정하지 않습니다. 9개 구현×조건 행마다 `total=10`, `verified=10`이 출력되어야 하며, 분석 표는 condition 축의 성공·실패·HRR·자동 flag 수를 보여 줍니다.
+[확실] 집계 명령은 파일을 만들거나 수정하지 않습니다. 9개 구현×조건 행마다 `total=10`, `verified=10`이 출력되어야 하며, 분석 표는 condition 축의 성공·실패·HRR·자동 flag 수를 보여 줍니다. 이 HRR 수는 수집 당시 JSON의 `hrr_present`이므로 OpenSSL `onpath-strip`에서도 0으로 출력되지만, PCAP 교차 검증 결과 이 조건에서는 10회 모두 HRR이 발생했습니다. 논문 표는 PCAP 값을 사용합니다(정정 근거: `docs/research/v1.1-p3-analysis.md`의 Correction 절).
 
 ## 3. 최종 데이터 무결성 점검
 
