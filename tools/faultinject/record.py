@@ -26,6 +26,11 @@ class Metrics:
     hrr_present: bool | None = None
     downgrade_flagged: bool | None = None
     advertised_hybrid: bool | None = None
+    hrr_pcap_present: bool | None = None
+    hrr_log_present: bool | None = None
+    server_hello_count: int | None = None
+    final_negotiated_group: str | None = None
+    client_precondition_verified: bool | None = None
 
 
 @dataclass
@@ -38,6 +43,8 @@ class RunRecord:
     metrics: Metrics
     manipulation_verified: bool
     artifacts: dict = field(default_factory=dict)
+    provenance: dict = field(default_factory=dict)
+    audit: dict = field(default_factory=dict)
 
     def to_json_path(self, base_dir: str | Path) -> Path:
         path = Path(base_dir) / f"{self.run_id}.json"

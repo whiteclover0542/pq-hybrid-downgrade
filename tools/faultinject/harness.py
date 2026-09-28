@@ -143,6 +143,7 @@ class ScenarioSpec:
     proxy_mutate: Callable[[bytes], bytes] | None = None
     proxy_log: Path | None = None
     advertised_hybrid: bool | None = None
+    server_env: dict[str, str] | None = None
 
 
 def run_client(command: list[str], env: dict[str, str] | None, timeout: float) -> subprocess.CompletedProcess:
@@ -172,7 +173,7 @@ def run_scenario(spec: ScenarioSpec) -> RunRecord:
     ) as capture_output:
         server = subprocess.Popen(
             spec.server_cmd,
-            env=spec.env,
+            env=spec.server_env or spec.env,
             stdout=server_output,
             stderr=subprocess.STDOUT,
         )
