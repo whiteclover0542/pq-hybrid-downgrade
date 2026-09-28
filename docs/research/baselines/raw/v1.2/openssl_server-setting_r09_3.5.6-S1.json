@@ -1,0 +1,121 @@
+{
+  "run_id": "openssl_server-setting_r09_3.5.6-S1",
+  "implementation": "openssl",
+  "fault_type": "server-setting",
+  "repetition": 9,
+  "condition": "3.5.6-S1",
+  "metrics": {
+    "negotiated_group": "X25519",
+    "is_hybrid": false,
+    "downgrade_visible": true,
+    "handshake_result": "success",
+    "detail": "",
+    "hrr_present": false,
+    "downgrade_flagged": null,
+    "advertised_hybrid": true,
+    "hrr_pcap_present": false,
+    "hrr_log_present": false,
+    "server_hello_count": 1,
+    "final_negotiated_group": "X25519",
+    "client_precondition_verified": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_server-setting_r09_3.5.6-S1-client.log",
+    "server_log": "openssl_server-setting_r09_3.5.6-S1-server.log",
+    "pcap": "openssl_server-setting_r09_3.5.6-S1.pcapng",
+    "capture_log": "openssl_server-setting_r09_3.5.6-S1-capture.log"
+  },
+  "provenance": {
+    "server_version": "3.5.6",
+    "server_setting": "S1",
+    "server_groups_arg": "X25519MLKEM768:X25519",
+    "server_bin": "/root/pq-hybrid-phase2/install/openssl-3.5.6/bin/openssl",
+    "server_bin_sha256": "88a896e54ede812cc7b944c307d4d159f478ac039f6dc08fa73da6d1cbe447eb",
+    "client_bin": "/root/pq-hybrid-phase2/install/openssl/bin/openssl",
+    "client_bin_sha256": "7b1a89948e5e2375ae24a47bd579bbd59c48e8f2fcef4508d6c5e943aba46ef1",
+    "client_groups_arg": "X25519:X25519MLKEM768",
+    "server_preference": "OpenSSL default (client preference; -serverpref not set)",
+    "server_env": {
+      "LD_LIBRARY_PATH": "/root/pq-hybrid-phase2/install/openssl-3.5.6/lib64",
+      "OPENSSL_CONF": "/dev/null",
+      "OPENSSL_MODULES": null
+    },
+    "client_env": {
+      "LD_LIBRARY_PATH": "/root/pq-hybrid-phase2/install/openssl/lib64",
+      "OPENSSL_CONF": "/dev/null",
+      "OPENSSL_MODULES": null
+    },
+    "server_cmd": [
+      "/root/pq-hybrid-phase2/install/openssl-3.5.6/bin/openssl",
+      "s_server",
+      "-tls1_3",
+      "-www",
+      "-provider",
+      "default",
+      "-accept",
+      "8545",
+      "-cert",
+      "/root/pq-hybrid-phase2/openssl/apps/server.pem",
+      "-groups",
+      "X25519MLKEM768:X25519"
+    ],
+    "client_cmd": [
+      "/root/pq-hybrid-phase2/install/openssl/bin/openssl",
+      "s_client",
+      "-tls1_3",
+      "-state",
+      "-msg",
+      "-provider",
+      "default",
+      "-connect",
+      "127.0.0.1:8545",
+      "-groups",
+      "X25519:X25519MLKEM768"
+    ]
+  },
+  "audit": {
+    "paths": {
+      "client_log": {
+        "explicit_warning": false,
+        "mismatch_in_single_output": "unsupported",
+        "evidence": {
+          "warning": null,
+          "advertised": null,
+          "negotiated": "Peer Temp Key: X25519,"
+        }
+      },
+      "server_log": {
+        "explicit_warning": false,
+        "mismatch_in_single_output": "unsupported",
+        "evidence": {
+          "warning": null,
+          "advertised": null,
+          "negotiated": null
+        }
+      },
+      "tshark_summary": {
+        "explicit_warning": false,
+        "mismatch_in_single_output": "unsupported",
+        "evidence": {
+          "warning": null,
+          "advertised": null,
+          "negotiated": null
+        }
+      },
+      "s_client -brief": {
+        "explicit_warning": null,
+        "mismatch_in_single_output": "not_collected",
+        "evidence": "the client ran with -state -msg; no -brief output was captured"
+      },
+      "keylog": {
+        "explicit_warning": null,
+        "mismatch_in_single_output": "not_collected",
+        "evidence": "no key log was written; NSS key log lines hold labels, client randoms and secrets, not group names"
+      }
+    },
+    "explicit_warning": false,
+    "mismatch_in_single_output": "unsupported",
+    "basis": []
+  }
+}
