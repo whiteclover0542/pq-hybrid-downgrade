@@ -143,11 +143,10 @@ def sha256_file(path: Path) -> str | None:
 def provenance_for(spec: ScenarioSpec, paths: dict[str, str], hashes: dict[str, str | None]) -> dict:
     version, setting = spec.condition.rsplit("-", 1)
     keep = ("LD_LIBRARY_PATH", "OPENSSL_CONF", "OPENSSL_MODULES")
-    groups_arg = SERVER_SETTINGS[setting]
     return {
         "server_version": version,
         "server_setting": setting,
-        "server_groups_arg": groups_arg if groups_arg and groups_arg != "DEFAULT" else "(omitted)",
+        "server_groups_arg": SERVER_SETTINGS[setting] or "(omitted)",
         "server_bin": paths[f"server_bin_{version}"],
         "server_bin_sha256": hashes.get(f"server_bin_{version}"),
         "client_bin": paths["client_bin"],
@@ -163,7 +162,7 @@ def provenance_for(spec: ScenarioSpec, paths: dict[str, str], hashes: dict[str, 
 
 def evaluate_v12(record: RunRecord, run_dir: Path, provenance: dict, runner=subprocess.run) -> RunRecord:
     run_dir = Path(run_dir)
-    metrics = record.metrics
+    metrics = replace(record.metrics)
     pcap_name = record.artifacts.get("pcap")
     pcap = run_dir / pcap_name if pcap_name else None
     if pcap is not None and pcap.is_file() and pcap.stat().st_size > 0:

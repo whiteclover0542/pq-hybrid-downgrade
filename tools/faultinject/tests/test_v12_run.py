@@ -59,6 +59,19 @@ def test_evaluate_counts_hrr_from_the_pcap(tmp_path):
     assert result.metrics.hrr_log_present is True
 
 
+def test_evaluate_does_not_mutate_the_input_record(tmp_path):
+    record = _record(tmp_path, "openssl_condition_r01_silent-downgrade")
+
+    result = evaluate_v12(record, tmp_path, {"server_version": "3.5.5"}, runner=_no_tshark)
+
+    # Input record should not be mutated
+    assert record.metrics.hrr_pcap_present is None
+    assert record.metrics.downgrade_flagged is False
+    # Result should have updated values
+    assert result.metrics.hrr_pcap_present is False
+    assert result.metrics.downgrade_flagged is None
+
+
 def test_missing_pcap_is_excluded_not_counted_as_no_hrr(tmp_path):
     result = evaluate_v12(_record(tmp_path), tmp_path, {}, runner=_no_tshark)
 
@@ -76,13 +89,18 @@ def test_provenance_records_both_binaries_and_the_setting():
 
     assert provenance["server_version"] == "3.5.6"
     assert provenance["server_setting"] == "S3"
-    assert provenance["server_groups_arg"] == "(omitted)"
+    assert provenance["server_groups_arg"] == "DEFAULT"
     assert provenance["server_bin_sha256"] == "s" * 64
     assert provenance["client_bin_sha256"] == "c" * 64
     assert provenance["client_groups_arg"] == "X25519:X25519MLKEM768"
     assert provenance["server_env"]["LD_LIBRARY_PATH"].endswith("openssl-3.5.6/lib64")
     assert provenance["server_cmd"] == spec.server_cmd
     assert provenance["client_cmd"] == spec.client_cmd
+
+    # S4 (None) should map to "(omitted)"
+    spec4 = v12_spec("3.5.5", "S4", 1, Path("/tmp/v12"), paths)
+    provenance4 = provenance_for(spec4, paths, {})
+    assert provenance4["server_groups_arg"] == "(omitted)"
 
 
 def test_run_refuses_a_non_empty_output_directory(tmp_path):
