@@ -59,3 +59,51 @@ python -c "from make_repro_package import verify_zip; print(verify_zip('../dist/
 [확실] 이 패키지는 시험한 그룹 순서와 감사 정의에서의 관측을 재현합니다. OpenSSH 경로상 결과는 실패한 구조적 대조군이며, 성공한 TLS 다운그레이드와 동등하지 않습니다.
 
 [불확실] 이 패키지만으로 RFC 적합성, 실배포 공격 가능성, 취약점 영향 범위, CVE 동일성을 판정할 수 없습니다.
+
+## 7. v1.2 재현 (OpenSSL `DEFAULT` tuple-loss와 HRR 대조)
+
+[확실] v1.2 최종 데이터는 `docs/research/baselines/raw/v1.2/`(JSON 60건, PCAP·client/server/capture 로그 각 60개)입니다. `docs/research/baselines/raw/v1.2-s4/`(S4 sanity control 20회)와 `/tmp/v12-smoke`는 결론 표본에서 제외합니다.
+
+[확실] 이 절의 모든 명령은 WSL(Ubuntu) 안에서 실행합니다. Windows에서는 PowerShell로 `wsl -d Ubuntu -u root -- bash -lc '...'` 형태로 호출하며, 경로는 `/mnt/d/...`처럼 WSL 마운트 경로를 사용합니다(저장소의 Windows 경로 `D:\...`를 그대로 쓰지 않습니다).
+
+### 7.1 A-0 환경 확인
+
+[확실] 두 서버 후보 각각에 대해 native-only smoke 스크립트를 실행합니다(클라이언트는 항상 3.5.5 고정).
+
+```bash
+wsl -d Ubuntu -u root -- bash /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/v12_a0_smoke.sh /root/pq-hybrid-phase2/install/openssl
+wsl -d Ubuntu -u root -- bash /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/v12_a0_smoke.sh /root/pq-hybrid-phase2/install/openssl-3.5.6
+```
+
+[확실] 3.5.6이 아직 빌드되지 않았다면 먼저 빌드합니다. 이 스크립트는 기존 3.5.5 작업 트리에서 `openssl-3.5.6` 태그를 별도 git worktree로 분리하고, 수정 커밋 `85977e0`이 그 조상인지 확인한 뒤 별도 prefix로 빌드합니다.
+
+```bash
+wsl -d Ubuntu -u root -- bash /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/v12_build_openssl_356.sh
+```
+
+[확실] 기대 출력에는 `fix-ancestor=yes`와 두 바이너리의 SHA-256이 포함됩니다(`docs/research/v1.2-a0-environment.md` §3 참고). BoringSSL의 tuple/HRR 설정 수단 조사는 `tools/v12_boringssl_survey.sh`로 재확인할 수 있습니다.
+
+### 7.2 60회 실행과 분석
+
+```bash
+wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools && python3 -m faultinject.v12 --repeat 10'
+```
+
+```bash
+cd tools
+python -m pytest -q
+python3 -m faultinject.analyze --v12
+```
+
+[확실] 위 `analyze --v12` 출력은 S1/S2/S3 × 3.5.5/3.5.6 6개 행과 `CVE-2026-2673 verdict: reproduced`를 보여야 합니다(정확한 수치는 `docs/research/v1.2-analysis.md` §3 참고). S4 보조표는 결론 표에 섞이지 않으므로 별도로 확인하려면 `--run-dir ../docs/research/baselines/raw/v1.2-s4 --settings S4`를 덧붙입니다.
+
+### 7.3 v1.2 재현 ZIP
+
+```bash
+cd tools
+python make_repro_package.py --package v1.2
+```
+
+[확실] `verify: ok=True missing=[]`가 출력되어야 합니다. v1.2 ZIP은 최종 `raw/v1.2/` 데이터(JSON 60·PCAP 60·client/server/capture 로그 각 60), `tools/faultinject` 소스, 논문, v1.2 설계, A-0 환경 대장, 결과 분석, 규범 분석, v1.1 감사 재계산 문서, A-0/3.5.6 빌드/BoringSSL 조사 스크립트, 이 재현 안내서를 포함하며 `v1.2-s4`와 `v1.1` 원시 데이터는 제외합니다.
+
+[불확실] 이 패키지만으로 RFC 적합성, 실배포 공격 가능성, 모든 OpenSSL 배포·구성에서의 영향을 판정할 수 없습니다. S1의 HRR 부재는 CVE 증거로 사용하지 않습니다.

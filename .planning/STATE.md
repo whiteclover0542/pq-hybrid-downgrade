@@ -1,18 +1,28 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.1
-milestone_name: HRR-absence hybrid-downgrade study
+milestone: v1.2
+milestone_name: OpenSSL DEFAULT tuple-loss and HRR contrast study (CVE-2026-2673)
 status: complete
-stopped_at: v1.1-P4 complete; validated publication and reproduction package pushed to origin/v1.1-hrr-downgrade
+stopped_at: v1.2 Task 10 complete; paper rewritten with v1.2 as main result, v1.2 reproduction package built and verified
 last_updated: 2026-09-28T00:00:00Z
 last_activity: 2026-09-28
 progress:
-  total_phases: 4
-  completed_phases: 4
-  total_plans: 4
-  completed_plans: 4
+  total_tasks: 10
+  completed_tasks: 10
   percent: 100
 ---
+
+# v1.2 Publication Record (2026-09-28)
+
+[확실] Task 10 rewrote `docs/PAPER.md` with the v1.2 60-run server-setting matrix (OpenSSL 3.5.5/3.5.6 × S1/S2/S3) as the main result. `python -m faultinject.analyze --v12`(tools/에서 실행) reported `CVE-2026-2673 verdict: reproduced`: S3(`DEFAULT`) diverged by version (3.5.5 no PCAP HRR/classical 10/10, 3.5.6 PCAP HRR/hybrid 10/10), while S1/S2 matched OpenSSL's documented tuple policy on both versions and are not used as CVE evidence.
+
+[확실] `tools/make_repro_package.py` now builds either package via `package="v1.1"|"v1.2"` (default v1.1, so the existing v1.1 test suite is unchanged). `python make_repro_package.py --package v1.2` → `verify: ok=True missing=[]`; the pre-existing v1.1 build also still verifies `ok=True`. Full suite: `121 passed, 1 skipped` (baseline before Task 10 was `119 passed, 1 skipped`).
+
+[확실] `docs/research/REPRODUCTION.md` gained a v1.2 section (A-0 scripts, 3.5.6 build, `faultinject.v12 --repeat 10`, `faultinject.analyze --v12`, `make_repro_package.py --package v1.2`, WSL/PowerShell path guidance). Tracking docs (`docs/PROGRESS.md`, this file, `ROADMAP.md`) were updated to record the v1.2 milestone as complete.
+
+[확실] v1.1's paper section is preserved as a summarized prior observation ("선행 관측") in the new paper's §3, including the † HRR correction, and the single-tuple documented-behavior interpretation is not hidden.
+
+See: `.planning/phases/08-v12-cve-tuple-hrr/08-01-SUMMARY.md`.
 
 # v1.1 P2 Historical Execution Record (2026-09-25)
 
@@ -44,7 +54,29 @@ See: `.planning/phases/07-v11-tooling/07-04-SUMMARY.md`.
 
 # Project State
 
-## Current Position — v1.1
+## Current Position — v1.2
+
+Phase: v1.2 Task 10 of 10 완료
+Plan: `.superpowers/sdd/2026-09-28-v12-cve-tuple-hrr/task-10-brief.md` 완료
+Status: 논문 v1.2 주 결과 갱신·v1.2 재현 ZIP 검증·추적 문서 갱신 완료
+Last activity: 2026-09-28 — v1.2 60회 실행 판정(`reproduced`) 반영한 논문 재작성, `make_repro_package.py --package v1.2` 검증, 전체 테스트 121 passed/1 skipped
+
+Progress: [■■■■■■■■■■] 100% (A-0 환경·BoringSSL 조사, PCAP HRR 파서, 서버-설정 행렬 도구, 감사 가시성 재계산, 60회 실행·판정, RFC/OpenSSL 규범 분석, 논문·재현 패키지·추적 문서 갱신 완료)
+
+### Completed Deliverables
+
+- [확실] A-0: OpenSSL 3.5.5 native-only 재사용(PASS), 3.5.6 수정 대조군 빌드(`fix-ancestor=yes`, PASS), BoringSSL 설정 수단 없음 확인(핵심 표본 제외).
+- [확실] A-1: 고정 클라이언트로 S1/S2/S3 × 3.5.5/3.5.6 × 10회 = 60회 실행, PCAP HRR 주 판정, 감사 가시성(`explicit_warning`/`mismatch_in_single_output`) 실측.
+- [확실] 판정: `CVE-2026-2673 verdict: reproduced`(설계 §2.2 4조건 충족). 규범 분석: RFC 8446 위반이 아니라 OpenSSL 자신의 문서화된 tuple 정책을 `DEFAULT` 확장에서 스스로 지키지 못한 구현 결함.
+- [확실] Task 10: 논문을 v1.2 주 결과로 재작성(v1.1은 선행 관측으로 보존), `make_repro_package.py`를 `package=` 축으로 확장, v1.2 재현 ZIP 빌드·검증, `REPRODUCTION.md`/추적 문서 갱신.
+
+### Scope Boundary
+
+- [불확실] v1.2 결과는 시험한 두 OpenSSL 버전(3.5.5/3.5.6)·group-list 설정(S1–S3)·client preference·loopback 환경·10회 반복에 한정됩니다. 모든 OpenSSL 배포·구성이나 실배포 공격 가능성을 일반화하지 않습니다. S1은 CVE 증거로 쓰지 않습니다.
+
+## v1.1 Historical State
+
+### Current Position — v1.1 (완료, 2026-09-28)
 
 Phase: v1.1 P4 of P4 완료
 Plan: `07-04-SUMMARY.md` 완료
@@ -53,13 +85,13 @@ Last activity: 2026-09-28 — 최종 데이터 검증, P4 문서 갱신, 재현 
 
 Progress: [■■■■] 100% (P1 도구 확장, P2 반복 실행, P3 분석, P4 논문·재현 패키지 갱신 완료)
 
-### Completed Deliverables
+#### Completed Deliverables
 
 - [확실] P2: 9개 구현×조건 조합을 r01–r10으로 실행해 최종 JSON 90건과 필수 artifact를 보존했습니다.
 - [확실] P3: 조건 축·HRR·감사 가시성을 분석하고 관측 범위를 문서화했습니다.
 - [확실] P4: v1.1 전용 논문·안전한 재현 안내·검증된 재현 ZIP을 갱신해 원격 브랜치에 푸시했습니다.
 
-### Scope Boundary
+#### Scope Boundary
 
 - [불확실] v1.1 결과는 고정된 구현·그룹 순서·loopback 환경·감사 정의의 관측입니다. RFC 위반, CVE 동일성, 실환경 공격 가능성 또는 새 취약점을 판정하지 않습니다.
 

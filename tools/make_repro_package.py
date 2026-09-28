@@ -1,4 +1,4 @@
-"""Bundle and verify the validated v1.1 reproduction evidence package."""
+"""Bundle and verify the validated milestone reproduction packages."""
 from __future__ import annotations
 
 import argparse
@@ -34,20 +34,56 @@ REQUIRED_ARTIFACTS = {
     "v1.1 proxy logs": ("-proxy.log", 30),
 }
 
+PACKAGES = {
+    "v1.1": {
+        "raw": RAW_V11_DIR,
+        "documents": [REPRODUCTION_MD, PAPER_MD, V11_DESIGN_MD, P2_SUMMARY_MD, P3_ANALYSIS_MD],
+        "required_files": REQUIRED_FILES,
+        "artifacts": REQUIRED_ARTIFACTS,
+        "excluded": ("v1.1-diagnose", "v1.1-pre-", "v1.1-preflight"),
+        "out": "dist/pq-hybrid-downgrade-v11-repro.zip",
+    },
+    "v1.2": {
+        "raw": "docs/research/baselines/raw/v1.2",
+        "documents": [
+            REPRODUCTION_MD, PAPER_MD,
+            "docs/superpowers/specs/2026-09-28-v12-cve-tuple-hrr-design.md",
+            "docs/research/v1.2-a0-environment.md",
+            "docs/research/v1.2-analysis.md",
+            "docs/research/v1.2-normative-analysis.md",
+            "docs/research/v1.2-audit-v1.1-recompute.md",
+            "tools/v12_a0_smoke.sh",
+            "tools/v12_build_openssl_356.sh",
+            "tools/v12_boringssl_survey.sh",
+        ],
+        "required_files": [
+            f"{FAULTINJECT_DIR}/v12.py", f"{FAULTINJECT_DIR}/pcap_hello.py",
+            f"{FAULTINJECT_DIR}/audit.py", f"{FAULTINJECT_DIR}/analyze.py",
+            REPRODUCTION_MD, PAPER_MD, "docs/research/v1.2-analysis.md",
+        ],
+        "artifacts": {
+            "v1.2 JSON records": (".json", 60),
+            "v1.2 PCAPs": (".pcapng", 60),
+            "v1.2 client logs": ("-client.log", 60),
+            "v1.2 server logs": ("-server.log", 60),
+            "v1.2 capture logs": ("-capture.log", 60),
+        },
+        "excluded": ("v1.2-s4", "v12-smoke", "/raw/v1.1/"),
+        "out": "dist/pq-hybrid-downgrade-v12-repro.zip",
+    },
+}
 
-def build_zip(out_path: Path) -> Path:
-    """Bundle final v1.1 evidence and its review materials with relative paths."""
+
+def build_zip(out_path: Path, package: str = "v1.1") -> Path:
+    """Bundle one milestone's final evidence and its review materials with relative paths."""
+    config = PACKAGES[package]
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     members: list[Path] = []
-    members.extend(sorted((REPO_ROOT / RAW_V11_DIR).glob("*")))
+    members.extend(sorted((REPO_ROOT / config["raw"]).glob("*")))
     members.extend(sorted((REPO_ROOT / FAULTINJECT_DIR).glob("*.py")))
-    members.append(REPO_ROOT / REPRODUCTION_MD)
-    members.append(REPO_ROOT / PAPER_MD)
-    members.append(REPO_ROOT / V11_DESIGN_MD)
-    members.append(REPO_ROOT / P2_SUMMARY_MD)
-    members.append(REPO_ROOT / P3_ANALYSIS_MD)
+    members.extend(REPO_ROOT / document for document in config["documents"])
 
     with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as zf:
         for member in members:
@@ -56,38 +92,38 @@ def build_zip(out_path: Path) -> Path:
     return out_path
 
 
-def verify_zip(zip_path: Path) -> tuple[bool, list[str]]:
+def verify_zip(zip_path: Path, package: str = "v1.1") -> tuple[bool, list[str]]:
     """Check that an unpacked-anywhere ZIP still has all required files."""
+    config = PACKAGES[package]
     with zipfile.ZipFile(zip_path) as zf:
         names = zf.namelist()
 
-    missing = [required for required in REQUIRED_FILES if required not in names]
+    missing = [required for required in config["required_files"] if required not in names]
 
-    v11_names = [name for name in names if name.startswith(f"{RAW_V11_DIR}/")]
-    for label, (suffix, minimum) in REQUIRED_ARTIFACTS.items():
-        if sum(name.endswith(suffix) for name in v11_names) < minimum:
+    raw_names = [name for name in names if name.startswith(f"{config['raw']}/")]
+    for label, (suffix, minimum) in config["artifacts"].items():
+        if sum(name.endswith(suffix) for name in raw_names) < minimum:
             missing.append(label)
 
-    excluded_markers = ("v1.1-diagnose", "v1.1-pre-", "v1.1-preflight")
-    if any(marker in name for name in names for marker in excluded_markers):
-        missing.append("excluded v1.1 diagnostic or partial data")
+    if any(marker in name for name in names for marker in config["excluded"]):
+        missing.append(f"excluded {package} diagnostic or partial data")
 
     return (len(missing) == 0, missing)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build the single-ZIP reproduction package")
+    parser.add_argument("--package", choices=sorted(PACKAGES), default="v1.1")
     parser.add_argument("--out", default=None,
-                        help="output ZIP path, relative to cwd "
-                             "(default: <repo_root>/dist/pq-hybrid-downgrade-v11-repro.zip)")
+                        help="output ZIP path, relative to cwd (default: <repo_root>/<package default>)")
     args = parser.parse_args()
 
     # --out is a normal path relative to the caller's cwd (e.g. `../dist/x.zip`
     # when run from tools/); only the unset default is anchored to the repo root.
-    out_path = Path(args.out) if args.out else REPO_ROOT / "dist/pq-hybrid-downgrade-v11-repro.zip"
+    out_path = Path(args.out) if args.out else REPO_ROOT / PACKAGES[args.package]["out"]
 
-    built = build_zip(out_path)
-    ok, missing = verify_zip(built)
+    built = build_zip(out_path, args.package)
+    ok, missing = verify_zip(built, args.package)
     print(f"built: {built}")
     print(f"verify: ok={ok} missing={missing}")
     return 0 if ok else 1

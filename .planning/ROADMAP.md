@@ -1,5 +1,17 @@
 # Roadmap: pq-hybrid-downgrade
 
+## v1.2 final status (2026-09-28)
+
+- [x] **A-0: 사전 확인** — OpenSSL 3.5.5 native-only 재사용 PASS, 3.5.6 수정 대조군 빌드 PASS(`fix-ancestor=yes`, tag `openssl-3.5.6` commit `286ddeaac0...`), BoringSSL 설정 수단 없음 확인(핵심 표본 제외).
+- [x] **A-1: 필수 실험 행렬** — 고정 OpenSSL 3.5.5 native-only 클라이언트로 S1(`X25519MLKEM768:X25519`)/S2(`X25519MLKEM768/X25519`)/S3(`DEFAULT`) × 3.5.5/3.5.6 × 10회 = 60회 실행, PCAP HRR 주 판정 및 감사 가시성 실측.
+- [x] **B: 판정** — `python -m faultinject.analyze --v12`(tools/에서 실행) → `CVE-2026-2673 verdict: reproduced`(설계 §2.2 4조건 충족: S3 3.5.5 HRR 없는 classical, S3 3.5.6 HRR 있는 hybrid, S1/S2 문서상 대조, 각 조합 10회 일관).
+- [x] **C: 규범 분석** — RFC 8446 §4.1.1/§4.2.7/OpenSSL 문서 인용·해석 완료. 결론: RFC 8446 위반이 아니라 OpenSSL이 `DEFAULT` 확장에서 자신이 문서화한 tuple 정책을 스스로 지키지 못한 구현 결함.
+- [x] **D: 논문·재현 패키지·추적 문서 갱신** — `docs/PAPER.md`를 v1.2 주 결과로 재작성(v1.1은 선행 관측으로 보존), `tools/make_repro_package.py`를 `package=` 축으로 확장, `dist/pq-hybrid-downgrade-v12-repro.zip` 빌드·검증(`ok=True`), `docs/research/REPRODUCTION.md`에 v1.2 절 추가, 추적 문서(STATE/PROGRESS/ROADMAP) 갱신.
+
+[확실] v1.2 작업은 완료됐습니다: 60회 실행 전부 `precondition/n=10/10`, `CVE-2026-2673 verdict: reproduced`, 논문·재현 ZIP·추적 문서 갱신 완료. 전체 테스트 `121 passed, 1 skipped`(v1.2 Task 10 시작 시점 베이스라인 `119 passed, 1 skipped`). 근거: [08-01-SUMMARY.md](phases/08-v12-cve-tuple-hrr/08-01-SUMMARY.md), [v1.2-analysis.md](../docs/research/v1.2-analysis.md), [v1.2-normative-analysis.md](../docs/research/v1.2-normative-analysis.md).
+
+[불확실] v1.2 결과는 시험한 두 OpenSSL 버전(3.5.5/3.5.6)·group-list 설정(S1–S3)·client preference·loopback 환경·10회 반복에 한정됩니다. 모든 OpenSSL 배포·구성이나 실배포 공격 가능성을 일반화하지 않으며, S1은 CVE 증거로 쓰지 않습니다.
+
 ## v1.1 final status (2026-09-28)
 
 - [x] **P1: tooling extension** — completed.
@@ -55,6 +67,22 @@ v1.0 완료 산출물을 보존한 채, 하이브리드 광고와 고전 key_sha
 - [x] **P4: 논문·재현 패키지 갱신** — 검증된 P2/P3 결과만 논문, 표, 재현 패키지에 반영하고 재현 ZIP을 검증했습니다. (completed 2026-09-28)
 
 P1 인계 조건과 실행 명령은 [07-01-SUMMARY.md](phases/07-v11-tooling/07-01-SUMMARY.md)에 기록합니다.
+
+> 🎯 **밀스톤 v1.1 완료** — P1~P4 전부 완료. v1.1의 명시적 single tuple 수락은 문서상 동작으로 해석 보강되었으며, `DEFAULT` 경로와 수정 버전 대조는 v1.2로 이연되었다.
+
+## v1.2 확장: OpenSSL `DEFAULT` tuple-loss와 HRR 대조 (CVE-2026-2673)
+
+v1.1이 시험하지 않은 `DEFAULT` 키워드의 tuple-loss 발현 경로를, OpenSSL 3.5.5(발현)와 3.5.6(수정 커밋 `85977e0` 이후)의 직접 대조로 분리해 시험했습니다. 판정은 설계 §2.2의 4개 조건을 모두 충족해야만 "재현"으로 씁니다.
+
+- [x] **A-0: 사전 확인** — OpenSSL 3.5.5 native-only 재사용 PASS, 3.5.6 수정 대조군 빌드 PASS(`fix-ancestor=yes`), BoringSSL 설정 수단 없음 확인(핵심 표본 제외). (completed 2026-09-28)
+- [x] **A-1: 필수 실험 행렬** — 고정 클라이언트로 S1/S2/S3 × 3.5.5/3.5.6 × 10회 = 60회 실행, PCAP HRR 주 판정. (completed 2026-09-28)
+- [x] **B: 판정** — `analyze --v12` → `CVE-2026-2673 verdict: reproduced`. (completed 2026-09-28)
+- [x] **C: 규범 분석** — RFC 8446·OpenSSL 문서 인용·해석, CVE를 RFC 위반이 아닌 OpenSSL 자체 tuple 정책 위반 구현 결함으로 위치. (completed 2026-09-28)
+- [x] **D: 논문·재현 패키지·추적 문서 갱신** — 논문을 v1.2 주 결과로 재작성, v1.2 재현 ZIP 빌드·검증, 추적 문서 갱신. (completed 2026-09-28)
+
+A-0 인계 조건과 실행 명령은 [08-01-SUMMARY.md](phases/08-v12-cve-tuple-hrr/08-01-SUMMARY.md)에 기록합니다.
+
+> 🎯 **밀스톤 v1.2 완료** — A-0~D 전부 완료. "이 고정된 테스트베드에서 CVE-2026-2673 발현 조건과 수정 대조를 재현했다."
 
 ## Phase Details
 

@@ -1,103 +1,142 @@
-# 하이브리드 광고와 서버 group tuple에 따른 PQ 키 교환 관측: HRR와 감사 가시성의 교차 구현 결과
+# OpenSSL group tuple 경계와 CVE-2026-2673: `DEFAULT` 설정에서의 HRR 생략과 수정 버전 대조
 
 - 저자: whiteclover0542
 - 문서 갱신: 2026-09-28
-- 데이터 기준: v1.1 P2 최종 데이터셋(2026-09-25)
+- 데이터 기준: v1.2 60회 실행(2026-09-28) + v1.1 P2 최종 데이터셋(2026-09-25, 선행 관측)
 
 ## 초록
 
-[확실] 본 연구는 하이브리드 PQ 키 교환을 광고하는 TLS 1.3 클라이언트가 고전 `key_share`를 먼저 제시할 때의 협상 결과와 감사 가시성을 관측합니다. OpenSSL, BoringSSL, OpenSSH의 9개 구현×조건 조합을 각각 10회씩 실행하여, 최종 JSON 90건과 PCAP·클라이언트 로그·캡처 로그를 보존했습니다. OpenSSL과 BoringSSL의 `silent-downgrade` 조건(하네스 식별자: 하이브리드 광고와 고전-first `key_share`)은 각각 10/10 성공했고, 기록된 협상 그룹은 모두 고전 `X25519`, HRR은 0회, 자동 다운그레이드 표시는 0회였습니다. OpenSSL의 이 결과는 서버의 명시적 single tuple 설정에서 이미 받은 `X25519` key share를 수락하는 문서상 동작과 일치합니다.[4] 반대로 검증된 `onpath-strip` 조건은 두 TLS 구현에서 각각 10/10 핸드셰이크 실패를 기록했습니다. OpenSSH의 경로상 조건도 10/10 실패했으며, 이는 TLS `key_share`/HRR과 직접 동등하지 않은 구조적 대조군입니다.
+[확실] 본 연구는 하이브리드 PQ 키 교환(`X25519MLKEM768`)과 고전 키 교환(`X25519`)을 함께 광고하되 초기 `key_share`에는 `X25519`만 보내는 하나의 고정된 OpenSSL 3.5.5 native-only 클라이언트를 사용해, 서버 group-list 설정(S1 `X25519MLKEM768:X25519`, S2 `X25519MLKEM768/X25519`, S3 `DEFAULT`)과 서버 버전(3.5.5/3.5.6, 수정 커밋 `85977e0` 조상 확인됨)의 2×3 조합마다 10회씩 총 60회를 실행했습니다. S3(`DEFAULT`)에서 3.5.5는 10/10 반복 모두 PCAP HelloRetryRequest(HRR) 없이 classical `X25519` handshake를 완료했고(HRR (PCAP)=0/10, classical=10/10), 같은 S3에서 3.5.6은 10/10 반복 모두 PCAP HRR을 보낸 뒤 hybrid `X25519MLKEM768` handshake를 완료했습니다(HRR (PCAP)=10/10, hybrid=10/10). 설계 §2.2의 4개 판정 조건(S3 3.5.5 HRR 없는 classical 완료, S3 3.5.6 HRR 있는 hybrid 완료, S1/S2가 문서상 대조 결과를 보임, 각 조합 10회 일관·근거 보존)을 모두 충족하여, 설계 §8 문구대로 "이 고정된 테스트베드에서 CVE-2026-2673 발현 조건과 수정 대조를 재현했다"고 판정합니다.
 
-[불확실] 이 결과는 시험한 그룹 순서·버전·loopback 환경·감사 정의에 한정됩니다. RFC 적합성, 실배포 공격 가능성, CVE 재현 또는 새로운 취약점 여부는 이 데이터만으로 판정할 수 없습니다.
+[확실] 규범 분석(`docs/research/v1.2-normative-analysis.md` §4)은 RFC 8446 §4.1.1의 MUST-HRR 의무가 클라이언트가 이미 수락 가능한 key_share를 보내지 않았을 때에만 적용되므로 S1·S3(3.5.5)의 HRR 부재 자체는 RFC 위반이 아니며, CVE-2026-2673은 OpenSSL이 `DEFAULT` 확장 과정에서 자신이 문서화한 tuple 기반 group-selection 정책(`TLS_DEFAULT_GROUP_LIST`의 tuple 구문)을 스스로 지키지 못한 구현 결함으로 위치 짓는 것이 근거와 일치한다고 결론짓습니다.
+
+[불확실] 이 결과는 시험한 두 OpenSSL 버전·group-list 설정·client preference·loopback 환경·10회 반복에 한정되며, 모든 OpenSSL 배포·구성이나 실배포 공격 가능성을 일반화하지 않습니다.
 
 ## 1. 서론
 
-[확실] 하이브리드 PQ 키 교환에서 클라이언트의 지원 그룹 광고와 실제 `key_share` 제시, 서버의 선택, Hello Retry Request(HRR), 그리고 감사 출력은 서로 다른 관측 지점입니다. v1.1은 이 지점들이 일치하지 않을 때 실제 협상이 어떻게 기록되는지를 반복 실험으로 측정합니다.
+[확실] v1.0은 클라이언트가 CLI로 고전 그룹만 제시한 group-list 실험과 PQ 성분 변조 대조 실험을 수행했습니다. 그 결과는 구성상 고전만 제시하면 고전 협상이 가능하고 변조는 실패한다는 관측이었으나, 클라이언트의 group-list 자체가 이미 고전만 광고하는 동어반복적 구성이었고, `DEFAULT` 경로는 시험하지 않았습니다.
 
-[확실] v1.0은 클라이언트가 CLI로 고전 그룹만 제시한 group-list 실험과 PQ 성분 변조 대조 실험을 수행했습니다. 그 결과는 구성상 고전만 제시하면 고전 협상이 가능하고 변조는 실패한다는 가시적 관측이었지만, 하이브리드 광고 상태에서 `key_share` 순서가 협상과 감사에 미치는 영향을 시험하지 못했습니다. 따라서 v1.1에서는 v1.0을 동등한 결과 축으로 반복하지 않고, 그 한계를 보완하는 후속 설계를 주 결과로 삼습니다.
+[확실] v1.1은 하이브리드를 광고한 상태에서 `key_share` 순서가 협상·HRR·감사 가시성에 미치는 영향을 교차 구현(OpenSSL, BoringSSL, OpenSSH)으로 측정했습니다. v1.1의 OpenSSL 서버 설정은 `X25519MLKEM768:X25519`라는 하나의 명시적 tuple이었고, 초기 발표 이후 이 결과는 해당 tuple 안에 이미 받은 `X25519` key share를 수락하는 OpenSSL의 문서상 선택 규칙과 일치한다는 해석 보강이 이루어졌습니다(v1.1 §2.3, †HRR 정정 포함). 즉 v1.1의 single tuple 수락은 CVE-2026-2673의 증거가 아니며, v1.1은 이 사실을 숨기지 않고 논문·재현 패키지에 그대로 남깁니다.
 
-[확실] 연구 질문은 다음과 같습니다. 하이브리드를 광고하고 서버가 하이브리드를 선호하는 TLS 구성에서, 클라이언트가 고전 `key_share`를 먼저 보낼 경우 HRR 없이 고전 협상이 완료되는가? 또한 선택한 감사 경로가 광고된 하이브리드와 실제 고전 협상의 불일치를 자동으로 표면화하는가?
+[확실] v1.2는 v1.1이 시험하지 않은 것, 즉 `DEFAULT` 키워드가 tuple 구조를 잃는 CVE-2026-2673의 발현 경로 자체를 OpenSSL 3.5.5(발현)와 3.5.6(수정 커밋 `85977e0` 이후)의 직접 대조로 분리해 시험합니다. v1.2는 명시적 single tuple(S1), 명시적 tuple 경계(S2), `DEFAULT`(S3) 세 서버 설정을 두 버전 각각에 적용해, `DEFAULT` 특유의 결함을 다른 정상 tuple 동작과 구분합니다.
 
 ## 2. 방법
 
-### 2.1 데이터 경계와 구현
+### 2.1 환경 (A-0)
 
-[확실] 모든 수치의 유일한 출처는 `docs/research/baselines/raw/v1.1/`의 최종 JSON 90건입니다. 이전 63건 보존본, preflight 출력, 그리고 모든 `v1.1-diagnose*` 디렉터리는 결과 집계와 해석에서 제외했습니다. 최종 실행은 상태 코드 0과 빈 stderr 로그로 종료됐으며, 90개의 PCAP·클라이언트 로그·캡처 로그와 30개의 경로상 프록시 로그가 존재합니다.[1]
+[확실] 클라이언트와 3.5.5 서버는 기존 설치를 재사용한 동일 바이너리(`/root/pq-hybrid-phase2/install/openssl/bin/openssl`, SHA-256 `7b1a89948e5e2375ae24a47bd579bbd59c48e8f2fcef4508d6c5e943aba46ef1`)입니다. 3.5.6 서버는 별도 prefix에 새로 빌드한 수정 대조군(`/root/pq-hybrid-phase2/install/openssl-3.5.6/bin/openssl`, SHA-256 `88a896e54ede812cc7b944c307d4d159f478ac039f6dc08fa73da6d1cbe447eb`)입니다.
 
-[확실] 구현은 고정된 v1.1 환경의 OpenSSL(+oqs-provider), BoringSSL, OpenSSH portable입니다. TLS의 하이브리드 협상 그룹은 각각 `X25519MLKEM768`, `X25519Kyber768Draft00`이며, OpenSSH의 하이브리드 KEX는 `sntrup761x25519-sha512@openssh.com`입니다.[2]
+[확실] 3.5.6 소스는 정확히 `openssl-3.5.6` 태그(`git describe --tags --exact-match`, commit `286ddeaac037533bbdce65b3c689e3f7ffebf0f6`)를 가리키며, `git merge-base --is-ancestor 85977e0 HEAD`가 `fix-ancestor=yes`(종료 코드 0)로 수정 커밋 `85977e013f32ceb96aa034c0e741adddc1a05e34`("Fix group tuple handling in DEFAULT expansion")의 조상임을 확인했습니다. 두 버전 모두 `-provider default`만 사용하며(oqsprovider 미로드), `openssl list -tls-groups -tls1_3`에 `X25519MLKEM768`이 있음을 확인했습니다.
 
-### 2.2 조건과 지표
+### 2.2 고정 클라이언트와 행렬
 
-[확실] 유효 조합은 9개입니다. OpenSSL과 BoringSSL은 `base`, `silent-downgrade`, `onpath-strip`을 실행했고, OpenSSH는 `base`, `ssh-order`, `onpath-strip`을 실행했습니다. 각 조합은 r01부터 r10까지 정확히 한 번씩 존재합니다.
+[확실] 모든 60회는 동일한 OpenSSL 3.5.5 native-only 클라이언트 바이너리와 동일 명령(`-groups X25519:X25519MLKEM768`, ClientHello `supported_groups`에 `X25519`·`X25519MLKEM768` 광고, `key_share`는 `X25519`만 전송)을 사용했습니다. 두 서버 모두 `-serverpref`를 지정하지 않아 OpenSSL 기본값인 client preference로 고정했습니다. 서버 group-list는 S1 `X25519MLKEM768:X25519`, S2 `X25519MLKEM768/X25519`, S3 `DEFAULT`입니다. 필수 표본은 2 버전 × 3 설정 × 10회 = 60회입니다.
 
-[확실] `silent-downgrade`는 TLS에서 하이브리드를 광고하면서 고전 `key_share`를 먼저 제시하고, 서버는 하이브리드를 선호하도록 구성한 조건입니다. `onpath-strip`은 정상 하이브리드 제안에서 프록시가 하이브리드 그룹 또는 KEX를 제거하는 조건입니다. OpenSSH의 `ssh-order`는 SSH의 첫 매치 KEX 목록 순서를 관측하는 대조 조건이며 TLS의 `key_share`/HRR 조건과 동등하지 않습니다.[2]
+### 2.3 HRR 주 판정과 CVE 재현 판정 규칙
 
-[확실] 각 실행은 협상 그룹/KEX, 성공·실패, `manipulation_verified`, `advertised_hybrid`, `hrr_present`, `downgrade_flagged`, `is_hybrid`를 기록합니다. 여기서 “silent”는 선택한 client log, 상태 로그, keylog, PCAP 관측 경로가 광고-협상 불일치를 자동으로 표면화했는지를 뜻하는 조작적 정의입니다.
+[확실] HRR의 주 판정값은 TLS PCAP ServerHello random이 RFC 8446 HelloRetryRequest 고정 random(`cf21ad74e59a6111be1d8c021e65b891c2a211167abb8c5e079e09e2c8a8339c`)과 일치하는지 여부입니다. 클라이언트 `-msg` 로그는 보조 증거이며 PCAP 판정을 대체하지 않습니다.
 
-### 2.3 v1.1 해석 보강: 명시적 single tuple
+[확실] "CVE-2026-2673이 이 테스트베드에서 재현됐다"는 문구는 설계 §2.2에 따라 다음 네 조건을 모두 만족할 때만 사용합니다: (1) S3에서 3.5.5가 검증된 클라이언트 전제 아래 HRR 없이 classical `X25519` handshake를 완료, (2) 같은 S3에서 3.5.6이 PCAP HRR을 보낸 뒤 `X25519MLKEM768` hybrid handshake를 완료, (3) S1·S2가 각각 명시적 single-tuple 수락과 명시적 tuple 경계 HRR이라는 문서상 대조 결과를 보임, (4) 각 필수 version×setting 조합이 독립 반복 10회에서 위 결과가 일관되고 설정 문자열·바이너리 버전·PCAP·로그가 모두 보존됨.
 
-[확실] v1.1의 OpenSSL 서버는 `X25519MLKEM768:X25519`를 사용했습니다. OpenSSL 3.5의 group-list 문법에서 `:`는 같은 tuple 안의 그룹을 구분하고, `/`가 tuple 경계를 만듭니다. 서버는 현재 tuple 안에 클라이언트가 이미 보낸 key share가 있으면 ServerHello를 반환하며, 더 선호되는 tuple에 지원 그룹만 있으면 HRR을 반환합니다.[4]
+### 2.4 감사 가시성 정의
 
-[확실] 따라서 OpenSSL `silent-downgrade` 조건의 `X25519` 수락은 명시적 single tuple에서 문서화된 선택 규칙과 일치합니다. 이 v1.1 조건은 `DEFAULT` 키워드가 tuple 구조를 잃어 HRR이 생략되는 CVE-2026-2673 경로를 시험하지 않았고, 수정 버전과의 대조도 수행하지 않았습니다. v1.1은 이 구분을 뒷받침하는 관측·감사 데이터로 보존합니다.[4][5]
+[확실] 기존의 하드코딩된 `audit_flags_downgrade()` 결과 대신, v1.2는 경로별 실측 지표 `explicit_warning`(단일 도구 출력에 downgrade/insecure/security warning/policy 서명이 명시되면 참, 출력이 없으면 미확인)과 `mismatch_in_single_output`(단일 출력 안에서 광고 그룹과 협상 결과 그룹을 함께 식별할 수 있으면 참, 그렇지 못하면 미확인 또는 미지원)을 `tools/faultinject/audit.py`로 계산합니다. 대상 출력은 `s_client -brief`, 서버 로그, tshark 기본 요약, keylog입니다.
 
 ## 3. 결과
 
-[확실] 아래 표는 P3에서 최종 JSON을 직접 집계한 결과입니다. 모든 행은 `advertised_hybrid=10`이며, `verified`는 `manipulation_verified=true`의 수입니다. 단 “HRR 있음” 열은 TLS PCAP 60개에서 RFC 8446 HRR 고정 random을 직접 세어 교차 검증한 값입니다. JSON의 `hrr_present` 필드는 OpenSSL `onpath-strip`의 HRR을 누락했기 때문입니다(아래 †).[3]
+[확실] `python -m faultinject.analyze --v12`(tools/에서 실행) 출력 원문:
 
-| 구현 | 조건 | 전체 | 성공 | 실패 | verified | HRR 있음 | 자동 flag | 하이브리드 협상 | 기록된 그룹/KEX |
-|---|---|---:|---:|---:|---:|---:|---:|---:|---|
-| OpenSSL | base | 10 | 10 | 0 | 10 | 0 | 0 | 10 | X25519MLKEM768 |
-| OpenSSL | silent-downgrade | 10 | 10 | 0 | 10 | 0 | 0 | 0 | X25519 |
-| OpenSSL | onpath-strip | 10 | 0 | 10 | 10 | 10† | 0 | 0 | X25519† |
-| BoringSSL | base | 10 | 10 | 0 | 10 | 0 | 0 | 10 | X25519Kyber768Draft00 |
-| BoringSSL | silent-downgrade | 10 | 10 | 0 | 10 | 0 | 0 | 0 | X25519 |
-| BoringSSL | onpath-strip | 10 | 0 | 10 | 10 | 0 | 0 | 0 | — |
-| OpenSSH | base | 10 | 10 | 0 | 10 | 0 | 0 | 10 | sntrup761x25519-sha512@openssh.com |
-| OpenSSH | ssh-order | 10 | 10 | 0 | 10 | 0 | 0 | 10 | sntrup761x25519-sha512@openssh.com |
-| OpenSSH | onpath-strip | 10 | 0 | 10 | 10 | 0 | 0 | 10 | sntrup761x25519-sha512@openssh.com |
+```
+| server | setting | precondition/n | success | failure | HRR (PCAP) | HRR (log) | hybrid | classical | unknown | explicit warning | single-output mismatch |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 3.5.5 | S1 | 10/10 | 10 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 0 |
+| 3.5.5 | S2 | 10/10 | 10 | 0 | 10 | 10 | 10 | 0 | 0 | 0 | 0 |
+| 3.5.5 | S3 | 10/10 | 10 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 0 |
+| 3.5.6 | S1 | 10/10 | 10 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 0 |
+| 3.5.6 | S2 | 10/10 | 10 | 0 | 10 | 10 | 10 | 0 | 0 | 0 | 0 |
+| 3.5.6 | S3 | 10/10 | 10 | 0 | 10 | 10 | 10 | 0 | 0 | 0 | 0 |
 
-† OpenSSL `onpath-strip`: 프록시가 하이브리드 그룹과 `key_share`를 제거하자 서버가 10회 모두 HRR을 보냈고, 클라이언트가 `X25519` `key_share`로 재시도한 뒤 서버 ServerHello가 `X25519`를 선택했으며, 클라이언트가 `bad_record_mac`으로 중단했습니다. 따라서 `X25519`는 완료된 협상이 아니라 transcript 실패 직전 서버의 선택입니다. 수집 당시 JSON의 `hrr_present`는 이 HRR을 기록하지 못했으며(OpenSSL `-msg`는 HRR을 `ServerHello`로 표기), 원시 JSON은 수정하지 않고 PCAP 교차 검증 값으로 표를 정정했습니다. OpenSSH의 KEX 열은 실패 전 harness가 파싱한 값입니다.
+CVE-2026-2673 verdict: reproduced
+```
 
-[확실] 두 TLS 구현의 `silent-downgrade` 20건은 모두 성공, 고전 `X25519` 협상, HRR 부재, 자동 flag 부재를 기록했습니다. 같은 구현들의 `base` 20건은 모두 하이브리드 협상에 성공했습니다. 따라서 이 데이터는 시험한 구성에서 `key_share` 순서가 결과 그룹을 바꾼다는 관측을 제공합니다.[3] OpenSSL의 결과는 특히 명시적 single tuple에서 기존 classical key share를 수락한다는 문서상 선택 규칙과 일치합니다.[4]
+[확실] S3(`DEFAULT`)만이 두 버전 사이에서 갈렸습니다: 3.5.5는 HRR (PCAP)=0/10·classical=10/10, 3.5.6은 HRR (PCAP)=10/10·hybrid=10/10. S1(명시적 single tuple)은 두 버전 모두 HRR (PCAP)=0/10·classical=10/10로 동일했고, S2(명시적 tuple 경계)는 두 버전 모두 HRR (PCAP)=10/10·hybrid=10/10로 동일했습니다. `explicit warning`·`single-output mismatch` 열은 6개 조합 전부 0이었습니다.
 
-[확실] TLS `onpath-strip`은 OpenSSL과 BoringSSL에서 각각 10/10 실패했고 조작은 모두 검증됐습니다. 이는 시험한 alteration이 transcript 보호와 양립하는 실패 결과를 냈다는 관측입니다. OpenSSH `onpath-strip` 역시 10/10 실패했지만, harness가 파싱한 하이브리드 KEX와 `is_hybrid=true`를 기록했으므로 성공한 다운그레이드로 해석하지 않습니다.[3]
+[확실] tshark 교차 확인(3.5.5 S3 r01, 3.5.6 S3 r01): 3.5.5 S3 r01은 `tls.handshake.type==2`(ServerHello) 필터에 1줄만 매치했고 `tls.handshake.random`이 HRR 고정값이 아니었습니다(`key_share_group`=29=`X25519`). 3.5.6 S3 r01은 2줄이 매치했고 첫 줄의 `random`이 정확히 HRR 고정 random(`cf21ad74e59a6111be1d8c021e65b891c2a211167abb8c5e079e09e2c8a8339c`)이었으며, 두 번째 줄은 `key_share_group`=4588=`X25519MLKEM768`이었습니다. 이 tshark 매치 수(3.5.5: 0, 3.5.6: 1)는 각 레코드의 파서 판정 `hrr_pcap_present`와 정확히 일치했습니다.
 
-## 4. 논의와 한계
+[확실] **선행 관측(v1.1, 2026-09-25, `DEFAULT`·버전 대조 미포함)**: v1.1은 OpenSSL·BoringSSL·OpenSSH 9개 구현×조건 조합을 각 10회씩 실행했습니다. 요약:
 
-[확실] 조건 C의 관측은 두 독립 TLS 구현에서 공통입니다. 하이브리드 지원을 광고했지만 고전 `key_share`를 먼저 보낸 시험 구성에서, 서버는 HRR 없이 고전 핸드셰이크를 완료했습니다. 이는 harness 필드만이 아니라 20건의 PCAP에서도 확인됩니다(각각 실제 ServerHello 1개, HRR 0개).[3] 같은 20건에서 `downgrade_flagged=false`였으므로, 선택한 표준 감사 경로는 광고-협상 불일치를 자동으로 경고하지 않았습니다.
+| 구현 | 조건 | 전체 | 성공 | 실패 | HRR 있음 | 자동 flag | 기록된 그룹/KEX |
+|---|---|---:|---:|---:|---:|---:|---|
+| OpenSSL | base | 10 | 10 | 0 | 0 | 0 | X25519MLKEM768 |
+| OpenSSL | silent-downgrade | 10 | 10 | 0 | 0 | 0 | X25519 |
+| OpenSSL | onpath-strip | 10 | 0 | 10 | 10† | 0 | X25519† |
+| BoringSSL | base | 10 | 10 | 0 | 0 | 0 | X25519Kyber768Draft00 |
+| BoringSSL | silent-downgrade | 10 | 10 | 0 | 0 | 0 | X25519 |
+| BoringSSL | onpath-strip | 10 | 0 | 10 | 0 | 0 | — |
+| OpenSSH | base | 10 | 10 | 0 | 0 | 0 | sntrup761x25519-sha512@openssh.com |
+| OpenSSH | ssh-order | 10 | 10 | 0 | 0 | 0 | sntrup761x25519-sha512@openssh.com |
+| OpenSSH | onpath-strip | 10 | 0 | 10 | 0 | 0 | sntrup761x25519-sha512@openssh.com |
 
-[확실] OpenSSL에 관해서 조건 C는 비정상적인 HRR 생략의 증거가 아닙니다. v1.1의 서버 list는 `X25519MLKEM768:X25519`라는 하나의 명시적 tuple이고, 문서화된 알고리즘은 그 tuple 안의 이미 받은 `X25519` key share를 수락합니다.[4] BoringSSL의 병행 관측은 이 시험 구성에서의 결과를 보여 주지만, OpenSSL의 tuple 의미를 BoringSSL에 그대로 일반화하지 않습니다.
+† OpenSSL `onpath-strip`: 수집 당시 JSON의 `hrr_present`는 이 HRR을 놓쳤으나(OpenSSL `-msg`가 HRR을 `ServerHello`로 표기), PCAP 교차 검증으로 10/10 HRR이 있었음을 정정했습니다. 원시 JSON은 수정하지 않았습니다. v1.1 서버는 명시적 single tuple `X25519MLKEM768:X25519`을 사용했으므로, `silent-downgrade`의 `X25519` 수락은 CVE-2026-2673의 `DEFAULT` 경로가 아니라 그 tuple 안의 문서상 선택 규칙과 일치하는 결과입니다(§1, §4).
 
-[확실] 조건 A의 결과는 별개입니다. 정상 제안에서 하이브리드 성분을 경로상 제거한 검증된 실험은 TLS에서 모두 실패했습니다. OpenSSL에서는 서버가 HRR로 `X25519` 재시도를 이끌어 냈지만 transcript 불일치로 `bad_record_mac` 중단되었습니다. 즉, HRR은 조건 C에서는 없었고 조건 A에서는 있었지만 다운그레이드를 성공시키지 못했습니다. 따라서 “`key_share` 순서에 의한 성공한 고전 협상”과 “패킷 변조가 성공한다”는 서로 다른 주장입니다. 후자는 이 실험에서 관측되지 않았습니다.
+## 4. 논의
 
-[확실] OpenSSH는 TLS 결론의 세 번째 표본이 아닙니다. SSH에는 TLS의 `key_share`와 HRR 구조가 없으므로, OpenSSH 결과는 구조적 대조군으로만 해석합니다. `ssh-order`는 하이브리드 KEX를 유지한 채 성공했고, `onpath-strip`은 연결 실패로 끝났습니다.
+[확실] 규범 분석(`docs/research/v1.2-normative-analysis.md` §4)의 결론은 다음과 같습니다.
 
-[불확실] 서버가 이미 받은 사용 가능한 고전 `key_share`를 사용한 거동이 TLS 규격에 위배되는지 여부는 이 실험이 판정하지 않습니다. 이 데이터에는 규격의 규범적 해석, 소스 수준의 CVE 경로 분석, 인증된 완전 MITM, 또는 실배포 환경에서의 공격 효과가 없습니다.
+- **Q1** (클라이언트가 이미 수락 가능한 key_share를 보냈을 때 서버가 더 선호하는 그룹을 위해 HRR을 보낼 의무가 있는가): RFC 8446 §4.1.1의 MUST-HRR은 "클라이언트가 호환되는 key_share를 보내지 않았을 때"만 적용되는 조건부 의무이며, §4.2.7은 이 경우 SHOULD 수준의 `supported_groups` 힌트만 규정합니다. 따라서 문언상 답은 "의무 없음"입니다. [불확실] 다만 선택적 HRR이 금지되는지는 RFC 8446 문언만으로는 결정되지 않습니다.
+- **Q2** (RFC 8446이 그룹 선택 기준을 서버 정책에 맡기는가): §4.1.1은 서버가 독립적으로 그룹을 선택한다고만 말할 뿐 선택 알고리즘을 규정하지 않으므로, [추정] 구체적 기준은 각 구현체의 정책에 맡겨져 있다고 해석하는 것이 합리적입니다.
+- **Q3** (S1/S2/S3의 위치): S1·S2·S3(3.5.6)은 RFC 8446 허용 범위 안에 있고 OpenSSL이 문서화한 tuple 선택 의사코드(`SSL_CTX_set1_curves.pod:153-167`)와 정확히 대응합니다. S3(3.5.5)만 RFC 8446 문언 위반은 아니지만, `TLS_DEFAULT_GROUP_LIST`가 정의하는 "/"로 구분된 4개 tuple 구조를 `DEFAULT` 확장 과정에서 잃어 S2와 같은 tuple 경계 HRR이 발생해야 함에도 발생하지 않은, OpenSSL 자신의 문서화된 정책과의 불일치입니다.
 
-[확실] 추가 한계는 고정 구현·버전, loopback 환경, 10회 반복, 그리고 감사 가시성의 조작적 정의입니다. PCAP과 로그에는 사람이 비교할 수 있는 근거가 남아 있지만, 자동 `downgrade_flagged`가 없다는 사실은 수동 분석도 불가능하다는 뜻이 아닙니다.
+[확실] S1과 S3(3.5.5)의 차이는 이 지점에서 드러납니다. S1의 HRR 부재는 명시적 single tuple 안에 이미 X25519MLKEM768과 X25519가 함께 있어 client key-share 루프에서 즉시 매치되는, 의도된 정상 동작입니다. S3(3.5.5)의 HRR 부재는 `DEFAULT`가 문서상 4개의 분리된 tuple로 정의되어 있음에도 그 구조를 잃고 단일 tuple처럼 처리된 결과이므로, 같은 "HRR 없음"이라도 근거가 다릅니다. 따라서 S1은 CVE 증거로 쓰지 않으며, CVE-2026-2673의 발현은 S3(3.5.5)과 S3(3.5.6)의 대조에서만 성립합니다.
 
-## 5. 결론
+[확실] 감사 가시성 실측 결과(§2.4의 정의, `docs/research/v1.2-analysis.md` §6): v1.2 60건 전부 `explicit_warning=False`(0건 True), `mismatch_in_single_output=False`(0건 True)였습니다. 이는 OpenSSL `-msg` 로그가 협상 결과 줄만 있고 광고 그룹 줄이 없어 "확인 불가(unsupported)"로 남는다는 v1.1 재계산(`docs/research/v1.2-audit-v1.1-recompute.md`)의 도구 한계가 v1.2에서도 동일하게 재현된 것입니다. v1.1 재계산은 90건 전부 `explicit_warning=False`(unknown 0건)였고, `mismatch_in_single_output`은 openssh 30건만 `True`(TLS 60건은 `"unsupported"`)였습니다. 즉 S3(`DEFAULT`)의 CVE 발현은 표준 감사 경로 어느 것으로도 자동 경고되지 않았습니다.
 
-[확실] 시험한 그룹 순서와 감사 정의에서, OpenSSL과 BoringSSL은 하이브리드 광고 뒤에도 기록된 HRR 및 자동 다운그레이드 flag 없이 고전 핸드셰이크를 완료했습니다. OpenSSL의 명시적 single tuple 결과는 문서상 선택 규칙과 일치합니다. 반면 검증된 경로상 하이브리드 제거는 TLS에서 실패했습니다.
+[확실] BoringSSL은 A-0 조사(`docs/research/v1.2-a0-environment.md` §5) 결론에 따라 v1.2 핵심 CVE 표본에서 제외했습니다. BoringSSL은 `SSL_OP_CIPHER_SERVER_PREFERENCE` + 순서가 있는 평평한(flat) 그룹 ID 목록만 제공하며, OpenSSL의 콜론/슬래시 tuple 구문이나 `DEFAULT` 키워드에 대응하는 설정 문법이 없어("구조화된 tuple을 파싱하다가 평평한 목록으로 잃어버리는" 버그 클래스가 애초에 발생할 수 없는 API 형태), 인위적 동등 조건을 만들지 않고 "OpenSSL `DEFAULT` CVE 비교에 대한 설정 수단을 확인하지 못함"으로 결과를 제한했습니다.
 
-[불확실] 이 결론은 관측 범위를 넘어 RFC 비준수, 실배포 취약점, CVE 재현 또는 공격 가능성을 주장하지 않습니다. 특히 `DEFAULT` 경로와 수정 버전 대조가 없는 v1.1 데이터는 CVE-2026-2673 재현을 판정하지 않습니다. 그러한 판단에는 별도의 규범적 분석과 더 넓은 환경의 증거가 필요합니다.
+[확실] A-0 재조사에서 v1.1 BoringSSL `silent-downgrade` 조건의 ClientHello `key_share`가 실제로는 `[0x001D, 0x6399]`(X25519, X25519MLKEM768) 두 개였다는 사실이 새로 확인됐습니다(2026-09-28 PCAP 원시 바이트 재해석). 따라서 v1.1 BoringSSL 행은 "고전 키만 제시"가 아니라, 하이브리드 key share도 함께 받은 상태에서 서버가 `X25519`를 선택한 경우로 재해석해야 합니다.
+
+## 5. 한계
+
+[확실] OpenSSL 버전은 3.5.5(재사용 native-only 설치)와 3.5.6(수정 대조군 빌드) 두 개로 고정했습니다. 다른 마이너/패치 버전이나 배포판 패키지의 동작은 일반화하지 않습니다.
+
+[확실] 모든 실행은 loopback(127.0.0.1)에서만 수행했으며, 경로상 네트워크 지연·MITM·실배포 조건은 포함하지 않습니다.
+
+[확실] 서버는 두 버전 모두 client preference 정책(`-serverpref` 미지정) 한 가지로 고정했습니다. server preference를 켠 환경에서의 동작은 시험하지 않았습니다.
+
+[확실] 각 필수 version×setting 조합의 반복 횟수는 10회로 고정했습니다. 더 많은 반복에서 다른 분포가 나올 가능성은 이 표본만으로 배제할 수 없습니다.
+
+[확실] `tools/faultinject/pcap_hello.py` 기반 파서는 TCP로 세그먼트된(여러 TCP segment에 걸쳐 재조립되는) TLS Hello를 처리하지 않습니다. 본 60회는 loopback에서 소규모 핸드셰이크 메시지만 오갔으므로 세그먼트 분할이 관측되지 않았지만, 더 큰 인증서 체인 등으로 메시지가 커지는 환경에서는 이 파서 제약이 판정에 영향을 줄 수 있습니다.
+
+[확실] `s_client -brief`와 keylog 감사 경로는 v1.2 60회 실행에서도 수집하지 않았습니다(클라이언트는 `-state -msg`로 실행되어 `-brief` 출력을 캡처하지 않으며, NSS 키 로그도 남기지 않았습니다).
+
+[확실] S4(서버 group-list 설정 생략, sanity control)는 필수 표본과 분리된 보조 표(`docs/research/v1.2-analysis.md` §8, 20회)로만 취급했으며, 결론 표본(S1–S3, 60회)에 포함하지 않았습니다.
+
+## 6. 결론
+
+[확실] 이 고정된 테스트베드에서 CVE-2026-2673 발현 조건과 수정 대조를 재현했다.
 
 ## 참고 자료
 
-[1] v1.1 P2 Repeated Execution Summary, `.planning/phases/07-v11-tooling/07-02-SUMMARY.md`.
-
-[2] v1.1 HRR-absence hybrid-downgrade design, `docs/research/2026-09-23-v1.1-hrr-downgrade-design.md`.
-
-[3] v1.1 P3 Analysis, `docs/research/v1.1-p3-analysis.md`.
-
-[4] OpenSSL Project, `SSL_CTX_set1_groups_list(3)` / `SSL_CTX_set1_curves(3)`, OpenSSL 3.5 documentation. https://docs.openssl.org/3.5/man3/SSL_CTX_set1_curves/
-
-[5] OpenSSL Project, CVE-2026-2673 vulnerability record. https://mirror.openssl-library.org/news/vulnerabilities/
+1. Rescorla, E., "The Transport Layer Security (TLS) Protocol Version 1.3", RFC 8446, August 2018. <https://www.rfc-editor.org/rfc/rfc8446.txt>
+2. OpenSSL, `SSL_CTX_set1_curves(3)` manual page, OpenSSL 3.5. <https://docs.openssl.org/3.5/man3/SSL_CTX_set1_curves/>
+3. OpenSSL Security Advisory [20260313], "OpenSSL TLS 1.3 server may choose unexpected key agreement group". <https://openssl-library.org/news/secadv/20260313.txt>
+4. CVE Record, CVE-2026-2673. <https://www.cve.org/CVERecord?id=CVE-2026-2673>
+5. OpenSSL fix commit (3.5), `85977e013f32ceb96aa034c0e741adddc1a05e34`, "Fix group tuple handling in DEFAULT expansion". <https://github.com/openssl/openssl/commit/85977e013f32ceb96aa034c0e741adddc1a05e34>
+6. OpenSSL fix commit (3.6), `2157c9d81f7b0bd7dfa25b960e928ec28e8dd63f`. <https://github.com/openssl/openssl/commit/2157c9d81f7b0bd7dfa25b960e928ec28e8dd63f>
+7. IETF TLS WG, "Terminology for Post-Quantum Traditional Hybrid Schemes", RFC 9954 (2026-09-28 기준 발행, Informational, 2026-07; 이전 draft-ietf-tls-hybrid-design). <https://datatracker.ietf.org/doc/draft-ietf-tls-hybrid-design/>
+8. IETF TLS WG, "Hybrid key exchange in TLS 1.3 using X25519 and ML-KEM", RFC 10024 (2026-09-28 기준 발행, Proposed Standard, 2026-08; 이전 draft-ietf-tls-ecdhe-mlkem). <https://datatracker.ietf.org/doc/draft-ietf-tls-ecdhe-mlkem/>
+9. Karthikeyan Bhargavan, Christina Brzuska, Cédric Fournet, Matthew Green, Markulf Kohlweiss, Santiago Zanella-Béguelin, "Downgrade Resilience in Key-Exchange Protocols", IEEE S&P 2016. <https://www.microsoft.com/en-us/research/publication/downgrade-resilience-in-key-exchange-protocols/>
+10. v1.2 결과 분석, `docs/research/v1.2-analysis.md`.
+11. v1.2 A-0 환경 대장, `docs/research/v1.2-a0-environment.md`.
+12. v1.1 90건 감사 가시성 재계산, `docs/research/v1.2-audit-v1.1-recompute.md`.
+13. v1.2 설계, `docs/superpowers/specs/2026-09-28-v12-cve-tuple-hrr-design.md`.
+14. v1.1 P3 Analysis, `docs/research/v1.1-p3-analysis.md`.
+15. v1.1 HRR-absence hybrid-downgrade design, `docs/research/2026-09-23-v1.1-hrr-downgrade-design.md`.
 
 ## 부록: AI-대-인간 책임 공개
 
-[확실] AI는 fault-injection 도구 확장, 반복 실험 자동화, 원시 데이터 집계, 문서 초안 작성에 사용됐습니다.
+[확실] v1.2에서 AI는 fault-injection 도구 확장(`tools/faultinject/v12.py`, `pcap_hello.py`, `audit.py`, `analyze.py --v12`), A-0 환경 조사 스크립트 실행, 60회 반복 실행 자동화, 원시 데이터 집계, RFC 8446·OpenSSL 문서 규범 분석 초안, 그리고 본 논문 초안 작성에 사용됐습니다.
 
-[확실] 인간은 연구 질문과 범위를 결정하고, 구현·버전·출처·실험 환경을 검토했으며, 원시 데이터와 최종 결론의 범위를 확인했습니다.
+[확실] 인간(저자)은 v1.2의 연구 질문과 CVE 재현 판정 규칙(설계 §2.2)을 결정하고, S1–S4 실험 행렬과 A-0 격리 조건을 설계했으며, 원시 데이터·PCAP·SHA-256·커밋 조상 관계와 최종 결론의 범위를 검토·확인했습니다.
 
-[확실] 최종 검증은 원시 JSON·PCAP·로그의 존재와 집계값, 테스트 결과, 재현 ZIP 검증을 함께 대조하는 방식으로 수행합니다.
+[확실] 최종 검증은 원시 JSON 60건·PCAP·로그의 존재와 집계값, `python -m faultinject.analyze --v12` 출력과 논문 표의 일치, 테스트 결과, v1.2 재현 ZIP 검증을 함께 대조하는 방식으로 수행합니다.
