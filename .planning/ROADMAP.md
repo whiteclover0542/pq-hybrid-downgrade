@@ -1,5 +1,18 @@
 # Roadmap: pq-hybrid-downgrade
 
+## v1.1 final status (2026-09-28)
+
+- [x] **P1: tooling extension** — completed.
+- [x] **P2: repeated execution** — final dataset validated (90 records).
+- [x] **P3: analysis** — final raw-data analysis completed with a bounded interpretation.
+- [x] **P4: paper/reproduction update** — v1.1-only paper, safe reproduction guide, and validated ZIP completed.
+
+[확실] The v1.1 work is complete: P4 validated 90 final JSON records across nine complete r01–r10 groups, all required artifacts, and the reproduction ZIP. Its evidence and interpretation boundary are recorded in [07-04-SUMMARY.md](phases/07-v11-tooling/07-04-SUMMARY.md).
+
+[불확실] The completed publication does not establish RFC non-conformance, CVE equivalence, practical exploitability, or a new vulnerability.
+
+[확실] This final-status block supersedes the older v1.1 status and P2 handoff records retained below for historical continuity.
+
 ## v1.1 current status (2026-09-25)
 
 - [x] **P2: repeated execution** — final dataset validated (90 records).

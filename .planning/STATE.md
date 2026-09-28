@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: HRR-absence hybrid-downgrade study
-status: in_progress
-stopped_at: v1.1-P3 complete; P4 paper/reproduction update is pending
-last_updated: 2026-09-25T00:00:00Z
-last_activity: 2026-09-25
+status: complete
+stopped_at: v1.1-P4 complete; validated publication and reproduction package are ready for push
+last_updated: 2026-09-28T00:00:00Z
+last_activity: 2026-09-28
 progress:
   total_phases: 4
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 4
-  completed_plans: 3
-  percent: 75
+  completed_plans: 4
+  percent: 100
 ---
 
 # v1.1 P2 Execution Record (2026-09-25)
@@ -31,6 +31,16 @@ See: `.planning/phases/07-v11-tooling/07-02-SUMMARY.md`.
 [불확실] The P3 result does not establish RFC non-conformance, practical exploitability, or a new vulnerability. The full evidence table, limits, and OpenSSH control interpretation are in `docs/research/v1.1-p3-analysis.md`.
 
 [확실] P4 is now next. The paper and reproduction package remain unchanged until P4.
+
+# v1.1 P4 Publication Record (2026-09-28)
+
+[확실] P4 published the v1.1-only paper, safe reproduction guide, and rebuilt `dist/pq-hybrid-downgrade-v11-repro.zip`. The final verification found 90 JSON records across nine complete r01–r10 groups, 90 verified manipulations, all required artifacts, and a valid ZIP with no diagnostic or preflight paths.
+
+[확실] The P4 test suite completed with `69 passed, 1 skipped`; the skip is the environment-dependent tshark case. The sole warning concerned pytest cache-file permissions.
+
+[불확실] The published conclusion remains restricted to the tested implementations, group order, loopback environment, and audit definition. It does not establish RFC non-conformance, CVE equivalence, practical exploitability, or a new vulnerability.
+
+See: `.planning/phases/07-v11-tooling/07-04-SUMMARY.md`.
 
 # Project State
 
