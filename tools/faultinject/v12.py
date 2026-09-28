@@ -1,11 +1,17 @@
 from __future__ import annotations
 
+import argparse
+import hashlib
 import os
 import socket
 import subprocess
+from dataclasses import replace
 from pathlib import Path
 
-from faultinject.harness import ScenarioSpec
+from faultinject.audit import audit_record
+from faultinject.harness import ScenarioSpec, detect_hrr, run_scenario
+from faultinject.pcap_hello import client_precondition, group_name, summarize_hellos
+from faultinject.record import RunRecord
 
 PHASE2_ROOT = "/root/pq-hybrid-phase2"
 V12_PORT = 8545
@@ -127,3 +133,108 @@ def preflight_v12(paths: dict[str, str], runner=subprocess.run, port_free=_port_
     if residual:
         return False, f"residual processes: {residual}"
     return True, "ok"
+
+
+def sha256_file(path: Path) -> str | None:
+    path = Path(path)
+    return hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else None
+
+
+def provenance_for(spec: ScenarioSpec, paths: dict[str, str], hashes: dict[str, str | None]) -> dict:
+    version, setting = spec.condition.rsplit("-", 1)
+    keep = ("LD_LIBRARY_PATH", "OPENSSL_CONF", "OPENSSL_MODULES")
+    groups_arg = SERVER_SETTINGS[setting]
+    return {
+        "server_version": version,
+        "server_setting": setting,
+        "server_groups_arg": groups_arg if groups_arg and groups_arg != "DEFAULT" else "(omitted)",
+        "server_bin": paths[f"server_bin_{version}"],
+        "server_bin_sha256": hashes.get(f"server_bin_{version}"),
+        "client_bin": paths["client_bin"],
+        "client_bin_sha256": hashes.get("client_bin"),
+        "client_groups_arg": CLIENT_GROUPS,
+        "server_preference": "OpenSSL default (client preference; -serverpref not set)",
+        "server_env": {key: spec.server_env.get(key) for key in keep},
+        "client_env": {key: spec.env.get(key) for key in keep},
+        "server_cmd": spec.server_cmd,
+        "client_cmd": spec.client_cmd,
+    }
+
+
+def evaluate_v12(record: RunRecord, run_dir: Path, provenance: dict, runner=subprocess.run) -> RunRecord:
+    run_dir = Path(run_dir)
+    metrics = record.metrics
+    pcap_name = record.artifacts.get("pcap")
+    pcap = run_dir / pcap_name if pcap_name else None
+    if pcap is not None and pcap.is_file() and pcap.stat().st_size > 0:
+        summary = summarize_hellos(pcap.read_bytes())
+        metrics.hrr_pcap_present = summary.hrr_count > 0
+        metrics.server_hello_count = summary.server_hello_count
+        metrics.final_negotiated_group = group_name(summary.final_group)
+        metrics.client_precondition_verified = client_precondition(summary)
+    else:
+        metrics.hrr_pcap_present = None
+        metrics.server_hello_count = None
+        metrics.final_negotiated_group = None
+        metrics.client_precondition_verified = False
+    client_log = run_dir / record.artifacts["client_log"]
+    metrics.hrr_log_present = (
+        detect_hrr(client_log.read_text(encoding="utf-8", errors="replace")) if client_log.is_file() else None
+    )
+    metrics.downgrade_flagged = None  # v1.1's hard-coded value; v1.2 measures record.audit instead
+    evaluated = replace(
+        record,
+        metrics=metrics,
+        manipulation_verified=metrics.client_precondition_verified is True,
+        provenance=provenance,
+        audit=audit_record(record, run_dir, runner),
+    )
+    evaluated.to_json_path(run_dir)
+    return evaluated
+
+
+def run_v12(
+    repetitions: int,
+    output_dir: Path | None = None,
+    settings: tuple[str, ...] = REQUIRED_SETTINGS,
+    runner=subprocess.run,
+    scenario_runner=run_scenario,
+) -> list[RunRecord]:
+    out_dir = Path(output_dir or v12_output_dir())
+    if out_dir.exists() and any(out_dir.glob("*.json")):
+        raise RuntimeError(f"{out_dir} is not empty; choose a fresh --output-dir")
+    paths = v12_paths()
+    hashes = {key: sha256_file(Path(value)) for key, value in paths.items() if key != "cert"}
+    return [
+        evaluate_v12(scenario_runner(spec), out_dir, provenance_for(spec, paths, hashes), runner)
+        for spec in v12_specs(repetitions, out_dir, settings, paths)
+    ]
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Run the v1.2 OpenSSL server-setting matrix")
+    parser.add_argument("--repeat", type=int, required=True, metavar="N", help="repetitions per combination")
+    parser.add_argument("--settings", default=",".join(REQUIRED_SETTINGS),
+                        help="comma-separated subset of S1,S2,S3,S4 (default: S1,S2,S3)")
+    parser.add_argument("--output-dir", type=Path, metavar="PATH",
+                        help="write records here instead of raw/v1.2/")
+    arguments = parser.parse_args(argv)
+    settings = tuple(arguments.settings.split(","))
+    unknown = [setting for setting in settings if setting not in SERVER_SETTINGS]
+    if unknown:
+        parser.error(f"unknown settings: {unknown}")
+    ok, reason = preflight_v12(v12_paths())
+    if not ok:
+        print(f"preflight failed: {reason}")
+        return 1
+    for record in run_v12(arguments.repeat, output_dir=arguments.output_dir, settings=settings):
+        print(
+            f"{record.run_id}: result={record.metrics.handshake_result} "
+            f"hrr_pcap={record.metrics.hrr_pcap_present} final={record.metrics.final_negotiated_group} "
+            f"precondition={record.metrics.client_precondition_verified}"
+        )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
