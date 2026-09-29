@@ -91,6 +91,7 @@ def test_provenance_records_both_binaries_and_the_setting():
     assert provenance["server_setting"] == "S3"
     assert provenance["server_groups_arg"] == "DEFAULT"
     assert provenance["server_bin_sha256"] == "s" * 64
+    assert provenance["server_libssl_sha256"] is None
     assert provenance["client_bin_sha256"] == "c" * 64
     assert provenance["client_groups_arg"] == "X25519:X25519MLKEM768"
     assert provenance["server_env"]["LD_LIBRARY_PATH"].endswith("openssl-3.5.6/lib64")
@@ -138,11 +139,11 @@ def test_cli_stops_when_preflight_fails(monkeypatch, capsys):
 def test_cli_routes_settings_and_output_dir(monkeypatch, tmp_path):
     received = {}
     monkeypatch.setattr(v12, "preflight_v12", lambda paths: (True, "ok"))
-    monkeypatch.setattr(v12, "run_v12", lambda repetitions, output_dir=None, settings=(): received.update(
-        repetitions=repetitions, output_dir=output_dir, settings=settings) or [])
+    monkeypatch.setattr(v12, "run_v12", lambda repetitions, output_dir=None, settings=(), versions=(): received.update(
+        repetitions=repetitions, output_dir=output_dir, settings=settings, versions=versions) or [])
 
     assert v12.main(["--repeat", "10", "--settings", "S4", "--output-dir", str(tmp_path)]) == 0
-    assert received == {"repetitions": 10, "output_dir": tmp_path, "settings": ("S4",)}
+    assert received == {"repetitions": 10, "output_dir": tmp_path, "settings": ("S4",), "versions": ("3.5.5", "3.5.6")}
 
 
 def test_cli_rejects_unknown_settings():

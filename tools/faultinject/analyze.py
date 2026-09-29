@@ -80,15 +80,20 @@ def render_v11_markdown(run_dir) -> str:
 
 REQUIRED_ARTIFACTS_V12 = ("pcap", "client_log", "server_log", "capture_log")
 
-# (server version, setting) -> (PCAP HRR expected in every run, expected final group); spec §2.2 / §5
-EXPECTED_V12 = {
-    ("3.5.5", "S1"): (False, "X25519"),
-    ("3.5.6", "S1"): (False, "X25519"),
-    ("3.5.5", "S2"): (True, "X25519MLKEM768"),
-    ("3.5.6", "S2"): (True, "X25519MLKEM768"),
-    ("3.5.5", "S3"): (False, "X25519"),
-    ("3.5.6", "S3"): (True, "X25519MLKEM768"),
-}
+def expected_matrix(vulnerable: tuple[str, ...], fixed: tuple[str, ...]) -> dict:
+    """(server, setting) -> (PCAP HRR expected in every run, expected final group); spec §2.2 / §5.
+    S1 (single tuple) and S2 (tuple boundary) behave the same on every server; only S3 (DEFAULT) splits."""
+    out = {}
+    for server in (*vulnerable, *fixed):
+        out[(server, "S1")] = (False, "X25519")
+        out[(server, "S2")] = (True, "X25519MLKEM768")
+        out[(server, "S3")] = (False, "X25519") if server in vulnerable else (True, "X25519MLKEM768")
+    return out
+
+
+EXPECTED_V12 = expected_matrix(("3.5.5",), ("3.5.6",))
+# v1.3 causal isolation: fix 85977e0 reverted from 3.5.6 / applied to 3.5.5, and the 3.6 pair around 2157c9d
+EXPECTED_V13 = expected_matrix(("3.5.6-revert", "3.6.1"), ("3.5.5-cherrypick", "3.6.2"))
 
 
 def comparison_v12(run_dir) -> dict:
@@ -142,9 +147,9 @@ FIELD_LABELS = {
 }
 
 
-def cve_verdict(counts: dict, repetitions: int = 10) -> tuple[bool, list[str]]:
+def cve_verdict(counts: dict, repetitions: int = 10, expected: dict = EXPECTED_V12) -> tuple[bool, list[str]]:
     failures: list[str] = []
-    for (version, setting), (hrr_expected, final_expected) in EXPECTED_V12.items():
+    for (version, setting), (hrr_expected, final_expected) in expected.items():
         label = f"{version} {setting}"
         count = counts.get((version, setting))
         if count is None:
@@ -164,7 +169,10 @@ def cve_verdict(counts: dict, repetitions: int = 10) -> tuple[bool, list[str]]:
     return (not failures, failures)
 
 
-def render_v12_markdown(run_dir) -> str:
+def render_v12_markdown(
+    run_dir, expected: dict = EXPECTED_V12, verdict_label: str = "CVE-2026-2673 verdict",
+    words: tuple[str, str] = ("reproduced", "not reproduced"),
+) -> str:
     counts = comparison_v12(run_dir)
     lines = [
         "| server | setting | precondition/n | success | failure | HRR (PCAP) | HRR (log) | "
@@ -178,9 +186,9 @@ def render_v12_markdown(run_dir) -> str:
             f"{count['classical']} | {count['unknown']} | {count['explicit_warning']} | "
             f"{count['mismatch_in_single_output']} |"
         )
-    ok, reasons = cve_verdict(counts)
+    ok, reasons = cve_verdict(counts, expected=expected)
     lines.append("")
-    lines.append("CVE-2026-2673 verdict: " + ("reproduced" if ok else "not reproduced — " + "; ".join(reasons)))
+    lines.append(f"{verdict_label}: " + (words[0] if ok else f"{words[1]} — " + "; ".join(reasons)))
     return "\n".join(lines)
 
 
@@ -188,11 +196,18 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Render fault-injection analysis")
     parser.add_argument("--v11", action="store_true", help="read v1.1 condition records")
     parser.add_argument("--v12", action="store_true", help="read v1.2 server-setting records")
-    parser.add_argument("--run-dir", type=Path, metavar="PATH", help="directory of v1.1/v1.2 JSON records")
+    parser.add_argument("--v13", action="store_true", help="read v1.3 causal-isolation records")
+    parser.add_argument("--run-dir", type=Path, metavar="PATH", help="directory of v1.1/v1.2/v1.3 JSON records")
     arguments = parser.parse_args(argv)
-    if arguments.run_dir and not (arguments.v11 or arguments.v12):
-        parser.error("--run-dir is only valid with --v11 or --v12")
+    if arguments.run_dir and not (arguments.v11 or arguments.v12 or arguments.v13):
+        parser.error("--run-dir is only valid with --v11, --v12 or --v13")
     raw = Path(__file__).resolve().parents[2] / "docs/research/baselines/raw"
+    if arguments.v13:
+        print(render_v12_markdown(
+            arguments.run_dir or raw / "v1.3", EXPECTED_V13, "Causal-isolation verdict",
+            ("consistent", "not consistent"),
+        ))
+        return 0
     if arguments.v12:
         print(render_v12_markdown(arguments.run_dir or raw / "v1.2"))
         return 0

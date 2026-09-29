@@ -25,10 +25,15 @@ SERVER_SETTINGS = {
     "S4": None,
 }
 REQUIRED_SETTINGS = ("S1", "S2", "S3")
+# v1.3 causal-isolation servers (tools/v13_build_variants.sh): fix 85977e0's ssl/t1_lib.c change
+# applied to 3.5.5 / reverted from 3.5.6, plus the 3.6 release pair around fix 2157c9d.
+VARIANT_SERVERS = ("3.5.5-cherrypick", "3.5.6-revert", "3.6.1", "3.6.2")
 _PREFIX = {
     "3.5.5": f"{PHASE2_ROOT}/install/openssl",
     "3.5.6": f"{PHASE2_ROOT}/install/openssl-3.5.6",
+    **{variant: f"{PHASE2_ROOT}/install/openssl-{variant}" for variant in VARIANT_SERVERS},
 }
+_REPORTED_VERSION = {"3.5.5-cherrypick": "3.5.5", "3.5.6-revert": "3.5.6"}
 _RESIDUAL_PATTERN = r"openssl s_server|openssl s_client|bssl (server|client)|sshd -D|tshark -i lo"
 
 
@@ -36,11 +41,15 @@ def v12_output_dir() -> Path:
     return Path(__file__).resolve().parents[2] / "docs/research/baselines/raw/v1.2"
 
 
-def v12_paths() -> dict[str, str]:
+def reported_version(version: str) -> str:
+    """Release string `openssl version` prints for a server label (patched variants keep their base)."""
+    return _REPORTED_VERSION.get(version, version)
+
+
+def v12_paths(versions: tuple[str, ...] = SERVER_VERSIONS) -> dict[str, str]:
     return {
         "client_bin": f"{_PREFIX['3.5.5']}/bin/openssl",
-        "server_bin_3.5.5": f"{_PREFIX['3.5.5']}/bin/openssl",
-        "server_bin_3.5.6": f"{_PREFIX['3.5.6']}/bin/openssl",
+        **{f"server_bin_{version}": f"{_PREFIX[version]}/bin/openssl" for version in versions},
         "cert": f"{PHASE2_ROOT}/openssl/apps/server.pem",
     }
 
@@ -87,13 +96,14 @@ def v12_specs(
     output_dir: Path | None = None,
     settings: tuple[str, ...] = REQUIRED_SETTINGS,
     paths: dict[str, str] | None = None,
+    versions: tuple[str, ...] = SERVER_VERSIONS,
 ) -> list[ScenarioSpec]:
     out_dir = output_dir or v12_output_dir()
-    paths = paths or v12_paths()
+    paths = paths or v12_paths(versions)
     return [
         v12_spec(version, setting, repetition, out_dir, paths)
         for repetition in range(1, repetitions + 1)
-        for version in SERVER_VERSIONS
+        for version in versions
         for setting in settings
     ]
 
@@ -113,14 +123,17 @@ def preflight_v12(paths: dict[str, str], runner=subprocess.run, port_free=_port_
             return False, f"missing: {key} -> {value}"
     binaries = {
         "client (3.5.5)": (paths["client_bin"], "3.5.5"),
-        **{f"server {version}": (paths[f"server_bin_{version}"], version) for version in SERVER_VERSIONS},
+        **{
+            f"server {key.removeprefix('server_bin_')}": (value, key.removeprefix("server_bin_"))
+            for key, value in paths.items() if key.startswith("server_bin_")
+        },
     }
     for label, (binary, version) in binaries.items():
         environment = native_environment(version)
         run = lambda *args: runner([binary, *args], env=environment, capture_output=True, text=True).stdout
-        reported = run("version")
-        if not reported.startswith(f"OpenSSL {version} ") or f"(Library: OpenSSL {version} " not in reported:
-            return False, f"{label} reports {reported.strip()!r}, expected OpenSSL {version}"
+        reported, release = run("version"), reported_version(version)
+        if not reported.startswith(f"OpenSSL {release} ") or f"(Library: OpenSSL {release} " not in reported:
+            return False, f"{label} reports {reported.strip()!r}, expected OpenSSL {release}"
         providers = run("list", "-providers", "-provider", "default")
         if "default" not in providers or "oqsprovider" in providers:
             return False, f"{label} is not native-only: {providers.strip()!r}"
@@ -149,6 +162,8 @@ def provenance_for(spec: ScenarioSpec, paths: dict[str, str], hashes: dict[str, 
         "server_groups_arg": SERVER_SETTINGS[setting] or "(omitted)",
         "server_bin": paths[f"server_bin_{version}"],
         "server_bin_sha256": hashes.get(f"server_bin_{version}"),
+        # the TLS logic lives in libssl; patched variants can share an identical openssl CLI binary
+        "server_libssl_sha256": hashes.get(f"server_lib_{version}"),
         "client_bin": paths["client_bin"],
         "client_bin_sha256": hashes.get("client_bin"),
         "client_groups_arg": CLIENT_GROUPS,
@@ -198,15 +213,20 @@ def run_v12(
     settings: tuple[str, ...] = REQUIRED_SETTINGS,
     runner=subprocess.run,
     scenario_runner=run_scenario,
+    versions: tuple[str, ...] = SERVER_VERSIONS,
 ) -> list[RunRecord]:
     out_dir = Path(output_dir or v12_output_dir())
     if out_dir.exists() and any(out_dir.glob("*.json")):
         raise RuntimeError(f"{out_dir} is not empty; choose a fresh --output-dir")
-    paths = v12_paths()
+    paths = v12_paths(versions)
     hashes = {key: sha256_file(Path(value)) for key, value in paths.items() if key != "cert"}
+    hashes.update({
+        f"server_lib_{version}": sha256_file(Path(paths[f"server_bin_{version}"]).parents[1] / "lib64/libssl.so.3")
+        for version in versions
+    })
     return [
         evaluate_v12(scenario_runner(spec), out_dir, provenance_for(spec, paths, hashes), runner)
-        for spec in v12_specs(repetitions, out_dir, settings, paths)
+        for spec in v12_specs(repetitions, out_dir, settings, paths, versions)
     ]
 
 
@@ -217,16 +237,22 @@ def main(argv: list[str] | None = None) -> int:
                         help="comma-separated subset of S1,S2,S3,S4 (default: S1,S2,S3)")
     parser.add_argument("--output-dir", type=Path, metavar="PATH",
                         help="write records here instead of raw/v1.2/")
+    parser.add_argument("--versions", default=",".join(SERVER_VERSIONS),
+                        help=f"comma-separated server labels (default: 3.5.5,3.5.6; v1.3: {','.join(VARIANT_SERVERS)})")
     arguments = parser.parse_args(argv)
     settings = tuple(arguments.settings.split(","))
     unknown = [setting for setting in settings if setting not in SERVER_SETTINGS]
     if unknown:
         parser.error(f"unknown settings: {unknown}")
-    ok, reason = preflight_v12(v12_paths())
+    versions = tuple(arguments.versions.split(","))
+    unknown = [version for version in versions if version not in _PREFIX]
+    if unknown:
+        parser.error(f"unknown versions: {unknown}")
+    ok, reason = preflight_v12(v12_paths(versions))
     if not ok:
         print(f"preflight failed: {reason}")
         return 1
-    for record in run_v12(arguments.repeat, output_dir=arguments.output_dir, settings=settings):
+    for record in run_v12(arguments.repeat, output_dir=arguments.output_dir, settings=settings, versions=versions):
         print(
             f"{record.run_id}: result={record.metrics.handshake_result} "
             f"hrr_pcap={record.metrics.hrr_pcap_present} final={record.metrics.final_negotiated_group} "
