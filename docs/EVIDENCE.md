@@ -69,6 +69,22 @@
 
 [확실] v1.1의 보존 로그 90건을 동일 기준으로 재계산하면 `explicit_warning=True`는 0건, `mismatch_in_single_output=True`는 OpenSSH 30건뿐이고 TLS 60건은 `unsupported`였습니다.
 
+## 경로상 조작과 기준선(v1.0, E1·E2)
+
+[확실] `docs/research/baselines/raw/phase-4/`에는 3개 구현 × 2개 결함 유형 × 10회 = 60회 기록이 있고, 모두 `manipulation_verified=true`입니다(`cd tools && python -m faultinject.analyze`). OpenSSL은 이 단계에서 oqs-provider 0.9.0과 함께 사용했습니다.
+
+| 구현 | E1 고전 전용 제시(기준선) | E2 PQ 성분 변조 | E2 거부 원인(10/10 동일) |
+|---|---|---|---|
+| OpenSSL | 성공 10/10, `X25519` | 실패 10/10 | 서버 `ML-KEM-768 invalid public 't' vector`, 클라이언트 `illegal parameter` 경고 → 키 형식 검증 |
+| BoringSSL | 성공 10/10, `X25519` | 실패 10/10 | 서버 `BAD_ECPOINT`(`ssl_key_share.cc`), 클라이언트 `DECODE_ERROR` → key share 해석 |
+| OpenSSH | 성공 10/10, `curve25519-sha256` | 실패 10/10 | 클라이언트 `incorrect signature` → 교환 해시 서명 검증 |
+
+[확실] E1은 클라이언트가 고전만 제시한 기준선이므로 다운그레이드 공격의 증거가 아닙니다. E2는 하이브리드 공개값의 PQ 성분만 비트 반전했습니다. TLS 두 구현의 거부는 결합 검증 이전의 키 형식 검증에서 일어났으므로, TLS 컴바이너 결합 자체는 시험되지 않았습니다. 초기 분석의 "바인딩 방어 성공" 해석을 이렇게 정정합니다. OpenSSH의 거부는 교환 해시에 의한 결합 방어입니다.
+
+[확실] v1.1 경로상 하이브리드 제거(E3)의 실패 원인도 10/10 동일했습니다: OpenSSL 클라이언트 `bad record mac`(HRR 후), BoringSSL 클라이언트 `BAD_DECRYPT` → transcript 결합. OpenSSH 서버 `padding error`·`message authentication code incorrect` → KEXINIT 수정으로 패킷 형식이 깨진 것으로, 협상 방어는 판정하지 않습니다.
+
+[확실] v1.1 OpenSSH `ssh-order` 조건은 `tools/faultinject/conditions.py`에서 `base`와 같은 `KexAlgorithms` 설정으로 실행되어, 사실상 같은 조건의 반복입니다.
+
 ## v1.1 선행 관측과 데이터 보존
 
 [확실] `docs/research/baselines/raw/v1.1/`에는 JSON·PCAP·client log·capture log 각 90개와 proxy log 30개가 있습니다. 9개 구현×조건 조합마다 r01–r10이 하나씩 있고, 모두 `manipulation_verified=true`입니다.
