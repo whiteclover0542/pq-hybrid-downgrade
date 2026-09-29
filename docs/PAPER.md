@@ -215,7 +215,7 @@ v1.1 교차 구현 관측 90회(기본 협상, E3, E4; OpenSSH는 E4 대신 기�
 - CVE 사례 바이너리: 클라이언트와 3.5.5 서버의 `openssl` SHA-256 `7b1a89948e5e…`, 3.5.6 `88a896e54ede…`, 3.6.1 `d1199e01f04d…`, 3.6.2 `5851a0b61487…`. 패치 변형 두 개는 실행 파일이 원본과 같고 `libssl.so.3`만 다르다(3.5.5-cherrypick `ef30c6d8de54…`, 3.5.6-revert `a9d8f36e38b2…`; 원본 3.5.5 `a785209382…`, 3.5.6 `aff23fc605…`). 3.6.1과 3.6.2의 `libssl.so.3`은 각각 `fb70fdbf1a67…`, `708d5e708526…`이다. 각 서버가 자신의 `libssl`을 로드함을 `ldd`로 확인했고, 실행 파일에는 RPATH/RUNPATH가 없다.
 - 소스: 3.5.5 `67b5686b…`, 3.5.6 `286ddeaa…`, 3.6.1 `c9a9e5b1…`, 3.6.2 `fe686e15…`. 변형 빌드는 `tools/v13_build_variants.sh`로 만든다.
 - HRR 판정 기준: 캡처된 ServerHello random이 RFC 8446 HRR 고정값 `cf21ad74e59a6111be1d8c021e65b891c2a211167abb8c5e079e09e2c8a8339c`인지.
-- 재현 패키지: `dist/`의 v1.1, v1.2, v1.3 ZIP은 각 실험의 원시 데이터와 문서, 도구, 테스트를 포함한다. S4 보조 표본은 저장소에만 있다. `dist/pq-hybrid-downgrade-repro.zip`은 초기(E1·E2) 패키지이다.
+- 재현 패키지: `dist/`의 v1.1, v1.2, v1.3, v1.4 ZIP은 각 실험의 원시 데이터와 문서, 도구, 테스트를 포함한다. S4 보조 표본은 저장소에만 있다. `dist/pq-hybrid-downgrade-repro.zip`은 초기(E1·E2) 패키지이다.
 
 ## 부록 B. 연구 경과와 정정
 
