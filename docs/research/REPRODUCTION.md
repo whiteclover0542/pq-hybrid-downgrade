@@ -63,6 +63,18 @@ python3 -m faultinject.analyze --v13 --run-dir /tmp/v13-rerun
 
 [확실] 보존된 120회 결과는 `python -m faultinject.analyze --v13`으로 다시 집계하며, 마지막 줄이 `Causal-isolation verdict: consistent`여야 합니다. 패치 변형은 `openssl` CLI 바이너리가 원본과 같으므로, 서버 구분은 기록의 `provenance.server_libssl_sha256`으로 확인합니다.
 
+## v1.4 하이브리드 우선 클라이언트 새 실행
+
+[확실] v1.2와 같은 서버·설정에서 클라이언트만 하이브리드를 1순위로 광고하고 `X25519` key share만 보내도록 바꿉니다.
+
+```bash
+wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools && python3 -m faultinject.v12 --repeat 10 --client-groups "X25519MLKEM768:*X25519" --output-dir /tmp/v14-rerun'
+cd tools
+python3 -m faultinject.analyze --v12 --run-dir /tmp/v14-rerun
+```
+
+[확실] 보존된 60회 결과는 `python -m faultinject.analyze --v12 --run-dir ../docs/research/baselines/raw/v1.4`로 다시 집계합니다.
+
 ## 재현 ZIP
 
 ```bash
@@ -70,8 +82,9 @@ cd tools
 python make_repro_package.py --package v1.1
 python make_repro_package.py --package v1.2
 python make_repro_package.py --package v1.3
+python make_repro_package.py --package v1.4
 ```
 
-[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본만 포함하며, 진단·부분 실행·v1.2 S4는 제외합니다.
+[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본, v1.4 ZIP은 60회 하이브리드 우선 클라이언트 표본만 포함하며, 진단·부분 실행·v1.2 S4는 제외합니다.
 
 [불확실] 이 패키지와 실험 결과를 다른 OpenSSL 배포·구성 또는 실배포 공격 가능성으로 일반화할 수 없습니다.

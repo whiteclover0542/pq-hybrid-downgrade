@@ -88,6 +88,24 @@ PACKAGES = {
         "out": "dist/pq-hybrid-downgrade-v13-repro.zip",
         "extra_globs": [f"{FAULTINJECT_DIR}/tests/*.py"],
     },
+    "v1.4": {
+        "raw": "docs/research/baselines/raw/v1.4",
+        "documents": [REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD],
+        "required_files": [
+            f"{FAULTINJECT_DIR}/v12.py", f"{FAULTINJECT_DIR}/pcap_hello.py",
+            f"{FAULTINJECT_DIR}/analyze.py", REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD,
+        ],
+        "artifacts": {
+            "v1.4 JSON records": (".json", 60),
+            "v1.4 PCAPs": (".pcapng", 60),
+            "v1.4 client logs": ("-client.log", 60),
+            "v1.4 server logs": ("-server.log", 60),
+            "v1.4 capture logs": ("-capture.log", 60),
+        },
+        "excluded": ("v14-smoke", "/raw/v1.1/", "/raw/v1.2/", "/raw/v1.3/"),
+        "out": "dist/pq-hybrid-downgrade-v14-repro.zip",
+        "extra_globs": [f"{FAULTINJECT_DIR}/tests/*.py"],
+    },
 }
 
 

@@ -8,7 +8,7 @@
 | 결론과 한계 | [논문](docs/PAPER.md) |
 | 표본·환경·근거 | [근거 대장](docs/EVIDENCE.md) |
 | 재현 명령 | [재현 안내](docs/research/REPRODUCTION.md) |
-| 원시 데이터 | [v1.3 120회](docs/research/baselines/raw/v1.3/) · [v1.2 60회](docs/research/baselines/raw/v1.2/) · [v1.1 90회](docs/research/baselines/raw/v1.1/) · [v1.0 60회](docs/research/baselines/raw/phase-4/) |
+| 원시 데이터 | [v1.4 60회](docs/research/baselines/raw/v1.4/) · [v1.3 120회](docs/research/baselines/raw/v1.3/) · [v1.2 60회](docs/research/baselines/raw/v1.2/) · [v1.1 90회](docs/research/baselines/raw/v1.1/) · [v1.0 60회](docs/research/baselines/raw/phase-4/) |
 | 재현 패키지 | [dist/](dist/) |
 
 [확실] 단계별 계획·완료 기록·중간 분석은 Git 이력에만 보존합니다. 현재 작업 트리의 문서는 위 표의 진입점으로 제한합니다.

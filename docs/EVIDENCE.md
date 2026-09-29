@@ -63,6 +63,19 @@
 
 [추정] 착수 질문(`docs/PROPOSAL.md`: 협상 로직 결함에 의한 하이브리드 PQ 다운그레이드가 특정 라이브러리의 우연한 버그인가, 여러 구현체에 걸친 일반적 패턴인가)에 대해, 시험 범위의 답은 다음과 같습니다. 결함은 OpenSSL에서 확인됐고 `ssl/t1_lib.c`의 수정 변경 하나로 켜지고 꺼집니다(v1.2·v1.3). BoringSSL에는 같은 버그 클래스가 생길 설정 문법이 없고 OpenSSH는 key_share/HRR 구조가 없어, 동등 조건을 만들 수 없었으므로 교차 구현 패턴의 증거는 얻지 못했습니다(다른 구현이 안전하다는 판정은 아닙니다). 반면 "하이브리드를 광고했는데 HRR 없이 고전 그룹으로 협상"이라는 표면 증상은 v1.1에서 OpenSSL 명시적 single tuple과 BoringSSL의 정상 동작으로도 나타났고, 측정한 감사 경로는 이를 경고하지 않았습니다.
 
+## 하이브리드 우선 클라이언트(v1.4, E7)
+
+[확실] 같은 3.5.5 클라이언트 바이너리의 그룹 설정만 `X25519MLKEM768:*X25519`로 바꾸어(`*`는 key share를 보낼 그룹), 3.5.5/3.5.6 서버 × S1–S3 × 10회, 총 60회를 실행했습니다(`docs/research/baselines/raw/v1.4/`, 종료 코드 0, stderr 0바이트). 60건 모두 캡처의 ClientHello가 `supported_groups` = `[0x11ec, 0x001d]`(하이브리드 1순위), `key_share` = `[0x001d]`였습니다.
+
+| 서버 | S1 단일 tuple | S2 tuple 경계 | S3 `DEFAULT` |
+|---|---|---|---|
+| 3.5.5 | HRR 0/10 · X25519 | HRR 10/10 · X25519MLKEM768 | HRR 0/10 · X25519 |
+| 3.5.6 | HRR 0/10 · X25519 | HRR 10/10 · X25519MLKEM768 | HRR 10/10 · X25519MLKEM768 |
+
+[확실] `cd tools && python -m faultinject.analyze --v12 --run-dir ../docs/research/baselines/raw/v1.4`의 판정은 `reproduced`입니다. 결과는 v1.2(고전 1순위 클라이언트)와 같습니다. 클라이언트가 하이브리드를 1순위로 광고했는데도 S1에서는 두 버전 모두 HRR 없이 X25519를 골랐습니다. OpenSSL 선택 규칙은 클라이언트 선호 모드에서도 현재 tuple 안의 수신된 key share를 먼저 택하므로 문서화된 동작입니다. 명시적 경고는 0/60, 단일 출력 동시 식별은 60/60 판정 불가였습니다.
+
+[확실] 경로상 PQ 공개키 바꿔치기(TLS 컴바이너 결합 시험), 경로상 그룹 순서 조작, 패킷 길이를 보정한 SSH KEX 제거는 수행하지 않았으며 향후 과제로 남깁니다.
+
 ## 감사 가시성
 
 [확실] v1.2 60건의 client `-msg` 로그·서버 로그·tshark 기본 요약에서 `explicit_warning=True`는 0건입니다. 단일 출력 안에서 광고 그룹과 협상 그룹을 함께 확인하는 `mismatch_in_single_output`은 TLS 출력에 광고 그룹이 없어 60/60 `unsupported`였습니다. `s_client -brief`와 keylog는 수집하지 않아 `not_collected`이며, 경고가 없었다고 판정하지 않습니다.
