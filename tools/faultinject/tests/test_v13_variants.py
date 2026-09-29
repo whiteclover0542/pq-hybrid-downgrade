@@ -91,3 +91,10 @@ def test_v13_verdict_uses_the_variant_matrix(tmp_path, capsys):
 
     assert analyze.main(["--v13", "--run-dir", str(tmp_path)]) == 0
     assert "Causal-isolation verdict: consistent" in capsys.readouterr().out
+
+
+def test_analyze_modes_are_mutually_exclusive():
+    import pytest
+
+    with pytest.raises(SystemExit):
+        analyze.main(["--v12", "--v13"])

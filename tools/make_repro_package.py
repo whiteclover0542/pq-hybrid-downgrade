@@ -70,6 +70,7 @@ PACKAGES = {
             REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD,
             "tools/v12_build_openssl_356.sh",
             "tools/v13_build_variants.sh",
+            "docs/research/baselines/raw/v1.3-build.log",
         ],
         "required_files": [
             f"{FAULTINJECT_DIR}/v12.py", f"{FAULTINJECT_DIR}/pcap_hello.py",

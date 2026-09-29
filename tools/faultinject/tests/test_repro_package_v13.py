@@ -12,6 +12,7 @@ def test_v13_zip_contains_the_variant_matrix_and_build_recipe(tmp_path):
 
     assert sum(n.endswith(".json") and "/raw/v1.3/" in n for n in names) == 120
     assert "tools/v13_build_variants.sh" in names
+    assert "docs/research/baselines/raw/v1.3-build.log" in names
     assert not any("/raw/v1.2/" in n or "/raw/v1.1/" in n for n in names)
     assert verify_zip(zip_path, package="v1.3") == (True, [])
 

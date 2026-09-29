@@ -194,9 +194,10 @@ def render_v12_markdown(
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Render fault-injection analysis")
-    parser.add_argument("--v11", action="store_true", help="read v1.1 condition records")
-    parser.add_argument("--v12", action="store_true", help="read v1.2 server-setting records")
-    parser.add_argument("--v13", action="store_true", help="read v1.3 causal-isolation records")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--v11", action="store_true", help="read v1.1 condition records")
+    mode.add_argument("--v12", action="store_true", help="read v1.2 server-setting records")
+    mode.add_argument("--v13", action="store_true", help="read v1.3 causal-isolation records")
     parser.add_argument("--run-dir", type=Path, metavar="PATH", help="directory of v1.1/v1.2/v1.3 JSON records")
     arguments = parser.parse_args(argv)
     if arguments.run_dir and not (arguments.v11 or arguments.v12 or arguments.v13):

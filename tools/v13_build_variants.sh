@@ -5,7 +5,7 @@
 #   3.5.6-revert     : openssl-3.5.6 - only the ssl/t1_lib.c change of fix 85977e0
 #   3.6.1 / 3.6.2    : release tags (3.6 fix 2157c9d is in 3.6.2, not in 3.6.1)
 # Usage: bash tools/v13_build_variants.sh [variant ...]   (default: all four)
-set -eu
+set -euo pipefail
 ROOT=/root/pq-hybrid-phase2
 SRC=$ROOT/openssl
 FIX35=85977e013f32ceb96aa034c0e741adddc1a05e34
@@ -25,6 +25,7 @@ build() {  # build <variant> <tag> <patch-mode: none|apply|revert> <fix commit>
     revert) git diff "$fix" "$fix^" -- ssl/t1_lib.c | git apply --index ;;
   esac
   if [ "$mode" != none ]; then
+    [ "$(git diff --cached --name-only)" = ssl/t1_lib.c ] || { echo "patch touched more than ssl/t1_lib.c"; exit 3; }
     echo "patched-files=$(git diff --cached --name-only | tr '\n' ' ')"
     echo "patch-sha256=$(git diff --cached | sha256sum | cut -d' ' -f1)"
   fi
@@ -35,7 +36,7 @@ build() {  # build <variant> <tag> <patch-mode: none|apply|revert> <fix commit>
   echo "version=$(LD_LIBRARY_PATH=$prefix/lib64 OPENSSL_CONF=/dev/null "$prefix/bin/openssl" version)"
 }
 
-git -C "$SRC" fetch --tags origin >/dev/null 2>&1
+git -C "$SRC" fetch --tags origin >/dev/null 2>&1 || echo "warning: tag fetch failed; using local tags"
 variants=${*:-3.5.5-cherrypick 3.5.6-revert 3.6.1 3.6.2}
 for v in $variants; do
   case $v in

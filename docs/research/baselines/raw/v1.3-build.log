@@ -1,0 +1,44 @@
+# v1.3 variant build log: output of tools/v13_build_variants.sh as committed in f78128e (run 2026-09-29; git progress lines removed), followed by post-build checks. Later edits to the script only add safety checks (pipefail, single-file patch assert, fetch warning).
+=== 3.5.5-cherrypick (tag openssl-3.5.5, mode apply)
+tag-commit=67b5686b4419b4cb8caa502711c41815f5279751
+fix-ancestor=no
+patched-files=ssl/t1_lib.c 
+patch-sha256=0a7e0206a9cacf74a3e2a6124b2e4a0025d494292dc854ed8e71bce400550270
+binary-sha256=7b1a89948e5e2375ae24a47bd579bbd59c48e8f2fcef4508d6c5e943aba46ef1
+version=OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026)
+=== 3.5.6-revert (tag openssl-3.5.6, mode revert)
+tag-commit=286ddeaac037533bbdce65b3c689e3f7ffebf0f6
+fix-ancestor=yes
+patched-files=ssl/t1_lib.c 
+patch-sha256=0b7674abe147958d96d23d4d63116123a1328fb1610620c8b3b877023f289a14
+binary-sha256=88a896e54ede812cc7b944c307d4d159f478ac039f6dc08fa73da6d1cbe447eb
+version=OpenSSL 3.5.6 7 Apr 2026 (Library: OpenSSL 3.5.6 7 Apr 2026)
+=== 3.6.1 (tag openssl-3.6.1, mode none)
+tag-commit=c9a9e5b10105ad850b6e4d1122c645c67767c341
+fix-ancestor=no
+binary-sha256=d1199e01f04d4c10c6d059a2c2a6764671b54ee90bf8744b00505a9da2ec97bc
+version=OpenSSL 3.6.1 27 Jan 2026 (Library: OpenSSL 3.6.1 27 Jan 2026)
+=== 3.6.2 (tag openssl-3.6.2, mode none)
+tag-commit=fe686e15d84334b284f883118ed92f64b409b3aa
+fix-ancestor=yes
+binary-sha256=5851a0b614871a5eed51a18153898d74feadfb42c270acf755203b6cf4926d16
+version=OpenSSL 3.6.2 7 Apr 2026 (Library: OpenSSL 3.6.2 7 Apr 2026)
+=== done
+
+=== baseline and variant libssl SHA-256
+a785209382213c3769304a5a40bf231be66cc52e1a97f128748de1f2db2d11db  openssl/lib64/libssl.so.3
+aff23fc605b58c6f24310a4f398abcf2b8ae9d255cd8a46c48a11549eee7d32c  openssl-3.5.6/lib64/libssl.so.3
+ef30c6d8de549ce28e5e757362c997b808f2c2c411996737d3a79c00b11012ab  openssl-3.5.5-cherrypick/lib64/libssl.so.3
+a9d8f36e38b258704e483a2872ab9de32ee4d0110aac098177cfc588f92c5279  openssl-3.5.6-revert/lib64/libssl.so.3
+fb70fdbf1a67de864a4f7b61829f30d86d558dbc023404affbee2b1cccdcad61  openssl-3.6.1/lib64/libssl.so.3
+708d5e708526c65c1af8737d59e7ddf21d7d03276921944e1e9a1e0356e2c619  openssl-3.6.2/lib64/libssl.so.3
+=== libssl each server binary resolves with its own LD_LIBRARY_PATH (ldd)
+3.5.5-cherrypick: 	libssl.so.3 => /root/pq-hybrid-phase2/install/openssl-3.5.5-cherrypick/lib64/libssl.so.3 (0x00007eee421e8000)
+3.5.6-revert: 	libssl.so.3 => /root/pq-hybrid-phase2/install/openssl-3.5.6-revert/lib64/libssl.so.3 (0x000079000f50f000)
+3.6.1: 	libssl.so.3 => /root/pq-hybrid-phase2/install/openssl-3.6.1/lib64/libssl.so.3 (0x000073e9a9db0000)
+3.6.2: 	libssl.so.3 => /root/pq-hybrid-phase2/install/openssl-3.6.2/lib64/libssl.so.3 (0x00007f535b4f4000)
+=== RPATH/RUNPATH (empty = none)
+3.5.5-cherrypick: 
+3.5.6-revert: 
+3.6.1: 
+3.6.2: 
