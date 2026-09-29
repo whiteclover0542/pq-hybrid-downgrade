@@ -22,7 +22,8 @@ PEM = f"{PHASE2_ROOT}/openssl/apps/server.pem"
 V15 = f"{PHASE2_ROOT}/v15"
 OPENSSL_SERVER = f"{PHASE2_ROOT}/install/openssl-3.5.6/bin/openssl"
 CLIENT_BIN = f"{PHASE2_ROOT}/install/openssl/bin/openssl"
-BSSL = f"{PHASE2_ROOT}/build/boringssl/tool/bssl"
+# Keep the historical build as the default; an isolated current build can be selected for a control run.
+BSSL = os.environ.get("FAULTINJECT_V15_BSSL", f"{PHASE2_ROOT}/build/boringssl/tool/bssl")
 
 # client label -> (-groups argument, expected supported_groups order, expected key shares)
 CLIENTS = {
@@ -70,10 +71,11 @@ def v15_spec(server: str, client: str, repetition: int, out_dir: Path) -> Scenar
     )
 
 
-def v15_specs(repetitions: int, output_dir: Path | None = None) -> list[ScenarioSpec]:
+def v15_specs(repetitions: int, output_dir: Path | None = None,
+              servers: tuple[str, ...] | None = None) -> list[ScenarioSpec]:
     out_dir = output_dir or v15_output_dir()
     return [v15_spec(server, client, rep, out_dir)
-            for rep in range(1, repetitions + 1) for server in SERVERS for client in CLIENTS]
+            for rep in range(1, repetitions + 1) for server in (servers or tuple(SERVERS)) for client in CLIENTS]
 
 
 def client_precondition_v15(summary, client: str) -> bool:
@@ -111,12 +113,13 @@ def evaluate_v15(record: RunRecord, run_dir: Path, server: str, client: str) -> 
     return evaluated
 
 
-def run_v15(repetitions: int, output_dir: Path | None = None, scenario_runner=run_scenario) -> list[RunRecord]:
+def run_v15(repetitions: int, output_dir: Path | None = None, scenario_runner=run_scenario,
+            servers: tuple[str, ...] | None = None) -> list[RunRecord]:
     out_dir = Path(output_dir or v15_output_dir())
     if out_dir.exists() and any(out_dir.glob("*.json")):
         raise RuntimeError(f"{out_dir} is not empty; choose a fresh --output-dir")
     records = []
-    for spec in v15_specs(repetitions, out_dir):
+    for spec in v15_specs(repetitions, out_dir, servers):
         server, client = spec.condition.rsplit("-", 1)
         records.append(evaluate_v15(scenario_runner(spec), out_dir, server, client))
     return records
@@ -171,6 +174,7 @@ def main(argv: list[str] | None = None) -> int:
     mode.add_argument("--repeat", type=int, metavar="N", help="repetitions per server x client combination")
     mode.add_argument("--report", type=Path, metavar="DIR", help="print the comparison table for DIR")
     parser.add_argument("--output-dir", type=Path, metavar="PATH")
+    parser.add_argument("--servers", metavar="NAME[,NAME]", help="run only the named servers")
     arguments = parser.parse_args(argv)
     if arguments.report:
         print(render_v15(arguments.report))
@@ -179,7 +183,10 @@ def main(argv: list[str] | None = None) -> int:
     if not ok:
         print(f"preflight failed: {reason}")
         return 1
-    for record in run_v15(arguments.repeat, arguments.output_dir):
+    selected = tuple(arguments.servers.split(",")) if arguments.servers else None
+    if selected and any(server not in SERVERS for server in selected):
+        parser.error(f"unknown server in --servers: {arguments.servers}")
+    for record in run_v15(arguments.repeat, arguments.output_dir, servers=selected):
         print(f"{record.run_id}: result={record.metrics.handshake_result} hrr={record.metrics.hrr_pcap_present} "
               f"final={record.metrics.final_negotiated_group} precondition={record.metrics.client_precondition_verified}")
     return 0

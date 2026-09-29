@@ -1,0 +1,60 @@
+{
+  "run_id": "openssl_default-direct_r03_caddy--boringssl",
+  "implementation": "openssl",
+  "fault_type": "default-direct",
+  "repetition": 3,
+  "condition": "caddy--boringssl",
+  "metrics": {
+    "negotiated_group": null,
+    "is_hybrid": false,
+    "downgrade_visible": false,
+    "handshake_result": "failure",
+    "detail": "",
+    "hrr_present": null,
+    "downgrade_flagged": null,
+    "advertised_hybrid": null,
+    "hrr_pcap_present": false,
+    "hrr_log_present": null,
+    "server_hello_count": 1,
+    "final_negotiated_group": "X25519",
+    "client_precondition_verified": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_default-direct_r03_caddy--boringssl-client.log",
+    "server_log": "openssl_default-direct_r03_caddy--boringssl-server.log",
+    "pcap": "openssl_default-direct_r03_caddy--boringssl.pcapng",
+    "capture_log": "openssl_default-direct_r03_caddy--boringssl-capture.log"
+  },
+  "provenance": {
+    "part": "default-direct",
+    "client_hello_groups": [
+      "X25519",
+      "0x0017",
+      "0x0018"
+    ],
+    "client_hello_key_shares": [
+      "X25519"
+    ],
+    "server_cmd": [
+      "caddy",
+      "run",
+      "--config",
+      "/root/pq-hybrid-phase2/v16/Caddyfile",
+      "--adapter",
+      "caddyfile"
+    ],
+    "client_cmd": [
+      "/root/pq-hybrid-phase2/build/boringssl/tool/bssl",
+      "client",
+      "-connect",
+      "127.0.0.1:8545",
+      "-min-version",
+      "tls1.3"
+    ],
+    "binary_sha256": "b12a92d826a57487ad31aa055cde6b27f170aa719556d3ab723535fd252eb312",
+    "server": "caddy",
+    "client": "boringssl"
+  },
+  "audit": {}
+}

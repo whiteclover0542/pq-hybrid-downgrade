@@ -13,6 +13,13 @@ def test_matrix_covers_every_server_and_client():
     assert {spec.condition for spec in specs} == {f"{s}-{c}" for s in SERVERS for c in CLIENTS}
 
 
+def test_matrix_can_select_one_server():
+    specs = v15_specs(3, Path("/tmp/v15"), servers=("boringssl",))
+
+    assert len(specs) == 9
+    assert {spec.condition.rsplit("-", 1)[0] for spec in specs} == {"boringssl"}
+
+
 def test_server_commands_list_the_hybrid_first():
     commands = {name: " ".join(v15.server_command(name)) for name in SERVERS}
 

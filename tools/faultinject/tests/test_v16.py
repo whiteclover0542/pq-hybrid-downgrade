@@ -1,7 +1,10 @@
 from pathlib import Path
 
 from faultinject.record import Metrics, RunRecord
-from faultinject.v16 import DEFAULT_CLIENTS, REAL_SERVERS, render_v16, server_spec, survey_spec, v16_specs
+from faultinject.v16 import (
+    DEFAULT_CLIENTS, REAL_SERVERS, direct_spec, render_v16, server_spec,
+    survey_spec, v16_direct_specs, v16_specs,
+)
 
 
 def test_matrix_sizes():
@@ -9,6 +12,16 @@ def test_matrix_sizes():
 
     assert len(specs) == 3 * len(DEFAULT_CLIENTS) + 3 * len(REAL_SERVERS) * 3
     assert {s.fault_type for s in specs} == {"client-default", "server-software"}
+
+
+def test_direct_default_matrix_is_36_runs_and_uses_no_group_override():
+    specs = v16_direct_specs(3, Path("/tmp/v16-direct"))
+
+    assert len(specs) == 3 * len(REAL_SERVERS) * len(DEFAULT_CLIENTS)
+    assert {s.fault_type for s in specs} == {"default-direct"}
+    for spec in specs:
+        assert "-groups" not in spec.client_cmd and "-curves" not in spec.client_cmd and "-I" not in spec.client_cmd
+    assert direct_spec("caddy", "curl-system-openssl", 1, Path("/tmp/x")).capture_seconds == 10
 
 
 def test_survey_clients_use_default_group_settings():

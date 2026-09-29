@@ -1,0 +1,5 @@
+Bad server certificate: -8179, Peer's Certificate issuer is not recognized.
+issuer  DN: CN=Caddy Local Authority - ECC Intermediate
+0 cache hits; 0 cache misses, 0 cache not reusable
+0 stateless resumes
+Received 0 Cert Status items (OCSP stapled data)

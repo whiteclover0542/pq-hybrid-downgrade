@@ -1,0 +1,73 @@
+{
+  "run_id": "openssl_default-direct_r02_nginx--nss",
+  "implementation": "openssl",
+  "fault_type": "default-direct",
+  "repetition": 2,
+  "condition": "nginx--nss",
+  "metrics": {
+    "negotiated_group": null,
+    "is_hybrid": false,
+    "downgrade_visible": false,
+    "handshake_result": "failure",
+    "detail": "",
+    "hrr_present": null,
+    "downgrade_flagged": null,
+    "advertised_hybrid": null,
+    "hrr_pcap_present": false,
+    "hrr_log_present": null,
+    "server_hello_count": 1,
+    "final_negotiated_group": "X25519MLKEM768",
+    "client_precondition_verified": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_default-direct_r02_nginx--nss-client.log",
+    "server_log": "openssl_default-direct_r02_nginx--nss-server.log",
+    "pcap": "openssl_default-direct_r02_nginx--nss.pcapng",
+    "capture_log": "openssl_default-direct_r02_nginx--nss-capture.log"
+  },
+  "provenance": {
+    "part": "default-direct",
+    "client_hello_groups": [
+      "X25519MLKEM768",
+      "X25519",
+      "0x0017",
+      "0x0018",
+      "0x0019",
+      "0x11eb",
+      "0x11ed",
+      "0x0100",
+      "0x0101",
+      "0x0102",
+      "0x0103",
+      "0x0104"
+    ],
+    "client_hello_key_shares": [
+      "X25519MLKEM768"
+    ],
+    "server_cmd": [
+      "nginx",
+      "-c",
+      "/root/pq-hybrid-phase2/v16/nginx.conf",
+      "-g",
+      "daemon off;"
+    ],
+    "client_cmd": [
+      "tstclnt",
+      "-d",
+      "sql:/root/pq-hybrid-phase2/v15/nssdb",
+      "-h",
+      "127.0.0.1",
+      "-p",
+      "8545",
+      "-o",
+      "-Q",
+      "-V",
+      "tls1.3:tls1.3"
+    ],
+    "binary_sha256": null,
+    "server": "nginx",
+    "client": "nss"
+  },
+  "audit": {}
+}

@@ -1,0 +1,20 @@
+{"level":"info","ts":1790663444.2252643,"msg":"maxprocs: Leaving GOMAXPROCS=10: CPU quota undefined"}
+{"level":"info","ts":1790663444.2255416,"msg":"GOMEMLIMIT is updated","GOMEMLIMIT":18875971584,"previous":9223372036854775807}
+{"level":"info","ts":1790663444.2257154,"msg":"using config from file","file":"/root/pq-hybrid-phase2/v16/Caddyfile"}
+{"level":"info","ts":1790663444.2259052,"msg":"adapted config to JSON","adapter":"caddyfile"}
+{"level":"warn","ts":1790663444.2260728,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/root/pq-hybrid-phase2/v16/Caddyfile","line":2}
+{"level":"warn","ts":1790663444.226252,"logger":"admin","msg":"admin endpoint disabled"}
+{"level":"info","ts":1790663444.226993,"logger":"tls.cache.maintenance","msg":"started background certificate maintenance","cache":"0x8a57deaf980"}
+{"level":"info","ts":1790663444.2275825,"logger":"http.auto_https","msg":"automatic HTTP->HTTPS redirects are disabled","server_name":"srv0"}
+{"level":"info","ts":1790663444.2323143,"logger":"tls","msg":"storage cleaning happened too recently; skipping for now","storage":"FileStorage:/root/pq-hybrid-phase2/v16/caddy-data/caddy","instance":"3bf747b1-5647-403e-87fd-78c89c7a5d07","try_again":1790749844.232311,"try_again_in":86399.99999933}
+{"level":"info","ts":1790663444.2323399,"logger":"http","msg":"enabling HTTP/3 listener","addr":":8545"}
+{"level":"info","ts":1790663444.2327294,"logger":"tls","msg":"finished cleaning storage units"}
+{"level":"info","ts":1790663444.2340114,"logger":"http.log","msg":"server running","name":"srv0","protocols":["h1","h2","h3"]}
+{"level":"info","ts":1790663444.2345324,"logger":"http","msg":"enabling automatic TLS certificate management","domains":["127.0.0.1"]}
+{"level":"info","ts":1790663444.2454793,"logger":"pki.ca.local","msg":"root certificate is already trusted by system","path":"storage:pki/authorities/local/root.crt"}
+{"level":"info","ts":1790663444.245861,"msg":"autosaved config (load with --resume flag)","file":"/root/pq-hybrid-phase2/v16/caddy-config/caddy/autosave.json"}
+{"level":"info","ts":1790663444.2461808,"msg":"serving initial configuration"}
+{"level":"info","ts":1790663445.5524116,"msg":"shutting down apps, then terminating","signal":"SIGTERM"}
+{"level":"warn","ts":1790663445.552633,"msg":"exiting; byeee!! 👋","signal":"SIGTERM"}
+{"level":"info","ts":1790663445.5531323,"logger":"http","msg":"servers shutting down with eternal grace period"}
+{"level":"info","ts":1790663445.5541074,"msg":"shutdown complete","signal":"SIGTERM","exit_code":0}

@@ -1,0 +1,19 @@
+Connecting to 127.0.0.1:8545
+Connected.
+  Version: TLSv1.3
+  Resumed session: no
+  Cipher: TLS_AES_128_GCM_SHA256
+  ECDHE group: X25519
+  Signature algorithm: rsa_pss_rsae_sha256
+  Secure renegotiation: yes
+  Extended master secret: yes
+  Next protocol negotiated: 
+  ALPN protocol: 
+  OCSP staple: no
+  SCT list: no
+  Early data: no
+  Encrypted ClientHello: no
+  Cert subject: CN = server.example
+  Cert issuer: CN = Root CA
+Error while reading: TLSV1_ALERT_DECODE_ERROR
+109716911915456:error:1000041a:SSL routines:OPENSSL_internal:TLSV1_ALERT_DECODE_ERROR:/root/pq-hybrid-phase2/boringssl/ssl/tls_record.cc:572:SSL alert number 50

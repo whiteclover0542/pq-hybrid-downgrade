@@ -131,15 +131,25 @@ PACKAGES = {
     },
     "v1.6": {
         "raw": "docs/research/baselines/raw/v1.6",
+        "extra_raw": [
+            "docs/research/baselines/raw/v1.5-boringssl-latest",
+            "docs/research/baselines/raw/v1.6-direct",
+            "docs/research/baselines/raw/v1.6-caddy-2.11.4",
+        ],
         "documents": [
             REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD, "tools/v16_setup.sh",
             "tools/v15/goclient/main.go", "tools/v15/goclient/go.mod",
             "tools/v15/rustserver/Cargo.toml", "tools/v15/rustserver/Cargo.lock",
             "tools/v15/rustserver/src/bin/client.rs", "docs/research/baselines/raw/v1.6-setup.log",
+            "docs/research/baselines/raw/nss-ubuntu-patches-20260929.log",
+            "tools/v15_build_boringssl_latest.sh", "tools/v15_run_boringssl_latest.sh",
+            "tools/v16_run_direct_defaults.sh", "tools/v16_run_caddy_2114.sh",
         ],
         "required_files": [
             f"{FAULTINJECT_DIR}/v16.py", f"{FAULTINJECT_DIR}/v15.py", f"{FAULTINJECT_DIR}/pcap_hello.py",
-            "tools/v16_setup.sh", REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD,
+            "tools/v16_setup.sh", "tools/v15_build_boringssl_latest.sh", "tools/v15_run_boringssl_latest.sh",
+            "tools/v16_run_direct_defaults.sh", "tools/v16_run_caddy_2114.sh",
+            "docs/research/baselines/raw/nss-ubuntu-patches-20260929.log", REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD,
         ],
         "artifacts": {
             "v1.6 JSON records": (".json", 36),
@@ -147,6 +157,11 @@ PACKAGES = {
             "v1.6 client logs": ("-client.log", 36),
             "v1.6 server logs": ("-server.log", 36),
             "v1.6 capture logs": ("-capture.log", 36),
+        },
+        "extra_artifacts": {
+            "latest BoringSSL JSON records": ("docs/research/baselines/raw/v1.5-boringssl-latest", ".json", 9),
+            "direct matrix JSON records": ("docs/research/baselines/raw/v1.6-direct", ".json", 36),
+            "latest Caddy JSON records": ("docs/research/baselines/raw/v1.6-caddy-2.11.4", ".json", 36),
         },
         "excluded": ("v16-smoke", "/raw/v1.1/", "/raw/v1.2/", "/raw/v1.3/", "/raw/v1.4/", "/raw/v1.5/"),
         "out": "dist/pq-hybrid-downgrade-v16-repro.zip",
@@ -163,6 +178,8 @@ def build_zip(out_path: Path, package: str = "v1.1") -> Path:
 
     members: list[Path] = []
     members.extend(sorted((REPO_ROOT / config["raw"]).glob("*")))
+    for raw_dir in config.get("extra_raw", []):
+        members.extend(sorted((REPO_ROOT / raw_dir).glob("*")))
     members.extend(sorted((REPO_ROOT / FAULTINJECT_DIR).glob("*.py")))
     members.extend(REPO_ROOT / document for document in config["documents"])
     for pattern in config.get("extra_globs", []):
@@ -186,6 +203,9 @@ def verify_zip(zip_path: Path, package: str = "v1.1") -> tuple[bool, list[str]]:
     raw_names = [name for name in names if name.startswith(f"{config['raw']}/")]
     for label, (suffix, minimum) in config["artifacts"].items():
         if sum(name.endswith(suffix) for name in raw_names) < minimum:
+            missing.append(label)
+    for label, (raw_dir, suffix, minimum) in config.get("extra_artifacts", {}).items():
+        if sum(name.startswith(f"{raw_dir}/") and name.endswith(suffix) for name in names) < minimum:
             missing.append(label)
 
     if any(marker in name for name in names for marker in config["excluded"]):

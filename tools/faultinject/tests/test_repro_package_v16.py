@@ -11,8 +11,12 @@ def test_v16_zip_contains_the_survey_and_client_sources(tmp_path):
     names = zipfile.ZipFile(zip_path).namelist()
 
     assert sum(n.endswith(".json") and "/raw/v1.6/" in n for n in names) == 36
+    assert sum(n.endswith(".json") and "/raw/v1.5-boringssl-latest/" in n for n in names) == 9
+    assert sum(n.endswith(".json") and "/raw/v1.6-direct/" in n for n in names) == 36
+    assert sum(n.endswith(".json") and "/raw/v1.6-caddy-2.11.4/" in n for n in names) == 36
     assert "tools/v15/goclient/main.go" in names
     assert "tools/v15/rustserver/src/bin/client.rs" in names
+    assert "docs/research/baselines/raw/nss-ubuntu-patches-20260929.log" in names
     assert verify_zip(zip_path, package="v1.6") == (True, [])
 
 

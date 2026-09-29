@@ -1,0 +1,9 @@
+openssl_negotiation-function_r01_boringssl-C1: result=success hrr=False final=X25519MLKEM768 precondition=True
+openssl_negotiation-function_r01_boringssl-C2: result=success hrr=True final=X25519MLKEM768 precondition=True
+openssl_negotiation-function_r01_boringssl-C3: result=success hrr=False final=X25519 precondition=True
+openssl_negotiation-function_r02_boringssl-C1: result=success hrr=False final=X25519MLKEM768 precondition=True
+openssl_negotiation-function_r02_boringssl-C2: result=success hrr=True final=X25519MLKEM768 precondition=True
+openssl_negotiation-function_r02_boringssl-C3: result=success hrr=False final=X25519 precondition=True
+openssl_negotiation-function_r03_boringssl-C1: result=success hrr=False final=X25519MLKEM768 precondition=True
+openssl_negotiation-function_r03_boringssl-C2: result=success hrr=True final=X25519MLKEM768 precondition=True
+openssl_negotiation-function_r03_boringssl-C3: result=success hrr=False final=X25519 precondition=True

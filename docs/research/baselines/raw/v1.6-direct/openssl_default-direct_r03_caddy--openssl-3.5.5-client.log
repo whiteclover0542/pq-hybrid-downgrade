@@ -1,0 +1,82 @@
+CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:
+   i:CN=Caddy Local Authority - ECC Intermediate
+   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA256
+   v:NotBefore: Sep 29 05:46:54 2026 GMT; NotAfter: Sep 29 17:46:54 2026 GMT
+ 1 s:CN=Caddy Local Authority - ECC Intermediate
+   i:CN=Caddy Local Authority - 2026 ECC Root
+   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA256
+   v:NotBefore: Sep 29 05:45:29 2026 GMT; NotAfter: Oct  6 05:45:29 2026 GMT
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIBuTCCAV+gAwIBAgIRAMhKRS3eQxjU5Ub7vfk13R8wCgYIKoZIzj0EAwIwMzEx
+MC8GA1UEAxMoQ2FkZHkgTG9jYWwgQXV0aG9yaXR5IC0gRUNDIEludGVybWVkaWF0
+ZTAeFw0yNjA5MjkwNTQ2NTRaFw0yNjA5MjkxNzQ2NTRaMAAwWTATBgcqhkjOPQIB
+BggqhkjOPQMBBwNCAATIvQ/+T6+/1XtfF84BRqNGruMsmes+1VlgfYcGUafwFsn1
+Hb8R/Vrp/avrmbklONtzDLrrFUcaKFW6nvvUsXEMo4GGMIGDMA4GA1UdDwEB/wQE
+AwIHgDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHQYDVR0OBBYEFK0r
+nGLH+itX//vB/i6+TA70xR6YMB8GA1UdIwQYMBaAFB5L9bW/0knq/qNoAs1a1VnK
+8BOyMBIGA1UdEQEB/wQIMAaHBH8AAAEwCgYIKoZIzj0EAwIDSAAwRQIgYexLll70
+MiTUFDFWClCWkQaV/xz1qTnI5MeePbZuJE0CIQC1+6U2N83PivnxZrE+3yz8uV/+
+CnY7MN6lXJPY3tbpvQ==
+-----END CERTIFICATE-----
+subject=
+issuer=CN=Caddy Local Authority - ECC Intermediate
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: ecdsa_secp256r1_sha256
+Peer Temp Key: X25519, 253 bits
+---
+SSL handshake has read 1264 bytes and written 1515 bytes
+Verification error: unable to get local issuer certificate
+---
+New, TLSv1.3, Cipher is TLS_AES_128_GCM_SHA256
+Protocol: TLSv1.3
+Server public key is 256 bit
+This TLS version forbids renegotiation.
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 20 (unable to get local issuer certificate)
+---
+---
+Post-Handshake New Session Ticket arrived:
+SSL-Session:
+    Protocol  : TLSv1.3
+    Cipher    : TLS_AES_128_GCM_SHA256
+    Session-ID: C9B2CBAD14913F5D5FC0A5895BF87E5857659F870BD42CE1BB9E91BFD10D6215
+    Session-ID-ctx: 
+    Resumption PSK: 0883B1DB21EA1E5E3D7ADE5780CAEBACDB07D11E9168F0BB82C8FA11B78DEE2E
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 604800 (seconds)
+    TLS session ticket:
+    0000 - 61 6b 1b 66 2d 9b ba a7-ab 56 2d 3a 80 94 63 f2   ak.f-....V-:..c.
+    0010 - 6e cb ae f6 bd 2a 0e fb-fe 47 18 b6 b7 12 64 7c   n....*...G....d|
+    0020 - 3e d0 f8 e4 3e 42 81 af-e3 e7 39 d0 8b b3 05 a6   >...>B....9.....
+    0030 - 74 d5 21 e7 92 2b 9c 62-46 0e c6 44 30 91 ea 4b   t.!..+.bF..D0..K
+    0040 - 3e 56 33 d5 be 89 9c 2e-4b 19 5e 3c 99 a4 6a 16   >V3.....K.^<..j.
+    0050 - 09 07 68 e6 de 55 b2 d9-88 cf a2 eb bd 9f 16 ee   ..h..U..........
+    0060 - 06 d7 14 f7 11 78 5a 2c-55                        .....xZ,U
+
+    Start Time: 1790663107
+    Timeout   : 7200 (sec)
+    Verify return code: 20 (unable to get local issuer certificate)
+    Extended master secret: no
+    Max Early Data: 0
+---
+read R BLOCK
+Connecting to 127.0.0.1
+Can't use SSL_get_servername
+depth=1 CN=Caddy Local Authority - ECC Intermediate
+verify error:num=20:unable to get local issuer certificate
+verify return:1
+depth=0 
+verify return:1
+DONE

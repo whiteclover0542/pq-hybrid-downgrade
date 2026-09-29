@@ -1,0 +1,63 @@
+{
+  "run_id": "openssl_server-software_r02_nginx-C3",
+  "implementation": "openssl",
+  "fault_type": "server-software",
+  "repetition": 2,
+  "condition": "nginx-C3",
+  "metrics": {
+    "negotiated_group": "X25519MLKEM768",
+    "is_hybrid": true,
+    "downgrade_visible": false,
+    "handshake_result": "success",
+    "detail": "",
+    "hrr_present": null,
+    "downgrade_flagged": null,
+    "advertised_hybrid": null,
+    "hrr_pcap_present": true,
+    "hrr_log_present": null,
+    "server_hello_count": 1,
+    "final_negotiated_group": "X25519MLKEM768",
+    "client_precondition_verified": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_server-software_r02_nginx-C3-client.log",
+    "server_log": "openssl_server-software_r02_nginx-C3-server.log",
+    "pcap": "openssl_server-software_r02_nginx-C3.pcapng",
+    "capture_log": "openssl_server-software_r02_nginx-C3-capture.log"
+  },
+  "provenance": {
+    "part": "server-software",
+    "client_hello_groups": [
+      "X25519",
+      "X25519MLKEM768"
+    ],
+    "client_hello_key_shares": [
+      "X25519"
+    ],
+    "server_cmd": [
+      "nginx",
+      "-c",
+      "/root/pq-hybrid-phase2/v16/nginx.conf",
+      "-g",
+      "daemon off;"
+    ],
+    "client_cmd": [
+      "/root/pq-hybrid-phase2/install/openssl/bin/openssl",
+      "s_client",
+      "-tls1_3",
+      "-state",
+      "-msg",
+      "-provider",
+      "default",
+      "-connect",
+      "127.0.0.1:8545",
+      "-groups",
+      "X25519:X25519MLKEM768"
+    ],
+    "binary_sha256": null,
+    "server": "nginx",
+    "client": "C3"
+  },
+  "audit": {}
+}

@@ -86,7 +86,7 @@ cd tools
 python3 -m faultinject.v15 --report /tmp/v15-rerun
 ```
 
-[확실] 보존된 105회는 `python -m faultinject.v15 --report ../docs/research/baselines/raw/v1.5`로 다시 집계합니다. 8545 포트가 막 해제된 직후에는 사전 점검이 실행을 거부할 수 있으니 잠시 뒤 다시 실행합니다.
+[확실] 보존된 105회는 `python -m faultinject.v15 --report ../docs/research/baselines/raw/v1.5`로 다시 집계합니다. 최신 BoringSSL 대조 9회는 `python -m faultinject.v15 --report ../docs/research/baselines/raw/v1.5-boringssl-latest`로 집계하고, 재실행은 `tools/v15_build_boringssl_latest.sh`와 `tools/v15_run_boringssl_latest.sh`를 사용합니다. 8545 포트가 막 해제된 직후에는 사전 점검이 실행을 거부할 수 있으니 잠시 뒤 다시 실행합니다.
 
 ## v1.6 클라이언트 기본값 조사와 실제 서버 소프트웨어
 
@@ -101,6 +101,8 @@ python3 -m faultinject.v16 --report /tmp/v16-rerun
 
 [확실] 보존된 36회는 `python -m faultinject.v16 --report ../docs/research/baselines/raw/v1.6`로 다시 집계합니다. 기본값 조사 기록의 `handshake_result`는 OpenSSL 외 클라이언트의 출력 형식을 판정하지 않으므로 `failure`로 남으며, 조사는 ClientHello와 서버가 고른 그룹만 봅니다.
 
+[확실] 기본 클라이언트·기본 서버 직접 연결 36회는 `python -m faultinject.v16 --report ../docs/research/baselines/raw/v1.6-direct`로 집계하고, 재실행은 `tools/v16_run_direct_defaults.sh`를 사용합니다. `v1.6-caddy-2.11.4`는 v1.6 재실행 36회이며 그중 Caddy 2.11.4의 C1–C3 대조는 9회입니다. 이 디렉터리는 `python -m faultinject.v16 --report ../docs/research/baselines/raw/v1.6-caddy-2.11.4`로 집계하고, 재실행은 `tools/v16_run_caddy_2114.sh`를 사용합니다. 기본 클라이언트를 Caddy 2.11.4에 직접 연결한 표본은 없습니다. 두 Caddy 바이너리의 원시 build 정보와 Ubuntu NSS 패치 목록은 각각 해당 raw 디렉터리와 `nss-ubuntu-patches-20260929.log`에 보존합니다.
+
 ## 재현 ZIP
 
 ```bash
@@ -113,6 +115,6 @@ python make_repro_package.py --package v1.5
 python make_repro_package.py --package v1.6
 ```
 
-[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본, v1.4 ZIP은 60회 하이브리드 우선 클라이언트 표본, v1.5 ZIP은 105회 협상 함수 비교 표본, v1.6 ZIP은 36회 기본값 조사·서버 소프트웨어 표본만 포함하며, 진단·부분 실행·v1.2 S4는 제외합니다.
+[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본, v1.4 ZIP은 60회 하이브리드 우선 클라이언트 표본, v1.5 ZIP은 105회 협상 함수 비교 표본을 포함합니다. v1.6 ZIP은 기존 36회 기본값 조사에 최신 BoringSSL 9회, 기본 직접 연결 36회, v1.6 재실행 36회(Caddy 2.11.4 9회 포함)와 Caddy·NSS 원시 환경 기록을 더해 검증하며, 진단·부분 실행·v1.2 S4는 제외합니다.
 
 [불확실] 이 패키지와 실험 결과를 다른 OpenSSL 배포·구성 또는 실배포 공격 가능성으로 일반화할 수 없습니다.

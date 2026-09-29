@@ -1,0 +1,9 @@
+libnss3:amd64	2:3.120-1ubuntu2.1
+libnss3-tools	2:3.120-1ubuntu2.1
+38_hurd.patch
+80_security_tools.patch
+CVE-2026-12318.patch
+CVE-2026-2781.patch
+c23-const.patch
+series
+no patch references to tls13con.c or sslsock.c

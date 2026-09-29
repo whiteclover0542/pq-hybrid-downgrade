@@ -4,7 +4,9 @@
 #   3.5.5-cherrypick : openssl-3.5.5 + only the ssl/t1_lib.c change of fix 85977e0
 #   3.5.6-revert     : openssl-3.5.6 - only the ssl/t1_lib.c change of fix 85977e0
 #   3.6.1 / 3.6.2    : release tags (3.6 fix 2157c9d is in 3.6.2, not in 3.6.1)
-# Usage: bash tools/v13_build_variants.sh [variant ...]   (default: all four)
+#   3.6.1-cherrypick : openssl-3.6.1 + only the ssl/t1_lib.c change of fix 2157c9d   (v1.7)
+#   3.6.2-revert     : openssl-3.6.2 - only the ssl/t1_lib.c change of fix 2157c9d   (v1.7)
+# Usage: bash tools/v13_build_variants.sh [variant ...]   (default: the four v1.3 variants)
 set -euo pipefail
 ROOT=/root/pq-hybrid-phase2
 SRC=$ROOT/openssl
@@ -44,6 +46,8 @@ for v in $variants; do
     3.5.6-revert)     build "$v" openssl-3.5.6 revert "$FIX35" ;;
     3.6.1)            build "$v" openssl-3.6.1 none   "$FIX36" ;;
     3.6.2)            build "$v" openssl-3.6.2 none   "$FIX36" ;;
+    3.6.1-cherrypick) build "$v" openssl-3.6.1 apply  "$FIX36" ;;
+    3.6.2-revert)     build "$v" openssl-3.6.2 revert "$FIX36" ;;
     *) echo "unknown variant $v"; exit 2 ;;
   esac
 done

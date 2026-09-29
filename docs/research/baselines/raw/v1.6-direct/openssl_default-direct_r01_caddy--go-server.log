@@ -1,0 +1,20 @@
+{"level":"info","ts":1790662970.2801294,"msg":"using provided configuration","config_file":"/root/pq-hybrid-phase2/v16/Caddyfile","config_adapter":"caddyfile"}
+{"level":"warn","ts":1790662970.2809014,"msg":"Caddyfile input is not formatted; run the 'caddy fmt' command to fix inconsistencies","adapter":"caddyfile","file":"/root/pq-hybrid-phase2/v16/Caddyfile","line":2}
+{"level":"warn","ts":1790662970.2811937,"logger":"admin","msg":"admin endpoint disabled"}
+{"level":"info","ts":1790662970.2815642,"logger":"tls.cache.maintenance","msg":"started background certificate maintenance","cache":"0xc00024b810"}
+{"level":"warn","ts":1790662970.281665,"logger":"tls","msg":"stapling OCSP","error":"no OCSP stapling for [server.example]: no OCSP server specified in certificate"}
+{"level":"warn","ts":1790662970.2824132,"logger":"http","msg":"automatic HTTP->HTTPS redirects are disabled","server_name":"srv0"}
+{"level":"info","ts":1790662970.2834754,"logger":"tls","msg":"cleaning storage unit","description":"FileStorage:/root/pq-hybrid-phase2/v16/caddy-data/caddy"}
+{"level":"info","ts":1790662970.2846174,"logger":"tls","msg":"finished cleaning storage units"}
+{"level":"info","ts":1790662970.2933908,"logger":"pki.ca.local","msg":"root certificate is already trusted by system","path":"storage:pki/authorities/local/root.crt"}
+{"level":"info","ts":1790662970.2945504,"logger":"http","msg":"enabling HTTP/3 listener","addr":":8545"}
+{"level":"info","ts":1790662970.2948558,"msg":"connection doesn't allow setting of send buffer size. Not a *net.UDPConn?. See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details."}
+{"level":"info","ts":1790662970.295112,"logger":"http.log","msg":"server running","name":"srv0","protocols":["h1","h2","h3"]}
+{"level":"info","ts":1790662970.2952833,"logger":"http","msg":"enabling automatic TLS certificate management","domains":["127.0.0.1"]}
+{"level":"warn","ts":1790662970.2957194,"logger":"tls","msg":"stapling OCSP","error":"no OCSP stapling for [127.0.0.1]: no OCSP server specified in certificate","identifiers":["127.0.0.1"]}
+{"level":"info","ts":1790662970.2960656,"msg":"autosaved config (load with --resume flag)","file":"/root/pq-hybrid-phase2/v16/caddy-config/caddy/autosave.json"}
+{"level":"info","ts":1790662970.2962198,"msg":"serving initial configuration"}
+{"level":"info","ts":1790662971.5710626,"msg":"shutting down apps, then terminating","signal":"SIGTERM"}
+{"level":"warn","ts":1790662971.5713115,"msg":"exiting; byeee!! 👋","signal":"SIGTERM"}
+{"level":"info","ts":1790662971.571545,"logger":"tls.cache.maintenance","msg":"stopped background certificate maintenance","cache":"0xc00024b810"}
+{"level":"info","ts":1790662971.5720532,"msg":"shutdown complete","signal":"SIGTERM","exit_code":0}
