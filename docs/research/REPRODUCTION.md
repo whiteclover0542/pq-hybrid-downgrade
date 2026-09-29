@@ -88,6 +88,19 @@ python3 -m faultinject.v15 --report /tmp/v15-rerun
 
 [확실] 보존된 105회는 `python -m faultinject.v15 --report ../docs/research/baselines/raw/v1.5`로 다시 집계합니다. 8545 포트가 막 해제된 직후에는 사전 점검이 실행을 거부할 수 있으니 잠시 뒤 다시 실행합니다.
 
+## v1.6 클라이언트 기본값 조사와 실제 서버 소프트웨어
+
+[확실] v1.5 준비가 끝난 상태에서 nginx·Caddy 패키지를 설치하고 Go·rustls 기본 클라이언트를 빌드한 뒤 36회를 실행합니다. nginx와 Caddy 설정은 수신 포트·인증서(nginx는 프로토콜도)만 지정하고 그룹 설정은 두지 않습니다.
+
+```bash
+wsl -d Ubuntu -u root -- bash /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/v16_setup.sh
+wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools && python3 -m faultinject.v16 --repeat 3 --output-dir /tmp/v16-rerun'
+cd tools
+python3 -m faultinject.v16 --report /tmp/v16-rerun
+```
+
+[확실] 보존된 36회는 `python -m faultinject.v16 --report ../docs/research/baselines/raw/v1.6`로 다시 집계합니다. 기본값 조사 기록의 `handshake_result`는 OpenSSL 외 클라이언트의 출력 형식을 판정하지 않으므로 `failure`로 남으며, 조사는 ClientHello와 서버가 고른 그룹만 봅니다.
+
 ## 재현 ZIP
 
 ```bash
@@ -97,8 +110,9 @@ python make_repro_package.py --package v1.2
 python make_repro_package.py --package v1.3
 python make_repro_package.py --package v1.4
 python make_repro_package.py --package v1.5
+python make_repro_package.py --package v1.6
 ```
 
-[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본, v1.4 ZIP은 60회 하이브리드 우선 클라이언트 표본, v1.5 ZIP은 105회 협상 함수 비교 표본만 포함하며, 진단·부분 실행·v1.2 S4는 제외합니다.
+[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본, v1.4 ZIP은 60회 하이브리드 우선 클라이언트 표본, v1.5 ZIP은 105회 협상 함수 비교 표본, v1.6 ZIP은 36회 기본값 조사·서버 소프트웨어 표본만 포함하며, 진단·부분 실행·v1.2 S4는 제외합니다.
 
 [불확실] 이 패키지와 실험 결과를 다른 OpenSSL 배포·구성 또는 실배포 공격 가능성으로 일반화할 수 없습니다.

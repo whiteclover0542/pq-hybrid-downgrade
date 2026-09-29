@@ -63,6 +63,8 @@
 
 [추정] 착수 질문(`docs/PROPOSAL.md`: 협상 로직 결함에 의한 하이브리드 PQ 다운그레이드가 특정 라이브러리의 우연한 버그인가, 여러 구현체에 걸친 일반적 패턴인가)에 대해, 시험 범위의 답은 다음과 같습니다. 결함은 OpenSSL에서 확인됐고 `ssl/t1_lib.c`의 수정 변경 하나로 켜지고 꺼집니다(v1.2·v1.3). BoringSSL에는 같은 버그 클래스가 생길 설정 문법이 없고 OpenSSH는 key_share/HRR 구조가 없어, 동등 조건을 만들 수 없었으므로 교차 구현 패턴의 증거는 얻지 못했습니다(다른 구현이 안전하다는 판정은 아닙니다). 반면 "하이브리드를 광고했는데 HRR 없이 고전 그룹으로 협상"이라는 표면 증상은 v1.1에서 OpenSSL 명시적 single tuple과 BoringSSL의 정상 동작으로도 나타났고, 측정한 감사 경로는 이를 경고하지 않았습니다.
 
+[추정] v1.5·v1.6 이후의 답: 결함 자체는 OpenSSL 한 라이브러리의 것이지만, 하이브리드 사용 여부가 구현마다 다른 협상 함수(세 유형)로 정해지고 기본 출력에 드러나지 않는 구조는 시험한 다섯 TLS 구현 전반에 공통입니다. 다만 시험한 기본 설정 클라이언트는 모두 하이브리드 key share를 먼저 보내 key share 우선 유형의 PQ 누락 조건에 해당하지 않았고, 기본 설정 서버에서 PQ 보호가 빠진 경우는 하이브리드를 고르지 않은 Caddy 2.6.2뿐입니다(논문 용어로 PQ 미적용). 기본 설정 클라이언트와 기본 설정 서버를 직접 연결한 실행은 없습니다. 논문은 공격자에 의한 "다운그레이드"와 공격자 없는 "PQ 누락"을 구분합니다.
+
 ## 하이브리드 우선 클라이언트(v1.4, E7)
 
 [확실] 같은 3.5.5 클라이언트 바이너리의 그룹 설정만 `X25519MLKEM768:*X25519`로 바꾸어(`*`는 key share를 보낼 그룹), 3.5.5/3.5.6 서버 × S1–S3 × 10회, 총 60회를 실행했습니다(`docs/research/baselines/raw/v1.4/`, 종료 코드 0, stderr 0바이트). 60건 모두 캡처의 ClientHello가 `supported_groups` = `[0x11ec, 0x001d]`(하이브리드 1순위), `key_share` = `[0x001d]`였습니다.
@@ -92,9 +94,43 @@
 | Go | 하이브리드 | HRR 5/5 → 하이브리드 | HRR 5/5 → 하이브리드 | 서버 순서 |
 | OpenSSL tuple 경계 | 하이브리드 | HRR 5/5 → 하이브리드 | HRR 5/5 → 하이브리드 | 서버 순서 |
 
-[확실] 문서 대조: OpenSSL은 `SSL_CTX_set1_curves(3)` 의사코드와 일치합니다. Go 문서는 "The order of the list is ignored, and key exchange mechanisms are chosen from this list using an internal preference order"라고 밝히며 관측과 일치합니다. rustls 문서는 `kx_groups`를 "in preference order"라고만 적고 서버 쪽 선택 규칙은 적지 않습니다. BoringSSL과 NSS의 서버 선택 규칙은 공개 문서에서 확인하지 않았으므로, 두 구현의 유형은 관측에 근거한 분류입니다.
+[확실] 문서 대조: OpenSSL은 `SSL_CTX_set1_curves(3)` 의사코드와 일치합니다. Go 문서는 "The order of the list is ignored, and key exchange mechanisms are chosen from this list using an internal preference order"라고 밝히며 관측과 일치합니다. rustls 문서는 `kx_groups`를 "in preference order"라고만 적고 서버 쪽 선택 규칙은 적지 않습니다. BoringSSL과 NSS의 서버 선택 규칙은 공개 문서에서 찾지 못해 소스 코드로 확인했습니다(아래 "BoringSSL·NSS 선택 규칙의 소스 근거").
 
 [확실] 시험 중 BoringSSL 서버와의 연결에서 핸드셰이크 완료 뒤 클라이언트가 `decode_error` 경고로 끊는 경우가 1회 시험 실행에서 간헐적으로 있었습니다. 본 실행 105회에서는 나타나지 않았고, 그룹 선택(ServerHello와 HRR)과는 무관합니다. 이를 구분하려고 기록에 핸드셰이크 완료 여부(`New, TLSv1.3` 출력)를 따로 남깁니다.
+
+## BoringSSL·NSS 선택 규칙의 소스 근거
+
+[확실] BoringSSL(시험한 빌드의 체크아웃 `/root/pq-hybrid-phase2/boringssl`, `git rev-parse HEAD` = `7fb4d3da5082225c7180267e9daad291887ce982`): `ssl/extensions.cc` 323–360행 `tls1_get_shared_group`은 `ssl->options & SSL_OP_CIPHER_SERVER_PREFERENCE`가 참이면 `pref = groups`(서버 목록), 아니면 `pref = hs->peer_supported_group_list`(클라이언트 목록)로 두고, `pref` 순서로 처음 겹치는 그룹을 반환합니다. `ssl/tls13_server.cc` 471행은 이 함수로 그룹을 정하고, 478–479행의 `ssl_ext_key_share_parse_clienthello`로 그 그룹의 key share 유무를 본 뒤, 581–586행에서 key share가 없으면 HRR 상태로 넘어갑니다. `bssl server`는 서버 선호 옵션을 켜지 않았으므로 클라이언트 순서 유형과 일치합니다.
+
+[확실] NSS(GitHub 미러 `nss-dev/nss`, 태그 `NSS_3_120_RTM`): `lib/ssl/tls13con.c`의 `tls13_NegotiateKeyExchange`는 `ss->namedGroupPreferences`(서버 선호 순)를 돌며 첫 활성 그룹을 선호 그룹으로 정하고, 그 그룹의 key share가 없으면 다음 활성 그룹의 key share를 봅니다(2091–2128행). 그 그룹이 `tls13_isGroupAcceptable`(2016–2033행, `e = 2`, `offered->bits`가 선호 그룹 `bits ± e` 안)을 만족하면 그 그룹으로 확정합니다. `lib/ssl/sslsock.c` 170–171행은 `HYGROUP(mlkem768, x25519, 256, …)`와 `{ ssl_grp_ec_curve25519, 256, … }`로 두 그룹을 모두 256비트로 정의합니다. 따라서 하이브리드 다음에 X25519를 둔 서버는 X25519 key share만 받으면 HRR 없이 X25519를 택하며, 관측된 key share 우선 유형과 일치합니다.
+
+[불확실] NSS 소스는 업스트림 태그에서 읽었고, 시험한 Ubuntu 패키지(`libnss3 2:3.120-1ubuntu2.1`)의 배포판 패치가 이 경로를 바꾸는지는 확인하지 않았습니다. 관측 결과는 소스 규칙과 일치합니다.
+
+## 클라이언트 기본값과 실제 서버 소프트웨어(v1.6, E9)
+
+[확실] `docs/research/baselines/raw/v1.6/`에 36회 기록이 있습니다(실행 stderr 0바이트, `v1.6-run.stdout.log`·`v1.6-run.stderr.log`). 재집계: `cd tools && python -m faultinject.v16 --report ../docs/research/baselines/raw/v1.6`. 설치 버전과 클라이언트 해시는 `docs/research/baselines/raw/v1.6-setup.log`에 있습니다(콘솔 출력을 옮겨 적은 기록): nginx `1.28.3-2ubuntu1.11`, caddy `2.6.2-14`, openssl/libssl3t64 `3.5.5-1ubuntu3.5`, curl `8.18.0-1ubuntu2.7`, libnss3 `2:3.120-1ubuntu2.1`, Go 클라이언트 SHA-256 `5c59c2029ceb…`, rustls 클라이언트 `0f96dba3a50b…`.
+
+[확실] E9a(기본 설정 클라이언트 → OpenSSL 3.5.6 기본 서버, 각 3회, 3회 모두 같은 결과):
+
+| 클라이언트 | supported_groups | key_share | 협상 그룹 |
+|---|---|---|---|
+| OpenSSL 3.5.5 | X25519MLKEM768, X25519, 0x0017, 0x001e, 0x0018, 0x0019, 0x0100, 0x0101 | X25519MLKEM768, X25519 | X25519MLKEM768 |
+| curl(시스템 OpenSSL) | 위와 같음 | X25519MLKEM768, X25519 | X25519MLKEM768 |
+| Go 1.26 | X25519MLKEM768, X25519, 0x0017, 0x0018, 0x0019 | X25519MLKEM768, X25519 | X25519MLKEM768 |
+| rustls 0.23.45 | X25519MLKEM768, X25519, 0x0017, 0x0018 | X25519MLKEM768, X25519 | X25519MLKEM768 |
+| NSS 3.120 | X25519MLKEM768, X25519, 0x0017, 0x0018, 0x0019, 0x11eb, 0x11ed, 0x0100–0x0104 | X25519MLKEM768 | X25519MLKEM768 |
+| BoringSSL(2024-08 빌드) | X25519, 0x0017, 0x0018 | X25519 | X25519 |
+
+[확실] E9a 기록의 `handshake_result`는 OpenSSL 외 클라이언트에서 `failure`입니다. 성공 판정 문자열이 OpenSSL `s_client` 출력 형식이기 때문이며, 이 조사는 ClientHello와 ServerHello 그룹만 판정합니다.
+
+[확실] E9b(기본 설정 서버 ← 고정 OpenSSL 3.5.5 클라이언트 C1–C3, 각 3회): 18건 모두 클라이언트 전제 확인, `handshake_result=success`.
+
+| 서버 | C1 | C2 | C3 |
+|---|---|---|---|
+| nginx 1.28.3 | X25519MLKEM768, HRR 0/3 | HRR 3/3 → X25519MLKEM768 | HRR 3/3 → X25519MLKEM768 |
+| Caddy 2.6.2 | HRR 3/3 → X25519 | X25519, HRR 0/3 | X25519, HRR 0/3 |
+
+[추정] nginx는 `ssl_ecdh_curve`를 두지 않으면 OpenSSL 내장 기본 그룹 목록을 쓰며, 관측된 서버 순서 동작은 하이브리드를 첫 tuple로 두는 그 목록과 일치합니다. Caddy 2.6.2가 하이브리드를 고르지 않은 원인(빌드에 쓰인 Go 버전 등)은 확인하지 않았습니다.
 
 ## 감사 가시성
 

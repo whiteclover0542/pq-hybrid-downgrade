@@ -129,6 +129,29 @@ PACKAGES = {
         "out": "dist/pq-hybrid-downgrade-v15-repro.zip",
         "extra_globs": [f"{FAULTINJECT_DIR}/tests/*.py"],
     },
+    "v1.6": {
+        "raw": "docs/research/baselines/raw/v1.6",
+        "documents": [
+            REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD, "tools/v16_setup.sh",
+            "tools/v15/goclient/main.go", "tools/v15/goclient/go.mod",
+            "tools/v15/rustserver/Cargo.toml", "tools/v15/rustserver/Cargo.lock",
+            "tools/v15/rustserver/src/bin/client.rs", "docs/research/baselines/raw/v1.6-setup.log",
+        ],
+        "required_files": [
+            f"{FAULTINJECT_DIR}/v16.py", f"{FAULTINJECT_DIR}/v15.py", f"{FAULTINJECT_DIR}/pcap_hello.py",
+            "tools/v16_setup.sh", REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD,
+        ],
+        "artifacts": {
+            "v1.6 JSON records": (".json", 36),
+            "v1.6 PCAPs": (".pcapng", 36),
+            "v1.6 client logs": ("-client.log", 36),
+            "v1.6 server logs": ("-server.log", 36),
+            "v1.6 capture logs": ("-capture.log", 36),
+        },
+        "excluded": ("v16-smoke", "/raw/v1.1/", "/raw/v1.2/", "/raw/v1.3/", "/raw/v1.4/", "/raw/v1.5/"),
+        "out": "dist/pq-hybrid-downgrade-v16-repro.zip",
+        "extra_globs": [f"{FAULTINJECT_DIR}/tests/*.py"],
+    },
 }
 
 
