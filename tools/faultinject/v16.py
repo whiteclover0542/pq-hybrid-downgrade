@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 from dataclasses import replace
 from pathlib import Path
 
@@ -162,6 +163,11 @@ def _records(run_dir):
     return [RunRecord.from_json(path) for path in sorted(Path(run_dir).glob("*.json"))]
 
 
+def _grease(groups: list[str]) -> str:
+    """Join group names, folding RFC 8701 GREASE values (0x?a?a, random per connection) into one label."""
+    return ",".join("GREASE" if re.fullmatch(r"0x([0-9a-f])a\1a", g) else g for g in groups)
+
+
 def render_v16(run_dir) -> str:
     survey: dict = {}
     servers: dict = {}
@@ -169,7 +175,7 @@ def render_v16(run_dir) -> str:
     for record in _records(run_dir):
         p, m = record.provenance, record.metrics
         if p.get("part") == "client-survey":
-            key = (p["client"], ",".join(p["client_hello_groups"]), ",".join(p["client_hello_key_shares"]))
+            key = (p["client"], _grease(p["client_hello_groups"]), _grease(p["client_hello_key_shares"]))
             survey[key] = survey.get(key, 0) + 1
         elif p.get("part") == "server-software":
             c = servers.setdefault((p["server"], p["client"]), {"n": 0, "pre": 0, "hrr": 0, "hybrid": 0, "classical": 0, "other": 0})

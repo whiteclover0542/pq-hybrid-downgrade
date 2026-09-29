@@ -1,0 +1,20 @@
+=== 3.6.1-cherrypick (tag openssl-3.6.1, mode apply)
+Preparing worktree (detached HEAD c9a9e5b101)
+Updating files:  86% (5129/5903)Updating files:  87% (5136/5903)Updating files:  88% (5195/5903)Updating files:  89% (5254/5903)Updating files:  90% (5313/5903)Updating files:  91% (5372/5903)Updating files:  92% (5431/5903)Updating files:  93% (5490/5903)Updating files:  94% (5549/5903)Updating files:  95% (5608/5903)Updating files:  96% (5667/5903)Updating files:  97% (5726/5903)Updating files:  98% (5785/5903)Updating files:  99% (5844/5903)Updating files: 100% (5903/5903)Updating files: 100% (5903/5903), done.
+tag-commit=c9a9e5b10105ad850b6e4d1122c645c67767c341
+fix-ancestor=no
+patched-files=ssl/t1_lib.c 
+patch-sha256=bf6d0d90405d1479325fe05d1390e74e125451203716b365739cad135b2f9c08
+binary-sha256=d1199e01f04d4c10c6d059a2c2a6764671b54ee90bf8744b00505a9da2ec97bc
+version=OpenSSL 3.6.1 27 Jan 2026 (Library: OpenSSL 3.6.1 27 Jan 2026)
+=== 3.6.2-revert (tag openssl-3.6.2, mode revert)
+Preparing worktree (detached HEAD fe686e15d8)
+Updating files:  87% (5152/5915)Updating files:  88% (5206/5915)Updating files:  89% (5265/5915)Updating files:  90% (5324/5915)Updating files:  91% (5383/5915)Updating files:  92% (5442/5915)Updating files:  93% (5501/5915)Updating files:  94% (5561/5915)Updating files:  95% (5620/5915)Updating files:  96% (5679/5915)Updating files:  97% (5738/5915)Updating files:  98% (5797/5915)Updating files:  99% (5856/5915)Updating files: 100% (5915/5915)Updating files: 100% (5915/5915), done.
+tag-commit=fe686e15d84334b284f883118ed92f64b409b3aa
+fix-ancestor=yes
+patched-files=ssl/t1_lib.c 
+patch-sha256=3b7a2bb86d6792e79deec9382aa113702340034967c8eb25941921d4ba06b400
+binary-sha256=5851a0b614871a5eed51a18153898d74feadfb42c270acf755203b6cf4926d16
+version=OpenSSL 3.6.2 7 Apr 2026 (Library: OpenSSL 3.6.2 7 Apr 2026)
+=== done
+exit=0

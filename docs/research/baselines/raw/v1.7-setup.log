@@ -1,0 +1,18 @@
+=== runtime libraries
+=== chrome-headless-shell (Chrome for Testing, Stable)
+154.0.8037.57
+https://storage.googleapis.com/chrome-for-testing-public/154.0.8037.57/linux64/chrome-headless-shell-linux64.zip
+5a6979d0ab7cf952ea575d35164e7bdce4872b2ced8f8a215c8f8e8eda00ee09  chrome-headless-shell.zip
+Google Chrome for Testing 154.0.8037.57
+chrome libs ok
+=== firefox (official latest release)
+7405c0487fa3e517c1e20e5aec0ed14014185dad6357d99a59b53f65acb10ed6  firefox.tar
+Mozilla Firefox 156.0.1
+/root/pq-hybrid-phase2/v17/firefox/libxul.so: /usr/lib/x86_64-linux-gnu/libnss3.so: version `NSS_3.126' not found (required by /root/pq-hybrid-phase2/v17/firefox/libxul.so)
+	libmozsandbox.so => not found
+	libgkcodecs.so => not found
+	liblgpllibs.so => not found
+	libmozsqlite3.so => not found
+	libmozgtk.so => not found
+	libmozwayland.so => not found
+=== done

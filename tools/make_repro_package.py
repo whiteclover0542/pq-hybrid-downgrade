@@ -167,6 +167,35 @@ PACKAGES = {
         "out": "dist/pq-hybrid-downgrade-v16-repro.zip",
         "extra_globs": [f"{FAULTINJECT_DIR}/tests/*.py"],
     },
+    "v1.7": {
+        "raw": "docs/research/baselines/raw/v1.7",
+        "extra_raw": ["docs/research/baselines/raw/v1.7-openssl36"],
+        "documents": [
+            REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD, "tools/v17_setup.sh", "tools/v13_build_variants.sh",
+            "docs/research/baselines/raw/v1.7-setup.log", "docs/research/baselines/raw/v1.7-build36.log",
+            "docs/research/baselines/raw/v1.7-ldd36.log", "docs/research/baselines/raw/v1.7-tshark-version.log",
+            "docs/research/baselines/raw/v1.7-tshark-verbose-audit.json",
+        ],
+        "required_files": [
+            f"{FAULTINJECT_DIR}/v17.py", f"{FAULTINJECT_DIR}/v16.py", f"{FAULTINJECT_DIR}/v12.py",
+            f"{FAULTINJECT_DIR}/analyze.py", "tools/v17_setup.sh", "tools/v13_build_variants.sh",
+            "docs/research/baselines/raw/v1.7-tshark-verbose-audit.json", REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD,
+        ],
+        "artifacts": {
+            "v1.7 JSON records": (".json", 15),
+            "v1.7 PCAPs": (".pcapng", 15),
+            "v1.7 client logs": ("-client.log", 15),
+            "v1.7 server logs": ("-server.log", 15),
+            "v1.7 capture logs": ("-capture.log", 15),
+        },
+        "extra_artifacts": {
+            "OpenSSL 3.6 causal-isolation JSON records": ("docs/research/baselines/raw/v1.7-openssl36", ".json", 60),
+            "OpenSSL 3.6 causal-isolation PCAPs": ("docs/research/baselines/raw/v1.7-openssl36", ".pcapng", 60),
+        },
+        "excluded": ("v17-smoke", "/raw/v1.1/", "/raw/v1.2/", "/raw/v1.3/", "/raw/v1.4/", "/raw/v1.5/", "/raw/v1.6/"),
+        "out": "dist/pq-hybrid-downgrade-v17-repro.zip",
+        "extra_globs": [f"{FAULTINJECT_DIR}/tests/*.py"],
+    },
 }
 
 

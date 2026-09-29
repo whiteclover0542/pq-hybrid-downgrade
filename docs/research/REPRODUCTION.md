@@ -103,6 +103,27 @@ python3 -m faultinject.v16 --report /tmp/v16-rerun
 
 [확실] 기본 클라이언트·기본 서버 직접 연결 36회는 `python -m faultinject.v16 --report ../docs/research/baselines/raw/v1.6-direct`로 집계하고, 재실행은 `tools/v16_run_direct_defaults.sh`를 사용합니다. `v1.6-caddy-2.11.4`는 v1.6 재실행 36회이며 그중 Caddy 2.11.4의 C1–C3 대조는 9회입니다. 이 디렉터리는 `python -m faultinject.v16 --report ../docs/research/baselines/raw/v1.6-caddy-2.11.4`로 집계하고, 재실행은 `tools/v16_run_caddy_2114.sh`를 사용합니다. 기본 클라이언트를 Caddy 2.11.4에 직접 연결한 표본은 없습니다. 두 Caddy 바이너리의 원시 build 정보와 Ubuntu NSS 패치 목록은 각각 해당 raw 디렉터리와 `nss-ubuntu-patches-20260929.log`에 보존합니다.
 
+## v1.7 브라우저 조사, 상세 감사 출력, OpenSSL 3.6 인과 분리
+
+[확실] 3.6 변형 두 개를 빌드하고 60회를 실행합니다.
+
+```bash
+wsl -d Ubuntu -u root -- bash /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/v13_build_variants.sh 3.6.1-cherrypick 3.6.2-revert
+wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools && python3 -m faultinject.v12 --repeat 10 --versions 3.6.1-cherrypick,3.6.2-revert --output-dir /tmp/v17-openssl36'
+cd tools
+python3 -m faultinject.analyze --v17 --run-dir /tmp/v17-openssl36
+```
+
+[확실] v1.6 준비가 끝난 상태에서 headless Chrome·Firefox를 설치하고 브라우저 6회와 `s_client -trace` 9회를 실행한 뒤, 보존 PCAP에 `tshark -V`를 적용합니다.
+
+```bash
+wsl -d Ubuntu -u root -- bash /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/v17_setup.sh
+wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools && python3 -m faultinject.v17 --repeat 3 --output-dir /tmp/v17-rerun'
+wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools && R=../docs/research/baselines/raw && python3 -m faultinject.v17 --verbose-pass $R/v1.2 $R/v1.3 $R/v1.4 $R/v1.5 $R/v1.5-boringssl-latest $R/v1.6 $R/v1.6-direct $R/v1.6-caddy-2.11.4 $R/v1.7-openssl36 $R/v1.7 --verbose-json /tmp/v17-verbose.json'
+```
+
+[확실] 보존된 결과는 `python -m faultinject.analyze --v17`(3.6 인과 분리)과 `python -m faultinject.v17 --report ../docs/research/baselines/raw/v1.7 --verbose-json ../docs/research/baselines/raw/v1.7-tshark-verbose-audit.json`(브라우저, `-trace`, `tshark -V`)으로 다시 집계합니다. `--verbose-pass`는 `tshark`가 있는 WSL에서 실행합니다.
+
 ## 재현 ZIP
 
 ```bash
@@ -113,8 +134,9 @@ python make_repro_package.py --package v1.3
 python make_repro_package.py --package v1.4
 python make_repro_package.py --package v1.5
 python make_repro_package.py --package v1.6
+python make_repro_package.py --package v1.7
 ```
 
-[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본, v1.4 ZIP은 60회 하이브리드 우선 클라이언트 표본, v1.5 ZIP은 105회 협상 함수 비교 표본을 포함합니다. v1.6 ZIP은 기존 36회 기본값 조사에 최신 BoringSSL 9회, 기본 직접 연결 36회, v1.6 재실행 36회(Caddy 2.11.4 9회 포함)와 Caddy·NSS 원시 환경 기록을 더해 검증하며, 진단·부분 실행·v1.2 S4는 제외합니다.
+[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본, v1.4 ZIP은 60회 하이브리드 우선 클라이언트 표본, v1.5 ZIP은 105회 협상 함수 비교 표본을 포함합니다. v1.6 ZIP은 기존 36회 기본값 조사에 최신 BoringSSL 9회, 기본 직접 연결 36회, v1.6 재실행 36회(Caddy 2.11.4 9회 포함)와 Caddy·NSS 원시 환경 기록을 더해 검증합니다. v1.7 ZIP은 브라우저·`-trace` 15회, 3.6 인과 분리 60회, `tshark -V` 재측정 결과를 포함합니다. 진단·부분 실행·v1.2 S4는 제외합니다.
 
 [불확실] 이 패키지와 실험 결과를 다른 OpenSSL 배포·구성 또는 실배포 공격 가능성으로 일반화할 수 없습니다.

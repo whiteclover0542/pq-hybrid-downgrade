@@ -1,0 +1,72 @@
+{
+  "run_id": "openssl_client-default_r02_firefox",
+  "implementation": "openssl",
+  "fault_type": "client-default",
+  "repetition": 2,
+  "condition": "firefox",
+  "metrics": {
+    "negotiated_group": null,
+    "is_hybrid": false,
+    "downgrade_visible": false,
+    "handshake_result": "failure",
+    "detail": "",
+    "hrr_present": null,
+    "downgrade_flagged": null,
+    "advertised_hybrid": null,
+    "hrr_pcap_present": false,
+    "hrr_log_present": null,
+    "server_hello_count": 3,
+    "final_negotiated_group": "X25519MLKEM768",
+    "client_precondition_verified": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_client-default_r02_firefox-client.log",
+    "server_log": "openssl_client-default_r02_firefox-server.log",
+    "pcap": "openssl_client-default_r02_firefox.pcapng",
+    "capture_log": "openssl_client-default_r02_firefox-capture.log"
+  },
+  "provenance": {
+    "part": "client-survey",
+    "client_hello_groups": [
+      "X25519MLKEM768",
+      "X25519",
+      "0x0017",
+      "0x0018",
+      "0x0019"
+    ],
+    "client_hello_key_shares": [
+      "X25519MLKEM768",
+      "X25519",
+      "0x0017"
+    ],
+    "server_cmd": [
+      "/root/pq-hybrid-phase2/install/openssl-3.5.6/bin/openssl",
+      "s_server",
+      "-tls1_3",
+      "-www",
+      "-provider",
+      "default",
+      "-accept",
+      "8545",
+      "-cert",
+      "/root/pq-hybrid-phase2/openssl/apps/server.pem"
+    ],
+    "client_cmd": [
+      "timeout",
+      "25",
+      "/root/pq-hybrid-phase2/v17/firefox/firefox",
+      "--headless",
+      "--no-remote",
+      "--profile",
+      "/root/pq-hybrid-phase2/v17/ffprofile",
+      "--screenshot",
+      "/root/pq-hybrid-phase2/v17/firefox.png",
+      "https://127.0.0.1:8545/"
+    ],
+    "binary_sha256": "7ea3daf0cdbe5ec27e4f2e7c644c25032169f8a2f2f15e438ff4379bf737a78a",
+    "client": "firefox",
+    "browser": true
+  },
+  "audit": {}
+}

@@ -30,12 +30,15 @@ REQUIRED_SETTINGS = ("S1", "S2", "S3")
 # v1.3 causal-isolation servers (tools/v13_build_variants.sh): fix 85977e0's ssl/t1_lib.c change
 # applied to 3.5.5 / reverted from 3.5.6, plus the 3.6 release pair around fix 2157c9d.
 VARIANT_SERVERS = ("3.5.5-cherrypick", "3.5.6-revert", "3.6.1", "3.6.2")
+# v1.7: the same single-file isolation for the 3.6 fix 2157c9d
+V36_VARIANT_SERVERS = ("3.6.1-cherrypick", "3.6.2-revert")
 _PREFIX = {
     "3.5.5": f"{PHASE2_ROOT}/install/openssl",
     "3.5.6": f"{PHASE2_ROOT}/install/openssl-3.5.6",
-    **{variant: f"{PHASE2_ROOT}/install/openssl-{variant}" for variant in VARIANT_SERVERS},
+    **{variant: f"{PHASE2_ROOT}/install/openssl-{variant}" for variant in (*VARIANT_SERVERS, *V36_VARIANT_SERVERS)},
 }
-_REPORTED_VERSION = {"3.5.5-cherrypick": "3.5.5", "3.5.6-revert": "3.5.6"}
+_REPORTED_VERSION = {"3.5.5-cherrypick": "3.5.5", "3.5.6-revert": "3.5.6",
+                     "3.6.1-cherrypick": "3.6.1", "3.6.2-revert": "3.6.2"}
 _RESIDUAL_PATTERN = r"openssl s_server|openssl s_client|bssl (server|client)|sshd -D|tshark -i lo"
 
 

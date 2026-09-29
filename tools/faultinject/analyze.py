@@ -94,6 +94,8 @@ def expected_matrix(vulnerable: tuple[str, ...], fixed: tuple[str, ...]) -> dict
 EXPECTED_V12 = expected_matrix(("3.5.5",), ("3.5.6",))
 # v1.3 causal isolation: fix 85977e0 reverted from 3.5.6 / applied to 3.5.5, and the 3.6 pair around 2157c9d
 EXPECTED_V13 = expected_matrix(("3.5.6-revert", "3.6.1"), ("3.5.5-cherrypick", "3.6.2"))
+# v1.7: fix 2157c9d's ssl/t1_lib.c change applied to 3.6.1 / reverted from 3.6.2
+EXPECTED_V17 = expected_matrix(("3.6.2-revert",), ("3.6.1-cherrypick",))
 
 
 def comparison_v12(run_dir) -> dict:
@@ -198,11 +200,18 @@ def main(argv=None) -> int:
     mode.add_argument("--v11", action="store_true", help="read v1.1 condition records")
     mode.add_argument("--v12", action="store_true", help="read v1.2 server-setting records")
     mode.add_argument("--v13", action="store_true", help="read v1.3 causal-isolation records")
-    parser.add_argument("--run-dir", type=Path, metavar="PATH", help="directory of v1.1/v1.2/v1.3 JSON records")
+    mode.add_argument("--v17", action="store_true", help="read v1.7 OpenSSL 3.6 causal-isolation records")
+    parser.add_argument("--run-dir", type=Path, metavar="PATH", help="directory of v1.1/v1.2/v1.3/v1.7 JSON records")
     arguments = parser.parse_args(argv)
-    if arguments.run_dir and not (arguments.v11 or arguments.v12 or arguments.v13):
-        parser.error("--run-dir is only valid with --v11, --v12 or --v13")
+    if arguments.run_dir and not (arguments.v11 or arguments.v12 or arguments.v13 or arguments.v17):
+        parser.error("--run-dir is only valid with --v11, --v12, --v13 or --v17")
     raw = Path(__file__).resolve().parents[2] / "docs/research/baselines/raw"
+    if arguments.v17:
+        print(render_v12_markdown(
+            arguments.run_dir or raw / "v1.7-openssl36", EXPECTED_V17, "3.6 causal-isolation verdict",
+            ("consistent", "not consistent"),
+        ))
+        return 0
     if arguments.v13:
         print(render_v12_markdown(
             arguments.run_dir or raw / "v1.3", EXPECTED_V13, "Causal-isolation verdict",

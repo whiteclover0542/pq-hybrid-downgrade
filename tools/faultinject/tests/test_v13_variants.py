@@ -110,3 +110,15 @@ def test_hybrid_first_client_advertises_hybrid_first_but_shares_x25519_only():
     assert spec.client_cmd[-2:] == ["-groups", "X25519MLKEM768:*X25519"]
     assert provenance_for(spec, paths, {})["client_groups_arg"] == "X25519MLKEM768:*X25519"
     assert v12_specs(1, Path("/tmp/v14"), client_groups=HYBRID_FIRST_CLIENT_GROUPS)[0].client_cmd[-1] == "X25519MLKEM768:*X25519"
+
+
+def test_v17_openssl36_variants_and_expected_split():
+    from faultinject.analyze import EXPECTED_V17
+    from faultinject.v12 import V36_VARIANT_SERVERS
+
+    paths = v12_paths(V36_VARIANT_SERVERS)
+    assert paths["server_bin_3.6.1-cherrypick"] == "/root/pq-hybrid-phase2/install/openssl-3.6.1-cherrypick/bin/openssl"
+    assert reported_version("3.6.2-revert") == "3.6.2"
+    assert EXPECTED_V17[("3.6.1-cherrypick", "S3")] == (True, "X25519MLKEM768")
+    assert EXPECTED_V17[("3.6.2-revert", "S3")] == (False, "X25519")
+    assert len(v12_specs(10, Path("/tmp/v17"), versions=V36_VARIANT_SERVERS, paths=paths)) == 60

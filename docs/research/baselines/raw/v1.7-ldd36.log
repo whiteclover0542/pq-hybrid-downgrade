@@ -1,0 +1,8 @@
+/root/pq-hybrid-phase2/install/openssl-3.6.1-cherrypick/lib64
+	libssl.so.3 => /root/pq-hybrid-phase2/install/openssl-3.6.1-cherrypick/lib64/libssl.so.3 (0x000078b76b569000)
+OpenSSL 3.6.1 27 Jan 2026 (Library: OpenSSL 3.6.1 27 Jan 2026)
+0
+/root/pq-hybrid-phase2/install/openssl-3.6.2-revert/lib64
+	libssl.so.3 => /root/pq-hybrid-phase2/install/openssl-3.6.2-revert/lib64/libssl.so.3 (0x00007390c21de000)
+OpenSSL 3.6.2 7 Apr 2026 (Library: OpenSSL 3.6.2 7 Apr 2026)
+0

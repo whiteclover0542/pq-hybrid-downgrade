@@ -1,0 +1,7334 @@
+[
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r01_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r01_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r01_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r01_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r01_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r01_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r02_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r02_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r02_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r02_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r02_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r02_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r03_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r03_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r03_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r03_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r03_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r03_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r04_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r04_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r04_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r04_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r04_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r04_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r05_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r05_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r05_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r05_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r05_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r05_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r06_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r06_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r06_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r06_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r06_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r06_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r07_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r07_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r07_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r07_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r07_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r07_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r08_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r08_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r08_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r08_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r08_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r08_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r09_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r09_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r09_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r09_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r09_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r09_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r10_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r10_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r10_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r10_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r10_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.2",
+    "run_id": "openssl_server-setting_r10_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.5.5-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.5.5-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.5.5-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.5.6-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.5.6-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.5.6-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.6.1-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.6.1-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.6.1-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.6.2-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.6.2-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r01_3.6.2-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.5.5-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.5.5-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.5.5-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.5.6-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.5.6-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.5.6-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.6.1-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.6.1-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.6.1-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.6.2-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.6.2-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r02_3.6.2-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.5.5-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.5.5-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.5.5-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.5.6-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.5.6-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.5.6-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.6.1-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.6.1-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.6.1-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.6.2-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.6.2-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r03_3.6.2-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.5.5-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.5.5-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.5.5-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.5.6-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.5.6-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.5.6-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.6.1-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.6.1-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.6.1-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.6.2-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.6.2-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r04_3.6.2-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.5.5-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.5.5-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.5.5-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.5.6-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.5.6-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.5.6-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.6.1-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.6.1-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.6.1-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.6.2-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.6.2-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r05_3.6.2-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.5.5-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.5.5-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.5.5-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.5.6-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.5.6-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.5.6-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.6.1-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.6.1-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.6.1-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.6.2-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.6.2-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r06_3.6.2-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.5.5-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.5.5-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.5.5-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.5.6-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.5.6-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.5.6-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.6.1-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.6.1-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.6.1-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.6.2-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.6.2-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r07_3.6.2-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.5.5-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.5.5-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.5.5-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.5.6-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.5.6-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.5.6-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.6.1-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.6.1-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.6.1-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.6.2-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.6.2-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r08_3.6.2-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.5.5-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.5.5-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.5.5-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.5.6-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.5.6-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.5.6-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.6.1-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.6.1-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.6.1-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.6.2-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.6.2-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r09_3.6.2-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.5.5-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.5.5-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.5.5-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.5.6-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.5.6-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.5.6-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.6.1-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.6.1-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.6.1-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.6.2-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.6.2-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.3",
+    "run_id": "openssl_server-setting_r10_3.6.2-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r01_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r01_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r01_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r01_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r01_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r01_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r02_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r02_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r02_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r02_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r02_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r02_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r03_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r03_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r03_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r03_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r03_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r03_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r04_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r04_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r04_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r04_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r04_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r04_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r05_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r05_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r05_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r05_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r05_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r05_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r06_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r06_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r06_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r06_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r06_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r06_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r07_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r07_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r07_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r07_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r07_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r07_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r08_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r08_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r08_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r08_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r08_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r08_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r09_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r09_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r09_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r09_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r09_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r09_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r10_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r10_3.5.5-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r10_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r10_3.5.6-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r10_3.5.6-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.4",
+    "run_id": "openssl_server-setting_r10_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_boringssl-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_boringssl-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_boringssl-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_go-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_go-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_go-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_nss-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_nss-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_nss-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_openssl-S1-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_openssl-S1-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_openssl-S1-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_openssl-S1-serverpref-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_openssl-S1-serverpref-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_openssl-S1-serverpref-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_openssl-S2-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_openssl-S2-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_openssl-S2-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_rustls-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_rustls-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r01_rustls-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_boringssl-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_boringssl-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_boringssl-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_go-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_go-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_go-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_nss-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_nss-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_nss-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_openssl-S1-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_openssl-S1-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_openssl-S1-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_openssl-S1-serverpref-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_openssl-S1-serverpref-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_openssl-S1-serverpref-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_openssl-S2-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_openssl-S2-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_openssl-S2-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_rustls-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_rustls-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r02_rustls-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_boringssl-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_boringssl-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_boringssl-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_go-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_go-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_go-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_nss-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_nss-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_nss-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_openssl-S1-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_openssl-S1-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_openssl-S1-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_openssl-S1-serverpref-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_openssl-S1-serverpref-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_openssl-S1-serverpref-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_openssl-S2-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_openssl-S2-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_openssl-S2-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_rustls-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_rustls-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r03_rustls-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_boringssl-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_boringssl-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_boringssl-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_go-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_go-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_go-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_nss-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_nss-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_nss-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_openssl-S1-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_openssl-S1-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_openssl-S1-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_openssl-S1-serverpref-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_openssl-S1-serverpref-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_openssl-S1-serverpref-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_openssl-S2-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_openssl-S2-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_openssl-S2-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_rustls-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_rustls-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r04_rustls-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_boringssl-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_boringssl-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_boringssl-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_go-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_go-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_go-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_nss-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_nss-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_nss-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_openssl-S1-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_openssl-S1-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_openssl-S1-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_openssl-S1-serverpref-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_openssl-S1-serverpref-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_openssl-S1-serverpref-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_openssl-S2-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_openssl-S2-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_openssl-S2-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_rustls-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_rustls-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5",
+    "run_id": "openssl_negotiation-function_r05_rustls-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5-boringssl-latest",
+    "run_id": "openssl_negotiation-function_r01_boringssl-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5-boringssl-latest",
+    "run_id": "openssl_negotiation-function_r01_boringssl-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5-boringssl-latest",
+    "run_id": "openssl_negotiation-function_r01_boringssl-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5-boringssl-latest",
+    "run_id": "openssl_negotiation-function_r02_boringssl-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5-boringssl-latest",
+    "run_id": "openssl_negotiation-function_r02_boringssl-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5-boringssl-latest",
+    "run_id": "openssl_negotiation-function_r02_boringssl-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5-boringssl-latest",
+    "run_id": "openssl_negotiation-function_r03_boringssl-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5-boringssl-latest",
+    "run_id": "openssl_negotiation-function_r03_boringssl-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.5-boringssl-latest",
+    "run_id": "openssl_negotiation-function_r03_boringssl-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r01_boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r01_curl-system-openssl",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r01_go",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r01_nss",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r01_openssl-3.5.5",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r01_rustls",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r02_boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r02_curl-system-openssl",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r02_go",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r02_nss",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r02_openssl-3.5.5",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r02_rustls",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r03_boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r03_curl-system-openssl",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r03_go",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r03_nss",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r03_openssl-3.5.5",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_client-default_r03_rustls",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r01_caddy-C1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r01_caddy-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r01_caddy-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r01_nginx-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r01_nginx-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r01_nginx-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r02_caddy-C1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r02_caddy-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r02_caddy-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r02_nginx-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r02_nginx-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r02_nginx-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r03_caddy-C1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r03_caddy-C2",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r03_caddy-C3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r03_nginx-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r03_nginx-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6",
+    "run_id": "openssl_server-software_r03_nginx-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_caddy--boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_caddy--curl-system-openssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_caddy--go",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_caddy--nss",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_caddy--openssl-3.5.5",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_caddy--rustls",
+    "final_group_recorded": null,
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": null,
+    "single_output": false,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_nginx--boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_nginx--curl-system-openssl",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_nginx--go",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_nginx--nss",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_nginx--openssl-3.5.5",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r01_nginx--rustls",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_caddy--boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_caddy--curl-system-openssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_caddy--go",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_caddy--nss",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_caddy--openssl-3.5.5",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_caddy--rustls",
+    "final_group_recorded": null,
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": null,
+    "single_output": false,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_nginx--boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_nginx--curl-system-openssl",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_nginx--go",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_nginx--nss",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_nginx--openssl-3.5.5",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r02_nginx--rustls",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_caddy--boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_caddy--curl-system-openssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_caddy--go",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_caddy--nss",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_caddy--openssl-3.5.5",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_caddy--rustls",
+    "final_group_recorded": null,
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": null,
+    "single_output": false,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_nginx--boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_nginx--curl-system-openssl",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_nginx--go",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_nginx--nss",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_nginx--openssl-3.5.5",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-direct",
+    "run_id": "openssl_default-direct_r03_nginx--rustls",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r01_boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r01_curl-system-openssl",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r01_go",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r01_nss",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r01_openssl-3.5.5",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r01_rustls",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r02_boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r02_curl-system-openssl",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r02_go",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r02_nss",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r02_openssl-3.5.5",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r02_rustls",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r03_boringssl",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r03_curl-system-openssl",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r03_go",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r03_nss",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1",
+      "SecP256r1MLKEM768",
+      "SecP384r1MLKEM1024",
+      "ffdhe2048",
+      "ffdhe3072",
+      "ffdhe4096",
+      "ffdhe6144",
+      "ffdhe8192"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r03_openssl-3.5.5",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "x448",
+      "secp384r1",
+      "secp521r1",
+      "ffdhe2048",
+      "ffdhe3072"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_client-default_r03_rustls",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r01_caddy-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r01_caddy-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r01_caddy-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r01_nginx-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r01_nginx-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r01_nginx-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r02_caddy-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r02_caddy-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r02_caddy-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r02_nginx-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r02_nginx-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r02_nginx-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r03_caddy-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r03_caddy-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r03_caddy-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r03_nginx-C1",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r03_nginx-C2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.6-caddy-2.11.4",
+    "run_id": "openssl_server-software_r03_nginx-C3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r01_3.6.1-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r01_3.6.1-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r01_3.6.1-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r01_3.6.2-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r01_3.6.2-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r01_3.6.2-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r02_3.6.1-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r02_3.6.1-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r02_3.6.1-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r02_3.6.2-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r02_3.6.2-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r02_3.6.2-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r03_3.6.1-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r03_3.6.1-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r03_3.6.1-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r03_3.6.2-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r03_3.6.2-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r03_3.6.2-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r04_3.6.1-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r04_3.6.1-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r04_3.6.1-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r04_3.6.2-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r04_3.6.2-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r04_3.6.2-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r05_3.6.1-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r05_3.6.1-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r05_3.6.1-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r05_3.6.2-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r05_3.6.2-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r05_3.6.2-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r06_3.6.1-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r06_3.6.1-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r06_3.6.1-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r06_3.6.2-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r06_3.6.2-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r06_3.6.2-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r07_3.6.1-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r07_3.6.1-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r07_3.6.1-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r07_3.6.2-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r07_3.6.2-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r07_3.6.2-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r08_3.6.1-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r08_3.6.1-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r08_3.6.1-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r08_3.6.2-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r08_3.6.2-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r08_3.6.2-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r09_3.6.1-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r09_3.6.1-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r09_3.6.1-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r09_3.6.2-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r09_3.6.2-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r09_3.6.2-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r10_3.6.1-cherrypick-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r10_3.6.1-cherrypick-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r10_3.6.1-cherrypick-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r10_3.6.2-revert-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r10_3.6.2-revert-S2",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7-openssl36",
+    "run_id": "openssl_server-setting_r10_3.6.2-revert-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_client-default_r01_chrome",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_client-default_r01_firefox",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_client-default_r02_chrome",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_client-default_r02_firefox",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_client-default_r03_chrome",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_client-default_r03_firefox",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "X25519MLKEM768",
+      "x25519",
+      "secp256r1",
+      "secp384r1",
+      "secp521r1"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_server-setting-trace_r01_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_server-setting-trace_r01_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_server-setting-trace_r01_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_server-setting-trace_r02_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_server-setting-trace_r02_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_server-setting-trace_r02_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_server-setting-trace_r03_3.5.5-S1",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_server-setting-trace_r03_3.5.5-S3",
+    "final_group_recorded": "X25519",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "x25519",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  },
+  {
+    "run_dir": "v1.7",
+    "run_id": "openssl_server-setting-trace_r03_3.5.6-S3",
+    "final_group_recorded": "X25519MLKEM768",
+    "advertised_groups": [
+      "x25519",
+      "X25519MLKEM768"
+    ],
+    "negotiated_group": "X25519MLKEM768",
+    "single_output": true,
+    "explicit_warning": false,
+    "warning_text": null
+  }
+]

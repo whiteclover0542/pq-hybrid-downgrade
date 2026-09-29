@@ -1,0 +1,387 @@
+CONNECTED(00000003)
+>>> TLS 1.0, RecordHeader [length 0005]
+    16 03 01 00 d6
+>>> TLS 1.3, Handshake [length 00d6], ClientHello
+    01 00 00 d2 03 03 76 ba 17 3f 80 4d ba b8 77 7c
+    4f 8d 8f 7e bc 10 20 db 28 99 c0 cc fe f8 e5 72
+    6f b4 a8 82 97 45 20 df cd ec 21 17 15 cc 4c ea
+    bb bd 25 ac 10 60 7e 76 52 32 a2 d8 f9 23 da 80
+    5d 26 f3 bc 60 5b 63 00 06 13 02 13 03 13 01 01
+    00 00 83 00 0b 00 04 03 00 01 02 00 0a 00 06 00
+    04 00 1d 11 ec 00 23 00 00 00 16 00 00 00 17 00
+    00 00 0d 00 2a 00 28 09 05 09 06 09 04 04 03 05
+    03 06 03 08 07 08 08 08 1a 08 1b 08 1c 08 09 08
+    0a 08 0b 08 04 08 05 08 06 04 01 05 01 06 01 00
+    2b 00 03 02 03 04 00 2d 00 02 01 01 00 33 00 26
+    00 24 00 1d 00 20 56 29 c6 37 0b 21 b2 0d 80 0a
+    48 48 b1 d8 cf cb 02 db 00 08 93 3f 67 a6 b2 65
+    c6 f6 58 03 fc 53
+<<< TLS 1.2, RecordHeader [length 0005]
+    16 03 03 00 58
+<<< TLS 1.3, Handshake [length 0058], ServerHello
+    02 00 00 54 03 03 cf 21 ad 74 e5 9a 61 11 be 1d
+    8c 02 1e 65 b8 91 c2 a2 11 16 7a bb 8c 5e 07 9e
+    09 e2 c8 a8 33 9c 20 df cd ec 21 17 15 cc 4c ea
+    bb bd 25 ac 10 60 7e 76 52 32 a2 d8 f9 23 da 80
+    5d 26 f3 bc 60 5b 63 13 02 00 00 0c 00 2b 00 02
+    03 04 00 33 00 02 11 ec
+>>> TLS 1.2, RecordHeader [length 0005]
+    14 03 03 00 01
+>>> TLS 1.3, ChangeCipherSpec [length 0001]
+    01
+>>> TLS 1.2, RecordHeader [length 0005]
+    16 03 03 05 76
+>>> TLS 1.3, Handshake [length 0576], ClientHello
+    01 00 05 72 03 03 76 ba 17 3f 80 4d ba b8 77 7c
+    4f 8d 8f 7e bc 10 20 db 28 99 c0 cc fe f8 e5 72
+    6f b4 a8 82 97 45 20 df cd ec 21 17 15 cc 4c ea
+    bb bd 25 ac 10 60 7e 76 52 32 a2 d8 f9 23 da 80
+    5d 26 f3 bc 60 5b 63 00 06 13 02 13 03 13 01 01
+    00 05 23 00 0b 00 04 03 00 01 02 00 0a 00 06 00
+    04 00 1d 11 ec 00 23 00 00 00 16 00 00 00 17 00
+    00 00 0d 00 2a 00 28 09 05 09 06 09 04 04 03 05
+    03 06 03 08 07 08 08 08 1a 08 1b 08 1c 08 09 08
+    0a 08 0b 08 04 08 05 08 06 04 01 05 01 06 01 00
+    2b 00 03 02 03 04 00 2d 00 02 01 01 00 33 04 c6
+    04 c4 11 ec 04 c0 3a 78 78 24 22 ae 70 38 5f d0
+    86 7f 55 ec a5 5f 40 36 60 53 28 e1 4a b6 99 ab
+    2b 0f 60 2c 00 1b 62 42 74 76 e7 a8 b3 28 f5 c0
+    6d 37 22 4c 29 68 88 f0 13 89 b8 57 15 93 4c 21
+    ea 33 3e db 58 75 2b 1b 79 05 4b a5 2c 82 cf 26
+    66 0e 5a 3a e5 e3 b4 2e 87 75 4a b5 b2 df c9 37
+    af e0 b2 e0 e3 69 ef c2 96 61 17 2e d6 47 5c b1
+    ab 76 64 09 46 db 1a aa 88 c0 48 73 71 8c 00 47
+    1b 4c f2 84 f1 79 39 e3 60 c2 d8 a4 06 73 57 ba
+    b9 e1 09 22 72 14 3f a7 6b 99 f4 67 ad 7a 50 6f
+    73 88 8a 18 7d 88 d6 55 a8 98 28 65 c4 71 c8 f1
+    83 57 e0 95 61 c0 a7 02 22 45 9c 03 48 c4 36 5a
+    c9 6a 4b 34 12 8e 90 d8 31 6d 5b 0f c0 74 21 4c
+    b5 46 41 f1 41 f4 50 3e 06 9c 2a 1b 26 30 61 49
+    57 47 1c b0 e0 e0 04 f9 d7 8c 11 86 b6 67 29 9a
+    5a 6a 02 f6 13 24 a5 02 42 d6 7b c8 dc 58 2f b6
+    3b a8 80 b9 53 47 f3 4c d0 75 42 e4 45 45 aa d8
+    b9 97 74 0e 0d 04 56 d2 f3 47 19 b2 9a f6 c5 6f
+    dd d2 c6 22 07 c9 42 0c 37 0c 32 14 0c 17 b1 3b
+    dc 23 3f b9 5b 10 14 88 79 27 b7 08 16 57 2d 15
+    7d e3 d4 00 04 f7 1e 66 73 6f b3 3a 64 d8 16 a0
+    69 6c 96 22 77 40 42 3a 4f 18 45 23 c4 24 71 24
+    70 5a 54 71 1f a3 53 ad 9e a8 b4 c6 66 c0 4b ba
+    0c 95 5a cf 86 b5 6c 48 ca a1 c9 50 6d b1 4a 2e
+    0d fa 99 00 26 5c 0a d2 90 2d b3 cf c0 66 c4 ce
+    e6 32 95 37 29 1a 63 b9 1b 26 6d 86 1c ba 30 6a
+    77 bf b5 42 96 76 95 20 80 21 ab 10 17 5a 64 8a
+    7a d1 9c b1 0c 72 dd 94 91 3b b5 61 c9 17 6f 0b
+    11 61 14 a8 1f 7f cc 8e 7d 70 33 85 47 cb cc d3
+    63 ec 00 ba f2 45 6c 6a 3a 86 38 f7 5c 1a d1 19
+    b5 9c 1a 0e 45 bc 02 f6 45 60 c1 c4 ea 6b 07 ba
+    4a 86 d7 35 31 bf c4 bf 93 cb 9d 6c 45 53 90 d8
+    7a a4 92 a0 ed eb ce 25 93 2b a2 fc 15 fe 03 01
+    00 52 ab ea 95 0b b1 5c 26 f0 f7 a2 a6 45 6b 47
+    1a 11 b8 f6 0f 42 f8 1b cf bc 98 64 bb 8e 26 25
+    a1 3e fa 7d 70 f7 4b f8 31 04 1d 25 ce 3b 2b 98
+    82 74 41 13 bc 3b da 1c 19 48 5b 1b e6 7b ca 01
+    2a c2 ce fc 57 01 f0 5c 5e a1 3c 20 54 a8 89 17
+    08 d5 5a 8c 11 98 05 bb a6 79 26 67 8d 0e 45 65
+    9a bc 6a 5f 46 9b 8f db 97 94 c3 ba b2 60 1f 1c
+    50 8f 91 da 17 b1 e1 26 25 e6 46 ae 24 56 4d 3b
+    3d ba a3 4b f1 82 32 c1 28 17 59 a3 cb f9 2a 87
+    f3 5b 5e 62 64 18 25 db 6d b0 6b a1 4f 09 c0 83
+    18 aa 47 c5 42 f7 39 b0 01 13 7a 78 da 52 f6 48
+    3c f1 64 46 2e 20 8b 7f e8 9c a2 09 89 b9 b8 94
+    0c dc 7f c3 7c b8 66 d3 4d bb 6a 55 c1 c4 a6 69
+    e9 01 d2 e4 90 fb 31 03 b4 b7 97 47 b9 51 7d 6a
+    74 2d fc 00 ff b4 0d 7c 87 95 29 4b 19 34 b5 46
+    70 05 6b 28 10 72 9a 99 27 00 01 c4 b7 e3 29 ae
+    dc 5b 9f 0c 76 8c 1c ad b1 01 5f f6 44 6f 51 1b
+    38 71 f1 0e 31 bb 1f c3 5c 7b ba a4 43 43 14 cb
+    81 20 b4 b0 a9 c7 4a fa a8 6b 92 59 8c 5a bf 59
+    76 49 a3 c6 76 21 fb a3 a6 27 8f d9 47 4b 40 07
+    42 f4 f6 ad 89 80 63 ab 6b 25 16 05 15 93 6b 15
+    32 57 52 d0 11 23 90 63 1d 69 54 93 09 b6 4f d2
+    b9 4c 6c 85 af 8c b8 cf 02 62 50 04 b4 88 c1 70
+    18 ed 8c 22 0a 2a 0b ef e3 0a 96 14 c0 96 a2 65
+    1b 83 35 ad 6b ac 13 12 ba 30 99 55 48 6c 7f 47
+    52 7c a0 e4 c0 9d c4 b7 77 90 8b 6c 45 9f 5a b2
+    cb 4e e5 5a a9 16 c0 c2 78 28 e4 d1 54 03 36 55
+    12 e3 1f 8f 72 59 90 76 8b 6b 64 65 8e 87 c1 bc
+    c5 66 6a 6b 4b 56 56 70 a7 6c 0f 2a 22 85 f5 d8
+    43 b4 04 63 8a ec a9 ba 26 79 ba 76 6f c1 60 0d
+    e4 62 bb 0e 80 2f 3c 08 20 25 60 36 b3 23 b6 6e
+    bb 44 e1 1b 73 07 11 36 06 19 85 22 ab 57 b2 eb
+    c2 54 22 5c 27 f3 81 b3 03 63 c0 b2 3b d1 da 37
+    ca 74 71 44 19 63 18 f0 6e f1 64 a8 ec f4 74 cc
+    6a 57 56 dc 1b 41 2b 64 6b fa 34 70 28 89 0b b4
+    56 75 e1 a6 60 d0 8e 66 dc b6 fb 33 cb e9 77 86
+    e1 d5 6b fd f2 44 74 a4 4b 4c 7b cd 0f 37 ac 67
+    8c 83 8d 3c 9f 95 fc 0f 95 9c 5e 38 20 61 b9 71
+    a2 ff f6 41 d5 9b 3e 60 f3 c9 7a 1c 50 9d ec 94
+    ae fa 3a 83 97 37 10 86 f7 e5 73 25 7b 32 3b 29
+    f7 f5 fc 46 ff 35 01 c2 01 13 1a de 4f 3a 2f f5
+    ef b1 d8 74 c3 da e3 45 5f 46 ba 9f 13 b0 a3 9e
+    cf dc 00 80 4e 63 2e 33 c0 1d d9 ca 75 ea a4 61
+    50 80 0e fb 96 65
+<<< TLS 1.2, RecordHeader [length 0005]
+    14 03 03 00 01
+<<< TLS 1.3, ChangeCipherSpec [length 0001]
+    01
+<<< TLS 1.2, RecordHeader [length 0005]
+    16 03 03 04 ba
+<<< TLS 1.3, Handshake [length 04ba], ServerHello
+    02 00 04 b6 03 03 21 78 f6 0c ea 9b 6a 96 17 e4
+    f2 36 eb d6 73 e3 12 bf 64 8d 55 14 fa 46 03 9c
+    c1 9d 4f fc 69 71 20 df cd ec 21 17 15 cc 4c ea
+    bb bd 25 ac 10 60 7e 76 52 32 a2 d8 f9 23 da 80
+    5d 26 f3 bc 60 5b 63 13 02 00 04 6e 00 2b 00 02
+    03 04 00 33 04 64 11 ec 04 60 cd 0a 25 1d 65 62
+    14 08 c3 2c a0 5a d5 a7 4b bc 50 29 c7 b4 91 6d
+    49 e5 72 ad f0 06 f3 7e 7f 7e 4a e7 fb 8e aa c5
+    fb f3 e4 22 19 9d 8a 0e c8 9e 1a 85 80 56 ae 66
+    03 a5 bb 8b d1 d2 a0 78 f0 a9 f8 ad 66 12 8b ad
+    07 3c ed 48 02 17 76 e6 76 ca bf c3 84 16 5e 2d
+    3d 43 18 66 a2 3d 38 f7 01 88 22 87 1c df aa e8
+    24 02 73 81 57 d1 0f 2e eb 7f fa a1 8d 4f 1d 9b
+    ca 02 4c 57 77 1a bf 9d a1 00 bc b2 f4 ec 16 38
+    f4 45 95 83 74 61 8f 9c 47 e3 43 85 ee ff 59 40
+    cd 4b 91 4f 95 35 b4 5c 61 76 b0 e3 ec f0 47 c5
+    f0 10 69 03 d8 5f d4 92 17 13 6a ba 0d 8d f5 86
+    2a c7 a7 82 96 14 48 99 98 ef 57 a9 96 8b 26 55
+    b0 9e 45 53 ea c4 7a 5a d5 e4 db 2d af dd d6 d3
+    34 c0 55 07 d7 29 ab df 7c 30 2e 43 66 a5 c5 29
+    e1 9b 47 0d b6 fe 18 e1 35 16 cd 8f 0a 92 1e 69
+    f4 12 2d e8 34 77 72 2c 22 90 3a 4c 46 e6 fd 27
+    73 90 d9 df 52 60 87 c7 4f 9f ad f0 96 1a 23 ac
+    85 18 49 36 b0 bf e2 90 8a 96 50 41 70 e1 34 47
+    a2 2d e2 03 b1 30 21 48 6a 7c e4 a6 bc aa 74 04
+    73 82 8e b1 11 a5 84 3e cf 5d 0d fe 69 e2 c7 1c
+    10 c6 19 3c f9 bb ff 1f 89 e8 2f 28 30 fd 40 f4
+    8d 6a cf 5f ca 23 4c 88 a4 1a 7e d0 c8 03 a3 bf
+    63 79 0e 46 2a 8b e3 29 a9 72 3a ce 06 6e 28 77
+    fd e4 d3 6f 6d 06 dc 62 e3 3b fd 4c 17 79 19 66
+    d9 c8 c3 e1 dc 00 a4 f6 9a 06 6b 6b 37 e3 23 91
+    3e dd df 7d 59 9d 29 38 4a 12 ad f9 dc 7c ad 40
+    2c e7 c5 6f 2c 4a c4 c6 48 36 a5 a5 08 08 fe 5a
+    f7 1d 1a a4 be aa de 58 2b 5d 53 a5 cd 9c 4f 5b
+    25 ee 9d ae 1e 65 f2 48 be 66 63 9d fb fa 5c 4b
+    ac 6d 65 de a1 b5 d4 11 3a de 64 5e bd 8f 7d 1d
+    aa 51 f8 5a 5d ee fa b3 95 5e 6f 0e 09 93 a4 d7
+    b2 df b1 3b b5 d4 73 9b b2 99 bb 5d 19 97 14 bd
+    58 50 b1 34 05 c2 c4 91 2e b7 d3 a4 d1 dd e6 5d
+    56 95 7d ce 88 a9 7f 0d 94 86 cf b6 ec 8d 15 e7
+    be 83 0c 0a 4c ec 3e ea 2d 7d 6f ee ae 20 44 22
+    bd 97 d3 c6 0c 87 93 4e 7c f1 18 4e f0 8e 1e 9d
+    ac cb 56 ab db 7e 8d 67 61 64 25 88 59 d3 7f c0
+    a1 d9 89 c0 6a fd a9 7c dc 35 fc 18 a0 67 b4 a2
+    64 fb 81 b6 dc d2 17 7a c7 0c f8 6a 40 b4 79 09
+    7c bf df 6a 64 81 f5 ce 37 13 a8 fc d7 ae f5 50
+    aa 91 94 2c b6 8a e2 c0 21 f1 14 aa 4d 9d b9 fb
+    31 03 15 49 69 5a 57 fc 33 43 96 4a 62 6d d0 76
+    c0 56 56 b4 d3 ba df 76 f1 d4 df ae ab 36 c3 18
+    90 90 6e 80 3d c3 5b f2 45 a8 f6 d0 ea e0 a0 0b
+    d9 bc fd dc 58 90 19 e1 9d 7c 0d 17 e9 5e ed 10
+    06 6c 5a ea cd b9 b8 b2 5d 7f 4a de 8f 1f ec 16
+    28 06 f9 be 33 5f 5d c3 8d e3 6a 0f e1 7e 71 a0
+    11 e7 eb 85 83 0d a7 40 9e 91 b6 40 14 64 0e 9c
+    bd 2b 2a 81 fb 08 5c 4e d9 6a 26 e6 db 02 38 32
+    eb e9 92 82 81 7a 2e 0a f1 18 57 6d a8 e5 9e fd
+    ba b5 63 89 32 64 43 ae 67 df b9 30 5d b4 9e 7f
+    8f 16 27 21 b4 05 c8 21 90 c7 e2 e0 3e f1 05 88
+    e7 f4 95 6a 8f 1b f2 9a 37 6f bf b6 d6 e3 21 40
+    24 ea b7 03 04 5a 85 e3 aa 83 3d 7b e5 f9 b5 ff
+    29 51 b8 a5 38 1c 03 72 b6 08 6c f2 e3 3b d2 c6
+    e5 5b 5e e4 87 02 e1 4e ef 83 e6 63 a6 ad bb 1e
+    d4 29 7d 65 62 78 37 a8 f7 c4 ad 4b 83 2b 6a d6
+    45 f4 12 f8 59 98 6e 88 f6 a6 59 92 20 a9 ba 5e
+    84 b1 10 ca a7 ba 63 ae 8d 17 98 18 4f 0a 55 11
+    5f 11 80 0c 9c ce c7 4e 82 9b 2c 74 52 16 6b de
+    b2 62 17 cc 42 b9 2f c4 45 8c 2b 91 06 11 5a 7b
+    f1 e0 3b fb 2a dd 2d 5b 94 d5 93 47 4a f2 31 87
+    43 05 d0 d2 4c 1d 24 68 88 bc 95 13 1b a7 1e 88
+    30 e2 76 17 04 4e 58 39 30 6f e7 f2 1f a5 08 38
+    76 3e 98 ea 58 81 4e 1f ef 3c c8 41 0c d0 0e e6
+    08 c6 b8 04 63 16 00 a0 39 c2 99 fb 53 09 5d b6
+    7d 25 a3 16 67 ba 39 ba 76 cf 22 3c 35 eb 4f 2d
+    60 ef 2d 0f 5f 0e 91 21 e9 3d d9 61 69 1c b8 53
+    70 f3 38 c2 0a 31 85 99 14 a5 15 81 f2 80 e9 c8
+    87 0c 67 8c 59 60 f1 fb 4c 0e
+<<< TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 17
+<<< TLS 1.3, InnerContent [length 0001]
+    16
+<<< TLS 1.3, Handshake [length 0006], EncryptedExtensions
+    08 00 00 02 00 00
+<<< TLS 1.2, RecordHeader [length 0005]
+    17 03 03 03 47
+<<< TLS 1.3, InnerContent [length 0001]
+    16
+<<< TLS 1.3, Handshake [length 0336], Certificate
+    0b 00 03 32 00 00 03 2e 00 03 29 30 82 03 25 30
+    82 02 0d a0 03 02 01 02 02 01 02 30 0d 06 09 2a
+    86 48 86 f7 0d 01 01 0b 05 00 30 12 31 10 30 0e
+    06 03 55 04 03 0c 07 52 6f 6f 74 20 43 41 30 20
+    17 0d 31 36 30 31 31 34 32 32 32 39 34 36 5a 18
+    0f 32 31 31 36 30 31 31 35 32 32 32 39 34 36 5a
+    30 19 31 17 30 15 06 03 55 04 03 0c 0e 73 65 72
+    76 65 72 2e 65 78 61 6d 70 6c 65 30 82 01 22 30
+    0d 06 09 2a 86 48 86 f7 0d 01 01 01 05 00 03 82
+    01 0f 00 30 82 01 0a 02 82 01 01 00 d5 5d 60 6a
+    df fc 61 ee 48 aa 8c 11 48 43 a5 6d b6 52 5d aa
+    98 49 b1 61 92 35 b1 fc 3a 04 25 0c 6d 79 ff b4
+    d5 c9 e9 5c 1c 3b e0 ab b3 b8 7d a3 de 6d bd e0
+    dd d7 5a bf 14 47 11 42 5e a6 82 d0 61 c1 7f dd
+    13 46 e6 09 85 07 0e f2 d4 fc 1a 64 d2 0a ad 20
+    ab 20 6b 96 f0 ad cc c4 19 53 55 dc 01 1d a4 b3
+    ef 8a b4 49 53 5d 8a 05 1c f1 dc e1 44 bf c5 d7
+    e2 77 19 57 5c 97 0b 75 ee 88 43 71 0f ca 6c c1
+    b4 b2 50 a7 77 46 6c 58 0f 11 bf f1 76 24 5a ae
+    39 42 b7 51 67 29 e1 d0 55 30 6f 17 e4 91 ea ad
+    f8 28 c2 43 6f a2 64 a9 fb 9d 98 92 62 48 3e eb
+    0d 4f 82 4a 8a ff 3f 72 ee 96 b5 ae a1 c1 98 ba
+    ef 7d 90 75 6d ff 5a 52 9e ab f5 c0 7e d0 87 43
+    db 85 07 07 0f 7d 38 7a fd d1 d3 ee 65 1d d3 ea
+    39 6a 87 37 ee 4a d3 e0 0d 6e f5 70 ac c2 bd f1
+    6e f3 92 95 5e a9 f0 a1 65 95 93 8d 02 03 01 00
+    01 a3 7d 30 7b 30 1d 06 03 55 1d 0e 04 16 04 14
+    c0 e7 84 bf e8 59 27 33 10 b0 52 4f 51 52 2f 06
+    d6 c0 7a cd 30 1f 06 03 55 1d 23 04 18 30 16 80
+    14 70 7f 2e ae 83 68 59 98 04 23 2a cd eb 3e 17
+    cd 24 dd 01 49 30 09 06 03 55 1d 13 04 02 30 00
+    30 13 06 03 55 1d 25 04 0c 30 0a 06 08 2b 06 01
+    05 05 07 03 01 30 19 06 03 55 1d 11 04 12 30 10
+    82 0e 73 65 72 76 65 72 2e 65 78 61 6d 70 6c 65
+    30 0d 06 09 2a 86 48 86 f7 0d 01 01 0b 05 00 03
+    82 01 01 00 7b d3 04 43 75 8a 0f 11 ae c4 fb d7
+    a1 a2 9e fe 20 18 d5 f4 2f 31 88 46 b6 75 8c ee
+    e5 9b 97 a6 b9 a3 cd 60 9a 46 c3 48 97 e5 97 68
+    f7 5a 86 35 73 d9 69 9e f9 5f 74 b9 e6 94 13 01
+    cb 6a dc e3 c4 04 e9 65 da 9c a4 8b 28 f3 f9 9a
+    7f bf 97 1f 45 92 e5 05 b1 56 e6 0b f6 47 de 1e
+    89 b6 2b e1 4d df 4a 7e 01 d3 23 dc 97 8c 47 fe
+    5f c7 cc 98 46 0e c4 83 5b ca 8a f1 52 09 be 6b
+    ec 3f 09 8b d0 93 02 bf e1 51 e7 d1 7e 34 56 19
+    74 d0 ff 28 25 de b7 9f 56 52 91 7d 20 29 85 0a
+    80 44 5f 71 32 25 71 0f c2 16 e2 5f 6b 1d 3f 32
+    5b 0a 3c 74 1c b9 62 f1 ed 07 50 a3 6d b4 b4 31
+    0a c0 53 44 6a 3a 88 84 8b 2d a9 b0 37 8e e6 18
+    36 bd 9a 20 40 0f 01 92 8b 3d aa 61 e7 ae 2c ed
+    36 cd 3a 07 86 74 3a 29 b3 d7 3a b4 00 a9 c2 f5
+    92 78 0e e2 0f a3 fe bb be e0 06 53 84 59 1d 90
+    69 e5 b6 f9 00 00
+<<< TLS 1.2, RecordHeader [length 0005]
+    17 03 03 01 19
+<<< TLS 1.3, InnerContent [length 0001]
+    16
+<<< TLS 1.3, Handshake [length 0108], CertificateVerify
+    0f 00 01 04 08 04 01 00 a8 ac d5 18 c0 4b f8 d3
+    04 e0 1f a3 f1 d6 13 4f 72 bc c2 45 9e 97 f4 7a
+    c2 fd 80 7f af 99 b8 1d 60 09 14 7f 2a 66 9e 38
+    b5 b0 25 e3 99 69 54 10 ee d9 35 68 4c 85 25 3e
+    26 3c aa a5 b2 10 8f c1 7c da 18 a7 a4 79 6e 91
+    41 c3 71 55 18 c5 03 39 74 79 63 db fe e3 95 9f
+    39 67 8a 28 44 94 e3 0e f4 3b ac a6 8b 6f e4 27
+    b6 02 c2 26 75 e8 07 9d 6e 7b 5e b5 b8 3d 38 7c
+    f6 77 bb c2 b5 77 15 c4 c0 98 65 9e 10 5d 5b 32
+    bc 6e f3 6e 72 20 bf 4b 65 c8 c2 8a 28 c1 9f fc
+    76 85 47 b7 c8 f1 61 8e ec 65 47 d8 10 3c ec a1
+    8e 3f 76 bd 9d cc f8 33 23 4e a7 5a ba 55 96 f4
+    bc 53 71 13 81 32 51 85 42 7f 25 63 b4 3c a0 c4
+    53 45 5c c9 75 bd 76 bd f5 0f 0c 25 26 74 5b 15
+    a6 a9 df 59 35 f0 0e 7d 40 df d1 c6 8b 2d 2b 4e
+    51 63 1f 7f d9 b8 3e f8 af fd d0 aa c5 66 05 1f
+    28 e0 c0 6e cf 7f c2 b5
+<<< TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 45
+<<< TLS 1.3, InnerContent [length 0001]
+    16
+<<< TLS 1.3, Handshake [length 0034], Finished
+    14 00 00 30 8c aa f8 3c 7f 98 fd 72 e0 9c 10 21
+    e0 c5 b3 b6 8c 22 25 df c6 71 b1 81 8c f0 d1 00
+    a6 93 91 28 4f 5e 11 94 fc dd da f9 98 61 47 31
+    8c 8f f1 17
+>>> TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 45
+>>> TLS 1.2, InnerContent [length 0001]
+    16
+>>> TLS 1.3, Handshake [length 0034], Finished
+    14 00 00 30 82 eb 05 39 d6 3c 96 83 8e 27 ce 75
+    bf a8 6c a9 86 90 97 24 17 36 22 f2 01 44 2e a1
+    3a 5c 5a 12 9b a3 cc d9 3c 7d 00 4f 03 53 47 bc
+    83 6a 22 a5
+---
+Certificate chain
+ 0 s:CN=server.example
+   i:CN=Root CA
+   a:PKEY: RSA, 2048 (bit); sigalg: sha256WithRSAEncryption
+   v:NotBefore: Jan 14 22:29:46 2016 GMT; NotAfter: Jan 15 22:29:46 2116 GMT
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIDJTCCAg2gAwIBAgIBAjANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdSb290
+IENBMCAXDTE2MDExNDIyMjk0NloYDzIxMTYwMTE1MjIyOTQ2WjAZMRcwFQYDVQQD
+DA5zZXJ2ZXIuZXhhbXBsZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANVdYGrf/GHuSKqMEUhDpW22Ul2qmEmxYZI1sfw6BCUMbXn/tNXJ6VwcO+Crs7h9
+o95tveDd11q/FEcRQl6mgtBhwX/dE0bmCYUHDvLU/Bpk0gqtIKsga5bwrczEGVNV
+3AEdpLPvirRJU12KBRzx3OFEv8XX4ncZV1yXC3XuiENxD8pswbSyUKd3RmxYDxG/
+8XYkWq45QrdRZynh0FUwbxfkkeqt+CjCQ2+iZKn7nZiSYkg+6w1PgkqK/z9y7pa1
+rqHBmLrvfZB1bf9aUp6r9cB+0IdD24UHBw99OHr90dPuZR3T6jlqhzfuStPgDW71
+cKzCvfFu85KVXqnwoWWVk40CAwEAAaN9MHswHQYDVR0OBBYEFMDnhL/oWSczELBS
+T1FSLwbWwHrNMB8GA1UdIwQYMBaAFHB/Lq6DaFmYBCMqzes+F80k3QFJMAkGA1Ud
+EwQCMAAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwGQYDVR0RBBIwEIIOc2VydmVyLmV4
+YW1wbGUwDQYJKoZIhvcNAQELBQADggEBAHvTBEN1ig8RrsT716Ginv4gGNX0LzGI
+RrZ1jO7lm5emuaPNYJpGw0iX5Zdo91qGNXPZaZ75X3S55pQTActq3OPEBOll2pyk
+iyjz+Zp/v5cfRZLlBbFW5gv2R94eibYr4U3fSn4B0yPcl4xH/l/HzJhGDsSDW8qK
+8VIJvmvsPwmL0JMCv+FR59F+NFYZdND/KCXet59WUpF9ICmFCoBEX3EyJXEPwhbi
+X2sdPzJbCjx0HLli8e0HUKNttLQxCsBTRGo6iISLLamwN47mGDa9miBADwGSiz2q
+YeeuLO02zToHhnQ6KbPXOrQAqcL1kngO4g+j/ru+4AZThFkdkGnltvk=
+-----END CERTIFICATE-----
+subject=CN=server.example
+issuer=CN=Root CA
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: rsa_pss_rsae_sha256
+Negotiated TLS1.3 group: X25519MLKEM768
+---
+SSL handshake has read 2546 bytes and written 1702 bytes
+Verification error: unable to verify the first certificate
+---
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Protocol: TLSv1.3
+Server public key is 2048 bit
+This TLS version forbids renegotiation.
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 21 (unable to verify the first certificate)
+---
+>>> TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 13
+>>> TLS 1.2, InnerContent [length 0001]
+    15
+>>> TLS 1.3, Alert [length 0002], warning close_notify
+    01 00
+Connecting to 127.0.0.1
+SSL_connect:before SSL initialization
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS read server hello
+SSL_connect:SSLv3/TLS write change cipher spec
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS read server hello
+Can't use SSL_get_servername
+SSL_connect:TLSv1.3 read encrypted extensions
+depth=0 CN=server.example
+verify error:num=20:unable to get local issuer certificate
+verify return:1
+depth=0 CN=server.example
+verify error:num=21:unable to verify the first certificate
+verify return:1
+depth=0 CN=server.example
+verify return:1
+SSL_connect:SSLv3/TLS read server certificate
+SSL_connect:TLSv1.3 read server certificate verify
+SSL_connect:SSLv3/TLS read finished
+SSL_connect:SSLv3/TLS write finished
+DONE
+SSL3 alert write:warning:close notify

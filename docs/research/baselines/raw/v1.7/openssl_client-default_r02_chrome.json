@@ -1,0 +1,69 @@
+{
+  "run_id": "openssl_client-default_r02_chrome",
+  "implementation": "openssl",
+  "fault_type": "client-default",
+  "repetition": 2,
+  "condition": "chrome",
+  "metrics": {
+    "negotiated_group": null,
+    "is_hybrid": false,
+    "downgrade_visible": false,
+    "handshake_result": "failure",
+    "detail": "",
+    "hrr_present": null,
+    "downgrade_flagged": null,
+    "advertised_hybrid": null,
+    "hrr_pcap_present": false,
+    "hrr_log_present": null,
+    "server_hello_count": 1,
+    "final_negotiated_group": "X25519MLKEM768",
+    "client_precondition_verified": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_client-default_r02_chrome-client.log",
+    "server_log": "openssl_client-default_r02_chrome-server.log",
+    "pcap": "openssl_client-default_r02_chrome.pcapng",
+    "capture_log": "openssl_client-default_r02_chrome-capture.log"
+  },
+  "provenance": {
+    "part": "client-survey",
+    "client_hello_groups": [
+      "0x8a8a",
+      "X25519MLKEM768",
+      "X25519",
+      "0x0017",
+      "0x0018"
+    ],
+    "client_hello_key_shares": [
+      "0x8a8a",
+      "X25519MLKEM768",
+      "X25519"
+    ],
+    "server_cmd": [
+      "/root/pq-hybrid-phase2/install/openssl-3.5.6/bin/openssl",
+      "s_server",
+      "-tls1_3",
+      "-www",
+      "-provider",
+      "default",
+      "-accept",
+      "8545",
+      "-cert",
+      "/root/pq-hybrid-phase2/openssl/apps/server.pem"
+    ],
+    "client_cmd": [
+      "timeout",
+      "20",
+      "/root/pq-hybrid-phase2/v17/chrome-headless-shell-linux64/chrome-headless-shell",
+      "--no-sandbox",
+      "--ignore-certificate-errors",
+      "--dump-dom",
+      "https://127.0.0.1:8545/"
+    ],
+    "binary_sha256": "60c03e8882f4bb47459a905ede1074e1e746c5b765e437c288e460320540a8a3",
+    "client": "chrome",
+    "browser": true
+  },
+  "audit": {}
+}

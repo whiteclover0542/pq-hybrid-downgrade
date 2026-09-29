@@ -1,0 +1,380 @@
+CONNECTED(00000003)
+Sent TLS Record
+Header:
+  Version = TLS 1.0 (0x301)
+  Content Type = Handshake (22)
+  Length = 214
+    ClientHello, Length=210
+      client_version=0x303 (TLS 1.2)
+      Random:
+        gmt_unix_time=0x548AAB1C
+        random_bytes (len=28): 9D251047CD275174EEFF14B5A2C4A743430D2D485E539C197A5E659B
+      session_id (len=32): 578FA288306F8F39671F6DA279F58D4FD7FE56FB975201698C369CFAC5FB7887
+      cipher_suites (len=6)
+        {0x13, 0x02} TLS_AES_256_GCM_SHA384
+        {0x13, 0x03} TLS_CHACHA20_POLY1305_SHA256
+        {0x13, 0x01} TLS_AES_128_GCM_SHA256
+      compression_methods (len=1)
+        No Compression (0x00)
+      extensions, length = 131
+        extension_type=ec_point_formats(11), length=4
+          uncompressed (0)
+          ansiX962_compressed_prime (1)
+          ansiX962_compressed_char2 (2)
+        extension_type=supported_groups(10), length=6
+          ecdh_x25519 (29)
+          X25519MLKEM768 (4588)
+        extension_type=session_ticket(35), length=0
+        extension_type=encrypt_then_mac(22), length=0
+        extension_type=extended_master_secret(23), length=0
+        extension_type=signature_algorithms(13), length=42
+          mldsa65 (0x0905)
+          mldsa87 (0x0906)
+          mldsa44 (0x0904)
+          ecdsa_secp256r1_sha256 (0x0403)
+          ecdsa_secp384r1_sha384 (0x0503)
+          ecdsa_secp521r1_sha512 (0x0603)
+          ed25519 (0x0807)
+          ed448 (0x0808)
+          ecdsa_brainpoolP256r1tls13_sha256 (0x081a)
+          ecdsa_brainpoolP384r1tls13_sha384 (0x081b)
+          ecdsa_brainpoolP512r1tls13_sha512 (0x081c)
+          rsa_pss_pss_sha256 (0x0809)
+          rsa_pss_pss_sha384 (0x080a)
+          rsa_pss_pss_sha512 (0x080b)
+          rsa_pss_rsae_sha256 (0x0804)
+          rsa_pss_rsae_sha384 (0x0805)
+          rsa_pss_rsae_sha512 (0x0806)
+          rsa_pkcs1_sha256 (0x0401)
+          rsa_pkcs1_sha384 (0x0501)
+          rsa_pkcs1_sha512 (0x0601)
+        extension_type=supported_versions(43), length=3
+          TLS 1.3 (772)
+        extension_type=psk_key_exchange_modes(45), length=2
+          psk_dhe_ke (1)
+        extension_type=key_share(51), length=38
+            NamedGroup: ecdh_x25519 (29)
+            key_exchange:  (len=32): 172DC7064F557A0A423260D533E184D800CB04C6E1593252EF41EB09C125C33C
+
+Received TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = Handshake (22)
+  Length = 88
+    ServerHello, Length=84
+      server_version=0x303 (TLS 1.2)
+      Random:
+        gmt_unix_time=0xCF21AD74
+        random_bytes (len=28): E59A6111BE1D8C021E65B891C2A211167ABB8C5E079E09E2C8A8339C
+      session_id (len=32): 578FA288306F8F39671F6DA279F58D4FD7FE56FB975201698C369CFAC5FB7887
+      cipher_suite {0x13, 0x02} TLS_AES_256_GCM_SHA384
+      compression_method: No Compression (0x00)
+      extensions, length = 12
+        extension_type=supported_versions(43), length=2
+            TLS 1.3 (772)
+        extension_type=key_share(51), length=2
+            NamedGroup: X25519MLKEM768 (4588)
+
+Sent TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = ChangeCipherSpec (20)
+  Length = 1
+    change_cipher_spec (1)
+
+Sent TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = Handshake (22)
+  Length = 1398
+    ClientHello, Length=1394
+      client_version=0x303 (TLS 1.2)
+      Random:
+        gmt_unix_time=0x548AAB1C
+        random_bytes (len=28): 9D251047CD275174EEFF14B5A2C4A743430D2D485E539C197A5E659B
+      session_id (len=32): 578FA288306F8F39671F6DA279F58D4FD7FE56FB975201698C369CFAC5FB7887
+      cipher_suites (len=6)
+        {0x13, 0x02} TLS_AES_256_GCM_SHA384
+        {0x13, 0x03} TLS_CHACHA20_POLY1305_SHA256
+        {0x13, 0x01} TLS_AES_128_GCM_SHA256
+      compression_methods (len=1)
+        No Compression (0x00)
+      extensions, length = 1315
+        extension_type=ec_point_formats(11), length=4
+          uncompressed (0)
+          ansiX962_compressed_prime (1)
+          ansiX962_compressed_char2 (2)
+        extension_type=supported_groups(10), length=6
+          ecdh_x25519 (29)
+          X25519MLKEM768 (4588)
+        extension_type=session_ticket(35), length=0
+        extension_type=encrypt_then_mac(22), length=0
+        extension_type=extended_master_secret(23), length=0
+        extension_type=signature_algorithms(13), length=42
+          mldsa65 (0x0905)
+          mldsa87 (0x0906)
+          mldsa44 (0x0904)
+          ecdsa_secp256r1_sha256 (0x0403)
+          ecdsa_secp384r1_sha384 (0x0503)
+          ecdsa_secp521r1_sha512 (0x0603)
+          ed25519 (0x0807)
+          ed448 (0x0808)
+          ecdsa_brainpoolP256r1tls13_sha256 (0x081a)
+          ecdsa_brainpoolP384r1tls13_sha384 (0x081b)
+          ecdsa_brainpoolP512r1tls13_sha512 (0x081c)
+          rsa_pss_pss_sha256 (0x0809)
+          rsa_pss_pss_sha384 (0x080a)
+          rsa_pss_pss_sha512 (0x080b)
+          rsa_pss_rsae_sha256 (0x0804)
+          rsa_pss_rsae_sha384 (0x0805)
+          rsa_pss_rsae_sha512 (0x0806)
+          rsa_pkcs1_sha256 (0x0401)
+          rsa_pkcs1_sha384 (0x0501)
+          rsa_pkcs1_sha512 (0x0601)
+        extension_type=supported_versions(43), length=3
+          TLS 1.3 (772)
+        extension_type=psk_key_exchange_modes(45), length=2
+          psk_dhe_ke (1)
+        extension_type=key_share(51), length=1222
+            NamedGroup: X25519MLKEM768 (4588)
+            key_exchange:  (len=1216): 7659BE37273DD601261990214E577C1714688E363A24BA1DD6351060938816C2344A46692C280261896E458903DBE64309FACB060C7A70931FE59C29EE3528B6098744E8B53BB174295666FD3546FF258B97A22977C133CA895AF1EB399AEAB479910F672CB687CC199E94C25A0C06E889279D98712D988D8EC0BF8CEBAD156C7CEB51219684CA3181A7C0D6BD055287D2346B92766C9138A321A75DD2088A4259907BFC2510C98CD138771B4CB0B2453685580B5F243AC501861FD0842E7BBDEDE83B5E4525D3CBAA6F802D6A4563386AC5C9749F6B6A4404157A4269114B6398159005CF71A695D4BE9DF239F891AFCA91434CE0B84B2732609B64299C9F058A82D17703A8225191730F6E5ACD5632C6B5233A6D8CC63DAB98977621FD83B78038714DB7AB57B8B830E16971CA94020CCDAF361858A132D7382945DC2812F570E58692F726B365A40868F48EACA9C491C10CB2E93D43CB87810A47C3378481677FC2E93D817731F495CD7324958B6A1BF3447D80B3109657097E60BD95581ED44C6F959962CB726E4A472A175A0971224F3C808E6489B805B6421FB29A608077E48392693486771A1347F484102839DB773299202852018E13A63F0EEA4F4FD640D1C55D4854781ED40C896AA3F5F2479313085E7442C8B82A386B8CF4A5A611129D3A0626901B3C3015CC47F332DE926C4BF7CD28C2799AE34F4ED461021B6B92BA34978913487002F0A40D8ABB8DFC26795BA76A4877C876B74F2DF430386C723D1506FE1CA0263A42FD467569F92254185C88CB854D1B8A2659050A9792BFD53DB5F99D1D5256F45345C01A80707B912452705924BC16B60EC0B62DC7030D12E48A318A3CF7C67CF9277F18BAB9217A21D143A6EBF388DE241C76BC3B8515C357A45CFE27AB3BC0C89120742E920FD1DA91265A4B27733DF190C302F4C4631599F8A8C0434832CA305206D710958987CA4636F5F2CAC1465001820CCB544E92DBCF4010684BB52AE67A3A4C53016878292AE54C51E680A0C88755DB88FD21B9A4204723F7AF1D181E73D3373F3B7D3C4ACD88C58156F8642BB751968BBB9687351BB299B5977D7EE00F852C9D4AD4B5AC018A3E78564C980FAEAC775BD77E881B18C2640B9B3759BD488296F04E68A7222B709354269175811497231CF41B839BC2B0D1D49150E35265F1B9195A756A6351B5B773C92A3FBE727CC0E910D56A4E81572CBCB010713A55E09165A9178553F2713C37A4F93663073B04AB5144E7136B5068612E529179E73BB7567749280EAA703E63896C7DA5B051B26865F40A3E087ACA02958342402EB2640D008EE4D22440E25162DB192D40312B337F9E33B4A32AA804BA1AC1E06B6EA58A16FA12E6268F55D118A3E36D7E4ABBA63B384527B64DF9A1DF19C697720E6CB33DF9A6CC3050A5AE684A54661C4488C1B8CC6C158802EE053F2536C9DF6590CB7885EFF0252A3A5393295F82210F72D54D8F008E22A1182D14694546119C464FF4A11992DC28906955A7F91D961C6FB833034A07B2929510979CA7AC528033675B17503189E185EBF06E645ACDC86432E1B0CACE41BBE4DC75421976F96103DF3B3B25AB32CBF5CC3B08B3983B7CA2199B79BD8131AE61D826F8A66FF672F54B87A875105C1319921ADB92DDE3038F457DBF58D3CFD711B91F776476A4B69BFF957EA2A211673F0D76D690B6606AFA0E78
+
+Received TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = ChangeCipherSpec (20)
+  Length = 1
+    change_cipher_spec (1)
+
+Received TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = Handshake (22)
+  Length = 1210
+    ServerHello, Length=1206
+      server_version=0x303 (TLS 1.2)
+      Random:
+        gmt_unix_time=0x29477826
+        random_bytes (len=28): 368B557695A6DCBD0912B1A13B169E33B420E378EA390B9B1B9BBF7A
+      session_id (len=32): 578FA288306F8F39671F6DA279F58D4FD7FE56FB975201698C369CFAC5FB7887
+      cipher_suite {0x13, 0x02} TLS_AES_256_GCM_SHA384
+      compression_method: No Compression (0x00)
+      extensions, length = 1134
+        extension_type=supported_versions(43), length=2
+            TLS 1.3 (772)
+        extension_type=key_share(51), length=1124
+            NamedGroup: X25519MLKEM768 (4588)
+            key_exchange:  (len=1120): CD95BE48DA6E6386D39E2FCE942AA9ECA4A581B1A911927D298DCA178389860A0D42CEED488DFA943ABD1BEFAD37946B98A1E2460F0959DCBBA8FDC58AB666EE0831A5966457371C65CF1AF3CAF38FE756DDDDC0CE73B38A70EF990445FBC85A6368EDBB232CB1B8F9F42347C649C6B3787DAF87998C14C0A67F4AAD1BAFF4D7BD146358AC3402EB7826E8628EEC420DD9B76EB1C301B13BFEAA440CB3BB57C25EB9E6FECEF4B42119938021D5FAF78298EFB8924CC6C445F00B25B454545421619E1236D532462B539FBC3C702B0B90CD38B9511CFA248936377371EF7B3E7A84D5CBBFC3553CD661C680FECEFE8B65F50217CF98946FE51A689FE728B1BF3ED73E5BA5EAE7B6739D7D989C49FB9A3826AE1EBC86140E7363C9D2FC90852869EC2D8349E021DD608E2E3132C92B89EC54E0F6708C208A62EB00DFCBFE6B5F2AE33554B1E5D8C9982731AD8804296DCA9B21E967F1081EC9CC4F1B91956BB579912F6ED415910E6CE0B638ACD022F7F8CB3D9E624FCA96A4057069ABE851650C69112840E08B2113C92535C5B2B96BD4F46F17691098C44F684A453169AF0EF0B4A10C6B3EDE792188EE0CC99DFDB2491467DC01B012CA2F693DEE90C7E2FB6E237E1CE406766BF7500A551F9D4774AF839B7EDA93060B959E67D4ADB9D4DE4E4EA90D57C11FEBEE76037DDE2C75104D74BE8A26C61B153F1CB1CDF3BED5A2CFFEB5D258B7A9C3E9E61A18A03E14E9AAE3DF41F533D9C8189F80D04B25BB7EAD401BE018ECB4C520BBFDBDEF95A1542A618ACE985181452B9964010E300F3F6B97CD3592CC0434FDFA5C593E1DD525396F1C8ECB6A912D900AA4986008BE3E993541FF71A8F8BEBDD01AB3C83213C9D2BF75E57671E8DD4A3FF2B01EAD728B898657BA584C560C3637363DA660052A1BC5FFC22256141AB88E5B6377F6A75297B066C9573288339A874CFB6A5E430595B6FBE2CB337D04590D0682CF8F0FA90D5DC11F9970339E1AE0FB0D828FAA9DDED03881610BC0130721C573FF29416862C7772B49A39184E812E2C191C6047CE07FA890B79A9CF7D3D35009946F87F9DE38C77CDF26AA95B28682B0CB936BAEAFE6FA73F96C483B70CA388F915F8C148545E63550970ECC74EB45E7D9F8ECE64EE928F893409BA40A7420A379E0382A081354D32B675361CEE9222F4351C14E06B8E80BA8E10B5C3E3DC9C1D5B89F470CB34798367655F6C25E3F4B623147F484D27347829DD25DEE09CDAE78B77E08316D3487175023C4D7CBC9959050F4903D2F0A917B2C62E172634AE6B5F53F1CC219D7AD1C694485954DD89EE9EE43886E8CEE36234561B4E582D72A6E2EE8C45EEE1CD54DC047A39A44F1CE8476738C6C508EDD3F4DF015F2B7DAE9D88B5FDC7FFC80FF55141700AF746A53D6AE71170AEC20AFFD9E8255D898AA956F75AD2AAF4A9477AEEA5E32BCDE0C2B10C27DE434C18535CB03327B6C3C379FE6867C21907DE2F010C09275B0B8B423940D28099493A406DDE37BD604C4363DC5E483C3957DF45E01A5DA060E30029A43F680F118CD193BE6C0D664D0CDDDB4B8BB72232D
+
+Received TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = ApplicationData (23)
+  Length = 23
+  Inner Content Type = Handshake (22)
+    EncryptedExtensions, Length=2
+      No extensions
+
+Received TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = ApplicationData (23)
+  Length = 839
+  Inner Content Type = Handshake (22)
+    Certificate, Length=818
+      context (len=0): 
+      certificate_list, length=814
+        ASN.1Cert, length=809
+------details-----
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN = Root CA
+        Validity
+            Not Before: Jan 14 22:29:46 2016 GMT
+            Not After : Jan 15 22:29:46 2116 GMT
+        Subject: CN = server.example
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:d5:5d:60:6a:df:fc:61:ee:48:aa:8c:11:48:43:
+                    a5:6d:b6:52:5d:aa:98:49:b1:61:92:35:b1:fc:3a:
+                    04:25:0c:6d:79:ff:b4:d5:c9:e9:5c:1c:3b:e0:ab:
+                    b3:b8:7d:a3:de:6d:bd:e0:dd:d7:5a:bf:14:47:11:
+                    42:5e:a6:82:d0:61:c1:7f:dd:13:46:e6:09:85:07:
+                    0e:f2:d4:fc:1a:64:d2:0a:ad:20:ab:20:6b:96:f0:
+                    ad:cc:c4:19:53:55:dc:01:1d:a4:b3:ef:8a:b4:49:
+                    53:5d:8a:05:1c:f1:dc:e1:44:bf:c5:d7:e2:77:19:
+                    57:5c:97:0b:75:ee:88:43:71:0f:ca:6c:c1:b4:b2:
+                    50:a7:77:46:6c:58:0f:11:bf:f1:76:24:5a:ae:39:
+                    42:b7:51:67:29:e1:d0:55:30:6f:17:e4:91:ea:ad:
+                    f8:28:c2:43:6f:a2:64:a9:fb:9d:98:92:62:48:3e:
+                    eb:0d:4f:82:4a:8a:ff:3f:72:ee:96:b5:ae:a1:c1:
+                    98:ba:ef:7d:90:75:6d:ff:5a:52:9e:ab:f5:c0:7e:
+                    d0:87:43:db:85:07:07:0f:7d:38:7a:fd:d1:d3:ee:
+                    65:1d:d3:ea:39:6a:87:37:ee:4a:d3:e0:0d:6e:f5:
+                    70:ac:c2:bd:f1:6e:f3:92:95:5e:a9:f0:a1:65:95:
+                    93:8d
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                C0:E7:84:BF:E8:59:27:33:10:B0:52:4F:51:52:2F:06:D6:C0:7A:CD
+            X509v3 Authority Key Identifier: 
+                70:7F:2E:AE:83:68:59:98:04:23:2A:CD:EB:3E:17:CD:24:DD:01:49
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+            X509v3 Subject Alternative Name: 
+                DNS:server.example
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        7b:d3:04:43:75:8a:0f:11:ae:c4:fb:d7:a1:a2:9e:fe:20:18:
+        d5:f4:2f:31:88:46:b6:75:8c:ee:e5:9b:97:a6:b9:a3:cd:60:
+        9a:46:c3:48:97:e5:97:68:f7:5a:86:35:73:d9:69:9e:f9:5f:
+        74:b9:e6:94:13:01:cb:6a:dc:e3:c4:04:e9:65:da:9c:a4:8b:
+        28:f3:f9:9a:7f:bf:97:1f:45:92:e5:05:b1:56:e6:0b:f6:47:
+        de:1e:89:b6:2b:e1:4d:df:4a:7e:01:d3:23:dc:97:8c:47:fe:
+        5f:c7:cc:98:46:0e:c4:83:5b:ca:8a:f1:52:09:be:6b:ec:3f:
+        09:8b:d0:93:02:bf:e1:51:e7:d1:7e:34:56:19:74:d0:ff:28:
+        25:de:b7:9f:56:52:91:7d:20:29:85:0a:80:44:5f:71:32:25:
+        71:0f:c2:16:e2:5f:6b:1d:3f:32:5b:0a:3c:74:1c:b9:62:f1:
+        ed:07:50:a3:6d:b4:b4:31:0a:c0:53:44:6a:3a:88:84:8b:2d:
+        a9:b0:37:8e:e6:18:36:bd:9a:20:40:0f:01:92:8b:3d:aa:61:
+        e7:ae:2c:ed:36:cd:3a:07:86:74:3a:29:b3:d7:3a:b4:00:a9:
+        c2:f5:92:78:0e:e2:0f:a3:fe:bb:be:e0:06:53:84:59:1d:90:
+        69:e5:b6:f9
+-----BEGIN CERTIFICATE-----
+MIIDJTCCAg2gAwIBAgIBAjANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdSb290
+IENBMCAXDTE2MDExNDIyMjk0NloYDzIxMTYwMTE1MjIyOTQ2WjAZMRcwFQYDVQQD
+DA5zZXJ2ZXIuZXhhbXBsZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANVdYGrf/GHuSKqMEUhDpW22Ul2qmEmxYZI1sfw6BCUMbXn/tNXJ6VwcO+Crs7h9
+o95tveDd11q/FEcRQl6mgtBhwX/dE0bmCYUHDvLU/Bpk0gqtIKsga5bwrczEGVNV
+3AEdpLPvirRJU12KBRzx3OFEv8XX4ncZV1yXC3XuiENxD8pswbSyUKd3RmxYDxG/
+8XYkWq45QrdRZynh0FUwbxfkkeqt+CjCQ2+iZKn7nZiSYkg+6w1PgkqK/z9y7pa1
+rqHBmLrvfZB1bf9aUp6r9cB+0IdD24UHBw99OHr90dPuZR3T6jlqhzfuStPgDW71
+cKzCvfFu85KVXqnwoWWVk40CAwEAAaN9MHswHQYDVR0OBBYEFMDnhL/oWSczELBS
+T1FSLwbWwHrNMB8GA1UdIwQYMBaAFHB/Lq6DaFmYBCMqzes+F80k3QFJMAkGA1Ud
+EwQCMAAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwGQYDVR0RBBIwEIIOc2VydmVyLmV4
+YW1wbGUwDQYJKoZIhvcNAQELBQADggEBAHvTBEN1ig8RrsT716Ginv4gGNX0LzGI
+RrZ1jO7lm5emuaPNYJpGw0iX5Zdo91qGNXPZaZ75X3S55pQTActq3OPEBOll2pyk
+iyjz+Zp/v5cfRZLlBbFW5gv2R94eibYr4U3fSn4B0yPcl4xH/l/HzJhGDsSDW8qK
+8VIJvmvsPwmL0JMCv+FR59F+NFYZdND/KCXet59WUpF9ICmFCoBEX3EyJXEPwhbi
+X2sdPzJbCjx0HLli8e0HUKNttLQxCsBTRGo6iISLLamwN47mGDa9miBADwGSiz2q
+YeeuLO02zToHhnQ6KbPXOrQAqcL1kngO4g+j/ru+4AZThFkdkGnltvk=
+-----END CERTIFICATE-----
+------------------
+        No extensions
+
+Received TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = ApplicationData (23)
+  Length = 281
+  Inner Content Type = Handshake (22)
+    CertificateVerify, Length=260
+      Signature Algorithm: rsa_pss_rsae_sha256 (0x0804)
+      Signature (len=256): D0D9F97C3AF68B8AB89C6F20235374A9BCC054E74664E5EB605920D6D1823711D40977CEBCF56F8EFEC45EDBD3480161665AED6AA583CB2D3D9A628DE8DD7D8934DB6F3D06C09271EE1E37425E237414681B1F89B995DDB1795C3CB427FA116A3DF26CE7D52077F8E825051EEAC50FCB859E7BA40A9900E1C6B92BA75C7C5AA91A9FFE9906B31C7ACED8A9F24BCB3DF030EA4E99F100C9BAC32ED118844D9346DEDFAE385816318E40B8BB40E84CE5C5E6158668E1C45ABEDA2B8AFACF3D4980D5C6F1912972743E7436481BD46EDE29BBE0BB55E1752DCD51EF0F3681C2420D19055E50F9BAA1D22CF340651B41FD3CA8B6946CFFBEFB9E47FD3C089DDD3F4C
+
+Received TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = ApplicationData (23)
+  Length = 69
+  Inner Content Type = Handshake (22)
+    Finished, Length=48
+      verify_data (len=48): C3D777120932EBDE4B254E20EF6D1A028D651BE7133CD7DE1D0A0C3635367C11886A780ECD710B68A3504928F25D9EA4
+
+Sent TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = ApplicationData (23)
+  Length = 69
+  Inner Content Type = Handshake (22)
+    Finished, Length=48
+      verify_data (len=48): E14B9240665CFBEC53AE9B891C3BF23067EB9EABB22C8FACF28CE3A3565B514223D20981B873B46C371E66B0924EA0E7
+
+---
+Certificate chain
+ 0 s:CN=server.example
+   i:CN=Root CA
+   a:PKEY: RSA, 2048 (bit); sigalg: sha256WithRSAEncryption
+   v:NotBefore: Jan 14 22:29:46 2016 GMT; NotAfter: Jan 15 22:29:46 2116 GMT
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIDJTCCAg2gAwIBAgIBAjANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdSb290
+IENBMCAXDTE2MDExNDIyMjk0NloYDzIxMTYwMTE1MjIyOTQ2WjAZMRcwFQYDVQQD
+DA5zZXJ2ZXIuZXhhbXBsZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANVdYGrf/GHuSKqMEUhDpW22Ul2qmEmxYZI1sfw6BCUMbXn/tNXJ6VwcO+Crs7h9
+o95tveDd11q/FEcRQl6mgtBhwX/dE0bmCYUHDvLU/Bpk0gqtIKsga5bwrczEGVNV
+3AEdpLPvirRJU12KBRzx3OFEv8XX4ncZV1yXC3XuiENxD8pswbSyUKd3RmxYDxG/
+8XYkWq45QrdRZynh0FUwbxfkkeqt+CjCQ2+iZKn7nZiSYkg+6w1PgkqK/z9y7pa1
+rqHBmLrvfZB1bf9aUp6r9cB+0IdD24UHBw99OHr90dPuZR3T6jlqhzfuStPgDW71
+cKzCvfFu85KVXqnwoWWVk40CAwEAAaN9MHswHQYDVR0OBBYEFMDnhL/oWSczELBS
+T1FSLwbWwHrNMB8GA1UdIwQYMBaAFHB/Lq6DaFmYBCMqzes+F80k3QFJMAkGA1Ud
+EwQCMAAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwGQYDVR0RBBIwEIIOc2VydmVyLmV4
+YW1wbGUwDQYJKoZIhvcNAQELBQADggEBAHvTBEN1ig8RrsT716Ginv4gGNX0LzGI
+RrZ1jO7lm5emuaPNYJpGw0iX5Zdo91qGNXPZaZ75X3S55pQTActq3OPEBOll2pyk
+iyjz+Zp/v5cfRZLlBbFW5gv2R94eibYr4U3fSn4B0yPcl4xH/l/HzJhGDsSDW8qK
+8VIJvmvsPwmL0JMCv+FR59F+NFYZdND/KCXet59WUpF9ICmFCoBEX3EyJXEPwhbi
+X2sdPzJbCjx0HLli8e0HUKNttLQxCsBTRGo6iISLLamwN47mGDa9miBADwGSiz2q
+YeeuLO02zToHhnQ6KbPXOrQAqcL1kngO4g+j/ru+4AZThFkdkGnltvk=
+-----END CERTIFICATE-----
+subject=CN=server.example
+issuer=CN=Root CA
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: rsa_pss_rsae_sha256
+Negotiated TLS1.3 group: X25519MLKEM768
+---
+SSL handshake has read 2546 bytes and written 1702 bytes
+Verification error: unable to verify the first certificate
+---
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Protocol: TLSv1.3
+Server public key is 2048 bit
+This TLS version forbids renegotiation.
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 21 (unable to verify the first certificate)
+---
+Sent TLS Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = ApplicationData (23)
+  Length = 19
+  Inner Content Type = Alert (21)
+    Level=warning(1), description=close notify(0)
+
+Connecting to 127.0.0.1
+SSL_connect:before SSL initialization
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS read server hello
+SSL_connect:SSLv3/TLS write change cipher spec
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS read server hello
+Can't use SSL_get_servername
+SSL_connect:TLSv1.3 read encrypted extensions
+depth=0 CN=server.example
+verify error:num=20:unable to get local issuer certificate
+verify return:1
+depth=0 CN=server.example
+verify error:num=21:unable to verify the first certificate
+verify return:1
+depth=0 CN=server.example
+verify return:1
+SSL_connect:SSLv3/TLS read server certificate
+SSL_connect:TLSv1.3 read server certificate verify
+SSL_connect:SSLv3/TLS read finished
+SSL_connect:SSLv3/TLS write finished
+DONE
+SSL3 alert write:warning:close notify

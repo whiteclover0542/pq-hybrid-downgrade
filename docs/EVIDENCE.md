@@ -59,6 +59,17 @@
 
 [확실] `cd tools && python -m faultinject.analyze --v13`의 판정은 `Causal-isolation verdict: consistent`입니다. 120건 모두 클라이언트 전제가 PCAP으로 검증됐고, 성공 120/120, HRR 로그·PCAP 판정 일치, 실제 ServerHello 1개였습니다. S3 결과는 `ssl/t1_lib.c`의 수정 변경 하나로 뒤집혔고, 3.5와 3.6 두 계열에서 같은 방향으로 갈렸습니다.
 
+## OpenSSL 3.6 인과 분리(v1.7, E6 보완)
+
+[확실] v1.3의 3.6 계열은 릴리스 태그 대조였으므로, 같은 스크립트(`tools/v13_build_variants.sh 3.6.1-cherrypick 3.6.2-revert`)로 3.6 수정 커밋 `2157c9d`의 `ssl/t1_lib.c` 변경만 적용·되돌린 두 서버를 빌드했습니다. `2157c9d`가 바꾼 파일 중 라이브러리 코드는 `ssl/t1_lib.c` 하나입니다(나머지는 CHANGES.md, NEWS.md, 문서, 테스트). 빌드 출력은 `docs/research/baselines/raw/v1.7-build36.log`, `ldd` 로드 경로와 RPATH/RUNPATH 없음 확인은 `v1.7-ldd36.log`에 있습니다.
+
+| 서버 | 출처 | 수정 변경 | libssl.so.3 SHA-256 |
+|---|---|---|---|
+| 3.6.1-cherrypick | `openssl-3.6.1`(`c9a9e5b1…`) + `2157c9d`의 `ssl/t1_lib.c` 변경(patch SHA-256 `bf6d0d90405d…`) | 있음 | `c0639575928810269980ad5eca14becd035fa0b3653851c193890273abb77256` |
+| 3.6.2-revert | `openssl-3.6.2`(`fe686e15…`) − 같은 변경(patch SHA-256 `3b7a2bb86d67…`) | 없음 | `8aea8de16e26075ae027ef08abaf8b2a4c0a4ece1822346cb7311f0e5d0ec1cb` |
+
+[확실] 같은 클라이언트(3.5.5, 고전 우선 광고)와 S1–S3로 조합별 10회, 총 60회를 실행했습니다(`docs/research/baselines/raw/v1.7-openssl36/`, 종료 코드 0, stderr 0바이트). 60건 모두 전제 검증과 핸드셰이크 성공. S1은 두 서버 모두 HRR 0/10·X25519, S2는 HRR 10/10·X25519MLKEM768, S3는 3.6.1-cherrypick HRR 10/10·X25519MLKEM768, 3.6.2-revert HRR 0/10·X25519입니다. `cd tools && python -m faultinject.analyze --v17`의 판정은 `3.6 causal-isolation verdict: consistent`입니다. 이로써 3.6 계열의 차이도 태그 대조의 추론이 아니라 `2157c9d`의 `ssl/t1_lib.c` 변경 하나로 설명됩니다.
+
 ## 연구 질문에 대한 답
 
 [추정] 착수 질문(`docs/PROPOSAL.md`: 협상 로직 결함에 의한 하이브리드 PQ 다운그레이드가 특정 라이브러리의 우연한 버그인가, 여러 구현체에 걸친 일반적 패턴인가)에 대해, 시험 범위의 답은 다음과 같습니다. 결함은 OpenSSL에서 확인됐고 `ssl/t1_lib.c`의 수정 변경 하나로 켜지고 꺼집니다(v1.2·v1.3). BoringSSL에는 같은 버그 클래스가 생길 설정 문법이 없고 OpenSSH는 key_share/HRR 구조가 없어, 동등 조건을 만들 수 없었으므로 교차 구현 패턴의 증거는 얻지 못했습니다(다른 구현이 안전하다는 판정은 아닙니다). 반면 "하이브리드를 광고했는데 HRR 없이 고전 그룹으로 협상"이라는 표면 증상은 v1.1에서 OpenSSL 명시적 single tuple과 BoringSSL의 정상 동작으로도 나타났고, 측정한 감사 경로는 이를 경고하지 않았습니다.
@@ -144,11 +155,32 @@
 
 [추정] Caddy 2.6.2의 `tlsmlkem=0`과 최신 대조의 결과 차이는 Go TLS의 ML-KEM 기본값이 원인이라는 설명과 일치하지만, Caddy와 Go 버전이 함께 바뀌었으므로 이 실험만으로 단일 원인을 인과적으로 확정하지는 않습니다.
 
+## 브라우저 ClientHello(v1.7, E10)
+
+[확실] `tools/v17_setup.sh`로 Chrome for Testing Stable 154.0.8037.57의 `chrome-headless-shell`(zip SHA-256 `5a6979d0ab7c…`, 실행 파일 `60c03e8882f4…`)과 Firefox 156.0.1 공식 배포판(tar SHA-256 `7405c0487fa3…`, 실행 파일 `7ea3daf0cdbe…`)을 저장소 밖에 설치했습니다(`docs/research/baselines/raw/v1.7-setup.log`). 두 브라우저를 headless로 v1.6과 같은 OpenSSL 3.5.6 기본 서버에 연결해 각 3회를 기록했습니다(`docs/research/baselines/raw/v1.7/`, 실행 stderr 0바이트).
+
+| 브라우저 | supported_groups | key_share | 협상 그룹 |
+|---|---|---|---|
+| Chrome 154(headless shell) | GREASE, X25519MLKEM768, X25519, 0x0017, 0x0018 | GREASE, X25519MLKEM768, X25519 | X25519MLKEM768, HRR 0/3 |
+| Firefox 156.0.1(headless) | X25519MLKEM768, X25519, 0x0017, 0x0018, 0x0019 | X25519MLKEM768, X25519, 0x0017 | X25519MLKEM768, HRR 0/3 |
+
+[확실] Chrome의 GREASE 값은 연결마다 달랐습니다(0xbaba, 0x8a8a, 0x0a0a). 보고 함수는 RFC 8701 GREASE 형식(0x?a?a, 두 바이트 동일)을 `GREASE`로 묶어 집계하고, 원시 JSON에는 실제 값이 남아 있습니다. 브라우저 기록의 `handshake_result`는 OpenSSL 외 클라이언트이므로 `failure`로 남습니다.
+
+[추정] `v1.7-setup.log`의 Firefox `ldd` 줄(`libxul.so`의 `NSS_3.126` 및 `libmozsandbox.so` 등 not found)은 시스템 경로만 검사한 결과입니다. Firefox는 실행 시 배포판 디렉터리에 함께 들어 있는 NSS와 라이브러리를 읽으며, 실제 실행은 `--version`과 3회 연결 모두 정상이었습니다.
+
+[불확실] headless 빌드와 새 프로필의 기본값이며, 일반 배포판 브라우저의 원격 설정(field trial 등)이나 모바일 빌드의 key share 전략은 확인하지 않았습니다.
+
 ## 감사 가시성
 
 [확실] v1.2 60건의 client `-msg` 로그·서버 로그·tshark 기본 요약에서 `explicit_warning=True`는 0건입니다. 단일 출력 안에서 광고 그룹과 협상 그룹을 함께 확인하는 `mismatch_in_single_output`은 TLS 출력에 광고 그룹이 없어 60/60 `unsupported`였습니다. `s_client -brief`와 keylog는 수집하지 않아 `not_collected`이며, 경고가 없었다고 판정하지 않습니다.
 
 [확실] v1.1의 보존 로그 90건을 동일 기준으로 재계산하면 `explicit_warning=True`는 0건, `mismatch_in_single_output=True`는 OpenSSH 30건뿐이고 TLS 60건은 `unsupported`였습니다.
+
+[확실] 상세 출력(v1.7): E5–E10과 인과 분리·최신 대조의 보존 PCAP 537개(v1.2, v1.3, v1.4, v1.5, v1.5-boringssl-latest, v1.6, v1.6-direct, v1.6-caddy-2.11.4, v1.7-openssl36, v1.7)에 `tshark -r <pcap> -V`(TShark 4.6.4)를 적용했습니다. ServerHello가 있는 534개 모두에서 ClientHello의 `Supported Group` 목록과 마지막 ServerHello의 `Key Share Entry` 그룹이 한 출력에 나타났고, 그 그룹은 기록된 `final_negotiated_group`과 534/534 일치했습니다. 나머지 3개는 ServerHello가 없는 Caddy 2.6.2–rustls 연결입니다. 경고 문구(`WARNING_RE`)와 연결 순서(Sequence) 외 전문가 정보(Warning·Error)는 537개 모두 0건입니다. 실행별 결과는 `docs/research/baselines/raw/v1.7-tshark-verbose-audit.json`에 있습니다. `phase-4/`, `v1.1/`, `v1.2-s4/`, 진단 디렉터리의 PCAP은 이 재측정에 넣지 않았습니다.
+
+[확실] `s_client -trace` 재실행(v1.7, 3.5.5 S1·S3, 3.5.6 S3 각 3회): 9건 모두 클라이언트 로그 한 곳에 광고 그룹(`ecdh_x25519`, `X25519MLKEM768`)과 협상 그룹이 이름으로 나타났습니다(3.5.5 서버 6건은 `Peer Temp Key: X25519`, 3.5.6 S3 3건은 `Negotiated TLS1.3 group: X25519MLKEM768`). 경고 문구(`WARNING_RE`)는 0건입니다. 모든 로그에 있는 연결 종료 alert(`Level=warning(1)` … `close notify`)는 TLS 경고 수준의 정상 종료 알림이므로 정의상 경고 문구에서 제외됩니다. 3.5.5 S1·S3 로그에는 서버의 EncryptedExtensions `supported_groups`가 `X25519MLKEM768`을 1순위로 찍혔고(S3는 전체 기본 목록), 하이브리드를 협상한 3.5.6 S3는 EncryptedExtensions에 확장이 없었습니다. OpenSSL 3.5.6(`286ddeaa`) `ssl/statem/extensions_srvr.c` 1667–1699행의 `tls_construct_stoc_supported_groups`는 협상 그룹이 서버의 첫 그룹과 같으면 이 확장을 보내지 않습니다. 원시 JSON의 `audit.trace` 중 HRR이 있는 3.5.6 S3 3건의 `server_groups`는 수정 전 파서 값이므로, 보고 함수는 보존된 클라이언트 로그에서 다시 계산합니다.
+
+[추정] 상세 출력은 PQ 누락을 판단할 재료를 한 출력에 모아 주지만, 경고하지는 않으며 S1의 문서화된 동작과 S3의 결함을 구분하지도 않습니다.
 
 ## 경로상 조작과 기준선(v1.0, E1·E2)
 
@@ -191,7 +223,7 @@
 
 [확실] OpenSSL 3.5 groups-list 문서는 현재 tuple 안에 수신된 key share가 있으면 ServerHello를, 지원 그룹만 있으면 HRR을 보내는 선택 규칙을 설명합니다. 문서상 기본 목록은 분리된 tuple을 포함하는 반면 `DEFAULT` 확장 경로는 영향을 받은 3.5.5에서 그 구조를 잃었습니다. S3의 버전 대조는 이 구현 정책 불일치에 대한 관측입니다.
 
-[불확실] 결과는 시험한 OpenSSL 서버(3.5.5, 3.5.6, v1.3 변형 4종), client preference, loopback, 고정 명령과 조합별 10회에 한정됩니다. v1.3의 인과 분리는 `85977e0`의 `ssl/t1_lib.c` 변경에 대한 것이며, 3.6 계열은 릴리스 태그 대조만 했습니다. 다른 배포·구성이나 실배포 공격 가능성은 일반화하지 않습니다.
+[불확실] 결과는 시험한 OpenSSL 서버(3.5.5, 3.5.6, v1.3 변형 4종, v1.7 3.6 변형 2종), client preference, loopback, 고정 명령과 조합별 10회에 한정됩니다. 인과 분리는 3.5 계열은 `85977e0`, 3.6 계열은 `2157c9d`의 `ssl/t1_lib.c` 변경에 대한 것입니다. 다른 배포·구성이나 실배포 공격 가능성은 일반화하지 않습니다.
 
 ## 공식 참고 자료
 
