@@ -1,0 +1,6 @@
+Bad server certificate: -8179, Peer's Certificate issuer is not recognized.
+subject DN: CN=server.example
+issuer  DN: CN=Root CA
+0 cache hits; 0 cache misses, 0 cache not reusable
+0 stateless resumes
+Received 0 Cert Status items (OCSP stapled data)

@@ -1,0 +1,63 @@
+{
+  "run_id": "openssl_client-default_r03_boringssl",
+  "implementation": "openssl",
+  "fault_type": "client-default",
+  "repetition": 3,
+  "condition": "boringssl",
+  "metrics": {
+    "negotiated_group": null,
+    "is_hybrid": false,
+    "downgrade_visible": false,
+    "handshake_result": "failure",
+    "detail": "",
+    "hrr_present": null,
+    "downgrade_flagged": null,
+    "advertised_hybrid": null,
+    "hrr_pcap_present": false,
+    "hrr_log_present": null,
+    "server_hello_count": 1,
+    "final_negotiated_group": "X25519",
+    "client_precondition_verified": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_client-default_r03_boringssl-client.log",
+    "server_log": "openssl_client-default_r03_boringssl-server.log",
+    "pcap": "openssl_client-default_r03_boringssl.pcapng",
+    "capture_log": "openssl_client-default_r03_boringssl-capture.log"
+  },
+  "provenance": {
+    "part": "client-survey",
+    "client_hello_groups": [
+      "X25519",
+      "0x0017",
+      "0x0018"
+    ],
+    "client_hello_key_shares": [
+      "X25519"
+    ],
+    "server_cmd": [
+      "/root/pq-hybrid-phase2/install/openssl-3.5.6/bin/openssl",
+      "s_server",
+      "-tls1_3",
+      "-www",
+      "-provider",
+      "default",
+      "-accept",
+      "8545",
+      "-cert",
+      "/root/pq-hybrid-phase2/openssl/apps/server.pem"
+    ],
+    "client_cmd": [
+      "/root/pq-hybrid-phase2/build/boringssl/tool/bssl",
+      "client",
+      "-connect",
+      "127.0.0.1:8545",
+      "-min-version",
+      "tls1.3"
+    ],
+    "binary_sha256": "b12a92d826a57487ad31aa055cde6b27f170aa719556d3ab723535fd252eb312",
+    "client": "boringssl"
+  },
+  "audit": {}
+}

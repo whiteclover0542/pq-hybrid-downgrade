@@ -110,7 +110,7 @@ def wait_for_listener(
             return
 
 
-def capture_command(pcap_path: Path, listen_port: int) -> list[str]:
+def capture_command(pcap_path: Path, listen_port: int, seconds: int = 3) -> list[str]:
     return [
         "tshark",
         "-i",
@@ -119,7 +119,7 @@ def capture_command(pcap_path: Path, listen_port: int) -> list[str]:
         "-f",
         f"tcp port {listen_port}",
         "-a",
-        "duration:3",
+        f"duration:{seconds}",
         "-w",
         str(pcap_path),
     ]
@@ -144,6 +144,8 @@ class ScenarioSpec:
     proxy_log: Path | None = None
     advertised_hybrid: bool | None = None
     server_env: dict[str, str] | None = None
+    # slow-starting servers (e.g. Caddy) need a longer capture window than the default 3 s
+    capture_seconds: int = 3
 
 
 def run_client(command: list[str], env: dict[str, str] | None, timeout: float) -> subprocess.CompletedProcess:
@@ -181,7 +183,7 @@ def run_scenario(spec: ScenarioSpec) -> RunRecord:
             server_port = spec.server_listen_port or spec.listen_port
             if spec.capture_traffic:
                 capture = subprocess.Popen(
-                    capture_command(pcap_path, server_port),
+                    capture_command(pcap_path, server_port, spec.capture_seconds),
                     stdout=capture_output,
                     stderr=subprocess.STDOUT,
                 )
@@ -227,7 +229,7 @@ def run_scenario(spec: ScenarioSpec) -> RunRecord:
             server.wait(timeout=5)
             if capture is not None:
                 try:
-                    capture.wait(timeout=5)
+                    capture.wait(timeout=spec.capture_seconds + 2)
                 except subprocess.TimeoutExpired:
                     capture.send_signal(signal.SIGINT)
                     capture.wait(timeout=5)

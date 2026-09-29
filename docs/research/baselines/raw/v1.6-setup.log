@@ -1,0 +1,19 @@
+# v1.6 setup output of tools/v16_setup.sh (2026-09-29), transcribed verbatim from the run's console output
+=== packages
+caddy 2.6.2-14
+curl 8.18.0-1ubuntu2.7
+libnss3:amd64 2:3.120-1ubuntu2.1
+libssl3t64:amd64 3.5.5-1ubuntu3.5
+nginx 1.28.3-2ubuntu1.11
+openssl 3.5.5-1ubuntu3.5
+nginx version: nginx/1.28.3 (Ubuntu)
+2.6.2
+=== go client
+5c59c2029ceba3ede761f95cc039596de580d8de873b2b6d69655031629d0f83  /root/pq-hybrid-phase2/v15/goclient
+=== rustls client
+0f96dba3a50b38a5f341d37eda57f4bc792939131f777b21cc84ef476b2a29cb  /root/pq-hybrid-phase2/v15/rustclient
+=== nginx config (defaults except listen/cert/protocol)
+nginx: configuration file /root/pq-hybrid-phase2/v16/nginx.conf test is successful
+=== Caddyfile (defaults except listen/cert)
+Valid configuration
+=== done
