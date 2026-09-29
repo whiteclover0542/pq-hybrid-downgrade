@@ -33,6 +33,8 @@
 
 [확실] S3만 두 버전에서 갈렸습니다. 3.5.5는 10/10에서 HRR 없이 `X25519`를 완료했고, 3.5.6은 10/10에서 PCAP HRR 후 `X25519MLKEM768`을 완료했습니다. S1과 S2는 두 버전에서 동일한 대조 결과를 보였습니다. 따라서 다음 네 판정 조건(3.5.5 S3 classical/no-HRR, 3.5.6 S3 hybrid/HRR, S1/S2 대조, 조합별 10회와 artifact 보존)을 충족해 이 고정 테스트베드에서 CVE-2026-2673 발현과 수정 대조가 재현됐다고 기록합니다.
 
+[확실] 별도 캡처 분석 도구로 표본 2건을 교차 확인했습니다(`tshark -r <pcap> -Y tls.handshake.type==2 -T fields -e tls.handshake.random -e tls.handshake.extensions_key_share_group`). 3.5.5 S3 r01은 ServerHello 1건(random `00b70369…`, key share 그룹 29=`X25519`), 3.5.6 S3 r01은 2건(첫 random이 HRR 고정값 `cf21ad74…`, 두 번째 key share 그룹 4588=`X25519MLKEM768`)이었고, 파서 판정 `hrr_pcap_present`와 일치했습니다. 이 기록은 통합 전 v1.2 분석 문서(커밋 `c928b14`)에서 옮겼습니다.
+
 [확실] S4(서버 설정 생략)는 두 버전 20/20에서 HRR 후 hybrid로 끝났습니다. `DEFAULT` 키워드 확장과 설정 생략은 같은 조건이 아니므로 이 값은 결론 판정에 쓰지 않습니다.
 
 ## v1.3 인과 분리
