@@ -11,9 +11,7 @@ RAW_V11_DIR = "docs/research/baselines/raw/v1.1"
 FAULTINJECT_DIR = "tools/faultinject"
 REPRODUCTION_MD = "docs/research/REPRODUCTION.md"
 PAPER_MD = "docs/PAPER.md"
-V11_DESIGN_MD = "docs/research/2026-09-23-v1.1-hrr-downgrade-design.md"
-P2_SUMMARY_MD = ".planning/phases/07-v11-tooling/07-02-SUMMARY.md"
-P3_ANALYSIS_MD = "docs/research/v1.1-p3-analysis.md"
+EVIDENCE_MD = "docs/EVIDENCE.md"
 
 REQUIRED_FILES = [
     f"{FAULTINJECT_DIR}/run.py",
@@ -21,9 +19,7 @@ REQUIRED_FILES = [
     f"{FAULTINJECT_DIR}/analyze.py",
     REPRODUCTION_MD,
     PAPER_MD,
-    V11_DESIGN_MD,
-    P2_SUMMARY_MD,
-    P3_ANALYSIS_MD,
+    EVIDENCE_MD,
 ]
 
 REQUIRED_ARTIFACTS = {
@@ -37,7 +33,7 @@ REQUIRED_ARTIFACTS = {
 PACKAGES = {
     "v1.1": {
         "raw": RAW_V11_DIR,
-        "documents": [REPRODUCTION_MD, PAPER_MD, V11_DESIGN_MD, P2_SUMMARY_MD, P3_ANALYSIS_MD],
+        "documents": [REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD],
         "required_files": REQUIRED_FILES,
         "artifacts": REQUIRED_ARTIFACTS,
         "excluded": ("v1.1-diagnose", "v1.1-pre-", "v1.1-preflight"),
@@ -47,11 +43,7 @@ PACKAGES = {
         "raw": "docs/research/baselines/raw/v1.2",
         "documents": [
             REPRODUCTION_MD, PAPER_MD,
-            "docs/superpowers/specs/2026-09-28-v12-cve-tuple-hrr-design.md",
-            "docs/research/v1.2-a0-environment.md",
-            "docs/research/v1.2-analysis.md",
-            "docs/research/v1.2-normative-analysis.md",
-            "docs/research/v1.2-audit-v1.1-recompute.md",
+            EVIDENCE_MD,
             "tools/v12_a0_smoke.sh",
             "tools/v12_build_openssl_356.sh",
             "tools/v12_boringssl_survey.sh",
@@ -59,7 +51,7 @@ PACKAGES = {
         "required_files": [
             f"{FAULTINJECT_DIR}/v12.py", f"{FAULTINJECT_DIR}/pcap_hello.py",
             f"{FAULTINJECT_DIR}/audit.py", f"{FAULTINJECT_DIR}/analyze.py",
-            REPRODUCTION_MD, PAPER_MD, "docs/research/v1.2-analysis.md",
+            REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD,
         ],
         "artifacts": {
             "v1.2 JSON records": (".json", 60),

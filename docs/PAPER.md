@@ -8,7 +8,7 @@
 
 [확실] 본 연구는 하이브리드 PQ 키 교환(`X25519MLKEM768`)과 고전 키 교환(`X25519`)을 함께 광고하되 초기 `key_share`에는 `X25519`만 보내는 하나의 고정된 OpenSSL 3.5.5 native-only 클라이언트를 사용해, 서버 group-list 설정(S1 `X25519MLKEM768:X25519`, S2 `X25519MLKEM768/X25519`, S3 `DEFAULT`)과 서버 버전(3.5.5/3.5.6, 수정 커밋 `85977e0` 조상 확인됨)의 2×3 조합마다 10회씩 총 60회를 실행했습니다. S3(`DEFAULT`)에서 3.5.5는 10/10 반복 모두 PCAP HelloRetryRequest(HRR) 없이 classical `X25519` handshake를 완료했고(HRR (PCAP)=0/10, classical=10/10), 같은 S3에서 3.5.6은 10/10 반복 모두 PCAP HRR을 보낸 뒤 hybrid `X25519MLKEM768` handshake를 완료했습니다(HRR (PCAP)=10/10, hybrid=10/10). 설계 §2.2의 4개 판정 조건(S3 3.5.5 HRR 없는 classical 완료, S3 3.5.6 HRR 있는 hybrid 완료, S1/S2가 문서상 대조 결과를 보임, 각 조합 10회 일관·근거 보존)을 모두 충족하여, 설계 §8 문구대로 "이 고정된 테스트베드에서 CVE-2026-2673 발현 조건과 수정 대조를 재현했다"고 판정합니다.
 
-[확실] 규범 분석(`docs/research/v1.2-normative-analysis.md` §4)은 RFC 8446 §4.1.1의 MUST-HRR 의무가 클라이언트가 이미 수락 가능한 key_share를 보내지 않았을 때에만 적용되므로 S1·S3(3.5.5)의 HRR 부재 자체는 RFC 위반이 아니며, CVE-2026-2673은 OpenSSL이 `DEFAULT` 확장 과정에서 자신이 문서화한 tuple 기반 group-selection 정책(`TLS_DEFAULT_GROUP_LIST`의 tuple 구문)을 스스로 지키지 못한 구현 결함으로 위치 짓는 것이 근거와 일치한다고 결론짓습니다.
+[확실] 근거 대장(`docs/EVIDENCE.md`의 “규범 및 범위”)은 RFC 8446 §4.1.1의 MUST-HRR 의무가 클라이언트가 이미 수락 가능한 key_share를 보내지 않았을 때에만 적용되므로 S1·S3(3.5.5)의 HRR 부재 자체는 RFC 위반이 아니며, CVE-2026-2673은 OpenSSL이 `DEFAULT` 확장 과정에서 자신이 문서화한 tuple 기반 group-selection 정책(`TLS_DEFAULT_GROUP_LIST`의 tuple 구문)을 스스로 지키지 못한 구현 결함으로 위치 짓는 것이 근거와 일치한다고 결론짓습니다.
 
 [불확실] 이 결과는 시험한 두 OpenSSL 버전·group-list 설정·client preference·loopback 환경·10회 반복에 한정되며, 모든 OpenSSL 배포·구성이나 실배포 공격 가능성을 일반화하지 않습니다.
 
@@ -81,7 +81,7 @@ CVE-2026-2673 verdict: reproduced
 
 ## 4. 논의
 
-[확실] 규범 분석(`docs/research/v1.2-normative-analysis.md` §4)의 결론은 다음과 같습니다.
+[확실] 근거 대장(`docs/EVIDENCE.md`의 “규범 및 범위”)의 결론은 다음과 같습니다.
 
 - **Q1** (클라이언트가 이미 수락 가능한 key_share를 보냈을 때 서버가 더 선호하는 그룹을 위해 HRR을 보낼 의무가 있는가): RFC 8446 §4.1.1의 MUST-HRR은 "클라이언트가 호환되는 key_share를 보내지 않았을 때"만 적용되는 조건부 의무이며, §4.2.7은 이 경우 SHOULD 수준의 `supported_groups` 힌트만 규정합니다. 따라서 문언상 답은 "의무 없음"입니다. [불확실] 다만 선택적 HRR이 금지되는지는 RFC 8446 문언만으로는 결정되지 않습니다.
 - **Q2** (RFC 8446이 그룹 선택 기준을 서버 정책에 맡기는가): §4.1.1은 서버가 독립적으로 그룹을 선택한다고만 말할 뿐 선택 알고리즘을 규정하지 않으므로, [추정] 구체적 기준은 각 구현체의 정책에 맡겨져 있다고 해석하는 것이 합리적입니다.
@@ -89,9 +89,9 @@ CVE-2026-2673 verdict: reproduced
 
 [확실] S1과 S3(3.5.5)의 차이는 이 지점에서 드러납니다. S1의 HRR 부재는 명시적 single tuple 안에 이미 X25519MLKEM768과 X25519가 함께 있어 client key-share 루프에서 즉시 매치되는, 의도된 정상 동작입니다. S3(3.5.5)의 HRR 부재는 `DEFAULT`가 문서상 4개의 분리된 tuple로 정의되어 있음에도 그 구조를 잃고 단일 tuple처럼 처리된 결과이므로, 같은 "HRR 없음"이라도 근거가 다릅니다. 따라서 S1은 CVE 증거로 쓰지 않으며, CVE-2026-2673의 발현은 S3(3.5.5)과 S3(3.5.6)의 대조에서만 성립합니다.
 
-[확실] 감사 가시성 실측 결과(§2.4의 정의, `docs/research/v1.2-analysis.md` §6): v1.2 60건 전부 `explicit_warning=False`(0건 True)였고, `mismatch_in_single_output`은 60/60이 `"unsupported"`(0건 True, 0건 unknown)였습니다. 이는 OpenSSL `-msg` 로그가 협상 결과 줄만 있고 광고 그룹 줄이 없어 "확인 불가(unsupported)"로 남는다는 v1.1 재계산(`docs/research/v1.2-audit-v1.1-recompute.md`)의 도구 한계가 v1.2에서도 동일하게 재현된 것입니다. v1.1 재계산은 90건 전부 `explicit_warning=False`(unknown 0건)였고, `mismatch_in_single_output`은 openssh 30건만 `True`(TLS 60건은 `"unsupported"`)였습니다. 즉 측정한 세 경로(client `-msg` 로그, 서버 로그, tshark 기본 요약)에서는 S3(`DEFAULT`)의 CVE 발현이 자동 경고되지 않았습니다. `s_client -brief`와 keylog는 수집하지 않았으므로 이 두 경로가 경고를 냈을지는 이 데이터로 판정할 수 없습니다.
+[확실] 감사 가시성 실측 결과(§2.4의 정의, `docs/EVIDENCE.md`의 “감사 가시성”): v1.2 60건 전부 `explicit_warning=False`(0건 True)였고, `mismatch_in_single_output`은 60/60이 `"unsupported"`(0건 True, 0건 unknown)였습니다. 이는 OpenSSL `-msg` 로그가 협상 결과 줄만 있고 광고 그룹 줄이 없어 "확인 불가(unsupported)"로 남는다는 v1.1 재계산의 도구 한계가 v1.2에서도 동일하게 재현된 것입니다. v1.1 재계산은 90건 전부 `explicit_warning=False`(unknown 0건)였고, `mismatch_in_single_output`은 openssh 30건만 `True`(TLS 60건은 `"unsupported"`)였습니다. 즉 측정한 세 경로(client `-msg` 로그, 서버 로그, tshark 기본 요약)에서는 S3(`DEFAULT`)의 CVE 발현이 자동 경고되지 않았습니다. `s_client -brief`와 keylog는 수집하지 않았으므로 이 두 경로가 경고를 냈을지는 이 데이터로 판정할 수 없습니다.
 
-[확실] BoringSSL은 A-0 조사(`docs/research/v1.2-a0-environment.md` §5) 결론에 따라 v1.2 핵심 CVE 표본에서 제외했습니다. BoringSSL은 `SSL_OP_CIPHER_SERVER_PREFERENCE` + 순서가 있는 평평한(flat) 그룹 ID 목록만 제공하며, OpenSSL의 콜론/슬래시 tuple 구문이나 `DEFAULT` 키워드에 대응하는 설정 문법이 없어("구조화된 tuple을 파싱하다가 평평한 목록으로 잃어버리는" 버그 클래스가 애초에 발생할 수 없는 API 형태), 인위적 동등 조건을 만들지 않고 "OpenSSL `DEFAULT` CVE 비교에 대한 설정 수단을 확인하지 못함"으로 결과를 제한했습니다.
+[확실] BoringSSL은 근거 대장(`docs/EVIDENCE.md`의 “환경과 대조군”)에 기록한 조사 결과에 따라 v1.2 핵심 CVE 표본에서 제외했습니다. BoringSSL은 `SSL_OP_CIPHER_SERVER_PREFERENCE` + 순서가 있는 평평한(flat) 그룹 ID 목록만 제공하며, OpenSSL의 콜론/슬래시 tuple 구문이나 `DEFAULT` 키워드에 대응하는 설정 문법이 없어("구조화된 tuple을 파싱하다가 평평한 목록으로 잃어버리는" 버그 클래스가 애초에 발생할 수 없는 API 형태), 인위적 동등 조건을 만들지 않고 "OpenSSL `DEFAULT` CVE 비교에 대한 설정 수단을 확인하지 못함"으로 결과를 제한했습니다.
 
 [확실] A-0 재조사에서 v1.1 BoringSSL `silent-downgrade` 조건의 ClientHello `key_share`가 실제로는 `[0x001D, 0x6399]`(X25519, X25519MLKEM768) 두 개였다는 사실이 새로 확인됐습니다(2026-09-28 PCAP 원시 바이트 재해석). 따라서 v1.1 BoringSSL 행은 "고전 키만 제시"가 아니라, 하이브리드 key share도 함께 받은 상태에서 서버가 `X25519`를 선택한 경우로 재해석해야 합니다.
 
@@ -109,7 +109,7 @@ CVE-2026-2673 verdict: reproduced
 
 [확실] `s_client -brief`와 keylog 감사 경로는 v1.2 60회 실행에서도 수집하지 않았습니다(클라이언트는 `-state -msg`로 실행되어 `-brief` 출력을 캡처하지 않으며, NSS 키 로그도 남기지 않았습니다).
 
-[확실] S4(서버 group-list 설정 생략, sanity control)는 필수 표본과 분리된 보조 표(`docs/research/v1.2-analysis.md` §8, 20회)로만 취급했으며, 결론 표본(S1–S3, 60회)에 포함하지 않았습니다.
+[확실] S4(서버 group-list 설정 생략, sanity control)는 근거 대장에 기록한 20회 보조 표본으로만 취급했으며, 결론 표본(S1–S3, 60회)에 포함하지 않았습니다.
 
 [확실] 3.5.5→3.5.6에는 수정 커밋 외 변경도 포함되며, 수정 커밋 단독 revert 실험으로 인과를 확인하지는 않았다. 다만 S1/S2/S4가 두 버전에서 동일하고 S3에서만 갈린다.
 
@@ -128,12 +128,7 @@ CVE-2026-2673 verdict: reproduced
 7. IETF TLS WG, "Terminology for Post-Quantum Traditional Hybrid Schemes", RFC 9954 (2026-09-28 기준 발행, Informational, 2026-07; 이전 draft-ietf-tls-hybrid-design). <https://datatracker.ietf.org/doc/draft-ietf-tls-hybrid-design/>
 8. IETF TLS WG, "Hybrid key exchange in TLS 1.3 using X25519 and ML-KEM", RFC 10024 (2026-09-28 기준 발행, Proposed Standard, 2026-08; 이전 draft-ietf-tls-ecdhe-mlkem). <https://datatracker.ietf.org/doc/draft-ietf-tls-ecdhe-mlkem/>
 9. Karthikeyan Bhargavan, Christina Brzuska, Cédric Fournet, Matthew Green, Markulf Kohlweiss, Santiago Zanella-Béguelin, "Downgrade Resilience in Key-Exchange Protocols", IEEE S&P 2016. <https://www.microsoft.com/en-us/research/publication/downgrade-resilience-in-key-exchange-protocols/>
-10. v1.2 결과 분석, `docs/research/v1.2-analysis.md`.
-11. v1.2 A-0 환경 대장, `docs/research/v1.2-a0-environment.md`.
-12. v1.1 90건 감사 가시성 재계산, `docs/research/v1.2-audit-v1.1-recompute.md`.
-13. v1.2 설계, `docs/superpowers/specs/2026-09-28-v12-cve-tuple-hrr-design.md`.
-14. v1.1 P3 Analysis, `docs/research/v1.1-p3-analysis.md`.
-15. v1.1 HRR-absence hybrid-downgrade design, `docs/research/2026-09-23-v1.1-hrr-downgrade-design.md`.
+10. 저장소 근거 대장, `docs/EVIDENCE.md`.
 
 ## 부록: AI-대-인간 책임 공개
 

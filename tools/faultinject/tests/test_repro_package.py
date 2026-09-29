@@ -8,9 +8,7 @@ def test_zip_contains_core_artifacts(tmp_path):
     names = zipfile.ZipFile(z).namelist()
     assert "docs/PAPER.md" in names
     assert "docs/research/REPRODUCTION.md" in names
-    assert "docs/research/2026-09-23-v1.1-hrr-downgrade-design.md" in names
-    assert ".planning/phases/07-v11-tooling/07-02-SUMMARY.md" in names
-    assert "docs/research/v1.1-p3-analysis.md" in names
+    assert "docs/EVIDENCE.md" in names
     assert "tools/faultinject/run.py" in names
     assert sum(n.endswith(".json") and "/raw/v1.1/" in n for n in names) == 90
     assert sum(n.endswith(".pcapng") and "/raw/v1.1/" in n for n in names) == 90

@@ -10,10 +10,7 @@ def test_v12_zip_contains_the_required_matrix_and_documents(tmp_path):
 
     assert sum(n.endswith(".json") and "/raw/v1.2/" in n for n in names) == 60
     assert sum(n.endswith(".pcapng") and "/raw/v1.2/" in n for n in names) == 60
-    assert "docs/research/v1.2-analysis.md" in names
-    assert "docs/research/v1.2-normative-analysis.md" in names
-    assert "docs/research/v1.2-a0-environment.md" in names
-    assert "docs/superpowers/specs/2026-09-28-v12-cve-tuple-hrr-design.md" in names
+    assert "docs/EVIDENCE.md" in names
     assert "tools/faultinject/v12.py" in names
     assert not any("/raw/v1.2-s4/" in n or "/raw/v1.1/" in n for n in names)
 
@@ -24,5 +21,5 @@ def test_v12_zip_verifies(tmp_path):
 
 def test_committed_v12_zip_matches_repository_docs():
     with zipfile.ZipFile(V12_ZIP) as zf:
-        for doc in ("docs/PAPER.md", "docs/research/REPRODUCTION.md"):
+        for doc in ("docs/PAPER.md", "docs/EVIDENCE.md", "docs/research/REPRODUCTION.md"):
             assert zf.read(doc) == (REPO_ROOT / doc).read_bytes()
