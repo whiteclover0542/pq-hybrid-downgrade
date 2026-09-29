@@ -76,6 +76,26 @@
 
 [확실] 경로상 PQ 공개키 바꿔치기(TLS 컴바이너 결합 시험), 경로상 그룹 순서 조작, 패킷 길이를 보정한 SSH KEX 제거는 수행하지 않았으며 향후 과제로 남깁니다.
 
+## 다섯 TLS 구현의 협상 함수 비교(v1.5, E8)
+
+[확실] 고정 OpenSSL 3.5.5 클라이언트(C1 `X25519MLKEM768:X25519`, C2 `X25519MLKEM768:*X25519`, C3 `X25519:X25519MLKEM768`)를 하이브리드를 먼저 나열한 다섯 TLS 서버에 연결해 조합별 5회, 총 105회를 실행했습니다(`docs/research/baselines/raw/v1.5/`, 종료 코드 0, stderr 0바이트). 105건 모두 캡처에서 클라이언트 전제(광고 순서와 key share)가 확인됐고, 핸드셰이크가 완료됐으며, 오류 없이 종료했습니다. 재집계: `cd tools && python -m faultinject.v15 --report ../docs/research/baselines/raw/v1.5`.
+
+[확실] 서버: OpenSSL 3.5.6(`X25519MLKEM768:X25519`, 같은 설정 + `-serverpref`, `X25519MLKEM768/X25519`), BoringSSL(`bssl server`, 2024-08 빌드 `7fb4d3d`, `-curves X25519MLKEM768:X25519`), Go 1.26.0 `crypto/tls` 최소 서버(`CurvePreferences` = X25519MLKEM768, X25519; SHA-256 `c3a228dbb129…`), NSS 3.120 `selfserv`(`-I x25519mlkem768,x25519`), rustls 0.23.45(aws-lc-rs, `kx_groups` = X25519MLKEM768, X25519; SHA-256 `8f5b8cd492ef…`). 빌드 출력은 `docs/research/baselines/raw/v1.5-setup.log`에 있습니다.
+
+| 서버 | C1 | C2 | C3 | 유형 |
+|---|---|---|---|---|
+| OpenSSL 단일 tuple | 하이브리드 | 고전, HRR 0/5 | 고전 | key share 우선 |
+| OpenSSL 단일 tuple + `-serverpref` | 하이브리드 | 고전, HRR 0/5 | 고전 | key share 우선 |
+| NSS | 하이브리드 | 고전, HRR 0/5 | 고전 | key share 우선 |
+| BoringSSL | 하이브리드 | HRR 5/5 → 하이브리드 | 고전 | 클라이언트 순서 |
+| rustls | 하이브리드 | HRR 5/5 → 하이브리드 | 고전 | 클라이언트 순서 |
+| Go | 하이브리드 | HRR 5/5 → 하이브리드 | HRR 5/5 → 하이브리드 | 서버 순서 |
+| OpenSSL tuple 경계 | 하이브리드 | HRR 5/5 → 하이브리드 | HRR 5/5 → 하이브리드 | 서버 순서 |
+
+[확실] 문서 대조: OpenSSL은 `SSL_CTX_set1_curves(3)` 의사코드와 일치합니다. Go 문서는 "The order of the list is ignored, and key exchange mechanisms are chosen from this list using an internal preference order"라고 밝히며 관측과 일치합니다. rustls 문서는 `kx_groups`를 "in preference order"라고만 적고 서버 쪽 선택 규칙은 적지 않습니다. BoringSSL과 NSS의 서버 선택 규칙은 공개 문서에서 확인하지 않았으므로, 두 구현의 유형은 관측에 근거한 분류입니다.
+
+[확실] 시험 중 BoringSSL 서버와의 연결에서 핸드셰이크 완료 뒤 클라이언트가 `decode_error` 경고로 끊는 경우가 1회 시험 실행에서 간헐적으로 있었습니다. 본 실행 105회에서는 나타나지 않았고, 그룹 선택(ServerHello와 HRR)과는 무관합니다. 이를 구분하려고 기록에 핸드셰이크 완료 여부(`New, TLSv1.3` 출력)를 따로 남깁니다.
+
 ## 감사 가시성
 
 [확실] v1.2 60건의 client `-msg` 로그·서버 로그·tshark 기본 요약에서 `explicit_warning=True`는 0건입니다. 단일 출력 안에서 광고 그룹과 협상 그룹을 함께 확인하는 `mismatch_in_single_output`은 TLS 출력에 광고 그룹이 없어 60/60 `unsupported`였습니다. `s_client -brief`와 keylog는 수집하지 않아 `not_collected`이며, 경고가 없었다고 판정하지 않습니다.

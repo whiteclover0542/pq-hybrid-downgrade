@@ -75,6 +75,19 @@ python3 -m faultinject.analyze --v12 --run-dir /tmp/v14-rerun
 
 [확실] 보존된 60회 결과는 `python -m faultinject.analyze --v12 --run-dir ../docs/research/baselines/raw/v1.4`로 다시 집계합니다.
 
+## v1.5 다섯 TLS 구현의 협상 함수 비교
+
+[확실] Go·rustls 최소 서버를 빌드하고(Go는 WSL에 설치된 것을 쓰고, Rust는 없으면 rustup으로 설치), NSS 인증서 DB를 만든 뒤 105회를 실행합니다. 빌드 산출물은 저장소 밖 `/root/pq-hybrid-phase2/v15/`에 둡니다.
+
+```bash
+wsl -d Ubuntu -u root -- bash /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/v15_setup.sh
+wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools && python3 -m faultinject.v15 --repeat 5 --output-dir /tmp/v15-rerun'
+cd tools
+python3 -m faultinject.v15 --report /tmp/v15-rerun
+```
+
+[확실] 보존된 105회는 `python -m faultinject.v15 --report ../docs/research/baselines/raw/v1.5`로 다시 집계합니다. 8545 포트가 막 해제된 직후에는 사전 점검이 실행을 거부할 수 있으니 잠시 뒤 다시 실행합니다.
+
 ## 재현 ZIP
 
 ```bash
@@ -83,8 +96,9 @@ python make_repro_package.py --package v1.1
 python make_repro_package.py --package v1.2
 python make_repro_package.py --package v1.3
 python make_repro_package.py --package v1.4
+python make_repro_package.py --package v1.5
 ```
 
-[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본, v1.4 ZIP은 60회 하이브리드 우선 클라이언트 표본만 포함하며, 진단·부분 실행·v1.2 S4는 제외합니다.
+[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본, v1.4 ZIP은 60회 하이브리드 우선 클라이언트 표본, v1.5 ZIP은 105회 협상 함수 비교 표본만 포함하며, 진단·부분 실행·v1.2 S4는 제외합니다.
 
 [불확실] 이 패키지와 실험 결과를 다른 OpenSSL 배포·구성 또는 실배포 공격 가능성으로 일반화할 수 없습니다.
