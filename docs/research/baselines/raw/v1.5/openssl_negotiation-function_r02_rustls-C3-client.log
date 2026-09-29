@@ -1,0 +1,274 @@
+CONNECTED(00000003)
+>>> TLS 1.0, RecordHeader [length 0005]
+    16 03 01 00 d6
+>>> TLS 1.3, Handshake [length 00d6], ClientHello
+    01 00 00 d2 03 03 95 a6 86 61 41 a7 36 fc f0 bf
+    e4 9a ca 35 27 8e 60 35 90 b3 53 65 d9 86 9c bd
+    73 46 e3 c1 d4 54 20 60 5c b3 6f 39 f8 f1 2d 6a
+    0d 2e 41 3c 87 d3 d2 f4 73 c0 b8 a2 52 cc 32 b0
+    62 0c f7 d1 99 49 75 00 06 13 02 13 03 13 01 01
+    00 00 83 00 0b 00 04 03 00 01 02 00 0a 00 06 00
+    04 00 1d 11 ec 00 23 00 00 00 16 00 00 00 17 00
+    00 00 0d 00 2a 00 28 09 05 09 06 09 04 04 03 05
+    03 06 03 08 07 08 08 08 1a 08 1b 08 1c 08 09 08
+    0a 08 0b 08 04 08 05 08 06 04 01 05 01 06 01 00
+    2b 00 03 02 03 04 00 2d 00 02 01 01 00 33 00 26
+    00 24 00 1d 00 20 72 7e 76 48 e0 d0 bd f8 ea 16
+    47 05 be 1d a9 56 86 0b 28 23 06 09 25 28 f5 17
+    e9 66 b7 25 0c 5d
+<<< TLS 1.2, RecordHeader [length 0005]
+    16 03 03 00 7a
+<<< TLS 1.3, Handshake [length 007a], ServerHello
+    02 00 00 76 03 03 d3 75 1d 30 38 be 22 04 1d 34
+    c1 f1 3a 20 ca ca 3d ab 50 4b b7 0f 36 69 c7 d8
+    01 29 b8 72 5f d7 20 60 5c b3 6f 39 f8 f1 2d 6a
+    0d 2e 41 3c 87 d3 d2 f4 73 c0 b8 a2 52 cc 32 b0
+    62 0c f7 d1 99 49 75 13 02 00 00 2e 00 33 00 24
+    00 1d 00 20 50 34 bc c3 94 0a 34 29 0d 38 0d 00
+    2b a1 d2 2a 48 b6 42 67 fa f6 d4 da af 36 b5 1d
+    a1 bd 04 00 00 2b 00 02 03 04
+<<< TLS 1.2, RecordHeader [length 0005]
+    14 03 03 00 01
+<<< TLS 1.3, ChangeCipherSpec [length 0001]
+    01
+<<< TLS 1.2, RecordHeader [length 0005]
+    17 03 03 04 89
+<<< TLS 1.3, InnerContent [length 0001]
+    16
+<<< TLS 1.3, Handshake [length 0006], EncryptedExtensions
+    08 00 00 02 00 00
+<<< TLS 1.3, Handshake [length 0336], Certificate
+    0b 00 03 32 00 00 03 2e 00 03 29 30 82 03 25 30
+    82 02 0d a0 03 02 01 02 02 01 02 30 0d 06 09 2a
+    86 48 86 f7 0d 01 01 0b 05 00 30 12 31 10 30 0e
+    06 03 55 04 03 0c 07 52 6f 6f 74 20 43 41 30 20
+    17 0d 31 36 30 31 31 34 32 32 32 39 34 36 5a 18
+    0f 32 31 31 36 30 31 31 35 32 32 32 39 34 36 5a
+    30 19 31 17 30 15 06 03 55 04 03 0c 0e 73 65 72
+    76 65 72 2e 65 78 61 6d 70 6c 65 30 82 01 22 30
+    0d 06 09 2a 86 48 86 f7 0d 01 01 01 05 00 03 82
+    01 0f 00 30 82 01 0a 02 82 01 01 00 d5 5d 60 6a
+    df fc 61 ee 48 aa 8c 11 48 43 a5 6d b6 52 5d aa
+    98 49 b1 61 92 35 b1 fc 3a 04 25 0c 6d 79 ff b4
+    d5 c9 e9 5c 1c 3b e0 ab b3 b8 7d a3 de 6d bd e0
+    dd d7 5a bf 14 47 11 42 5e a6 82 d0 61 c1 7f dd
+    13 46 e6 09 85 07 0e f2 d4 fc 1a 64 d2 0a ad 20
+    ab 20 6b 96 f0 ad cc c4 19 53 55 dc 01 1d a4 b3
+    ef 8a b4 49 53 5d 8a 05 1c f1 dc e1 44 bf c5 d7
+    e2 77 19 57 5c 97 0b 75 ee 88 43 71 0f ca 6c c1
+    b4 b2 50 a7 77 46 6c 58 0f 11 bf f1 76 24 5a ae
+    39 42 b7 51 67 29 e1 d0 55 30 6f 17 e4 91 ea ad
+    f8 28 c2 43 6f a2 64 a9 fb 9d 98 92 62 48 3e eb
+    0d 4f 82 4a 8a ff 3f 72 ee 96 b5 ae a1 c1 98 ba
+    ef 7d 90 75 6d ff 5a 52 9e ab f5 c0 7e d0 87 43
+    db 85 07 07 0f 7d 38 7a fd d1 d3 ee 65 1d d3 ea
+    39 6a 87 37 ee 4a d3 e0 0d 6e f5 70 ac c2 bd f1
+    6e f3 92 95 5e a9 f0 a1 65 95 93 8d 02 03 01 00
+    01 a3 7d 30 7b 30 1d 06 03 55 1d 0e 04 16 04 14
+    c0 e7 84 bf e8 59 27 33 10 b0 52 4f 51 52 2f 06
+    d6 c0 7a cd 30 1f 06 03 55 1d 23 04 18 30 16 80
+    14 70 7f 2e ae 83 68 59 98 04 23 2a cd eb 3e 17
+    cd 24 dd 01 49 30 09 06 03 55 1d 13 04 02 30 00
+    30 13 06 03 55 1d 25 04 0c 30 0a 06 08 2b 06 01
+    05 05 07 03 01 30 19 06 03 55 1d 11 04 12 30 10
+    82 0e 73 65 72 76 65 72 2e 65 78 61 6d 70 6c 65
+    30 0d 06 09 2a 86 48 86 f7 0d 01 01 0b 05 00 03
+    82 01 01 00 7b d3 04 43 75 8a 0f 11 ae c4 fb d7
+    a1 a2 9e fe 20 18 d5 f4 2f 31 88 46 b6 75 8c ee
+    e5 9b 97 a6 b9 a3 cd 60 9a 46 c3 48 97 e5 97 68
+    f7 5a 86 35 73 d9 69 9e f9 5f 74 b9 e6 94 13 01
+    cb 6a dc e3 c4 04 e9 65 da 9c a4 8b 28 f3 f9 9a
+    7f bf 97 1f 45 92 e5 05 b1 56 e6 0b f6 47 de 1e
+    89 b6 2b e1 4d df 4a 7e 01 d3 23 dc 97 8c 47 fe
+    5f c7 cc 98 46 0e c4 83 5b ca 8a f1 52 09 be 6b
+    ec 3f 09 8b d0 93 02 bf e1 51 e7 d1 7e 34 56 19
+    74 d0 ff 28 25 de b7 9f 56 52 91 7d 20 29 85 0a
+    80 44 5f 71 32 25 71 0f c2 16 e2 5f 6b 1d 3f 32
+    5b 0a 3c 74 1c b9 62 f1 ed 07 50 a3 6d b4 b4 31
+    0a c0 53 44 6a 3a 88 84 8b 2d a9 b0 37 8e e6 18
+    36 bd 9a 20 40 0f 01 92 8b 3d aa 61 e7 ae 2c ed
+    36 cd 3a 07 86 74 3a 29 b3 d7 3a b4 00 a9 c2 f5
+    92 78 0e e2 0f a3 fe bb be e0 06 53 84 59 1d 90
+    69 e5 b6 f9 00 00
+<<< TLS 1.3, Handshake [length 0108], CertificateVerify
+    0f 00 01 04 08 06 01 00 6b 6a 4d 6b 43 d8 73 cb
+    77 77 7f 31 16 11 02 89 94 b6 c8 c5 6d e7 3f 8e
+    ae 53 09 4f 2e b6 50 a5 e1 c4 ed cb dc 98 d9 d1
+    ee b7 73 1e 30 6e 66 a0 c6 96 f3 50 02 d7 d7 2e
+    ce 90 de 23 fe 7e 7b 3d 78 15 41 d4 b9 b9 da e3
+    53 88 4c 1f 15 d2 fc 00 90 1a 31 23 a1 c3 8c e6
+    30 57 da 84 e5 a4 04 ae 04 cc 76 4b 66 10 e8 93
+    78 f9 a3 9c 08 18 c6 55 a6 39 02 18 8c 8a 7b e7
+    2f 82 aa 66 33 a3 cd 21 95 d7 0f 02 ed 85 08 46
+    dc 2d 67 10 b3 aa de fc d0 3f 1c 0e 89 b6 ba 25
+    b2 18 0d 8f 17 29 6d d5 3c 1d 15 58 6f a9 a2 10
+    89 df ed 7d 48 0b f5 a0 5f c0 7f b7 4f fe 89 07
+    6c 98 00 4e 43 03 1e 7a f4 c0 2a 01 8c 18 47 3a
+    25 08 95 58 3c 57 78 c3 cb 79 48 17 4b 72 ca 4b
+    79 a5 88 5d 77 9b 9c fa b5 53 c8 93 df 06 a4 ae
+    51 d2 55 b2 78 3c d5 4c a6 ac 8a 8a 4f a2 e6 88
+    54 8e c0 af 4b 70 de 7d
+<<< TLS 1.3, Handshake [length 0034], Finished
+    14 00 00 30 b3 3a 4a f7 54 e9 64 f4 6a 45 60 2f
+    1f 44 80 42 f3 5e 1f 34 84 fd 1c 70 88 9a fd 42
+    3c d4 c1 b9 18 5b bb bb 04 d3 86 e6 03 61 94 a4
+    74 40 68 9f
+>>> TLS 1.2, RecordHeader [length 0005]
+    14 03 03 00 01
+>>> TLS 1.3, ChangeCipherSpec [length 0001]
+    01
+>>> TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 45
+>>> TLS 1.2, InnerContent [length 0001]
+    16
+>>> TLS 1.3, Handshake [length 0034], Finished
+    14 00 00 30 d4 61 38 9c 30 41 1f e9 7a cd 85 c5
+    47 1a 6a ff 95 14 92 47 6c 7e 16 68 e0 19 21 88
+    6c 70 50 36 6d 1f 19 cb 19 0a af fe 7a 08 6c 40
+    80 44 a5 e1
+---
+Certificate chain
+ 0 s:CN=server.example
+   i:CN=Root CA
+   a:PKEY: RSA, 2048 (bit); sigalg: sha256WithRSAEncryption
+   v:NotBefore: Jan 14 22:29:46 2016 GMT; NotAfter: Jan 15 22:29:46 2116 GMT
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIDJTCCAg2gAwIBAgIBAjANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdSb290
+IENBMCAXDTE2MDExNDIyMjk0NloYDzIxMTYwMTE1MjIyOTQ2WjAZMRcwFQYDVQQD
+DA5zZXJ2ZXIuZXhhbXBsZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANVdYGrf/GHuSKqMEUhDpW22Ul2qmEmxYZI1sfw6BCUMbXn/tNXJ6VwcO+Crs7h9
+o95tveDd11q/FEcRQl6mgtBhwX/dE0bmCYUHDvLU/Bpk0gqtIKsga5bwrczEGVNV
+3AEdpLPvirRJU12KBRzx3OFEv8XX4ncZV1yXC3XuiENxD8pswbSyUKd3RmxYDxG/
+8XYkWq45QrdRZynh0FUwbxfkkeqt+CjCQ2+iZKn7nZiSYkg+6w1PgkqK/z9y7pa1
+rqHBmLrvfZB1bf9aUp6r9cB+0IdD24UHBw99OHr90dPuZR3T6jlqhzfuStPgDW71
+cKzCvfFu85KVXqnwoWWVk40CAwEAAaN9MHswHQYDVR0OBBYEFMDnhL/oWSczELBS
+T1FSLwbWwHrNMB8GA1UdIwQYMBaAFHB/Lq6DaFmYBCMqzes+F80k3QFJMAkGA1Ud
+EwQCMAAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwGQYDVR0RBBIwEIIOc2VydmVyLmV4
+YW1wbGUwDQYJKoZIhvcNAQELBQADggEBAHvTBEN1ig8RrsT716Ginv4gGNX0LzGI
+RrZ1jO7lm5emuaPNYJpGw0iX5Zdo91qGNXPZaZ75X3S55pQTActq3OPEBOll2pyk
+iyjz+Zp/v5cfRZLlBbFW5gv2R94eibYr4U3fSn4B0yPcl4xH/l/HzJhGDsSDW8qK
+8VIJvmvsPwmL0JMCv+FR59F+NFYZdND/KCXet59WUpF9ICmFCoBEX3EyJXEPwhbi
+X2sdPzJbCjx0HLli8e0HUKNttLQxCsBTRGo6iISLLamwN47mGDa9miBADwGSiz2q
+YeeuLO02zToHhnQ6KbPXOrQAqcL1kngO4g+j/ru+4AZThFkdkGnltvk=
+-----END CERTIFICATE-----
+subject=CN=server.example
+issuer=CN=Root CA
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Peer signature type: rsa_pss_rsae_sha512
+Peer Temp Key: X25519, 253 bits
+---
+SSL handshake has read 1299 bytes and written 299 bytes
+Verification error: unable to verify the first certificate
+---
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Protocol: TLSv1.3
+Server public key is 2048 bit
+This TLS version forbids renegotiation.
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 21 (unable to verify the first certificate)
+---
+<<< TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 b3
+<<< TLS 1.3, InnerContent [length 0001]
+    16
+<<< TLS 1.3, Handshake [length 0051], NewSessionTicket
+    04 00 00 4d 00 01 51 80 d8 69 c1 f1 20 ac 2c 06
+    99 b9 8f 1c 40 37 c4 76 ee 72 b9 74 38 4c 85 56
+    8f 78 32 e6 a1 7e a5 3f 16 26 f1 02 6a 00 20 77
+    f0 39 44 23 f6 f2 8a df c3 06 fe 7b ff 9e 84 1c
+    52 95 bb c1 25 fc 9f 3d 20 f4 26 dc 8f 66 e9 00
+    00
+---
+Post-Handshake New Session Ticket arrived:
+SSL-Session:
+    Protocol  : TLSv1.3
+    Cipher    : TLS_AES_256_GCM_SHA384
+    Session-ID: 3F27273D9DF462AC322A75F94C7371E329D2F65FEA82E7B5D10C40C3AACA63BD
+    Session-ID-ctx: 
+    Resumption PSK: 3342E0B3C38B571D2C280BCCA32B558FE3FB54B31BCC235E7E2BE69AD06C5D163DEDBE983BF994F0FAA81D2AF0C90A13
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 86400 (seconds)
+    TLS session ticket:
+    0000 - 77 f0 39 44 23 f6 f2 8a-df c3 06 fe 7b ff 9e 84   w.9D#.......{...
+    0010 - 1c 52 95 bb c1 25 fc 9f-3d 20 f4 26 dc 8f 66 e9   .R...%..= .&..f.
+
+    Start Time: 1790649432
+    Timeout   : 7200 (sec)
+    Verify return code: 21 (unable to verify the first certificate)
+    Extended master secret: no
+    Max Early Data: 0
+---
+read R BLOCK
+<<< TLS 1.3, Handshake [length 0051], NewSessionTicket
+    04 00 00 4d 00 01 51 80 75 94 29 3b 20 8f df 88
+    82 8e 57 70 43 8e 99 28 2b 7b cf 2d 19 f8 7d f9
+    b0 9b c4 38 10 ed f7 25 cc 38 be ef 3d 00 20 8f
+    ee 3b 04 e4 37 86 d6 17 eb b4 3a 38 3b d9 00 9f
+    b0 39 df 31 18 55 4e aa 7d 30 98 bb 8f a4 7e 00
+    00
+---
+Post-Handshake New Session Ticket arrived:
+SSL-Session:
+    Protocol  : TLSv1.3
+    Cipher    : TLS_AES_256_GCM_SHA384
+    Session-ID: 06887A39C31B87D89C90ADB6E992A9AE90207760A49E0E9618D2128DAA21A8D0
+    Session-ID-ctx: 
+    Resumption PSK: 772D3176C9F724DABF329206C7DA20BAE646A6BDD8887EA46A105A136A0F7ECAF3DBA493B9EE695A3C8AF3D807F0C38E
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 86400 (seconds)
+    TLS session ticket:
+    0000 - 8f ee 3b 04 e4 37 86 d6-17 eb b4 3a 38 3b d9 00   ..;..7.....:8;..
+    0010 - 9f b0 39 df 31 18 55 4e-aa 7d 30 98 bb 8f a4 7e   ..9.1.UN.}0....~
+
+    Start Time: 1790649432
+    Timeout   : 7200 (sec)
+    Verify return code: 21 (unable to verify the first certificate)
+    Extended master secret: no
+    Max Early Data: 0
+---
+read R BLOCK
+>>> TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 13
+>>> TLS 1.2, InnerContent [length 0001]
+    15
+>>> TLS 1.3, Alert [length 0002], warning close_notify
+    01 00
+Connecting to 127.0.0.1
+SSL_connect:before SSL initialization
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS write client hello
+SSL_connect:SSLv3/TLS read server hello
+Can't use SSL_get_servername
+SSL_connect:TLSv1.3 read encrypted extensions
+depth=0 CN=server.example
+verify error:num=20:unable to get local issuer certificate
+verify return:1
+depth=0 CN=server.example
+verify error:num=21:unable to verify the first certificate
+verify return:1
+depth=0 CN=server.example
+verify return:1
+SSL_connect:SSLv3/TLS read server certificate
+SSL_connect:TLSv1.3 read server certificate verify
+SSL_connect:SSLv3/TLS read finished
+SSL_connect:SSLv3/TLS write change cipher spec
+SSL_connect:SSLv3/TLS write finished
+SSL_connect:SSL negotiation finished successfully
+SSL_connect:SSL negotiation finished successfully
+SSL_connect:SSLv3/TLS read server session ticket
+SSL_connect:SSL negotiation finished successfully
+SSL_connect:SSL negotiation finished successfully
+SSL_connect:SSLv3/TLS read server session ticket
+DONE
+SSL3 alert write:warning:close notify

@@ -1,0 +1,45 @@
+{
+  "run_id": "openssl_negotiation-function_r02_go-C3",
+  "implementation": "openssl",
+  "fault_type": "negotiation-function",
+  "repetition": 2,
+  "condition": "go-C3",
+  "metrics": {
+    "negotiated_group": "X25519MLKEM768",
+    "is_hybrid": true,
+    "downgrade_visible": false,
+    "handshake_result": "success",
+    "detail": "handshake-completed",
+    "hrr_present": true,
+    "downgrade_flagged": null,
+    "advertised_hybrid": true,
+    "hrr_pcap_present": true,
+    "hrr_log_present": null,
+    "server_hello_count": 1,
+    "final_negotiated_group": "X25519MLKEM768",
+    "client_precondition_verified": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_negotiation-function_r02_go-C3-client.log",
+    "server_log": "openssl_negotiation-function_r02_go-C3-server.log",
+    "pcap": "openssl_negotiation-function_r02_go-C3.pcapng",
+    "capture_log": "openssl_negotiation-function_r02_go-C3-capture.log"
+  },
+  "provenance": {
+    "server": "go",
+    "client": "C3",
+    "server_cmd": [
+      "/root/pq-hybrid-phase2/v15/goserver",
+      "-addr",
+      "127.0.0.1:8545",
+      "-pem",
+      "/root/pq-hybrid-phase2/openssl/apps/server.pem",
+      "-groups",
+      "X25519MLKEM768,X25519"
+    ],
+    "client_groups_arg": "X25519:X25519MLKEM768",
+    "server_bin_sha256": "c3a228dbb12985e50c38f69c8cdddf0715962f53bf9b680bff909acb5961653b"
+  },
+  "audit": {}
+}

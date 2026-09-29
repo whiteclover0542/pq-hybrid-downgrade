@@ -1,0 +1,12 @@
+Error while connecting: peer closed connection
+Connected.
+  Version: TLSv1.3
+  Resumed session: no
+  Cipher: TLS_AES_256_GCM_SHA384
+  ECDHE group: X25519MLKEM768
+  Secure renegotiation: yes
+  Extended master secret: yes
+  Next protocol negotiated: 
+  ALPN protocol: 
+  Early data: no
+  Encrypted ClientHello: no

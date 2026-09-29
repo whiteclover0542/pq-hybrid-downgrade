@@ -1,0 +1,50 @@
+{
+  "run_id": "openssl_negotiation-function_r03_openssl-S1-C2",
+  "implementation": "openssl",
+  "fault_type": "negotiation-function",
+  "repetition": 3,
+  "condition": "openssl-S1-C2",
+  "metrics": {
+    "negotiated_group": "X25519",
+    "is_hybrid": false,
+    "downgrade_visible": true,
+    "handshake_result": "success",
+    "detail": "handshake-completed",
+    "hrr_present": false,
+    "downgrade_flagged": null,
+    "advertised_hybrid": true,
+    "hrr_pcap_present": false,
+    "hrr_log_present": null,
+    "server_hello_count": 1,
+    "final_negotiated_group": "X25519",
+    "client_precondition_verified": true
+  },
+  "manipulation_verified": true,
+  "artifacts": {
+    "client_log": "openssl_negotiation-function_r03_openssl-S1-C2-client.log",
+    "server_log": "openssl_negotiation-function_r03_openssl-S1-C2-server.log",
+    "pcap": "openssl_negotiation-function_r03_openssl-S1-C2.pcapng",
+    "capture_log": "openssl_negotiation-function_r03_openssl-S1-C2-capture.log"
+  },
+  "provenance": {
+    "server": "openssl-S1",
+    "client": "C2",
+    "server_cmd": [
+      "/root/pq-hybrid-phase2/install/openssl-3.5.6/bin/openssl",
+      "s_server",
+      "-tls1_3",
+      "-www",
+      "-provider",
+      "default",
+      "-accept",
+      "8545",
+      "-cert",
+      "/root/pq-hybrid-phase2/openssl/apps/server.pem",
+      "-groups",
+      "X25519MLKEM768:X25519"
+    ],
+    "client_groups_arg": "X25519MLKEM768:*X25519",
+    "server_bin_sha256": "88a896e54ede812cc7b944c307d4d159f478ac039f6dc08fa73da6d1cbe447eb"
+  },
+  "audit": {}
+}

@@ -1,0 +1,3 @@
+listening 8545 groups=X25519MLKEM768,X25519
+negotiated=None
+negotiated=Some(X25519MLKEM768)

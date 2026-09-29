@@ -1,0 +1,17 @@
+=== go server
+go version go1.26.0 linux/amd64
+c3a228dbb12985e50c38f69c8cdddf0715962f53bf9b680bff909acb5961653b  /root/pq-hybrid-phase2/v15/goserver
+=== rustls server
+cargo 1.98.1 (797e8a9bc 2026-08-05)
+version = "0.23.45"
+8f5b8cd492efc79c336c713a143c0d5b44f616d6f2bb4d99c269f27a94581377  /root/pq-hybrid-phase2/v15/rustserver
+=== nss
+libnss3:amd64 2:3.120-1ubuntu2.1
+libnss3-tools 2:3.120-1ubuntu2.1
+
+Certificate Nickname                                         Trust Attributes
+                                                             SSL,S/MIME,JAR/XPI
+
+server                                                       u,u,u
+=== done
+
