@@ -35,6 +35,32 @@
 
 [확실] S4(서버 설정 생략)는 두 버전 20/20에서 HRR 후 hybrid로 끝났습니다. `DEFAULT` 키워드 확장과 설정 생략은 같은 조건이 아니므로 이 값은 결론 판정에 쓰지 않습니다.
 
+## v1.3 인과 분리
+
+[확실] v1.2의 3.5.5→3.5.6 대조에는 수정 커밋 외 변경이 섞여 있으므로, `tools/v13_build_variants.sh`로 네 서버를 별도 prefix에 빌드해 같은 클라이언트·명령·S1–S3 행렬로 조합별 10회, 총 120회를 실행했습니다(`docs/research/baselines/raw/v1.3/`, 종료 코드 0, stderr 0바이트). 수정 커밋 `85977e0`이 바꾼 파일 중 라이브러리 코드는 `ssl/t1_lib.c` 하나이며 나머지는 문서와 테스트입니다.
+
+| 서버 | 출처 | 수정 변경 | libssl.so.3 SHA-256 |
+|---|---|---|---|
+| 3.5.5-cherrypick | `openssl-3.5.5`(`67b5686b…`) + `85977e0`의 `ssl/t1_lib.c` 변경(patch SHA-256 `0a7e0206a9ca…`) | 있음 | `ef30c6d8de549ce28e5e757362c997b808f2c2c411996737d3a79c00b11012ab` |
+| 3.5.6-revert | `openssl-3.5.6`(`286ddeaa…`) − 같은 변경(patch SHA-256 `0b7674abe147…`) | 없음 | `a9d8f36e38b258704e483a2872ab9de32ee4d0110aac098177cfc588f92c5279` |
+| 3.6.1 | `openssl-3.6.1`(`c9a9e5b1…`), `2157c9d` 미포함 | 없음 | `fb70fdbf1a67de864a4f7b61829f30d86d558dbc023404affbee2b1cccdcad61` |
+| 3.6.2 | `openssl-3.6.2`(`fe686e15…`), `2157c9d` 포함 | 있음 | `708d5e708526c65c1af8737d59e7ddf21d7d03276921944e1e9a1e0356e2c619` |
+
+[확실] 기준 설치의 libssl은 3.5.5 `a785209382213c37…`, 3.5.6 `aff23fc605b58c6f…`로, 여섯 서버의 libssl 해시가 모두 다릅니다. 패치 변형의 `openssl` CLI 바이너리는 원본과 같으므로(3.5.5-cherrypick은 `7b1a89948e5e…`, 3.5.6-revert는 `88a896e54ede…`), 각 기록의 `provenance.server_libssl_sha256`으로 서버를 구분합니다. 클라이언트는 120회 모두 3.5.5 바이너리(`7b1a89948e5e…`)입니다.
+
+| 서버 | S1 HRR / 그룹 | S2 HRR / 그룹 | S3 `DEFAULT` HRR / 그룹 |
+|---|---|---|---|
+| 3.5.5-cherrypick | 0/10 · X25519 | 10/10 · X25519MLKEM768 | 10/10 · X25519MLKEM768 |
+| 3.5.6-revert | 0/10 · X25519 | 10/10 · X25519MLKEM768 | 0/10 · X25519 |
+| 3.6.1 | 0/10 · X25519 | 10/10 · X25519MLKEM768 | 0/10 · X25519 |
+| 3.6.2 | 0/10 · X25519 | 10/10 · X25519MLKEM768 | 10/10 · X25519MLKEM768 |
+
+[확실] `cd tools && python -m faultinject.analyze --v13`의 판정은 `Causal-isolation verdict: consistent`입니다. 120건 모두 클라이언트 전제가 PCAP으로 검증됐고, 성공 120/120, HRR 로그·PCAP 판정 일치, 실제 ServerHello 1개였습니다. S3 결과는 `ssl/t1_lib.c`의 수정 변경 하나로 뒤집혔고, 3.5와 3.6 두 계열에서 같은 방향으로 갈렸습니다.
+
+## 연구 질문에 대한 답
+
+[추정] 착수 질문(`docs/PROPOSAL.md`: 협상 로직 결함에 의한 하이브리드 PQ 다운그레이드가 특정 라이브러리의 우연한 버그인가, 여러 구현체에 걸친 일반적 패턴인가)에 대해, 시험 범위의 답은 다음과 같습니다. 결함은 OpenSSL의 `DEFAULT` 확장 코드 경로에 있는 단일 라이브러리 결함이며(v1.2·v1.3), BoringSSL에는 같은 버그 클래스가 생길 설정 문법이 없고 OpenSSH는 key_share/HRR 구조가 없어 교차 구현 패턴의 증거는 없습니다. 반면 "하이브리드를 광고했는데 HRR 없이 고전 그룹으로 협상"이라는 표면 증상은 v1.1에서 OpenSSL 명시적 single tuple과 BoringSSL의 정상 동작으로도 나타났고, 측정한 감사 경로는 이를 경고하지 않았습니다.
+
 ## 감사 가시성
 
 [확실] v1.2 60건의 client `-msg` 로그·서버 로그·tshark 기본 요약에서 `explicit_warning=True`는 0건입니다. 단일 출력 안에서 광고 그룹과 협상 그룹을 함께 확인하는 `mismatch_in_single_output`은 TLS 출력에 광고 그룹이 없어 60/60 `unsupported`였습니다. `s_client -brief`와 keylog는 수집하지 않아 `not_collected`이며, 경고가 없었다고 판정하지 않습니다.
@@ -66,7 +92,7 @@
 
 [확실] OpenSSL 3.5 groups-list 문서는 현재 tuple 안에 수신된 key share가 있으면 ServerHello를, 지원 그룹만 있으면 HRR을 보내는 선택 규칙을 설명합니다. 문서상 기본 목록은 분리된 tuple을 포함하는 반면 `DEFAULT` 확장 경로는 영향을 받은 3.5.5에서 그 구조를 잃었습니다. S3의 버전 대조는 이 구현 정책 불일치에 대한 관측입니다.
 
-[불확실] 결과는 OpenSSL 3.5.5/3.5.6, client preference, loopback, 고정 명령과 조합별 10회에 한정됩니다. 다른 배포·구성, 실배포 공격 가능성 또는 수정 커밋 단독의 인과를 일반화하지 않습니다.
+[불확실] 결과는 시험한 OpenSSL 서버(3.5.5, 3.5.6, v1.3 변형 4종), client preference, loopback, 고정 명령과 조합별 10회에 한정됩니다. v1.3의 인과 분리는 `85977e0`의 `ssl/t1_lib.c` 변경에 대한 것이며, 3.6 계열은 릴리스 태그 대조만 했습니다. 다른 배포·구성이나 실배포 공격 가능성은 일반화하지 않습니다.
 
 ## 공식 참고 자료
 
@@ -75,3 +101,4 @@
 3. [OpenSSL Security Advisory 20260313](https://openssl-library.org/news/secadv/20260313.txt)
 4. [CVE-2026-2673 record](https://www.cve.org/CVERecord?id=CVE-2026-2673)
 5. [OpenSSL 3.5 fix commit `85977e0`](https://github.com/openssl/openssl/commit/85977e013f32ceb96aa034c0e741adddc1a05e34)
+6. [OpenSSL 3.6 fix commit `2157c9d`](https://github.com/openssl/openssl/commit/2157c9d81f7b0bd7dfa25b960e928ec28e8dd63f)

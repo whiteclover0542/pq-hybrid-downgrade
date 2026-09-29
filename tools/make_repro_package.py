@@ -64,6 +64,29 @@ PACKAGES = {
         "out": "dist/pq-hybrid-downgrade-v12-repro.zip",
         "extra_globs": [f"{FAULTINJECT_DIR}/tests/*.py"],
     },
+    "v1.3": {
+        "raw": "docs/research/baselines/raw/v1.3",
+        "documents": [
+            REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD,
+            "tools/v12_build_openssl_356.sh",
+            "tools/v13_build_variants.sh",
+        ],
+        "required_files": [
+            f"{FAULTINJECT_DIR}/v12.py", f"{FAULTINJECT_DIR}/pcap_hello.py",
+            f"{FAULTINJECT_DIR}/analyze.py", "tools/v13_build_variants.sh",
+            REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD,
+        ],
+        "artifacts": {
+            "v1.3 JSON records": (".json", 120),
+            "v1.3 PCAPs": (".pcapng", 120),
+            "v1.3 client logs": ("-client.log", 120),
+            "v1.3 server logs": ("-server.log", 120),
+            "v1.3 capture logs": ("-capture.log", 120),
+        },
+        "excluded": ("v13-smoke", "/raw/v1.1/", "/raw/v1.2/"),
+        "out": "dist/pq-hybrid-downgrade-v13-repro.zip",
+        "extra_globs": [f"{FAULTINJECT_DIR}/tests/*.py"],
+    },
 }
 
 
