@@ -98,3 +98,15 @@ def test_analyze_modes_are_mutually_exclusive():
 
     with pytest.raises(SystemExit):
         analyze.main(["--v12", "--v13"])
+
+
+def test_hybrid_first_client_advertises_hybrid_first_but_shares_x25519_only():
+    from faultinject.v12 import HYBRID_FIRST_CLIENT_GROUPS, provenance_for
+
+    paths = v12_paths()
+    spec = v12_spec("3.5.5", "S1", 1, Path("/tmp/v14"), paths, client_groups=HYBRID_FIRST_CLIENT_GROUPS)
+
+    assert HYBRID_FIRST_CLIENT_GROUPS == "X25519MLKEM768:*X25519"
+    assert spec.client_cmd[-2:] == ["-groups", "X25519MLKEM768:*X25519"]
+    assert provenance_for(spec, paths, {})["client_groups_arg"] == "X25519MLKEM768:*X25519"
+    assert v12_specs(1, Path("/tmp/v14"), client_groups=HYBRID_FIRST_CLIENT_GROUPS)[0].client_cmd[-1] == "X25519MLKEM768:*X25519"

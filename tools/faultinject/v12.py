@@ -17,6 +17,8 @@ PHASE2_ROOT = "/root/pq-hybrid-phase2"
 V12_PORT = 8545
 HYGIENE_PORTS = (8543, 8544, 2323, 9543, 9544, 9555, V12_PORT)
 CLIENT_GROUPS = "X25519:X25519MLKEM768"
+# v1.4: advertise the hybrid first but send only an X25519 key share (`*` marks key-share groups)
+HYBRID_FIRST_CLIENT_GROUPS = "X25519MLKEM768:*X25519"
 SERVER_VERSIONS = ("3.5.5", "3.5.6")
 SERVER_SETTINGS = {
     "S1": "X25519MLKEM768:X25519",
@@ -63,7 +65,8 @@ def native_environment(version: str, base: dict[str, str] | None = None) -> dict
 
 
 def v12_spec(
-    version: str, setting: str, repetition: int, out_dir: Path, paths: dict[str, str]
+    version: str, setting: str, repetition: int, out_dir: Path, paths: dict[str, str],
+    client_groups: str = CLIENT_GROUPS,
 ) -> ScenarioSpec:
     groups = SERVER_SETTINGS[setting]
     server_cmd = [
@@ -73,7 +76,7 @@ def v12_spec(
     ]
     client_cmd = [
         paths["client_bin"], "s_client", "-tls1_3", "-state", "-msg", "-provider", "default",
-        "-connect", f"127.0.0.1:{V12_PORT}", "-groups", CLIENT_GROUPS,
+        "-connect", f"127.0.0.1:{V12_PORT}", "-groups", client_groups,
     ]
     return ScenarioSpec(
         impl="openssl",
@@ -97,11 +100,12 @@ def v12_specs(
     settings: tuple[str, ...] = REQUIRED_SETTINGS,
     paths: dict[str, str] | None = None,
     versions: tuple[str, ...] = SERVER_VERSIONS,
+    client_groups: str = CLIENT_GROUPS,
 ) -> list[ScenarioSpec]:
     out_dir = output_dir or v12_output_dir()
     paths = paths or v12_paths(versions)
     return [
-        v12_spec(version, setting, repetition, out_dir, paths)
+        v12_spec(version, setting, repetition, out_dir, paths, client_groups)
         for repetition in range(1, repetitions + 1)
         for version in versions
         for setting in settings
@@ -166,7 +170,7 @@ def provenance_for(spec: ScenarioSpec, paths: dict[str, str], hashes: dict[str, 
         "server_libssl_sha256": hashes.get(f"server_lib_{version}"),
         "client_bin": paths["client_bin"],
         "client_bin_sha256": hashes.get("client_bin"),
-        "client_groups_arg": CLIENT_GROUPS,
+        "client_groups_arg": spec.client_cmd[-1],
         "server_preference": "OpenSSL default (client preference; -serverpref not set)",
         "server_env": {key: spec.server_env.get(key) for key in keep},
         "client_env": {key: spec.env.get(key) for key in keep},
@@ -214,6 +218,7 @@ def run_v12(
     runner=subprocess.run,
     scenario_runner=run_scenario,
     versions: tuple[str, ...] = SERVER_VERSIONS,
+    client_groups: str = CLIENT_GROUPS,
 ) -> list[RunRecord]:
     out_dir = Path(output_dir or v12_output_dir())
     if out_dir.exists() and any(out_dir.glob("*.json")):
@@ -226,7 +231,7 @@ def run_v12(
     })
     return [
         evaluate_v12(scenario_runner(spec), out_dir, provenance_for(spec, paths, hashes), runner)
-        for spec in v12_specs(repetitions, out_dir, settings, paths, versions)
+        for spec in v12_specs(repetitions, out_dir, settings, paths, versions, client_groups)
     ]
 
 
@@ -239,6 +244,8 @@ def main(argv: list[str] | None = None) -> int:
                         help="write records here instead of raw/v1.2/")
     parser.add_argument("--versions", default=",".join(SERVER_VERSIONS),
                         help=f"comma-separated server labels (default: 3.5.5,3.5.6; v1.3: {','.join(VARIANT_SERVERS)})")
+    parser.add_argument("--client-groups", default=CLIENT_GROUPS,
+                        help=f"client -groups string (default: {CLIENT_GROUPS}; v1.4: {HYBRID_FIRST_CLIENT_GROUPS})")
     arguments = parser.parse_args(argv)
     settings = tuple(arguments.settings.split(","))
     unknown = [setting for setting in settings if setting not in SERVER_SETTINGS]
@@ -252,7 +259,8 @@ def main(argv: list[str] | None = None) -> int:
     if not ok:
         print(f"preflight failed: {reason}")
         return 1
-    for record in run_v12(arguments.repeat, output_dir=arguments.output_dir, settings=settings, versions=versions):
+    for record in run_v12(arguments.repeat, output_dir=arguments.output_dir, settings=settings, versions=versions,
+                          client_groups=arguments.client_groups):
         print(
             f"{record.run_id}: result={record.metrics.handshake_result} "
             f"hrr_pcap={record.metrics.hrr_pcap_present} final={record.metrics.final_negotiated_group} "
