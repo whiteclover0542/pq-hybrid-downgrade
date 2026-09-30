@@ -1,0 +1,8 @@
+Certificate validation status: Certificate issuer not found
+Handshake complete, TLS v1.3
+Negotiated ciphersuite AES_256_GCM_SHA384
+Key exchange using x25519
+Session ID 6ABB7A1A496854C0FD191D78B985E8269B53093AAD9E79CAEBCA85E1B89166C2
+Handshake complete
+EOF on stdin
+Unknown TLS protocol version tls1.3

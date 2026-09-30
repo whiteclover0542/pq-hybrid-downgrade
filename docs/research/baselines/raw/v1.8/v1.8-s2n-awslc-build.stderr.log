@@ -1,0 +1,119 @@
+Cloning into 'aws-lc'...
+Note: switching to '44766fa7daa88e5afc7fc6de3311c48eeeb02f39'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Updating files:  69% (7162/10277)Updating files:  70% (7194/10277)Updating files:  71% (7297/10277)Updating files:  72% (7400/10277)Updating files:  73% (7503/10277)Updating files:  74% (7605/10277)Updating files:  75% (7708/10277)Updating files:  76% (7811/10277)Updating files:  77% (7914/10277)Updating files:  78% (8017/10277)Updating files:  79% (8119/10277)Updating files:  80% (8222/10277)Updating files:  81% (8325/10277)Updating files:  82% (8428/10277)Updating files:  83% (8530/10277)Updating files:  84% (8633/10277)Updating files:  85% (8736/10277)Updating files:  86% (8839/10277)Updating files:  87% (8941/10277)Updating files:  88% (9044/10277)Updating files:  89% (9147/10277)Updating files:  90% (9250/10277)Updating files:  91% (9353/10277)Updating files:  92% (9455/10277)Updating files:  93% (9558/10277)Updating files:  94% (9661/10277)Updating files:  95% (9764/10277)Updating files:  96% (9866/10277)Updating files:  97% (9969/10277)Updating files:  98% (10072/10277)Updating files:  99% (10175/10277)Updating files:  99% (10233/10277)Updating files: 100% (10277/10277)Updating files: 100% (10277/10277), done.
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+libunwind not found. Disabling unwind tests.
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Warning at CMakeLists.txt:23 (message):
+  ENABLE_PRE_SONAME_BUILD option will be deprecated in a future release.
+  Please see ENABLE_DIST_PKG and ENABLE_DIST_PKG_OPENSSL_SHIM
+
+
+libunwind not found. Disabling unwind tests.
+s2nc is an s2n-tls client testing utility.
+It is not intended for production use.
+
+usage: s2nc [options] host [port]
+ host: hostname or IP address to connect to
+ port: port to connect to
+
+ Options:
+
+  -a [protocols]
+  --alpn [protocols]
+    Sets the application protocols supported by this client, as a comma separated list.
+  -c [version_string]
+  --ciphers [version_string]
+    Set the cipher preference version string. Defaults to "default" 
+  --enter-fips-mode
+    Enter libcrypto's FIPS mode. The linked version of OpenSSL must be built with the FIPS module.
+  -e,--echo
+    Listen to stdin after TLS Connection is established and echo it to the Server
+  --send-file [file path]
+    Sends the contents of the provided file to the server after connecting.
+  -h,--help
+    Display this message and quit.
+  -n [server name]
+  --name [server name]
+    Sets the SNI server name header for this client.  If not specified, the host value is used.
+  -s,--status
+    Request the OCSP status of the remote server certificate
+  -m,--mfl
+    Request maximum fragment length from: 512, 1024, 2048, 4096
+  -f,--ca-file [file path]
+    Location of trust store CA file (PEM format). If neither -f or -d are specified. System defaults will be used.
+  -d,--ca-dir [directory path]
+    Directory containing hashed trusted certs. If neither -f or -d are specified. System defaults will be used.
+  -i,--insecure
+    Turns off certification validation altogether.
+  -l,--cert [file path]
+    Path to a PEM encoded certificate. Optional. Will only be used for client auth
+  -k,--key [file path]
+    Path to a PEM encoded private key that matches cert. Will only be used for client auth
+  -r,--reconnect
+    Drop and re-make the connection using Session ticket. If session ticket is disabled, then re-make the connection using Session-ID 
+  -T,--no-session-ticket 
+    Disable session ticket for resumption.
+  --ticket-out [file path]
+    Path to a file where the session ticket can be stored.
+  --ticket-in [file path]
+    Path to session ticket file to resume connection.
+  -D,--dynamic
+    Set dynamic record resize threshold
+  -t,--timeout
+    Set dynamic record timeout threshold
+  -C,--corked-io
+    Turn on corked io
+  -B,--non-blocking
+    Set the non-blocking flag on the connection's socket.
+  -L --key-log <path>
+    Enable NSS key logging into the provided path
+  -P --psk <psk-identity,psk-secret,psk-hmac-alg> 
+    A comma-separated list of psk parameters in this order: psk_identity, psk_secret and psk_hmac_alg.
+    Note that the maximum number of permitted psks is 10, the psk-secret is hex-encoded, and whitespace is not allowed before or after the commas.
+    Ex: --psk psk_id,psk_secret,SHA256 --psk shared_id,shared_secret,SHA384.
+  -E ,--early-data <file path>
+    Sends data in file path as early data to the server. Early data will only be sent if s2nc receives a session ticket and resumes a session.
+  --renegotiation [accept|reject]
+    accept: Accept all server requests for a new handshake
+    reject: Reject all server requests for a new handshake
+  --npn 
+    Indicates support for the NPN extension. The '--alpn' option MUST be used with this option to signal the protocols supported.
+  --buffered-send <buffer size>
+    Set s2n_send to buffer up to <buffer size> bytes before sending records over the wire.
+  --prefer-low-latency
+    Prefer low latency by clamping maximum outgoing record size at 1500.
+  --prefer-throughput
+    Prefer throughput by raising maximum outgoing record size to 16k

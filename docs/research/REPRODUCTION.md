@@ -124,6 +124,22 @@ wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade
 
 [확실] 보존된 결과는 `python -m faultinject.analyze --v17`(3.6 인과 분리)과 `python -m faultinject.v17 --report ../docs/research/baselines/raw/v1.7 --verbose-json ../docs/research/baselines/raw/v1.7-tshark-verbose-audit.json`(브라우저, `-trace`, `tshark -V`)으로 다시 집계합니다. `--verbose-pass`는 `tshark`가 있는 WSL에서 실행합니다.
 
+## v1.8 실제 기본 클라이언트 확대와 Botan C3 정책 대조
+
+[확실] v1.8은 후보의 그룹·key share를 강제하지 않고 기본값 ClientHello만 기록합니다. 초기 환경 준비와 s2n-tls(AWS-LC) 빌드는 아래 순서로 실행합니다.
+
+```bash
+wsl -d Ubuntu -u root -- bash /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/v18_setup.sh
+wsl -d Ubuntu -u root -- bash /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools/v18_build_s2n.sh
+wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools && python3 -m faultinject.v18 --repeat 3 --output-dir /tmp/v18-rerun'
+wsl -d Ubuntu -u root -- bash -lc 'cd /mnt/d/IT/git/PERSONAL/pq-hybrid-downgrade/pq-hybrid-downgrade/tools && python3 -m faultinject.v18 --e8-repeat 3 --output-dir /tmp/v18-e8-rerun'
+cd tools
+python3 -m faultinject.v18 --report /tmp/v18-rerun
+python3 -m faultinject.v18 --report /tmp/v18-e8-rerun
+```
+
+[확실] 보존된 최종 기본값 표본은 `docs/research/baselines/raw/v1.8/`의 실행 JSON 24개(후보 8개 × 3회)이며, `v1.8-e8/`에는 Botan C3 서버유형 대조 실행 JSON 15개(서버 5개 × 3회)가 있습니다. 각 디렉터리에는 실행 JSON 외 환경 목록 JSON 하나가 있습니다. `v1.8-diagnose/`는 mbedTLS 초기 진단의 별도 보존 경로이며 최종 결과·패키지·집계에서 제외합니다.
+
 ## 재현 ZIP
 
 ```bash
@@ -135,8 +151,9 @@ python make_repro_package.py --package v1.4
 python make_repro_package.py --package v1.5
 python make_repro_package.py --package v1.6
 python make_repro_package.py --package v1.7
+python make_repro_package.py --package v1.8
 ```
 
-[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본, v1.4 ZIP은 60회 하이브리드 우선 클라이언트 표본, v1.5 ZIP은 105회 협상 함수 비교 표본을 포함합니다. v1.6 ZIP은 기존 36회 기본값 조사에 최신 BoringSSL 9회, 기본 직접 연결 36회, v1.6 재실행 36회(Caddy 2.11.4 9회 포함)와 Caddy·NSS 원시 환경 기록을 더해 검증합니다. v1.7 ZIP은 브라우저·`-trace` 15회, 3.6 인과 분리 60회, `tshark -V` 재측정 결과를 포함합니다. 진단·부분 실행·v1.2 S4는 제외합니다.
+[확실] 각각 `verify: ok=True missing=[]`가 출력되어야 합니다. v1.1 ZIP은 90회 원시 결과, v1.2 ZIP은 60회 핵심 표본, v1.3 ZIP은 120회 인과 분리 표본, v1.4 ZIP은 60회 하이브리드 우선 클라이언트 표본, v1.5 ZIP은 105회 협상 함수 비교 표본을 포함합니다. v1.6 ZIP은 기존 36회 기본값 조사에 최신 BoringSSL 9회, 기본 직접 연결 36회, v1.6 재실행 36회(Caddy 2.11.4 9회 포함)와 Caddy·NSS 원시 환경 기록을 더해 검증합니다. v1.7 ZIP은 브라우저·`-trace` 15회, 3.6 인과 분리 60회, `tshark -V` 재측정 결과를 포함합니다. v1.8 ZIP은 실제 기본값 24회와 Botan C3 서버유형 대조 15회를 포함합니다. 진단·부분 실행·v1.2 S4는 제외합니다.
 
 [불확실] 이 패키지와 실험 결과를 다른 OpenSSL 배포·구성 또는 실배포 공격 가능성으로 일반화할 수 없습니다.

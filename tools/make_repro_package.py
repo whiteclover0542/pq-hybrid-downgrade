@@ -196,6 +196,40 @@ PACKAGES = {
         "out": "dist/pq-hybrid-downgrade-v17-repro.zip",
         "extra_globs": [f"{FAULTINJECT_DIR}/tests/*.py"],
     },
+    "v1.8": {
+        "raw": "docs/research/baselines/raw/v1.8",
+        "extra_raw": ["docs/research/baselines/raw/v1.8-e8"],
+        "documents": [
+            REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD,
+            "tools/v18_setup.sh", "tools/v18_build_s2n.sh",
+            "tools/v18_build_s2n_awslc_recovery.sh", "tools/v18_run.sh",
+            "tools/v18_run_mbedtls.sh", "tools/v18_run_s2n.sh",
+            "tools/v18_run_e8.sh", "tools/v18_run_e8_order.sh",
+            "tools/v18/JavaTlsClient.java", "tools/v18/mbedtls_client.c",
+            "tools/v18/node_tls_client.js", "tools/v18/python_tls_client.py",
+            "tools/v18/wolfssl_client.c",
+        ],
+        "required_files": [
+            f"{FAULTINJECT_DIR}/v18.py", f"{FAULTINJECT_DIR}/v16.py",
+            f"{FAULTINJECT_DIR}/v15.py", f"{FAULTINJECT_DIR}/pcap_hello.py",
+            "tools/v18_setup.sh", "tools/v18_build_s2n.sh", "tools/v18_run_e8_order.sh",
+            REPRODUCTION_MD, PAPER_MD, EVIDENCE_MD,
+        ],
+        "artifacts": {
+            "v1.8 JSON records": (".json", 25),
+            "v1.8 PCAPs": (".pcapng", 24),
+            "v1.8 client logs": ("-client.log", 24),
+            "v1.8 server logs": ("-server.log", 24),
+            "v1.8 capture logs": ("-capture.log", 24),
+        },
+        "extra_artifacts": {
+            "v1.8 Botan C3 JSON records": ("docs/research/baselines/raw/v1.8-e8", ".json", 16),
+            "v1.8 Botan C3 PCAPs": ("docs/research/baselines/raw/v1.8-e8", ".pcapng", 15),
+        },
+        "excluded": ("v1.8-diagnose", "/raw/v1.1/", "/raw/v1.2/", "/raw/v1.3/", "/raw/v1.4/", "/raw/v1.5/", "/raw/v1.6/", "/raw/v1.7/"),
+        "out": "dist/pq-hybrid-downgrade-v18-repro.zip",
+        "extra_globs": [f"{FAULTINJECT_DIR}/tests/*.py"],
+    },
 }
 
 

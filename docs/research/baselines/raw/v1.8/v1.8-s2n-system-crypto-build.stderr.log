@@ -1,0 +1,201 @@
+Cloning into '/root/pq-hybrid-phase2/v18/s2n-tls'...
+/usr/bin/nm: libcrypto-lib-async_null.o: no symbols
+/usr/bin/nm: libcrypto-lib-async_win.o: no symbols
+/usr/bin/nm: libcrypto-lib-dso_dl.o: no symbols
+/usr/bin/nm: libcrypto-lib-dso_openssl.o: no symbols
+/usr/bin/nm: libcrypto-lib-dso_vms.o: no symbols
+/usr/bin/nm: libcrypto-lib-dso_win32.o: no symbols
+/usr/bin/nm: libcrypto-lib-f_impl32.o: no symbols
+/usr/bin/nm: libcrypto-lib-e_idea.o: no symbols
+/usr/bin/nm: libcrypto-lib-e_rc5.o: no symbols
+/usr/bin/nm: libcrypto-lib-ebcdic.o: no symbols
+/usr/bin/nm: libcrypto-lib-threads_none.o: no symbols
+/usr/bin/nm: libcrypto-lib-threads_win.o: no symbols
+/usr/bin/nm: libcrypto-lib-rand_deprecated.o: no symbols
+/usr/bin/nm: libcrypto-lib-thread_none.o: no symbols
+/usr/bin/nm: libcrypto-lib-thread_win.o: no symbols
+/usr/bin/nm: libdefault-lib-rand_cpu_x86.o: no symbols
+/usr/bin/nm: libdefault-lib-rand_tsc.o: no symbols
+/usr/bin/nm: libdefault-lib-rand_win.o: no symbols
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-info.o): in function `init_info_strings_ossl_':
+(.text+0xb7): undefined reference to `jent_version'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_stateful_expand_block':
+(.text+0x86): undefined reference to `inflate'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_stateful_compress_block':
+(.text+0x15a): undefined reference to `deflate'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_stateful_finish':
+(.text+0x1d5): undefined reference to `inflateEnd'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x1de): undefined reference to `deflateEnd'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_stateful_init':
+(.text+0x2b7): undefined reference to `inflateInit_'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x330): undefined reference to `deflateInit_'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `bio_zlib_ctrl':
+(.text+0x544): undefined reference to `zError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x638): undefined reference to `deflate'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `bio_zlib_write':
+(.text+0x905): undefined reference to `deflate'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x984): undefined reference to `zError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xa23): undefined reference to `deflateInit_'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `bio_zlib_read':
+(.text+0xb29): undefined reference to `inflate'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xba4): undefined reference to `zError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xc12): undefined reference to `inflateInit_'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_oneshot_expand_block':
+(.text+0xca5): undefined reference to `uncompress'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_oneshot_compress_block':
+(.text+0xd25): undefined reference to `compress'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `bio_zlib_free':
+(.text+0xd7a): undefined reference to `inflateEnd'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xda7): undefined reference to `deflateEnd'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_stateful_expand_block':
+(.text+0x9c): undefined reference to `ZSTD_decompressStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xa7): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_stateful_compress_block':
+(.text+0x168): undefined reference to `ZSTD_compressStream2'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x170): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x1b0): undefined reference to `ZSTD_endStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x1b8): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x1e0): undefined reference to `ZSTD_flushStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x1e8): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_stateful_finish':
+(.text+0x21e): undefined reference to `ZSTD_freeCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x227): undefined reference to `ZSTD_freeDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_stateful_init':
+(.text+0x2ed): undefined reference to `ZSTD_createCStream_advanced'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x306): undefined reference to `ZSTD_initCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x327): undefined reference to `ZSTD_createDStream_advanced'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x33c): undefined reference to `ZSTD_initDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x364): undefined reference to `ZSTD_freeCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x36d): undefined reference to `ZSTD_freeDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `bio_zstd_new':
+(.text+0x41d): undefined reference to `ZSTD_createDStream_advanced'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x435): undefined reference to `ZSTD_initDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x43a): undefined reference to `ZSTD_DStreamInSize'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x45f): undefined reference to `ZSTD_createCStream_advanced'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x479): undefined reference to `ZSTD_initCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x47e): undefined reference to `ZSTD_CStreamInSize'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x4ec): undefined reference to `ZSTD_freeDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x4f5): undefined reference to `ZSTD_freeCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `bio_zstd_ctrl':
+(.text+0x6d4): undefined reference to `ZSTD_getErrorName'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x789): undefined reference to `ZSTD_flushStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x794): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `bio_zstd_write':
+(.text+0x9a3): undefined reference to `ZSTD_compressStream2'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x9ae): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xa2c): undefined reference to `ZSTD_getErrorName'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `bio_zstd_read':
+(.text+0xbc4): undefined reference to `ZSTD_decompressStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xbcf): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xc0b): undefined reference to `ZSTD_getErrorName'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_oneshot_expand_block':
+(.text+0xd8b): undefined reference to `ZSTD_decompress'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xd97): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_oneshot_compress_block':
+(.text+0xe1e): undefined reference to `ZSTD_compress'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xe2a): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `bio_zstd_free':
+(.text+0xe98): undefined reference to `ZSTD_freeDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xeb8): undefined reference to `ZSTD_freeCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libdefault-lib-seed_src_jitter.o): in function `ossl_prov_acquire_entropy_from_jitter':
+(.text+0xd8): undefined reference to `jent_entropy_collector_alloc'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xf0): undefined reference to `jent_read_entropy'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xfc): undefined reference to `jent_entropy_collector_free'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libdefault-lib-seed_src_jitter.o): in function `jitter_instantiate':
+(.text+0x4d8): undefined reference to `jent_entropy_init_ex'
+collect2: error: ld returned 1 exit status
+gmake[3]: *** [CMakeFiles/s2nc.dir/build.make:150: bin/s2nc] Error 1
+gmake[2]: *** [CMakeFiles/Makefile2:11382: CMakeFiles/s2nc.dir/all] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:11389: CMakeFiles/s2nc.dir/rule] Error 2
+gmake: *** [Makefile:4287: s2nc] Error 2
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-info.o): in function `init_info_strings_ossl_':
+(.text+0xb7): undefined reference to `jent_version'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_stateful_expand_block':
+(.text+0x86): undefined reference to `inflate'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_stateful_compress_block':
+(.text+0x15a): undefined reference to `deflate'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_stateful_finish':
+(.text+0x1d5): undefined reference to `inflateEnd'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x1de): undefined reference to `deflateEnd'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_stateful_init':
+(.text+0x2b7): undefined reference to `inflateInit_'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x330): undefined reference to `deflateInit_'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `bio_zlib_ctrl':
+(.text+0x544): undefined reference to `zError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x638): undefined reference to `deflate'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `bio_zlib_write':
+(.text+0x905): undefined reference to `deflate'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x984): undefined reference to `zError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xa23): undefined reference to `deflateInit_'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `bio_zlib_read':
+(.text+0xb29): undefined reference to `inflate'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xba4): undefined reference to `zError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xc12): undefined reference to `inflateInit_'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_oneshot_expand_block':
+(.text+0xca5): undefined reference to `uncompress'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `zlib_oneshot_compress_block':
+(.text+0xd25): undefined reference to `compress'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zlib.o): in function `bio_zlib_free':
+(.text+0xd7a): undefined reference to `inflateEnd'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xda7): undefined reference to `deflateEnd'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_stateful_expand_block':
+(.text+0x9c): undefined reference to `ZSTD_decompressStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xa7): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_stateful_compress_block':
+(.text+0x168): undefined reference to `ZSTD_compressStream2'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x170): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x1b0): undefined reference to `ZSTD_endStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x1b8): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x1e0): undefined reference to `ZSTD_flushStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x1e8): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_stateful_finish':
+(.text+0x21e): undefined reference to `ZSTD_freeCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x227): undefined reference to `ZSTD_freeDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_stateful_init':
+(.text+0x2ed): undefined reference to `ZSTD_createCStream_advanced'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x306): undefined reference to `ZSTD_initCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x327): undefined reference to `ZSTD_createDStream_advanced'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x33c): undefined reference to `ZSTD_initDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x364): undefined reference to `ZSTD_freeCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x36d): undefined reference to `ZSTD_freeDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `bio_zstd_new':
+(.text+0x41d): undefined reference to `ZSTD_createDStream_advanced'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x435): undefined reference to `ZSTD_initDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x43a): undefined reference to `ZSTD_DStreamInSize'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x45f): undefined reference to `ZSTD_createCStream_advanced'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x479): undefined reference to `ZSTD_initCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x47e): undefined reference to `ZSTD_CStreamInSize'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x4ec): undefined reference to `ZSTD_freeDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x4f5): undefined reference to `ZSTD_freeCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `bio_zstd_ctrl':
+(.text+0x6d4): undefined reference to `ZSTD_getErrorName'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x789): undefined reference to `ZSTD_flushStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x794): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `bio_zstd_write':
+(.text+0x9a3): undefined reference to `ZSTD_compressStream2'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0x9ae): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xa2c): undefined reference to `ZSTD_getErrorName'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `bio_zstd_read':
+(.text+0xbc4): undefined reference to `ZSTD_decompressStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xbcf): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xc0b): undefined reference to `ZSTD_getErrorName'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_oneshot_expand_block':
+(.text+0xd8b): undefined reference to `ZSTD_decompress'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xd97): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `zstd_oneshot_compress_block':
+(.text+0xe1e): undefined reference to `ZSTD_compress'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xe2a): undefined reference to `ZSTD_isError'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libcrypto-lib-c_zstd.o): in function `bio_zstd_free':
+(.text+0xe98): undefined reference to `ZSTD_freeDStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xeb8): undefined reference to `ZSTD_freeCStream'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libdefault-lib-seed_src_jitter.o): in function `ossl_prov_acquire_entropy_from_jitter':
+(.text+0xd8): undefined reference to `jent_entropy_collector_alloc'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xf0): undefined reference to `jent_read_entropy'
+/usr/bin/x86_64-linux-gnu-ld.bfd: (.text+0xfc): undefined reference to `jent_entropy_collector_free'
+/usr/bin/x86_64-linux-gnu-ld.bfd: lib/libs2n.a(s2n_crypto__libdefault-lib-seed_src_jitter.o): in function `jitter_instantiate':
+(.text+0x4d8): undefined reference to `jent_entropy_init_ex'
+collect2: error: ld returned 1 exit status
+gmake[3]: *** [CMakeFiles/s2nc.dir/build.make:150: bin/s2nc] Error 1
+gmake[2]: *** [CMakeFiles/Makefile2:11382: CMakeFiles/s2nc.dir/all] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:11389: CMakeFiles/s2nc.dir/rule] Error 2
+gmake: *** [Makefile:4287: s2nc] Error 2

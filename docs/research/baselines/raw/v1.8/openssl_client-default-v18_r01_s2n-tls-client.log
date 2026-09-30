@@ -1,0 +1,16 @@
+libcrypto: AWS-LC 1.73.0
+CONNECTED:
+Handshake: NEGOTIATED|FULL_HANDSHAKE|MIDDLEBOX_COMPAT
+Client hello version: 33
+Client protocol version: 34
+Server protocol version: 34
+Actual protocol version: 34
+Server name: 127.0.0.1
+KEM Group: X25519MLKEM768 (PQ key exchange enabled)
+Cipher negotiated: TLS_AES_128_GCM_SHA256
+Server signature negotiated: RSA-PSS-RSAE+SHA256
+Early Data status: NOT REQUESTED
+Wire bytes in: 2437
+Wire bytes out: 1554
+s2n is ready
+Connected to 127.0.0.1:8545

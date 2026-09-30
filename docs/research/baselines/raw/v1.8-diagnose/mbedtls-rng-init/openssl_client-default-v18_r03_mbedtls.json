@@ -1,0 +1,58 @@
+{
+  "run_id": "openssl_client-default-v18_r03_mbedtls",
+  "implementation": "openssl",
+  "fault_type": "client-default-v18",
+  "repetition": 3,
+  "condition": "mbedtls",
+  "metrics": {
+    "negotiated_group": null,
+    "is_hybrid": false,
+    "downgrade_visible": false,
+    "handshake_result": "failure",
+    "detail": "",
+    "hrr_present": null,
+    "downgrade_flagged": null,
+    "advertised_hybrid": null,
+    "hrr_pcap_present": false,
+    "hrr_log_present": null,
+    "server_hello_count": 0,
+    "final_negotiated_group": null,
+    "client_precondition_verified": false
+  },
+  "manipulation_verified": false,
+  "artifacts": {
+    "client_log": "openssl_client-default-v18_r03_mbedtls-client.log",
+    "server_log": "openssl_client-default-v18_r03_mbedtls-server.log",
+    "pcap": "openssl_client-default-v18_r03_mbedtls.pcapng",
+    "capture_log": "openssl_client-default-v18_r03_mbedtls-capture.log"
+  },
+  "provenance": {
+    "part": "candidate-client-survey",
+    "client": "mbedtls",
+    "client_kind": "independent",
+    "client_cmd": [
+      "/root/pq-hybrid-phase2/v18/mbedtls_client",
+      "127.0.0.1",
+      "8545"
+    ],
+    "binary": "/root/pq-hybrid-phase2/v18/mbedtls_client",
+    "binary_sha256": "1f60fc8009779f43f1c9ff22f116425d5dc7d47c041ff7c0be31170bbf9d6469",
+    "client_hello_groups": [],
+    "client_hello_key_shares": [],
+    "classification": "unparsed",
+    "server": "openssl-3.5.6-default",
+    "server_cmd": [
+      "/root/pq-hybrid-phase2/install/openssl-3.5.6/bin/openssl",
+      "s_server",
+      "-tls1_3",
+      "-www",
+      "-provider",
+      "default",
+      "-accept",
+      "8545",
+      "-cert",
+      "/root/pq-hybrid-phase2/openssl/apps/server.pem"
+    ]
+  },
+  "audit": {}
+}

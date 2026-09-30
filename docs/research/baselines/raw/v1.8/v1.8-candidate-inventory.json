@@ -1,0 +1,139 @@
+{
+  "gnutls": {
+    "kind": "independent",
+    "binary": "/usr/bin/gnutls-cli",
+    "binary_sha256": "572599bb0266e39c9d562d09032a673f599aab53e70da6d4debdc03591fdb79a",
+    "command": [
+      "timeout",
+      "20",
+      "gnutls-cli",
+      "--insecure",
+      "--priority",
+      "NORMAL:-VERS-ALL:+VERS-TLS1.3",
+      "-p",
+      "8545",
+      "127.0.0.1"
+    ],
+    "version_command": [
+      "gnutls-cli",
+      "--version"
+    ],
+    "version_output": "gnutls-cli 3.8.12\nCopyright (C) 2000-2023 Free Software Foundation, and others\nThis is free software. It is licensed for use, modification and\nredistribution under the terms of the GNU General Public License,\nversion 3 or later <http://gnu.org/licenses/gpl.html>\n\nPlease send bug reports to:  <bugs@gnutls.org>"
+  },
+  "botan": {
+    "kind": "independent",
+    "binary": "/usr/bin/botan",
+    "binary_sha256": "ddbefcc0524f1b0aea7c3b226d5f6c170b9fabc212dbfbcc122456cda2204fa2",
+    "command": [
+      "timeout",
+      "20",
+      "botan",
+      "tls_client",
+      "127.0.0.1",
+      "--port=8545",
+      "--ignore-cert-error",
+      "--tls-version=tls1.3"
+    ],
+    "version_command": [
+      "botan",
+      "version"
+    ],
+    "version_output": "3.10.0"
+  },
+  "wolfssl": {
+    "kind": "independent",
+    "binary": "/root/pq-hybrid-phase2/v18/wolfssl_client",
+    "binary_sha256": "ee96575d745aa5668b5f763c96621414823a2a6c35417966d34aff8d7cbdde96",
+    "command": [
+      "/root/pq-hybrid-phase2/v18/wolfssl_client",
+      "127.0.0.1",
+      "8545"
+    ],
+    "version_command": [
+      "/root/pq-hybrid-phase2/v18/wolfssl_client",
+      "--version"
+    ],
+    "version_output": "usage: wolfssl_client HOST PORT"
+  },
+  "mbedtls": {
+    "kind": "independent",
+    "binary": "/root/pq-hybrid-phase2/v18/mbedtls_client",
+    "binary_sha256": "0587ba7256c898c2491f8ca294912f4ccfae095017fd512faacd155cb9dfc209",
+    "command": [
+      "/root/pq-hybrid-phase2/v18/mbedtls_client",
+      "127.0.0.1",
+      "8545"
+    ],
+    "version_command": [
+      "/root/pq-hybrid-phase2/v18/mbedtls_client",
+      "--version"
+    ],
+    "version_output": "usage: mbedtls_client HOST PORT"
+  },
+  "s2n-tls": {
+    "kind": "independent",
+    "binary": "/root/pq-hybrid-phase2/v18/s2n-tls/build-awslc/bin/s2nc",
+    "binary_sha256": "b9972caf1cbc05ef230a61610a884f7b468c249b1a44a17e2b77bd7759b1f4d7",
+    "command": [
+      "/root/pq-hybrid-phase2/v18/s2n-tls/build-awslc/bin/s2nc",
+      "-i",
+      "127.0.0.1",
+      "8545"
+    ],
+    "version_command": [
+      "/root/pq-hybrid-phase2/v18/s2n-tls/build-awslc/bin/s2nc",
+      "--help"
+    ],
+    "version_output": "s2nc is an s2n-tls client testing utility.\nIt is not intended for production use.\n\nusage: s2nc [options] host [port]\n host: hostname or IP address to connect to\n port: port to connect to\n\n Options:\n\n  -a [protocols]\n  --alpn [protocols]\n    Sets the application protocols supported by this client, as a comma separated list.\n  -c [version_string]\n  --ciphers [version_string]\n    Set the cipher preference version string. Defaults to \"default\" \n  --enter-fips-mode\n    Enter libcrypto's FIPS mode. The linked version of OpenSSL must be built with the FIPS module.\n  -e,--echo\n    Listen to stdin after TLS Connection is established and echo it to the Server\n  --send-file [file path]\n    Sends the contents of the provided file to the server after connecting.\n  -h,--help\n    Display this message and quit.\n  -n [server name]\n  --name [server name]\n    Sets the SNI server name header for this client.  If not specified, the host value is used.\n  -s,--status\n    Request the OCSP status of the remote server certificate\n  -m,--mfl\n    Request maximum fragment length from: 512, 1024, 2048, 4096\n  -f,--ca-file [file path]\n    Location of trust store CA file (PEM format). If neither -f or -d are specified. System defaults will be used.\n  -d,--ca-dir [directory path]\n    Directory containing hashed trusted certs. If neither -f or -d are specified. System defaults will be used.\n  -i,--insecure\n    Turns off certification validation altogether.\n  -l,--cert [file path]\n    Path to a PEM encoded certificate. Optional. Will only be used for client auth\n  -k,--key [file path]\n    Path to a PEM encoded private key that matches cert. Will only be used for client auth\n  -r,--reconnect\n    Drop and re-make the connection using Session ticket. If session ticket is disabled, then re-make the connection using Session-ID \n  -T,--no-session-ticket \n    Disable session ticket for resumption.\n  --ticket-out [file path]\n    Path to a file where the session ticket can be stored.\n  --ticket-in [file path]\n    Path to session ticket file to resume connection.\n  -D,--dynamic\n    Set dynamic record resize threshold\n  -t,--timeout\n    Set dynamic record timeout threshold\n  -C,--corked-io\n    Turn on corked io\n  -B,--non-blocking\n    Set the non-blocking flag on the connection's socket.\n  -L --key-log <path>\n    Enable NSS key logging into the provided path\n  -P --psk <psk-identity,psk-secret,psk-hmac-alg> \n    A comma-separated list of psk parameters in this order: psk_identity, psk_secret and psk_hmac_alg.\n    Note that the maximum number of permitted psks is 10, the psk-secret is hex-encoded, and whitespace is not allowed before or after the commas.\n    Ex: --psk psk_id,psk_secret,SHA256 --psk shared_id,shared_secret,SHA384.\n  -E ,--early-data <file path>\n    Sends data in file path as early data to the server. Early data will only be sent if s2nc receives a session ticket and resumes a session.\n  --renegotiation [accept|reject]\n    accept: Accept all server requests for a new handshake\n    reject: Reject all server requests for a new handshake\n  --npn \n    Indicates support for the NPN extension. The '--alpn' option MUST be used with this option to signal the protocols supported.\n  --buffered-send <buffer size>\n    Set s2n_send to buffer up to <buffer size> bytes before sending records over the wire.\n  --prefer-low-latency\n    Prefer low latency by clamping maximum outgoing record size at 1500.\n  --prefer-throughput\n    Prefer throughput by raising maximum outgoing record size to 16k"
+  },
+  "java": {
+    "kind": "independent",
+    "binary": "/usr/bin/java",
+    "binary_sha256": "00261dabda30e0dbf1a799d052a615fe404afff7530e50444eb75a30c4f8d9d5",
+    "command": [
+      "java",
+      "-cp",
+      "/root/pq-hybrid-phase2/v18",
+      "JavaTlsClient",
+      "127.0.0.1",
+      "8545"
+    ],
+    "version_command": [
+      "java",
+      "-version"
+    ],
+    "version_output": "openjdk version \"25.0.4.1\" 2026-08-18\nOpenJDK Runtime Environment (build 25.0.4.1+1-1-26.04.4-Ubuntu)\nOpenJDK 64-Bit Server VM (build 25.0.4.1+1-1-26.04.4-Ubuntu, mixed mode, sharing)"
+  },
+  "node-openssl": {
+    "kind": "openssl-control",
+    "binary": "/usr/bin/node",
+    "binary_sha256": "d0efb6fcb9d023ba4e2b160ec2384dc28fe4f17732141ef47f676828fa960505",
+    "command": [
+      "node",
+      "/root/pq-hybrid-phase2/v18/node_tls_client.js",
+      "127.0.0.1",
+      "8545"
+    ],
+    "version_command": [
+      "node",
+      "--version"
+    ],
+    "version_output": "v22.22.1"
+  },
+  "python-openssl": {
+    "kind": "openssl-control",
+    "binary": "/usr/bin/python3",
+    "binary_sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41",
+    "command": [
+      "python3",
+      "/root/pq-hybrid-phase2/v18/python_tls_client.py",
+      "127.0.0.1",
+      "8545"
+    ],
+    "version_command": [
+      "python3",
+      "--version"
+    ],
+    "version_output": "Python 3.14.4"
+  }
+}

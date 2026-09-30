@@ -1,0 +1,3 @@
+s2n_source_commit=e46a07dfc0f5fedb3ad4e4bbb347c3f1a3cd5f97
+awslc_source_commit=44766fa7daa88e5afc7fc6de3311c48eeeb02f39
+b9972caf1cbc05ef230a61610a884f7b468c249b1a44a17e2b77bd7759b1f4d7  /root/pq-hybrid-phase2/v18/s2n-tls/build-awslc/bin/s2nc

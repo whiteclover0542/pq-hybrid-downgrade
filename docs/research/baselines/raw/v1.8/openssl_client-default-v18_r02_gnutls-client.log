@@ -1,0 +1,23 @@
+Processed 0 CA certificate(s).
+Resolving '127.0.0.1:8545'...
+Connecting to '127.0.0.1:8545'...
+- Certificate type: X.509
+- Got a certificate list of 1 certificates.
+- Certificate[0] info:
+ - subject `CN=server.example', issuer `CN=Root CA', serial 0x02, RSA key 2048 bits, signed using RSA-SHA256, activated `2016-01-14 22:29:46 UTC', expires `2116-01-15 22:29:46 UTC', pin-sha256="YqRy6LwIBBKwjOTG5X3HdC0CnT3NhQDJKr/ce85dWFI="
+	Public Key ID:
+		sha1:8cf3a0ce928c0dbcc4e24ce2ef41bfa4ab3d9cc5
+		sha256:62a472e8bc080412b08ce4c6e57dc7742d029d3dcd8500c92abfdc7bce5d5852
+	Public Key PIN:
+		pin-sha256:YqRy6LwIBBKwjOTG5X3HdC0CnT3NhQDJKr/ce85dWFI=
+
+- Status: The certificate is NOT trusted. The certificate issuer is unknown. The name in the certificate does not match the expected. 
+*** PKI verification of server certificate failed...
+- Description: (TLS1.3-X.509)-(ECDHE-SECP256R1)-(RSA-PSS-RSAE-SHA256)-(AES-256-GCM)
+- Session ID: F6:84:35:9D:98:6C:89:2A:3B:B5:7E:17:21:A7:6C:5A:18:08:8B:DF:E2:B4:16:4E:40:D3:A7:5E:8A:D5:5B:B2
+- Options:
+- Handshake was completed
+
+- Simple Client Mode:
+
+- Peer has closed the GnuTLS connection

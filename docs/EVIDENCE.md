@@ -170,6 +170,30 @@
 
 [불확실] headless 빌드와 새 프로필의 기본값이며, 일반 배포판 브라우저의 원격 설정(field trial 등)이나 모바일 빌드의 key share 전략은 확인하지 않았습니다.
 
+## 실제 기본 클라이언트 확대와 Botan C3 정책 대조(v1.8, E11)
+
+[확실] `docs/research/baselines/raw/v1.8/`에는 기본값 실행 24건(후보 8개 × 3회)과 환경 목록 JSON 1개가 있습니다. 각 실행은 OpenSSL 3.5.6 기본 서버에 연결했고, 후보의 그룹 목록·key share를 강제로 설정하지 않았습니다. 재집계 명령은 `cd tools && python -m faultinject.v18 --report ../docs/research/baselines/raw/v1.8`입니다. 최초 실행 stdout은 당시의 잘못된 Botan C2 파생 라벨을 역사적으로 보존하고, 수정된 JSON을 다시 집계한 출력은 `v1.8-reclassification.log`에 보존했습니다.
+
+| 분류 | 클라이언트 | 3회 관측 |
+|---|---|---|
+| C1 | wolfSSL, s2n-tls, Node.js, Python | 하이브리드를 첫 `supported_groups`와 초기 `key_share`에 포함 |
+| C3 | Botan 3.10.0 | `X25519`, P-256, `X25519MLKEM768`, …을 광고하고 `X25519` share만 전송 |
+| PQ 미적용 | GnuTLS, Java, mbedTLS | 기본 `supported_groups`에 하이브리드가 없음 |
+
+[확실] 이 표본에는 하이브리드를 첫 순위로 광고하면서 하이브리드 share를 미루는 C2가 없습니다. 따라서 실제 기본값에서 C2형 PQ 누락을 재현하지 않았습니다. GnuTLS를 사용하는 curl은 별도 후보로 시험하지 않았고, 시스템 curl은 OpenSSL 기반 대조군입니다.
+
+[확실] `docs/research/baselines/raw/v1.8-e8/`에는 Botan C3 서버유형 대조 15건(서버 5개 × 3회)과 환경 목록 JSON 1개가 있습니다. 재집계 명령은 `cd tools && python -m faultinject.v18 --report ../docs/research/baselines/raw/v1.8-e8`입니다. 수정 후 집계 출력은 `v1.8-e8-reclassification.log`에 보존했습니다.
+
+| 서버 선택 유형 | 서버 | 결과(각 3/3) |
+|---|---|---|
+| key-share 우선 | OpenSSL 단일 tuple, OpenSSL 단일 tuple + `-serverpref`, NSS | HRR 없음 · `X25519` |
+| 클라이언트 순서 | BoringSSL | HRR 없음 · `X25519` |
+| 서버 순서 | OpenSSL 3.5.6 기본 설정, Go | HRR 뒤 `X25519MLKEM768` |
+
+[확실] Botan은 C3이므로 위 고전 결과는 클라이언트가 고전을 첫 순위에 둔 협상입니다. 양 끝점의 하이브리드 지원과 고전 협상은 본 연구의 조작적 PQ 누락 정의에는 맞지만, C2의 실제 사례나 서버가 하이브리드 우선 선호를 무시했다는 증거는 아닙니다. 이 대조가 보이는 범위는 실제 C3 기본값의 결과가 시험한 서버 선택 유형에 의존한다는 점입니다.
+
+[확실] `docs/research/baselines/raw/v1.8-diagnose/mbedtls-rng-init/`의 15개 파일은 RNG 초기화가 빠진 mbedTLS 탐색 실행의 진단 기록입니다. 최종 표본과 분리해 보존하며, 집계·논문 수치·v1.8 재현 ZIP에는 포함하지 않습니다.
+
 ## 감사 가시성
 
 [확실] v1.2 60건의 client `-msg` 로그·서버 로그·tshark 기본 요약에서 `explicit_warning=True`는 0건입니다. 단일 출력 안에서 광고 그룹과 협상 그룹을 함께 확인하는 `mismatch_in_single_output`은 TLS 출력에 광고 그룹이 없어 60/60 `unsupported`였습니다. `s_client -brief`와 keylog는 수집하지 않아 `not_collected`이며, 경고가 없었다고 판정하지 않습니다.

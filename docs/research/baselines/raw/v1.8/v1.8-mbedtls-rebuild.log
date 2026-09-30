@@ -1,0 +1,26 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gnutls-bin is already the newest version (3.8.12-2ubuntu1.1).
+libwolfssl-dev is already the newest version (5.9.1-0.1).
+botan is already the newest version (3.10.0+dfsg-2).
+libbotan-3-dev is already the newest version (3.10.0+dfsg-2).
+default-jdk is already the newest version (2:1.25-77).
+nodejs is already the newest version (22.22.1+dfsg+~cs22.19.15-1ubuntu1).
+libmbedtls-dev is already the newest version (3.6.5-0.1ubuntu2).
+Solving dependencies...
+0 upgraded, 0 newly installed, 0 to remove and 14 not upgraded.
+
+== versions ==
+gnutls-cli 3.8.12
+3.10.0
+openjdk version "25.0.4.1" 2026-08-18
+OpenJDK Runtime Environment (build 25.0.4.1+1-1-26.04.4-Ubuntu)
+OpenJDK 64-Bit Server VM (build 25.0.4.1+1-1-26.04.4-Ubuntu, mixed mode, sharing)
+v22.22.1
+OpenSSL 3.5.5 27 Jan 2026
+ee96575d745aa5668b5f763c96621414823a2a6c35417966d34aff8d7cbdde96  /root/pq-hybrid-phase2/v18/wolfssl_client
+0587ba7256c898c2491f8ca294912f4ccfae095017fd512faacd155cb9dfc209  /root/pq-hybrid-phase2/v18/mbedtls_client
+3e25613fc1da49f36725cee85df25c53c279805e784edd5d08b524838a663241  /root/pq-hybrid-phase2/v18/JavaTlsClient.class
+5eb7aa7ec93a1b5dd87cb3e8332b0d34eafe4c51370b2c5327fe431d5fda15ff  /root/pq-hybrid-phase2/v18/node_tls_client.js
+861e8eda5d986161eb38b2687b1d63c1c22a7ea780c3139b77623bf10a37fddb  /root/pq-hybrid-phase2/v18/python_tls_client.py
