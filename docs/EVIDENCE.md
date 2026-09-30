@@ -194,6 +194,20 @@
 
 [확실] `docs/research/baselines/raw/v1.8-diagnose/mbedtls-rng-init/`의 15개 파일은 RNG 초기화가 빠진 mbedTLS 탐색 실행의 진단 기록입니다. 최종 표본과 분리해 보존하며, 집계·논문 수치·v1.8 재현 ZIP에는 포함하지 않습니다.
 
+## 외부 공개 자료(v1.9, 측정 아님)
+
+[확실] 아래 세 자료는 2026-09-30에 원문을 직접 확인했습니다. 본 연구가 다시 측정한 값이 아니며, 논문에서는 맥락으로만 인용합니다.
+
+[확실] key share 예측 초안: D. Benjamin, `draft-ietf-tls-key-share-prediction-04`, 2026-03-19, 만료일 2026-09-20(현재 만료된 Internet-Draft). 원문 텍스트 사본은 `docs/research/references/draft-ietf-tls-key-share-prediction-04.txt`에 보존했습니다. 4절(Security Considerations) 인용: "Servers are thus expected to only select by key_share when they opt to consider neither the client's preference nor their own. That is, it is only appropriate in cases where the two groups have comparable preference, such that round-trip costs dominate. Servers SHOULD NOT use key_share to select a classical named group over a post-quantum named group." 1절 인용: "Post-quantum key encapsulation methods (KEMs) have large keys and ciphertexts, so network costs are particularly pronounced."
+
+[확실] 인터넷 측정: N. Wickramasinghe, F. Li, S. Jha, A. Shaghaghi, "Mind the Gap: Policy vs Reality in Post-Quantum TLS Deployment", arXiv:2607.29005(2026-07-31). Table 2 "Default negotiation preference versus advertised support for PQ key exchange (n = 684,494)"의 X25519MLKEM768 행: Default 31.26% (214,020) · 47.37% (324,276) · 49.22% (336,919), Support 31.27% (214,093) · 47.37% (324,288) · 49.22% (336,921)(2025-07, 2025-11, 2026-03). 표 주석: "Default: Indicates the KEM selected during an unconstrained TLS 1.3 handshake. Support: Indicates KEMs that successfully negotiated when explicitly requested." 방법 절은 unconstrained handshake를 "the client advertises all supported classical, hybrid, and PQ algorithms"로 설명합니다. 이 측정 클라이언트가 초기 key_share에 무엇을 넣었는지는 확인하지 못했습니다.
+
+[확실] Cloudflare: B. Westerbaan, "State of the post-quantum Internet in 2025", The Cloudflare Blog, 2025-10-28. 인용: "In the fast way we send the post-quantum keys immediately", "in the safer way we postpone it by one roundtrip using HelloRetryRequest", "The fast method didn't fare as well, as we found that 0.05% of connections would break. That's too high to enable the fast method by default.", "We did enable PQ to origins using the safer method by default for all non-enterprise customers and enterprise customers can opt in."
+
+[추정] Cloudflare의 "safer way"는 PQ 그룹을 원하면서 PQ key share를 미루는 origin 연결이므로 본 논문의 C2와 같은 형태일 가능성이 큽니다. 다만 광고 순서가 공개되지 않았고 현재 설정도 확인하지 않았으므로, C2라고 단정하지 않습니다.
+
+[불확실] 이 자료들로 본 연구의 key share 우선 서버와 C2 연결이 실제로 얼마나 만나는지는 추정할 수 없습니다.
+
 ## 감사 가시성
 
 [확실] v1.2 60건의 client `-msg` 로그·서버 로그·tshark 기본 요약에서 `explicit_warning=True`는 0건입니다. 단일 출력 안에서 광고 그룹과 협상 그룹을 함께 확인하는 `mismatch_in_single_output`은 TLS 출력에 광고 그룹이 없어 60/60 `unsupported`였습니다. `s_client -brief`와 keylog는 수집하지 않아 `not_collected`이며, 경고가 없었다고 판정하지 않습니다.
