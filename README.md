@@ -5,7 +5,7 @@
 | 목적 | 문서·자료 |
 |---|---|
 | 연구 동기(착수 시점 기획) | [연구 기획서](docs/PROPOSAL.md) |
-| 결론과 한계 | [논문](docs/PAPER.md) |
+| 결론과 한계 | [논문](docs/PAPER.md) · [English translation](docs/PAPER.en.md) |
 | 표본·환경·근거 | [근거 대장](docs/EVIDENCE.md) |
 | 재현 명령 | [재현 안내](docs/research/REPRODUCTION.md) |
 | 원시 데이터 | [v1.8 기본값 24회](docs/research/baselines/raw/v1.8/) · [v1.8 Botan 정책 대조 15회](docs/research/baselines/raw/v1.8-e8/) · [v1.7 15회](docs/research/baselines/raw/v1.7/) · [v1.7 3.6 인과 분리 60회](docs/research/baselines/raw/v1.7-openssl36/) · [v1.6 36회](docs/research/baselines/raw/v1.6/) · [v1.5 105회](docs/research/baselines/raw/v1.5/) · [v1.4 60회](docs/research/baselines/raw/v1.4/) · [v1.3 120회](docs/research/baselines/raw/v1.3/) · [v1.2 60회](docs/research/baselines/raw/v1.2/) · [v1.1 90회](docs/research/baselines/raw/v1.1/) · [v1.0 60회](docs/research/baselines/raw/phase-4/) |
